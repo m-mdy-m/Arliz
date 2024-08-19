@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024/Arch Linux) (preloaded format=xelatex 2024.7.6)  18 AUG 2024 22:15
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024/Arch Linux) (preloaded format=xelatex 2024.7.6)  19 AUG 2024 02:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -437,48 +437,54 @@ LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 7.91925pt on input line 2.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
 (Font)              scaled to size 6.25204pt on input line 2.
+ [3]
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmtt' (encoding: TU).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [3])
+ [4])
 \tf@toc=\write4
 \openout4 = `Arliz.toc'.
 
- [4]
-Chapter 1.
-[5
-
-] [6
+ [5] [6
 
 ]
+Chapter 1.
+[7] [8] [9] [10] [11]
+
+LaTeX Font Warning: Font shape `TU/pplx/m/it' undefined
+(Font)              using `TU/pplx/m/sl' instead on input line 165.
+
+[12] [13] [14]
 Chapter 2.
-[7] [8
+[15
+
+] [16
 
 ]
 Chapter 3.
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 51.
-[9] [10
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 224.
+[17] [18
 
 ]
 Chapter 4.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [11]
+ [19]
 Overfull \vbox (43.07492pt too high) has occurred while \output is active []
 
 
-[12]
+[20]
 Chapter 5.
-[13
+[21
 
-] [14
+] [22
 
 ]
 Chapter 6.
-[15] (./Arliz.aux)
+[23] (./Arliz.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -488,15 +494,15 @@ L3 programming layer <2024-02-20>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `Arliz.out' has not changed.
-(rerunfilecheck)             Checksum: 97B13E5CD8C9622911A69E459982B5B6;11200.
+(rerunfilecheck)             Checksum: BE1A9D6A3ED06CFF54C5E528D0D97445;14637.
  ) 
 Here is how much of TeX's memory you used:
- 10938 strings out of 476345
- 170166 string characters out of 5793264
- 1930839 words of memory out of 5000000
- 32872 multiletter control sequences out of 15000+600000
+ 10944 strings out of 476345
+ 170304 string characters out of 5793264
+ 1935839 words of memory out of 5000000
+ 32878 multiletter control sequences out of 15000+600000
  573001 words of font info for 87 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
- 72i,7n,79p,1002b,369s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,7n,79p,1002b,509s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Arliz.pdf (15 pages).
+Output written on Arliz.pdf (23 pages).
