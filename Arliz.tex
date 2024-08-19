@@ -28,17 +28,13 @@
 	The concept of arrays as a fundamental data structure has deep roots in the history of computing. Arrays have evolved alongside advancements in computer science, influencing both the development of programming languages and the architecture of computer systems.
 	
 	\subsection{Early Digital Computers}
-	
 	In the early days of computing, arrays were essential for organizing and processing data in digital computers. The first digital computers, built in the 1940s, relied heavily on arrays for various computational tasks such as managing data tables and performing vector and matrix operations. These early computers used machine-language programming, where programmers manually implemented arrays and their operations.
-	
-	A significant milestone in the history of arrays was the contribution of \href{https://en.wikipedia.org/wiki/John_von_Neumann#Computer_science}{John von Neumann} in 1945. During the development of the first stored-program computer,von Neumann wrote the first array-sorting program, known as merge sort. This sorting algorithm efficiently organized data in an array, laying the foundation for many other sorting techniques that followed.
-	
-	
+	A significant milestone in the history of arrays was the contribution of \href{https://en.wikipedia.org/wiki/John_von_Neumann#Computer_science}{John von Neumann} in 1945. During the development of the first stored-program computer,von Neumann wrote the first array-sorting program, known as merge sort. This sorting algorithm efficiently organized data in an array, laying the foundation for many other sorting techniques that followed.	
 	\subsection{Development of Array Indexing}
 
-	Array indexing, the technique used to access elements in an array based on their position or index, has undergone significant evolution since the early days of computing. This development has been driven by the need for more efficient, reliable, and flexible data access methods. Here's a detailed look at the stages of this evolution:
+	Array indexing, the technique used to access elements in an array based on their position or index, has undergone significant evolution since the early days of computing. This development has been driven by the need for more efficient, reliable, and flexible data access methods. But if you are interested to know more about it. You can also read this part. Otherwise, you can reject it and go to the next section.
 	
-	\subsubsection{Self-Modifying Code in Early Computers}
+	\subsubsection{\href{https://en.wikipedia.org/wiki/Self-modifying_code}{Self-Modifying Code in Early Computers}}
 	
 		In the earliest digital computers, array indexing was often managed using a technique known as \textbf{self-modifying code}.
 		\begin{itemize}
@@ -77,37 +73,32 @@
 			\end{itemize}
 	 \end{itemize}
 	\subsubsection{Memory Segmentation and Bounds Checking}
-			
-			In the 1960s, advancements in mainframe computers led to the incorporation of **memory segmentation** and **index-bounds checking** features directly in hardware, further improving the safety and efficiency of array operations.
-			
-			- **Memory Segmentation:**
-			- **What It Is:**  
+			In the 1960s, advancements in mainframe computers led to the incorporation of \textbf{memory segmentation} and \textbf{index-bounds checking} features directly in hardware, further improving the safety and efficiency of array operations.
+	\subsubsection{Memory Segmentation:}
+		\begin{itemize}
+			\item \textbf{What It Is:}\\
 			Memory segmentation involves dividing the memory into different segments, each with its own starting address and length. This allows more organized and efficient memory management.
-			
-			- **Impact on Arrays:**  
+			\item \textbf{Impact on Arrays:}\\
 			In systems like the Burroughs B5000, segmentation allowed each array to be treated as a separate segment. The hardware could automatically check if the index being used was within the bounds of the array’s segment. If not, it would trigger an error, preventing out-of-bounds access.
-			
-			- **Index-Bounds Checking:**
-			- **What It Does:**  
+		\end{itemize}
+	\subsubsection{Index-Bounds Checking:}
+		\begin{itemize}
+			\item \textbf{What It Does:}\\
 			Index-bounds checking ensures that when an array is accessed, the index used is within the valid range of the array (from `0` to `n-1` for an array of size `n`).
-			
-			- **Hardware Implementation:**  
+			\item \textbf{Hardware Implementation:}\\
 			In systems with hardware support, the CPU could perform bounds checking for every array access, catching errors that might otherwise lead to memory corruption or program crashes.
-			
-			- **Advantages:**  
+			\item \textbf{Advantages:}\\
 			This feature greatly increased the reliability of array operations, making programs safer by catching potential errors at runtime.
-			
+		\end{itemize}
 	\subsubsection{Support in High-Level Programming Languages}
 				
 			As programming languages developed, they began to incorporate these hardware features into their syntax and semantics, making array indexing more accessible and intuitive for programmers.
-				
-			- **FORTRAN and Early Languages:**  
+		\begin{itemize}
+			\item \textbf{FORTRAN and Early Languages:}\\
 			Early high-level languages like FORTRAN provided built-in support for arrays, abstracting away the details of memory management and indexing, allowing scientists and engineers to focus more on solving problems than on managing memory.
-				
-			- **Modern Languages:**  
+			\item \textbf{Modern Languages:}\\
 			Today’s programming languages, such as Python, Java, and C++, provide sophisticated array handling capabilities, including bounds checking, dynamic resizing, and integration with other data structures, leveraging decades of hardware and software advancements.
-				
-	
+		\end{itemize}
 	\subsection{Arrays in Early Programming Languages}
 	
 	As high-level programming languages began to emerge in the late 1950s and early 1960s, they started to incorporate more advanced support for arrays. Unlike assembly languages, which relied on the hardware's capabilities for managing arrays, high-level languages provided more abstract and powerful ways to work with arrays.
