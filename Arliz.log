@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024/Arch Linux) (preloaded format=xelatex 2024.7.6)  19 AUG 2024 10:14
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024/Arch Linux) (preloaded format=xelatex 2024.7.6)  21 AUG 2024 03:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -450,41 +450,74 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 ]
 Chapter 1.
-[7] [8] [9] [10] [11] [12]
+Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+Missing character: There is no ​ (U+200B) in font [lmroman10-regular]:mapping=t
+ex-text;!
+[7] [8] [9]
+Overfull \hbox (15.42003pt too wide) detected at line 127
+[][] []
+ []
+
+
+Overfull \hbox (31.75pt too wide) in paragraph at lines 139--139
+ []   \TU/lmtt/m/n/10 ADD  A, 3             ; We want to access the element at 
+index 3[] 
+ []
+
+
+Overfull \hbox (31.75pt too wide) in paragraph at lines 139--139
+ []   \TU/lmtt/m/n/10 STORE MEMORY[1010], A ; Modify the instruction to access 
+index 3[] 
+ []
+
+[10]
+Overfull \hbox (20.432pt too wide) in paragraph at lines 141--142
+\TU/pplx/m/sl/10 After modifying the instruction, the program now loads from ‘M
+EMORY[1003]‘,
+ []
+
+
+Overfull \hbox (8.265pt too wide) in paragraph at lines 149--150
+[]\TU/pplx/m/sl/10 Maintainability Issues: Programs using self-modifying code w
+ere harder
+ []
+
+[11] [12] [13] [14] [15]
 
 LaTeX Font Warning: Font shape `TU/pplx/m/it' undefined
-(Font)              using `TU/pplx/m/sl' instead on input line 156.
+(Font)              using `TU/pplx/m/sl' instead on input line 260.
 
-[13] [14]
+[16] [17] [18
+
+]
 Chapter 2.
-[15
-
-] [16
+[19] [20
 
 ]
 Chapter 3.
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 215.
-[17] [18
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 319.
+[21] [22
 
 ]
 Chapter 4.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [19]
+ [23]
 Overfull \vbox (43.07492pt too high) has occurred while \output is active []
 
 
-[20]
+[24]
 Chapter 5.
-[21
+[25
 
-] [22
+] [26
 
 ]
 Chapter 6.
-[23] (./Arliz.aux)
+[27] (./Arliz.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -494,15 +527,15 @@ L3 programming layer <2024-02-20>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `Arliz.out' has not changed.
-(rerunfilecheck)             Checksum: BE1A9D6A3ED06CFF54C5E528D0D97445;14637.
+(rerunfilecheck)             Checksum: AE68542B99584F4316BB460405233A2C;15717.
  ) 
 Here is how much of TeX's memory you used:
- 10944 strings out of 476345
- 170304 string characters out of 5793264
+ 10957 strings out of 476345
+ 170657 string characters out of 5793264
  1935839 words of memory out of 5000000
- 32878 multiletter control sequences out of 15000+600000
- 573001 words of font info for 87 fonts, out of 8000000 for 9000
+ 32887 multiletter control sequences out of 15000+600000
+ 573017 words of font info for 89 fonts, out of 8000000 for 9000
  264 hyphenation exceptions out of 8191
- 72i,7n,79p,1002b,505s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,7n,79p,1002b,614s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Arliz.pdf (23 pages).
+Output written on Arliz.pdf (27 pages).
