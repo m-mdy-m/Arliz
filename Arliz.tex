@@ -18,34 +18,138 @@
 	\chapter{Introduction to Arrays}
 	
 	\section{Overview}
-	
-	In computer science, an array is a fundamental data structure that consists of a collection of elements (values or variables) of the same memory size, each identified by an index or key. Arrays allow for efficient storage and retrieval of data because the position of each element can be computed directly from its index using a mathematical formula.
-	
-	The simplest type of array is a linear array, also known as a one-dimensional array, where elements are stored in a linear sequence. Arrays are one of the oldest and most important data structures, used in almost every program. They are also integral in implementing many other data structures, such as lists and strings, by exploiting the addressing logic of computers.
-		                                                                                                                                                                                                                                                
+In computer science, an array is a data structure that consists of a set of elements (values ​​or variables) with the same memory size. Each of them is identified by an index or key that we can retrieve or store data and we can also calculate the position of each element using the index and a mathematical formula.
+For example, we use this formula to calculate 1d arrays:
+\[\text{Address} A[Index] = B + W \ times (Index - LB)\]
+Suppose you have a one-dimensional integer array "A" where each integer takes 4 bytes. Let's assume:
+- The base address ('B') of array 'A' is 1000.
+- The lower limit (`LB`) is index 0.
+
+To find the address of the element at "Index = 3", use the formula:
+
+\[\text{address} A[3] = 1000 + 4 \ times (3 - 0) = 1000 + 12 = 1012\]
+
+Therefore, the element at index 3 is stored at memory address 1012.
+
+In the following, we will work with each of them and give several examples. Let's know about the array first before starting anything!
+
+For example, I said 1d array, but what is this array?
+The simplest type of array is a one-line array. which is also identified as a one-dimensional array. where the elements are stored in a linear sequence. Arrays are one of the oldest and most important data structures that are used in almost every program. They also played a role in the implementation of other data structures such as "lists" and "strings" by exploiting the addressing logic of computers.
 	\section{History}
 	
-	The concept of arrays as a fundamental data structure has deep roots in the history of computing. Arrays have evolved alongside advancements in computer science, influencing both the development of programming languages and the architecture of computer systems.
+	The concept of arrays as a fundamental data structure is deeply embedded in the history of computing, tracing back to the earliest days of computer science. Arrays have not only shaped the way data is organized and processed but have also significantly influenced the design and development of programming languages and computer architectures.
 	
 	\subsection{Early Digital Computers}
-	In the early days of computing, arrays were essential for organizing and processing data in digital computers. The first digital computers, built in the 1940s, relied heavily on arrays for various computational tasks such as managing data tables and performing vector and matrix operations. These early computers used machine-language programming, where programmers manually implemented arrays and their operations.
-	A significant milestone in the history of arrays was the contribution of \href{https://en.wikipedia.org/wiki/John_von_Neumann#Computer_science}{John von Neumann} in 1945. During the development of the first stored-program computer,von Neumann wrote the first array-sorting program, known as merge sort. This sorting algorithm efficiently organized data in an array, laying the foundation for many other sorting techniques that followed.	
-	\subsection{Development of Array Indexing}
-
-	Array indexing, the technique used to access elements in an array based on their position or index, has undergone significant evolution since the early days of computing. This development has been driven by the need for more efficient, reliable, and flexible data access methods. But if you are interested to know more about it. You can also read this part. Otherwise, you can reject it and go to the next section.
+	
+	In the early days of computing, arrays played a crucial role in organizing and manipulating data within the first digital computers. These machines, built in the 1940s, were designed to perform complex calculations, and arrays provided an efficient way to store and access data sequentially. Given the limited memory and processing power of early computers, arrays were indispensable for tasks such as managing data tables, performing repetitive calculations, and conducting operations on vectors and matrices.
+	
+	At this time, programming was done in machine language or assembly language, where operations on arrays had to be explicitly managed by the programmer. Each element's memory address was calculated manually, and operations such as iteration, sorting, and searching required meticulous coding.
+	
+	\subsection{The Influence of John von Neumann}
+	
+	A figure in the history of arrays is the renowned mathematician and computer scientist, \href{https://en.wikipedia.org/wiki/John_von_Neumann#Computer_science}{John von Neumann}. In 1945, von Neumann made significant contributions to the development of the first stored-program computers, where both instructions and data were stored in the same memory. This innovation allowed for more flexible and powerful computational systems.
+	
+	One of von Neumann's notable achievements was the creation of the first array-sorting algorithm, known as \textbf{merge sort}. This algorithm efficiently organizes data in an array by dividing the array into smaller sub-arrays, sorting them, and then merging them back together. The merge sort algorithm laid the groundwork for many subsequent sorting techniques and is still widely used today due to its optimal performance in various scenarios.
+	
+	Von Neumann’s work on merge sort and his overall contributions to computer architecture and programming set the stage for the development of high-level programming languages. These languages abstracted the complexity of managing arrays, allowing programmers to focus more on algorithmic development rather than low-level memory management.
+	
+	\subsection{Evolution in Programming Languages}
+	
+	As programming languages evolved from assembly to higher-level languages in the 1950s and 1960s, the concept of arrays became more formalized and easier to use. Languages like Fortran (1957) and COBOL (1959) introduced built-in support for arrays, enabling programmers to declare and manipulate arrays directly without concerning themselves with the underlying memory management.
+	
+	This evolution continued with languages such as C, which provided more advanced features for working with arrays, including multi-dimensional arrays and pointers, giving programmers powerful tools for managing data efficiently. Modern programming languages like Python, Java, and C++ further abstract the concept of arrays, offering dynamic array structures like lists and vectors, which automatically handle resizing and memory allocation.
+	
+	\subsection{Impact on Computer Architecture}
+	
+	The use of arrays also had a profound impact on computer system architecture. Arrays necessitated the development of efficient memory access patterns, leading to advancements in cache design, memory hierarchy, and data locality optimization. These improvements helped to maximize the performance of array operations, especially in scientific computing and data-intensive applications.
+	
+	The development of vector processors and later, parallel computing architectures, was also heavily influenced by the need to perform operations on arrays more efficiently. These architectures allowed for simultaneous operations on multiple array elements, significantly speeding up computational tasks like matrix multiplication, image processing, and large-scale simulations.
+	
+	\section{Development of Array Indexing}
+	
+	Array indexing is the technique used to access elements in an array based on their position or index. Each element in an array is identified by its index, which represents its position relative to the first element. Indexing allows for efficient and direct access to any element in the array, which is essential for various computational tasks.
+	
+	\subsection{Example: One-Dimensional Array}
+	
+	Consider a simple example of a one-dimensional array of integers:
+	
+	\[\text{int } A[5] = \{10, 20, 30, 40, 50\};\]
+	
+	In this array, there are 5 elements, and they are stored in contiguous memory locations. The index of the first element is 0, the second element is 1, and so on. The array looks like this:
+	
+	\begin{center}
+    		\begin{tabular}{|c|c|c|c|c|c|}
+			\hline
+				Index & 0 & 1 & 2 & 3 & 4 \\
+			\hline
+			Element & 10 & 20 & 30 & 40 & 50 \\
+			\hline
+			\end{tabular}
+	\end{center}
+	
+	If you want to access the third element of the array, you would use its index:
+	
+	\[\text{A[2]} = 30\]
+	
+	Here, the index is 2, which points to the third element in the array (since indexing starts from 0). 
+	
+	\subsection{Address Calculation}
+	
+	The position of any element in the array can be calculated using the formula:
+	
+	\[\text{Address of } A[i] = \text{Base Address} + (i \times \text{Size of each element})\]
+	
+	For instance, if the base address of the array \( A \) is 1000 and each integer occupies 4 bytes of memory, the address of the element at index 2 would be:
+	
+	\[\text{Address of } A[2] = 1000 + (2 \times 4) = 1000 + 8 = 1008\]
+	
+	So, the element at index 2 is stored at memory address 1008.
 	
 	\subsubsection{\href{https://en.wikipedia.org/wiki/Self-modifying_code}{Self-Modifying Code in Early Computers}}
 	
-		In the earliest digital computers, array indexing was often managed using a technique known as \textbf{self-modifying code}.
+	In the earliest digital computers, array indexing was often managed using a technique known as \textbf{self-modifying code}.
+	
+	\begin{itemize}
+		\item \textbf{What is Self-Modifying Code?} \\
+		Self-modifying code is a programming technique where the program alters its own instructions during execution. This was a common practice in the early days of computing when memory and processing resources were extremely limited. In essence, the program rewrites parts of itself to adapt to new conditions, optimize performance, or manage dynamic data structures like arrays.
+		
+		\item \textbf{How it Worked for Arrays:} \\
+		Let's consider an example to clarify how self-modifying code was used with arrays. Suppose you have an array stored in memory starting at address `1000` and you want to access the element at index `3`. In early computers, the program might include an instruction like:
+		
+		\[
+		\text{LOAD } \text{MEMORY[1000]} \quad \text{; Load the first element of the array}
+		\]
+		
+		To access the element at index `3`, the program would modify this instruction to point to `MEMORY[1003]`. This modification might be done by adjusting the memory address directly in the code:
+		
+		\[
+		\text{LOAD } \text{MEMORY[1003]} \quad \text{; Now the instruction loads the element at index 3}
+		\]
+		
+		Here, the program dynamically changes the instruction to fetch the correct element from the array. This modification is done by calculating the address of the desired element (in this case, `1000 + 3 = 1003`) and updating the code accordingly.
+		
+		\item \textbf{Example of Self-Modifying Code:} \\
+		Consider a simple assembly-like pseudo-code example:
+		\begin{verbatim}
+			START:  LOAD A, MEMORY[1000]  ; Load element at index 0
+			ADD  A, 3             ; We want to access the element at index 3
+			STORE MEMORY[1010], A ; Modify the instruction to access index 3
+			...
+			LOAD A, MEMORY[1003]  ; This is the modified instruction
+		\end{verbatim}
+		
+		Initially, the code loads the first element of the array (`MEMORY[1000]`). After modifying the instruction, the program now loads from `MEMORY[1003]`, effectively accessing the element at index `3`. This type of code was manually crafted, requiring the programmer to carefully manage memory addresses and ensure correctness.
+		
+		\item \textbf{Drawbacks:} \\
+		Although self-modifying code allowed for more flexible programs, it had significant drawbacks:
 		\begin{itemize}
-			\item \textbf{What is Self-Modifying Code?} \\
-			Self-modifying code is a programming technique where the program modifies its own instructions while it is running. In the context of arrays, this meant that to access a specific element of an array, the program would change the instruction that retrieves or stores a value in memory to point to the correct memory address.
-	
-			\item \textbf{How it Worked for Arrays:} \\
-			For example, if an array starts at memory location `1000`, and you wanted to access the element at index `3`, the program would modify the instruction to reference memory location `1003` directly. This technique required detailed knowledge of memory addresses and was prone to errors since even a small mistake in the modification could lead to accessing incorrect memory locations.
-	
-			\item \textbf{Drawbacks:} \\
-			Self-modifying code was complex, difficult to debug, and made programs less readable and maintainable. It also introduced security and stability issues, as incorrect modifications could corrupt the program's execution.
+			\item \textbf{Complexity:} Writing and understanding self-modifying code was challenging. It required intimate knowledge of the program's memory layout and could easily lead to errors if the modifications were not handled correctly.
+			\item \textbf{Debugging Difficulty:} Debugging programs that modify themselves was notoriously difficult because the code could change during execution, making it hard to trace and understand the program's behavior.
+			\item \textbf{Security Risks:} Self-modifying code could lead to security vulnerabilities, as it was possible for unintended modifications to introduce bugs or security flaws. Additionally, the unpredictability of code changes could lead to system crashes or corrupted data.
+			\item \textbf{Maintainability Issues:} Programs using self-modifying code were harder to maintain, as future developers would struggle to understand and modify the code without introducing new errors.
+		\end{itemize}
+		
+		As computing technology advanced, self-modifying code fell out of favor due to these drawbacks. Modern programming languages and architectures provide safer, more efficient ways to manage dynamic data and memory, making self-modifying code largely obsolete in most applications.
 	\end{itemize}
 	\subsubsection{Index Registers and Indirect Addressing}
 		
