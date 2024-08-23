@@ -35,15 +35,30 @@ In the following, we will work with each of them and give several examples. Let'
 
 For example, I said 1d array, but what is this array?
 The simplest type of array is a one-line array. which is also identified as a one-dimensional array. where the elements are stored in a linear sequence. Arrays are one of the oldest and most important data structures that are used in almost every program. They also played a role in the implementation of other data structures such as "lists" and "strings" by exploiting the addressing logic of computers.
+
 	\section{History}
 	
-	The concept of arrays as a fundamental data structure is deeply embedded in the history of computing, tracing back to the earliest days of computer science. Arrays have not only shaped the way data is organized and processed but have also significantly influenced the design and development of programming languages and computer architectures.
+	The concept of arrays as a structure is deeply embedded in the history of computing and goes back to the early days of computer science. Arrays have not only shaped the way data is organized and processed. but to significantly influence the design and development of programming languages ​​and computer architecture.
+	
+	\subsection{Origins and Necessity of Arrays}
+	
+	The concept of arrays originated from the need to manage and manipulate large volumes of data efficiently. The word "array" itself, meaning an orderly arrangement, is apt, as arrays in computing serve to organize data elements of the same type in a structured, sequential manner. The earliest inspiration for arrays comes from mathematics, where arrays functioned as vectors or matrices to perform complex mathematical operations. 
+	
+	As early computing systems emerged, especially those performing repetitive or large-scale calculations, there was a clear requirement for a structure that could handle collections of similar data elements. Arrays provided a solution by offering a systematic way to store data in contiguous memory locations, enabling quick access and manipulation.
+	
+	The first practical implementations of arrays can be traced back to the late 19th and early 20th centuries with the advent of mechanical and electromechanical computing devices. One of the earliest forms of arrays was seen in \href{https://en.wikipedia.org/wiki/Punched_card}{the punch card} systems, where data was organized in a tabular format. Each row in these tables could be considered an early version of an array, with each column representing different data fields. However, the modern conceptualization of arrays truly began to take shape with the advent of digital computers in the 1940s.
 	
 	\subsection{Early Digital Computers}
 	
-	In the early days of computing, arrays played a crucial role in organizing and manipulating data within the first digital computers. These machines, built in the 1940s, were designed to perform complex calculations, and arrays provided an efficient way to store and access data sequentially. Given the limited memory and processing power of early computers, arrays were indispensable for tasks such as managing data tables, performing repetitive calculations, and conducting operations on vectors and matrices.
+	During the 1940s, the first digital computers, such as the \href{https://en.wikipedia.org/wiki/ENIAC}{ENIAC} (Electronic Numerical Integrator and Computer) and the Harvard Mark I, were developed primarily for scientific and engineering applications. These early machines were designed to perform complex calculations, and arrays played a crucial role in organizing and manipulating data. However, the programming methods and languages used during this era were quite rudimentary compared to modern standards.
 	
-	At this time, programming was done in machine language or assembly language, where operations on arrays had to be explicitly managed by the programmer. Each element's memory address was calculated manually, and operations such as iteration, sorting, and searching required meticulous coding.
+	Programming these early computers was mostly done in machine language or through plugboards (in the case of the ENIAC), where instructions were hardwired into the machine. These methods required programmers to manage arrays manually, including calculating each element's memory address and writing out explicit instructions for operations such as iteration, sorting, and searching. The task was labor-intensive, and coding errors could easily occur due to the complexity of managing data at such a low level.
+	
+	However, by the late 1940s and early 1950s, assembly language started to emerge, providing a slightly higher level of abstraction for programming. Assembly language allowed symbolic representation of machine code instructions, making it somewhat easier to work with arrays and other data structures. Even then, programmers still had to manage many of the details manually, such as addressing and looping through array elements.
+	
+	One notable development during this period was the creation of the EDSAC (Electronic Delay Storage Automatic Calculator) in 1949, which was one of the first computers to use a stored-program architecture. The EDSAC ran the first stored program on May 6, 1949, and this architecture allowed both data and instructions to be stored in the same memory. While programming was still done in assembly language, the stored-program concept laid the groundwork for more advanced programming techniques and languages that would emerge in the following decade.
+	
+	The limited memory and processing power of these early computers made arrays essential for optimizing performance. Arrays allowed programmers to store data sequentially, reducing the overhead associated with data access and manipulation, and made efficient use of the available memory. Despite the primitive programming tools, arrays were indispensable for tasks like solving systems of linear equations, performing numerical simulations, and managing large datasets in statistical computations, all of which were common in the scientific and engineering calculations for which these early machines were used.
 	
 	\subsection{The Influence of John von Neumann}
 	
@@ -92,20 +107,207 @@ The simplest type of array is a one-line array. which is also identified as a on
 	\[\text{A[2]} = 30\]
 	
 	Here, the index is 2, which points to the third element in the array (since indexing starts from 0). 
-	
-	\subsection{Address Calculation}
-	
-	The position of any element in the array can be calculated using the formula:
-	
-	\[\text{Address of } A[i] = \text{Base Address} + (i \times \text{Size of each element})\]
-	
-	For instance, if the base address of the array \( A \) is 1000 and each integer occupies 4 bytes of memory, the address of the element at index 2 would be:
-	
-	\[\text{Address of } A[2] = 1000 + (2 \times 4) = 1000 + 8 = 1008\]
-	
-	So, the element at index 2 is stored at memory address 1008.
-	
-	\subsubsection{\href{https://en.wikipedia.org/wiki/Self-modifying_code}{Self-Modifying Code in Early Computers}}
+		
+\subsection{Address Calculation}
+
+The position of any element in a one-dimensional array can be calculated using a simple formula. This formula accounts for the base address of the array, the index of the element, and the size of each element in memory.
+
+\[
+\text{Address of } A[i] = \text{Base Address} + (i \times \text{Size of each element})
+\]
+
+For instance, if the base address of the array \( A \) is 1000 and each integer occupies 4 bytes of memory, the address of the element at index 2 would be:
+
+\[
+\text{Address of } A[2] = 1000 + (2 \times 4) = 1000 + 8 = 1008
+\]
+
+Thus, the element at index 2 is stored at memory address 1008.
+
+\subsubsection{Address Calculation for Multi-dimensional Arrays}
+
+When working with multi-dimensional arrays, the calculation becomes more complex, as it must account for multiple indices. However, the process can be generalized, and the pattern observed in lower dimensions (like 1D or 2D arrays) can be extended to higher dimensions. We'll review the calculations for one-dimensional and two-dimensional arrays before moving on to k-dimensional arrays.
+
+\subsubsection{One-Dimensional Array}
+
+In a one-dimensional array, each element is accessed by a single index. The formula for calculating the address of an element \( A[i] \) is:
+
+\[
+\text{Address of } A[i] = B + W \times (i - L_B)
+\]
+
+Where:
+\begin{itemize}
+	\item \( B \) is the base address of the array.
+	\item \( W \) is the size of each element in bytes.
+	\item \( i \) is the index of the element.
+	\item \( L_B \) is the lower bound of the index (if not specified, assume 0).
+\end{itemize}
+
+This formula simply shifts the base address by the product of the element's index (relative to the lower bound) and the size of each element.
+
+\[
+\begin{array}{c|c|c|c|c}
+	\text{Index} & 0 & 1 & 2 & 3 \\
+	\hline
+	\text{Element} & A[0] & A[1] & A[2] & A[3] \\
+	\hline
+	\text{Address} & 1000 & 1004 & 1008 & 1012 \\
+\end{array}
+\]
+
+\subsubsection{Two-Dimensional Array}
+
+A two-dimensional array can be visualized as a matrix with rows and columns. The address of an element \( A[i][j] \) depends on the storage order of the matrix:
+
+\paragraph{Row Major Order:}
+
+In row-major order, elements of the matrix are stored row by row. The formula to calculate the address of an element is:
+
+\[
+\text{Address of } A[i][j] = B + W \times \left[ N \times (i - L_r) + (j - L_c) \right]
+\]
+
+\paragraph{Column Major Order:}
+
+In column-major order, elements of the matrix are stored column by column. The formula is:
+
+\[
+\text{Address of } A[i][j] = B + W \times \left[ (i - L_r) + M \times (j - L_c) \right]
+\]
+
+Where:
+\begin{itemize}
+	\item \( N \) is the total number of columns.
+	\item \( M \) is the total number of rows.
+	\item \( L_r \) and \( L_c \) are the lower bounds of the row and column indices, respectively (if not specified, assume 0).
+\end{itemize}
+
+\[
+\begin{array}{c|c|c|c}
+	\text{Index} & 0 & 1 & 2 \\
+	\hline
+	A[0][0] & A[0][1] & A[0][2] & A[0][3] \\
+	\hline
+	A[1][0] & A[1][1] & A[1][2] & A[1][3] \\
+\end{array}
+\]
+
+\subsubsection{Three-Dimensional Array}
+
+In a three-dimensional array, elements are arranged in a structure with three indices, such as \( A[i][j][k] \). The address of an element can be calculated as:
+
+\[
+\text{Address of } A[i][j][k] = B + W \times \left[ (i - L_1) \times n \times p + (j - L_2) \times p + (k - L_3) \right]
+\]
+
+Where:
+\begin{itemize}
+	\item \( m, n, p \) are the dimensions of the array.
+	\item \( L_1, L_2, L_3 \) are the lower bounds of the indices \( i, j, k \), respectively.
+\end{itemize}
+
+\[
+\begin{array}{c|c|c|c}
+	A[i][0][0] & A[i][0][1] & \dots & A[i][0][p-1] \\
+	\hline
+	A[i][1][0] & A[i][1][1] & \dots & A[i][1][p-1] \\
+	\hline
+	\vdots & \vdots & \ddots & \vdots \\
+	\hline
+	A[i][n-1][0] & A[i][n-1][1] & \dots & A[i][n-1][p-1] \\
+\end{array}
+\]
+
+\subsubsection{Generalizing to a k-Dimensional Array}
+
+To generalize the address calculation for any k-dimensional array, we can use an inductive approach, observing the pattern from 1D to 3D arrays.
+
+Let \( A[i_1][i_2] \dots [i_k] \) represent an element in a k-dimensional array with dimensions \( N_1 \times N_2 \times \dots \times N_k \).
+
+\paragraph{Base Case (1-D Array):}
+For \( k = 1 \):
+
+\[
+\text{Address of } A[i_1] = B + W \times (i_1 - L_1)
+\]
+
+\paragraph{Inductive Step:}
+Assume that for a \( (k-1) \)-dimensional array, the address is given by:
+
+\[
+\text{Address of } A[i_1][i_2] \dots [i_{k-1}] = B + W \times \left[ \sum_{j=1}^{k-1} (i_j - L_j) \times \prod_{l=j+1}^{k-1} N_l \right]
+\]
+
+For a k-dimensional array, the address of \( A[i_1][i_2] \dots [i_k] \) is:
+
+\[
+\text{Address of } A[i_1][i_2] \dots [i_k] = B + W \times \left[ \sum_{j=1}^{k} (i_j - L_j) \times \prod_{l=j+1}^{k} N_l \right]
+\]
+
+Where:
+\begin{itemize}
+	\item \( N_l \) represents the size of the array in the \( l \)-th dimension.
+	\item \( L_j \) represents the lower bound for the \( j \)-th dimension.
+\end{itemize}
+
+This formula provides a general method for calculating the address of any element in a k-dimensional array, by considering all dimensions and their respective bounds.
+
+To better understand the structure of arrays in memory, here are visual representations of one-dimensional, two-dimensional, and three-dimensional arrays:
+
+\[
+\begin{array}{|c|c|c|c|}
+	\hline
+	\text{Index} & \text{Memory Address} & \text{1-D Array} & \text{2-D Array} \\
+	\hline
+	0 & B & A[0] & A[0][0] \\
+	1 & B + W & A[1] & A[0][1] \\
+	2 & B + 2W & A[2] & A[0][2] \\
+	\vdots & \vdots & \vdots & \vdots \\
+	n & B + nW & A[n] & A[0][n] \\
+	\hline
+\end{array}
+\]
+
+In the case of a three-dimensional array, you can visualize the array as a cube, where each element is accessed by three indices.
+
+\[
+\begin{array}{|c|c|c|}
+	\hline
+	\text{Index} & \text{Memory Address} & \text{3-D Array} \\
+	\hline
+	(i, j, k) & B + W \times \left[ (i - L_1) \times n \times p + (j - L_2) \times p + (k - L_3) \right] & A[i][j][k] \\
+	\hline
+\end{array}
+\]
+
+\subsubsection{Examples}
+
+Let’s solidify our understanding with some examples:
+
+\paragraph{Example 1: One-Dimensional Array}
+Given a one-dimensional array \( A \) with base address 1000, element size 4 bytes, and lower bound 0, find the address of \( A[3] \):
+
+\[
+\text{Address of } A[3] = 1000 + 4 \times (3 - 0) = 1000 + 12 = 1012
+\]
+
+\paragraph{Example 2: Two-Dimensional Array (Row Major Order)}
+Given a 2D array \( A[2][3] \) with base address 2000, element size 4 bytes, 2 rows, and 3 columns, find the address of \( A[1][2] \) (row-major order):
+
+\[
+\text{Address of } A[1][2] = 2000 + 4 \times \left[ 3 \times (1 - 0) + (2 - 0) \right] = 2000 + 4 \times (3 + 2) = 2000 + 20 = 2020
+\]
+
+\paragraph{Example 3: Three-Dimensional Array}
+Given a 3D array \( A[3][3][3] \) with base address 3000, element size 4 bytes, find the address of \( A[2][2][2] \):
+
+\[\text{Address of } A[2][2][2] = 3000 + 4 \times \left[ (2 - 0) \times 3 \times 3 + (2 - 0) \times 3 + (2 - 0) \right] = 3104\]
+
+These examples demonstrate how the general formulas apply to specific cases, providing a clear understanding of address calculation in arrays of various dimensions.
+
+
+	\subsection{\href{https://en.wikipedia.org/wiki/Self-modifying_code}{Self-Modifying Code in Early Computers}}
 	
 	In the earliest digital computers, array indexing was often managed using a technique known as \textbf{self-modifying code}.
 	
