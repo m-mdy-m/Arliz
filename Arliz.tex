@@ -1,41 +1,86 @@
-\documentclass{book}
-\usepackage{hyperref}
-\usepackage{amsmath, amssymb, amsthm}
-\usepackage{hyperref}
-\usepackage[sc]{mathpazo} 
-\usepackage{microtype}    
+\documentclass[12pt, oneside]{book}  
+\usepackage[T1]{fontenc}   
+\usepackage[utf8]{inputenc}  
+\usepackage{microtype}  
+\usepackage[sc]{mathpazo}  
+\usepackage{hyperref}  
+\usepackage{charter}
+\hypersetup{
+	colorlinks=true,  % Links appear in color
+	linkcolor=black,   % Color for internal links
+	citecolor=blue,   % Color for citations
+	urlcolor=blue     % Color for URLs
+}
+
+\usepackage{amsmath, amssymb, amsthm}  
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{booktabs}  
+\usepackage{array} 
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage[backend=biber,style=apa]{biblatex}
+\addbibresource{references.bib}
+\usepackage{fancyhdr}
+% Page layout configuration
+\geometry{a4paper, margin=1in}
+
+% Fancyhdr configuration for headers and footers
+\pagestyle{fancy}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[R]{\nouppercase{\rightmark}}
+\fancyfoot[C]{\thepage}
+\usepackage{xcolor} 
+\definecolor{myblue}{RGB}{0, 102, 204}
+\usepackage{listings}
+
+\lstset{
+	basicstyle=\ttfamily\small,   % Font style for the code (typewriter font, small size)
+	breaklines=true,              % Automatically break lines that are too long
+	commentstyle=\color{gray},    % Style for comments
+	keywordstyle=\color{blue},    % Style for keywords
+	stringstyle=\color{red},      % Style for strings
+	numbers=left,                % Line numbers on the left
+	numberstyle=\tiny,           % Style for line numbers
+	stepnumber=1,                % Number every line (1 = every line, 2 = every second line, etc.)
+	backgroundcolor=\color{lightgray}, % Background color for code blocks
+	captionpos=b,                % Position of the caption (b = bottom, t = top)
+	escapeinside={(*@}{@*)},     % Escape to LaTeX within code (useful for adding LaTeX commands)
+	morecomment=[s][\color{magenta}]{/*}{*/}, % Additional comment style
+}
+\usepackage{tocbibind}
+\usepackage{titlesec}
+\usepackage{makeidx}
+\makeindex
 
 % Title and author
 \title{{\Huge Arliz}}
 \author{{\LARGE Mahdi}}
 \date{{\large \today}}
 
+
 \begin{document}
-	
+	\frontmatter
+	\mainmatter
 	\maketitle
 	\tableofcontents
-	
 \chapter{Introduction to Arrays}
 	
 \section{Overview}
-In computer science, an array is a data structure that consists of a set of elements (values ​​or variables) with the same memory size. Each of them is identified by an index or key that we can retrieve or store data and we can also calculate the position of each element using the index and a mathematical formula.
-For example, we use this formula to calculate 1d arrays:
+In computer science, an array is a data structure that consists of a set of elements (values ​​or variables) with the same memory size. Each of them is identified by an index or key that we can retrieve or store data and we can also calculate the position of each element using the index and a mathematical formula.For example, we use this formula to calculate 1d arrays:
 \[\text{Address} A[Index] = B + W \ times (Index - LB)\]
 Suppose you have a one-dimensional integer array "A" where each integer takes 4 bytes. Let's assume:
 - The base address ('B') of array 'A' is 1000.
 - The lower limit (`LB`) is index 0.
-
 To find the address of the element at "Index = 3", use the formula:
 
 \[\text{address} A[3] = 1000 + 4 \ times (3 - 0) = 1000 + 12 = 1012\]
-
 Therefore, the element at index 3 is stored at memory address 1012.
-
 In the following, we will work with each of them and give several examples. Let's know about the array first before starting anything!
-
 For example, I said 1d array, but what is this array?
 The simplest type of array is a one-line array. which is also identified as a one-dimensional array. where the elements are stored in a linear sequence. Arrays are one of the oldest and most important data structures that are used in almost every program. They also played a role in the implementation of other data structures such as "lists" and "strings" by exploiting the addressing logic of computers.
 
+\printbibliography
 \section{Why Use Arrays?}
 
 Arrays are one of the most fundamental data structures in computer science, widely used across various programming paradigms and languages. They offer several significant advantages that make them indispensable for storing and managing data.  For example:
@@ -74,47 +119,23 @@ Arrays are universally supported across almost all programming languages, making
 
 \section{History}
 	
-	The concept of arrays as a structure is deeply embedded in the history of computing and goes back to the early days of computer science. Arrays have not only shaped the way data is organized and processed. but to significantly influence the design and development of programming languages ​​and computer architecture.
+The concept of arrays as a structure is deeply embedded in the history of computing and goes back to the early days of computer science. Arrays have not only shaped the way data is organized and processed. but to significantly influence the design and development of programming languages ​​and computer architecture.
 	
-	\subsection{Origins and Necessity of Arrays}
+\subsection{Origins and Necessity of Arrays}
 	
-	The concept of arrays originated from the need to manage and manipulate large volumes of data efficiently. The word "array" itself, meaning an orderly arrangement, is apt, as arrays in computing serve to organize data elements of the same type in a structured, sequential manner. The earliest inspiration for arrays comes from mathematics, where arrays functioned as vectors or matrices to perform complex mathematical operations. 
+The concept of arrays originated from the need to manage and manipulate large volumes of data efficiently. The word "array" itself, meaning an orderly arrangement, is apt, as arrays in computing serve to organize data elements of the same type in a structured, sequential manner. The earliest inspiration for arrays comes from mathematics, where arrays functioned as vectors or matrices to perform complex mathematical operations.\\As early computing systems emerged, especially those performing repetitive or large-scale calculations, there was a clear requirement for a structure that could handle collections of similar data elements. Arrays provided a solution by offering a systematic way to store data in contiguous memory locations, enabling quick access and manipulation.\\The first practical implementations of arrays can be traced back to the late 19th and early 20th centuries with the advent of mechanical and electromechanical computing devices. One of the earliest forms of arrays was seen in \href{https://en.wikipedia.org/wiki/Punched_card}{the punch card} systems, where data was organized in a tabular format. Each row in these tables could be considered an early version of an array, with each column representing different data fields. However, the modern conceptualization of arrays truly began to take shape with the advent of digital computers in the 1940s.
 	
-	As early computing systems emerged, especially those performing repetitive or large-scale calculations, there was a clear requirement for a structure that could handle collections of similar data elements. Arrays provided a solution by offering a systematic way to store data in contiguous memory locations, enabling quick access and manipulation.
-	
-	The first practical implementations of arrays can be traced back to the late 19th and early 20th centuries with the advent of mechanical and electromechanical computing devices. One of the earliest forms of arrays was seen in \href{https://en.wikipedia.org/wiki/Punched_card}{the punch card} systems, where data was organized in a tabular format. Each row in these tables could be considered an early version of an array, with each column representing different data fields. However, the modern conceptualization of arrays truly began to take shape with the advent of digital computers in the 1940s.
-	
-	\subsection{Early Digital Computers}
-	
-	During the 1940s, the first digital computers, such as the \href{https://en.wikipedia.org/wiki/ENIAC}{ENIAC} (Electronic Numerical Integrator and Computer) and the Harvard Mark I, were developed primarily for scientific and engineering applications. These early machines were designed to perform complex calculations, and arrays played a crucial role in organizing and manipulating data. However, the programming methods and languages used during this era were quite rudimentary compared to modern standards.
-	
-	Programming these early computers was mostly done in machine language or through plugboards (in the case of the ENIAC), where instructions were hardwired into the machine. These methods required programmers to manage arrays manually, including calculating each element's memory address and writing out explicit instructions for operations such as iteration, sorting, and searching. The task was labor-intensive, and coding errors could easily occur due to the complexity of managing data at such a low level.
-	
-	However, by the late 1940s and early 1950s, assembly language started to emerge, providing a slightly higher level of abstraction for programming. Assembly language allowed symbolic representation of machine code instructions, making it somewhat easier to work with arrays and other data structures. Even then, programmers still had to manage many of the details manually, such as addressing and looping through array elements.
-	
-	One notable development during this period was the creation of the EDSAC (Electronic Delay Storage Automatic Calculator) in 1949, which was one of the first computers to use a stored-program architecture. The EDSAC ran the first stored program on May 6, 1949, and this architecture allowed both data and instructions to be stored in the same memory. While programming was still done in assembly language, the stored-program concept laid the groundwork for more advanced programming techniques and languages that would emerge in the following decade.
-	
-	The limited memory and processing power of these early computers made arrays essential for optimizing performance. Arrays allowed programmers to store data sequentially, reducing the overhead associated with data access and manipulation, and made efficient use of the available memory. Despite the primitive programming tools, arrays were indispensable for tasks like solving systems of linear equations, performing numerical simulations, and managing large datasets in statistical computations, all of which were common in the scientific and engineering calculations for which these early machines were used.
+\subsection{Early Digital Computers}
+During the 1940s, the first digital computers, such as the \href{https://en.wikipedia.org/wiki/ENIAC}{ENIAC} (Electronic Numerical Integrator and Computer) and the Harvard Mark I, were developed primarily for scientific and engineering applications. These early machines were designed to perform complex calculations, and arrays played a crucial role in organizing and manipulating data. However, the programming methods and languages used during this era were quite rudimentary compared to modern standards.\\Programming these early computers was mostly done in machine language or through plugboards (in the case of the ENIAC), where instructions were hardwired into the machine. These methods required programmers to manage arrays manually, including calculating each element's memory address and writing out explicit instructions for operations such as iteration, sorting, and searching. The task was labor-intensive, and coding errors could easily occur due to the complexity of managing data at such a low level.\\However, by the late 1940s and early 1950s, assembly language started to emerge, providing a slightly higher level of abstraction for programming. Assembly language allowed symbolic representation of machine code instructions, making it somewhat easier to work with arrays and other data structures. Even then, programmers still had to manage many of the details manually, such as addressing and looping through array elements.\\One notable development during this period was the creation of the EDSAC (Electronic Delay Storage Automatic Calculator) in 1949, which was one of the first computers to use a stored-program architecture. The EDSAC ran the first stored program on May 6, 1949, and this architecture allowed both data and instructions to be stored in the same memory. While programming was still done in assembly language, the stored-program concept laid the groundwork for more advanced programming techniques and languages that would emerge in the following decade.\\The limited memory and processing power of these early computers made arrays essential for optimizing performance. Arrays allowed programmers to store data sequentially, reducing the overhead associated with data access and manipulation, and made efficient use of the available memory. Despite the primitive programming tools, arrays were indispensable for tasks like solving systems of linear equations, performing numerical simulations, and managing large datasets in statistical computations, all of which were common in the scientific and engineering calculations for which these early machines were used.
 	
 	\subsection{The Influence of John von Neumann}
-	
-	A figure in the history of arrays is the renowned mathematician and computer scientist, \href{https://en.wikipedia.org/wiki/John_von_Neumann#Computer_science}{John von Neumann}. In 1945, von Neumann made significant contributions to the development of the first stored-program computers, where both instructions and data were stored in the same memory. This innovation allowed for more flexible and powerful computational systems.
-	
-	One of von Neumann's notable achievements was the creation of the first array-sorting algorithm, known as \textbf{merge sort}. This algorithm efficiently organizes data in an array by dividing the array into smaller sub-arrays, sorting them, and then merging them back together. The merge sort algorithm laid the groundwork for many subsequent sorting techniques and is still widely used today due to its optimal performance in various scenarios.
-	
-	Von Neumann’s work on merge sort and his overall contributions to computer architecture and programming set the stage for the development of high-level programming languages. These languages abstracted the complexity of managing arrays, allowing programmers to focus more on algorithmic development rather than low-level memory management.
+A figure in the history of arrays is the renowned mathematician and computer scientist, \href{https://en.wikipedia.org/wiki/John_von_Neumann#Computer_science}{John von Neumann}. In 1945, von Neumann made significant contributions to the development of the first stored-program computers, where both instructions and data were stored in the same memory. This innovation allowed for more flexible and powerful computational systems.\\One of von Neumann's notable achievements was the creation of the first array-sorting algorithm, known as \textbf{merge sort}. This algorithm efficiently organizes data in an array by dividing the array into smaller sub-arrays, sorting them, and then merging them back together. The merge sort algorithm laid the groundwork for many subsequent sorting techniques and is still widely used today due to its optimal performance in various scenarios.\\Von Neumann’s work on merge sort and his overall contributions to computer architecture and programming set the stage for the development of high-level programming languages. These languages abstracted the complexity of managing arrays, allowing programmers to focus more on algorithmic development rather than low-level memory management.
 	
 	\subsection{Evolution in Programming Languages}
-	
-	As programming languages evolved from assembly to higher-level languages in the 1950s and 1960s, the concept of arrays became more formalized and easier to use. Languages like Fortran (1957) and COBOL (1959) introduced built-in support for arrays, enabling programmers to declare and manipulate arrays directly without concerning themselves with the underlying memory management.
-	
-	This evolution continued with languages such as C, which provided more advanced features for working with arrays, including multi-dimensional arrays and pointers, giving programmers powerful tools for managing data efficiently. Modern programming languages like Python, Java, and C++ further abstract the concept of arrays, offering dynamic array structures like lists and vectors, which automatically handle resizing and memory allocation.
+As programming languages evolved from assembly to higher-level languages in the 1950s and 1960s, the concept of arrays became more formalized and easier to use. Languages like Fortran (1957) and COBOL (1959) introduced built-in support for arrays, enabling programmers to declare and manipulate arrays directly without concerning themselves with the underlying memory management.\\This evolution continued with languages such as C, which provided more advanced features for working with arrays, including multi-dimensional arrays and pointers, giving programmers powerful tools for managing data efficiently. Modern programming languages like Python, Java, and C++ further abstract the concept of arrays, offering dynamic array structures like lists and vectors, which automatically handle resizing and memory allocation.
 	
 	\subsection{Impact on Computer Architecture}
-	
-	The use of arrays also had a profound impact on computer system architecture. Arrays necessitated the development of efficient memory access patterns, leading to advancements in cache design, memory hierarchy, and data locality optimization. These improvements helped to maximize the performance of array operations, especially in scientific computing and data-intensive applications.
-	
-	The development of vector processors and later, parallel computing architectures, was also heavily influenced by the need to perform operations on arrays more efficiently. These architectures allowed for simultaneous operations on multiple array elements, significantly speeding up computational tasks like matrix multiplication, image processing, and large-scale simulations.
+The use of arrays also had a profound impact on computer system architecture. Arrays necessitated the development of efficient memory access patterns, leading to advancements in cache design, memory hierarchy, and data locality optimization. These improvements helped to maximize the performance of array operations, especially in scientific computing and data-intensive applications.\\The development of vector processors and later, parallel computing architectures, was also heavily influenced by the need to perform operations on arrays more efficiently. These architectures allowed for simultaneous operations on multiple array elements, significantly speeding up computational tasks like matrix multiplication, image processing, and large-scale simulations.
 	
 	
 \section{Basic Operations}
@@ -123,34 +144,139 @@ Arrays are a fundamental data structure that allows for the storage of elements 
 
 \subsection{Traversal Operation}
 
-\textbf{Traversal} refers to the process of visiting each element of an array, typically from the first to the last element. Traversal is necessary for tasks such as searching, printing, or performing calculations on all elements.
+In the case of a one-dimensional (1D) array, traversal means visiting each element from the first to the last. For an array \( A \) with \( n \) elements, the indices of the array range from 0 to \( n - 1 \). During traversal, a loop is typically used to iterate over these indices, allowing access to the corresponding elements of the array.
 
-\subsubsection*{Algorithm for Traversing an Array}
+\subsubsection{Loop Counter in Array Traversal} 
+In high-level languages, a loop counter is commonly used to track the position of the array being accessed. The loop counter is usually initialized at the start of the array (index 0) and increments with each iteration of the loop, eventually reaching the last element.\\
+In most programming languages, the following pseudocode illustrates the traversal process:
 
-Let the array be represented as $A$ and the indices range from $LB$ (Lower Bound, typically 0 or 1, depending on indexing convention) to $UB$ (Upper Bound, representing the last valid index).
+\begin{verbatim}
+	1. DECLARE allGrades INITIALLY [A, B, B, D, F, C, A, A, C, B]
+	2. DECLARE a_total INITIALLY 0
+	3. FOR i FROM 0 TO 9 DO
+	4.     IF allGrades[i] = 'A' THEN
+	5.         SET a_total TO a_total + 1
+	6.     END IF
+	7. END FOR
+\end{verbatim}
+Here, the loop counter \( i \) traverses the indices of the array `allGrades`, and during each iteration, the condition `allGrades[i] = 'A'` is checked.
 
-\begin{enumerate}
-	\item \textbf{Start}.
-	\item Initialize the index $i = LB$.
-	\item While $i \leq UB$, do the following:
+\subsubsection{Example in C}
+
+The following example demonstrates the traversal of a 1D array in the C programming language:
+
+\begin{lstlisting}[language=C, caption={Example C Code}]
+
+#include <stdio.h>
+
+int main() {
+	int arr[2] = {1, 4};   // Initialize the array with two elements
+	int size = sizeof(arr) / sizeof(arr[0]);  // Calculate the number of elements in the array
+	
+	for (int i = 0; i < size; i++) {  // Loop from 0 to size - 1
+		printf("%d\n", arr[i]);  // Print the value of each element
+	}
+	
+	return 0;
+}
+\end{lstlisting}
+In this example:
+- The array `arr[2] = {1, 4}` contains two integers.
+- The size of the array is determined by dividing the total memory size of the array `sizeof(arr)` by the size of one element `sizeof(arr[0])`.
+- The `for` loop iterates from 0 to `size - 1`, printing each element.
+
+\[
+\text{Output: } 1, 4
+\]
+
+\subsection{Traversing a 1D Array Within Upper and Lower Bounds}
+In general, a 1D array is defined by its lower bound \( LB \) and upper bound \( UB \). Traversing such an array involves accessing each element from the lower bound to the upper bound in sequence. The loop counter \( i \) begins at \( LB \) and continues until it reaches \( UB \).
+
+\subsubsection{Algorithm for Traversing an Array}
+The formal algorithm for array traversal is given below:
+
+\[
+\textbf{Algorithm: Traversing a Linear Array}
+\]
+\begin{itemize}
+	\item[1.] \textbf{Initialize:} Set \( i = LB \), where \( LB \) is the lower bound of the array.
+	\item[2.] \textbf{Repeat:} For each index \( i \) from \( LB \) to \( UB \), perform the following steps:
 	\begin{itemize}
-		\item Access and process $A[i]$ (e.g., print or compute).
-		\item Increment $i$ by 1.
+		\item Access the element \( A[i] \).
+		\item Apply the desired operation to \( A[i] \).
 	\end{itemize}
-	\item \textbf{End}.
-\end{enumerate}
+	\item[3.] \textbf{Exit:} Terminate the loop when \( i > UB \).
+\end{itemize}
+In mathematical terms, this can be represented as:
 
-\textbf{Explanation:}
-\begin{quote}
-	The traversal process involves accessing each element sequentially and applying some operation (e.g., printing or summing the elements). The loop runs from the start to the end of the array, covering all indices within bounds.
-\end{quote}
+\[
+\text{For } i = LB \text{ to } UB, \text{ apply } \text{Process}(A[i]).
+\]
+This ensures that each element of the array is visited exactly once, and any operation can be applied to each element.
+
+\subsubsection{ Example in Pseudocode}
+
+The following pseudocode demonstrates a traversal where the operation checks for the presence of the grade 'A' in an array:
+
+\begin{verbatim}
+	1. DECLARE allGrades INITIALLY [A, B, B, D, F, C, A, A, C, B]
+	2. DECLARE a_total INITIALLY 0
+	3. FOR i FROM 0 TO 9 DO
+	4.     IF allGrades[i] = 'A' THEN
+	5.         SET a_total TO a_total + 1
+	6.     END IF
+	7. END FOR
+\end{verbatim}
+In this example, the loop counter \( i \) iterates from 0 to 9, and the array element \texttt{allGrades[i]} is checked for the grade 'A'. The variable \texttt{a\_total} is incremented each time 'A' is found.
+
+\subsubsection{Traversing a 1D Array Without Explicit Bounds}
+In many high-level languages, it is possible to traverse arrays without explicitly specifying the upper and lower bounds. Instead, a `for-each` loop can be used to iterate over each element directly. The loop implicitly handles the traversal, reducing the need for manually tracking the loop counter.
+
+\[
+\textbf{Pseudocode:}
+\]
+\begin{verbatim}
+	1. DECLARE allGrades INITIALLY [A, B, B, D, F, C, A, A, C, B]
+	2. FOR EACH grade FROM allGrades DO
+	3.     IF grade = 'A' THEN
+	4.         SET a_total TO a_total + 1
+	5.     END IF
+	6. END FOR EACH
+\end{verbatim}
+In this example, the loop variable `grade` represents each element of the array `allGrades` in turn, eliminating the need for an explicit index.
+
+\subsubsection{Traversal with Initialization}
+Before performing any array traversal, it is often necessary to initialize certain variables that will be used in the processing of the array's elements. For example, counters or accumulators should be initialized before starting the traversal to ensure accurate results.\\For example, when counting the occurrences of a specific element in an array, the accumulator (such as \texttt{a\_total}) must be initialized to zero before starting the loop:
+
+\[
+a\_total = 0
+\]
+  
+\subsubsection{Algorithm for General Traversal of Linear Array}
+A more formal version of the general traversal algorithm can be represented as:
+
+\[
+\textbf{Algorithm: Traversing a Linear Array}
+\]
+\begin{enumerate}
+	\item \textbf{Initialize:} Set \( K = LB \), where \( LB \) is the lower bound of the array.
+	\item \textbf{Repeat:} For each index \( K \) from \( LB \) to \( UB \), perform the following steps:
+	\begin{itemize}
+		\item Access the element \( A[K] \).
+		\item Apply the desired operation (e.g., printing or modifying the value of \( A[K] \)).
+	\end{itemize}
+	\item \textbf{Increment:} Set \( K = K + 1 \).
+	\item \textbf{Exit:} The loop terminates when \( K > UB \).
+\end{enumerate}
+This algorithm guarantees that all elements of the array between \( LB \) and \( UB \) are accessed exactly once, and the required operation is applied to each.
+
+\subsubsection{Summary}
+Array traversal is a fundamental operation in computing that allows access to each element of an array for processing. In the case of a one-dimensional array, traversal can be done either with explicit bounds or using higher-level constructs such as `for-each` loops. It is crucial to initialize any necessary variables before the traversal begins, ensuring accurate and efficient processing of the array elements.\\Traversing arrays is the building block for more complex operations and algorithms, such as searching, sorting, and modifying arrays.
 
 \subsection{Insertion Operation}
-
 \textbf{Insertion} is the process of adding a new element to an array at a specified position. This operation requires shifting elements to make room for the new element.
 
 \subsubsection*{Algorithm for Insertion}
-
 Let the array have size $n$, the position to insert the new element be $\text{pos}$, and the new element be $\text{item}$.
 
 \begin{enumerate}
@@ -165,6 +291,7 @@ Let the array have size $n$, the position to insert the new element be $\text{po
 	\item Update the size $n = n + 1$.
 	\item \textbf{End}.
 \end{enumerate}
+
 
 \textbf{Explanation:}
 \begin{quote}
