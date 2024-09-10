@@ -118,6 +118,164 @@ Arrays are universally supported across almost all programming languages, making
 	
 	
 \section{Basic Operations}
+
+Arrays are a fundamental data structure that allows for the storage of elements in contiguous memory locations. These elements can be accessed and manipulated using various operations. Below are explanations of some common operations performed on arrays using algorithms and techniques.
+
+\subsection{Traversal Operation}
+
+\textbf{Traversal} refers to the process of visiting each element of an array, typically from the first to the last element. Traversal is necessary for tasks such as searching, printing, or performing calculations on all elements.
+
+\subsubsection*{Algorithm for Traversing an Array}
+
+Let the array be represented as $A$ and the indices range from $LB$ (Lower Bound, typically 0 or 1, depending on indexing convention) to $UB$ (Upper Bound, representing the last valid index).
+
+\begin{enumerate}
+	\item \textbf{Start}.
+	\item Initialize the index $i = LB$.
+	\item While $i \leq UB$, do the following:
+	\begin{itemize}
+		\item Access and process $A[i]$ (e.g., print or compute).
+		\item Increment $i$ by 1.
+	\end{itemize}
+	\item \textbf{End}.
+\end{enumerate}
+
+\textbf{Explanation:}
+\begin{quote}
+	The traversal process involves accessing each element sequentially and applying some operation (e.g., printing or summing the elements). The loop runs from the start to the end of the array, covering all indices within bounds.
+\end{quote}
+
+\subsection{Insertion Operation}
+
+\textbf{Insertion} is the process of adding a new element to an array at a specified position. This operation requires shifting elements to make room for the new element.
+
+\subsubsection*{Algorithm for Insertion}
+
+Let the array have size $n$, the position to insert the new element be $\text{pos}$, and the new element be $\text{item}$.
+
+\begin{enumerate}
+	\item \textbf{Start}.
+	\item Set $i = n - 1$ (the index of the last element).
+	\item While $i \geq \text{pos} - 1$, do the following:
+	\begin{itemize}
+		\item Shift element $A[i]$ to $A[i + 1]$.
+		\item Decrease $i$ by 1.
+	\end{itemize}
+	\item Insert the new element $\text{item}$ at $A[\text{pos} - 1]$.
+	\item Update the size $n = n + 1$.
+	\item \textbf{End}.
+\end{enumerate}
+
+\textbf{Explanation:}
+\begin{quote}
+	Before inserting the new element, all elements from the insertion position onward must be shifted one index to the right to create space. This operation can be costly for large arrays, especially if the insertion occurs near the beginning, as all subsequent elements must be shifted.
+\end{quote}
+
+\subsection{Deletion Operation}
+
+\textbf{Deletion} refers to removing an element from an array. After removing the element, the subsequent elements must be shifted to fill the gap.
+
+\subsubsection*{Algorithm for Deletion}
+
+Let the array have size $n$, and the element to be deleted is at position $\text{pos}$.
+
+\begin{enumerate}
+	\item \textbf{Start}.
+	\item Set $i = \text{pos} - 1$ (the index of the element to be deleted).
+	\item While $i < n - 1$, do the following:
+	\begin{itemize}
+		\item Shift element $A[i + 1]$ to $A[i]$.
+		\item Increment $i$.
+	\end{itemize}
+	\item Update the size $n = n - 1$.
+	\item \textbf{End}.
+\end{enumerate}
+
+\textbf{Explanation:}
+\begin{quote}
+	The deletion process shifts all elements to the left starting from the position of the deleted element. Like insertion, this operation can be costly for large arrays, especially if the deletion occurs near the beginning of the array.
+\end{quote}
+
+\subsection{Search Operation}
+
+\textbf{Search} involves finding a specific element in an array. Two common techniques for searching include:
+
+\begin{itemize}
+	\item \textbf{Linear Search}: Each element is compared sequentially until the target element is found.
+	\item \textbf{Binary Search}: This technique requires the array to be sorted. The search space is halved at each step, reducing the time complexity significantly.
+\end{itemize}
+
+\subsubsection*{Algorithm for Linear Search}
+
+\begin{enumerate}
+	\item \textbf{Start}.
+	\item Set $i = 0$.
+	\item While $i \leq n - 1$, do the following:
+	\begin{itemize}
+		\item If $A[i] = \text{target}$, return the index.
+		\item Increment $i$.
+	\end{itemize}
+	\item If no match is found, return "not found".
+	\item \textbf{End}.
+\end{enumerate}
+
+\subsubsection*{Algorithm for Binary Search}
+
+\begin{enumerate}
+	\item \textbf{Start}.
+	\item Set $\text{low} = 0$, $\text{high} = n - 1$.
+	\item While $\text{low} \leq \text{high}$, do the following:
+	\begin{itemize}
+		\item Compute the middle index $\text{mid} = \left\lfloor \frac{\text{low} + \text{high}}{2} \right\rfloor$.
+		\item If $A[\text{mid}] = \text{target}$, return the index.
+		\item If $A[\text{mid}] < \text{target}$, set $\text{low} = \text{mid} + 1$.
+		\item Otherwise, set $\text{high} = \text{mid} - 1$.
+	\end{itemize}
+	\item If no match is found, return "not found".
+	\item \textbf{End}.
+\end{enumerate}
+
+\textbf{Explanation:}
+\begin{quote}
+	Linear search is simple but inefficient for large arrays, with a time complexity of $O(n)$. Binary search, on the other hand, has a time complexity of $O(\log n)$, but it requires the array to be sorted beforehand.
+\end{quote}
+
+\subsection{Sorting Operation}
+
+\textbf{Sorting} is the process of arranging elements in a specific order (e.g., ascending or descending). There are several sorting algorithms, with varying time complexities and use cases.
+
+\subsubsection*{Common Sorting Algorithms}
+
+\begin{itemize}
+	\item \textbf{Bubble Sort}: Repeatedly swap adjacent elements if they are in the wrong order.
+	\item \textbf{Insertion Sort}: Build the sorted array one element at a time by inserting elements in their correct positions.
+	\item \textbf{Selection Sort}: Select the smallest element from the unsorted portion of the array and swap it with the first unsorted element.
+	\item \textbf{Merge Sort}: Divide the array into two halves, sort each half, and then merge them together.
+	\item \textbf{Quick Sort}: Partition the array into two subarrays such that elements less than a pivot go to one subarray, and elements greater than the pivot go to the other. Recursively sort the subarrays.
+\end{itemize}
+
+\textbf{Explanation:}
+\begin{quote}
+	Sorting algorithms vary in efficiency. Simple algorithms like Bubble Sort have a time complexity of $O(n^2)$, while more efficient algorithms like Merge Sort and Quick Sort achieve $O(n \log n)$ time complexity.
+\end{quote}
+
+\subsection{Access Operation}
+
+\textbf{Access} is the process of retrieving an element from an array. This is done using the index of the element.
+
+\subsubsection*{Access Technique}
+
+\begin{enumerate}
+	\item \textbf{Start}.
+	\item Given the index $i$, retrieve the element $A[i]$.
+	\item \textbf{End}.
+\end{enumerate}
+
+\textbf{Explanation:}
+\begin{quote}
+	Array access is efficient, with constant time complexity $O(1)$, as elements are stored in contiguous memory locations and can be directly accessed via their index.
+\end{quote}
+
 \section{Types}
 \section{Memory Layout and Storage}
 \section{Memory Segmentation and Bounds Checking}
