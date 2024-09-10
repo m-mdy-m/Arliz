@@ -3,3 +3,8 @@
 *.out
 *.gz
 *.toc
+*.bbl
+*.bcf
+*.blg
+*.idx
+*.xml
