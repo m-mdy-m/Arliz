@@ -136,8 +136,60 @@ As programming languages evolved from assembly to higher-level languages in the 
 	
 	\subsection{Impact on Computer Architecture}
 The use of arrays also had a profound impact on computer system architecture. Arrays necessitated the development of efficient memory access patterns, leading to advancements in cache design, memory hierarchy, and data locality optimization. These improvements helped to maximize the performance of array operations, especially in scientific computing and data-intensive applications.\\The development of vector processors and later, parallel computing architectures, was also heavily influenced by the need to perform operations on arrays more efficiently. These architectures allowed for simultaneous operations on multiple array elements, significantly speeding up computational tasks like matrix multiplication, image processing, and large-scale simulations.
-	
-	
+
+\section{P System}
+A P system is defined as a series of membranes containing chemicals (in finite quantities), catalysts, and rules which determine possible ways in which chemicals may react with one another to form products. Rules may also cause chemicals to pass through membranes or even cause membranes to dissolve.\\Just as in a biological cell, where a chemical reaction may only take place upon the chance event that the required chemical molecules collide and interact (possibly also with a catalyst), the rules in a P system are applied at random. This causes the computation to proceed in a non-deterministic manner, often resulting in multiple solutions being encountered if the computation is repeated.\\A P system continues until it reaches a state where no further reactions are possible. At this point, the result of the computation is all those chemicals that have been passed outside of the outermost membrane, or otherwise those passed into a designated 'result' membrane \cite{PsystemResults}.
+
+\subsection{Components of a P System}
+
+\begin{itemize}
+	\item \textbf{Environment}: The surroundings of the P system. Initially, it contains only the container membrane. During the computation, objects may be passed into the environment, and these objects constitute part of the result.
+	\item \textbf{Membranes}: Discrete units within the P system, each containing objects, rules, and possibly other membranes. The outermost membrane is the container membrane. Membranes can dissolve, passing their content to their parent membrane.
+	\item \textbf{Symbols}: Represent chemicals that can react with each other. Symbols are typically represented by letters, and the content of a membrane is represented as a string of letters.
+	\item \textbf{Catalysts}: Similar to symbols but are not consumed during reactions. They are necessary for some reactions to occur.
+	\item \textbf{Rules}: Define possible chemical reactions within a membrane. Rules consume input symbols and produce output symbols, which may be passed to other membranes or out of the system.
+\end{itemize}
+
+\subsection{Diagram of a P System}
+
+\begin{verbatim}
+	+--------------------------------------+
+	|             Environment              |
+	|                                      |
+	| +----------------------------------+ |
+	| |        Container Membrane        | |
+	| |                                  | |
+	| |  +----------------------------+  | |
+	| |  |      Membrane 2             |  | |
+	| |  | +------------------------+  |  | |
+	| |  | |     Membrane 3          |  |  | |
+	| |  | |  Symbols: a, c          |  |  | |
+	| |  | |  Rules:                 |  |  | |
+	| |  | |   - a -> ab             |  |  | |
+	| |  | |   - c -> cc             |  |  | |
+	| |  | +------------------------+  |  | |
+	| |  |  Symbols: b, c, d         |  |  | |
+	| |  |  Rules:                   |  |  | |
+	| |  |   - b -> d                |  |  | |
+	| |  |   - c -> δ (dissolve)     |  |  | |
+	| |  +----------------------------+  |  |
+	| |   Symbols: d, e               |  |  |
+	| |   Rules:                      |  |  |
+	| |   - e -> e (out)              |  |  |
+	| +----------------------------------+ |
+	|                                      |
+	+--------------------------------------+
+\end{verbatim}
+
+\subsection{Computation Process}
+
+\begin{enumerate}
+	\item \textbf{Apply Rules}: Rules are applied to symbols within membranes. Each step involves applying all possible rules in a maximally parallel manner.
+	\item \textbf{Non-Deterministic Application}: The order of rule application is random, leading to different possible outcomes.
+	\item \textbf{Maximally Parallel Application}: All possible rule applications occur in each step.
+	\item \textbf{Termination}: The computation halts when no further rule applications are possible. The result is determined by the objects passed to the environment or the designated result membrane.
+\end{enumerate}
+Note: I said briefly about p system (only introduction).\\ But what does P system have to do with arrays? Just read the basic operations to understand
 \section{Basic Operations}
 
 Arrays are a fundamental data structure that allows for the storage of elements in contiguous memory locations. These elements can be accessed and manipulated using various operations. Below are explanations of some common operations performed on arrays using algorithms and techniques.
