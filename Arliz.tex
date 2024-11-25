@@ -64,6 +64,21 @@
 	\mainmatter
 	\maketitle
 	\tableofcontents
+	
+\section{Preface}
+Every book has a story about its creation, and this one is no different. If I were to summarize the process of writing this book in a word, it would be \textbf{improvised}. Yet, in its essence, this book is the result of sheer curiosity. \\
+It all began with a question: \textbf{What is an array?} As I delved deeper into studying data structures and algorithms, I found myself frequently encountering this concept. But I wanted more than just a functional understanding I wanted to know its origins, how it evolved, and how it works at its core. This quest for understanding led me down a rabbit hole of exploration, uncovering not only the technical details of arrays but also the fascinating history and underlying principles that make them indispensable in computing. Along the way, I uncovered not only the origins of arrays but also their profound impact on modern programming. These findings inspired me to consolidate my knowledge into a structured resource, which eventually became this book. \\
+The idea to compile this book came about during a late-night discussion in the \textbf{CodeModule} group. Arrays were part of the conversation, and as I shared what I had learned, my friend Aran suggested that I write an article on the topic. The suggestion planted a seed. Within minutes, I decided to take it a step further: why not write a book? Thus, \textbf{Arliz} was born. The name itself is arbitrary chosen on a whim—but the book quickly grew into a structured effort. \\
+From that moment, I started gathering information from various sources, including guidance from ChatGPT and several articles and publications on arrays. What you now hold in your hands (or view on your screen) is the result of those efforts. Throughout the writing process, I adhered to three guiding principles:  
+\begin{itemize}
+	\item  \textbf{Simplicity and Accuracy: } Explain concepts in the simplest terms possible while ensuring a reasonable level of precision to satisfy both newcomers and seasoned enthusiasts.  
+	\item  \textbf{Visualization:}  Use diagrams to clarify complex problems, making them easier to understand and recall because sometimes, a visual representation is worth more than a thousand words.  
+	\item \textbf{Portability}  Include concise, well-explained pseudocode that can be easily translated into major programming languages such as C, C++, and Java. and etc.
+\end{itemize}
+\\A unique aspect of this book is its emphasis on implementation. While the theoretical underpinnings of the algorithms are grounded in established knowledge, the code and approaches presented here are largely of our own design. These implementations may differ from standard practices—occasionally for better, occasionally for worse—but they serve as a practical means of applying and internalizing the concepts discussed. \\
+Ultimately, the goal of \textbf{Arliz} is to deepen your understanding of arrays, empowering you to use this fundamental data structure to build efficient, effective, and elegant programs. \\
+This book is freely available as a PDF or LaTeX file in the \href{https://github.com/m-mdy-m/Arliz}{Arliz repository}. It includes exercises and projects at the end of each chapter to reinforce learning. I encourage you to tackle these exercises before moving on to the next section, as they are integral to mastering the material.\\ It is my hope that this book serves as both a practical guide and a source of inspiration. May it empower you to build efficient and elegant programs, and above all, may it deepen your understanding of the power of representation in programming.
+
 \chapter{Introduction to Arrays}
 	
 \section{Overview}
@@ -487,7 +502,7 @@ In systems that implement segmentation, memory addresses consist of a segment id
 Each segment has a defined length and associated permissions (e.g., read, write, execute). A process may only reference a segment if it has the appropriate permissions and the offset is within the segment's length. Otherwise, a hardware exception, such as a segmentation fault, is raised.
 
 Segmentation can also facilitate virtual memory implementations, where each segment has a flag indicating its presence in main memory. If a segment is accessed while not present, an exception is raised, prompting the operating system to load the segment from secondary storage.
-
+sudo
 Segmentation is one method of implementing memory protection. It can be combined with paging, and the segment size is typically variable, potentially as small as a single byte.
 
 \subsubsection{Segmentation without Paging}
