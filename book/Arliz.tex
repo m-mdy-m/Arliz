@@ -82,910 +82,102 @@ This book is freely available as a PDF or LaTeX file in the \href{https://github
 \chapter{Introduction to Arrays}
 	
 \section{Overview}
-In computer science, an array is a data structure that consists of a set of elements (values ​​or variables) with the same memory size. Each of them is identified by an index or key that we can retrieve or store data and we can also calculate the position of each element using the index and a mathematical formula.For example, we use this formula to calculate 1d arrays:
-\[\text{Address} A[Index] = B + W \ times (Index - LB)\]
-Suppose you have a one-dimensional integer array "A" where each integer takes 4 bytes. Let's assume:
-- The base address ('B') of array 'A' is 1000.
-- The lower limit (`LB`) is index 0.
-To find the address of the element at "Index = 3", use the formula:
 
-\[\text{address} A[3] = 1000 + 4 \ times (3 - 0) = 1000 + 12 = 1012\]
-Therefore, the element at index 3 is stored at memory address 1012.
-In the following, we will work with each of them and give several examples. Let's know about the array first before starting anything!
-For example, I said 1d array, but what is this array?
-The simplest type of array is a one-line array. which is also identified as a one-dimensional array. where the elements are stored in a linear sequence. Arrays are one of the oldest and most important data structures that are used in almost every program. They also played a role in the implementation of other data structures such as "lists" and "strings" by exploiting the addressing logic of computers.
-
-\printbibliography
 \section{Why Use Arrays?}
 
-Arrays are one of the most fundamental data structures in computer science, widely used across various programming paradigms and languages. They offer several significant advantages that make them indispensable for storing and managing data.  For example:
-
-\subsection{1. Efficient Data Storage and Access}
-
-Arrays provide an efficient mechanism for storing multiple values of the same type in a contiguous block of memory. This contiguity enables constant-time access, $\mathcal{O}(1)$, to any element in the array using its index. For example, accessing the third element in an array can be done directly by referencing its index, such as \texttt{array[2]}, irrespective of the array's size. This capability, known as \textit{random access}, is one of the most critical features of arrays, enabling quick and predictable retrieval of data.
-
-\subsection{2. Ease of Iteration}
-
-Due to the sequential storage of elements, arrays are straightforward to iterate over, making them ideal for operations that need to be applied uniformly across all elements. For instance, summing all values in an array, searching for a specific value, or transforming each element can be efficiently executed using iterative constructs such as \texttt{for} loops, \texttt{while} loops, or \texttt{foreach} loops. The simplicity and efficiency of iteration over arrays contribute significantly to their versatility in various algorithms.
-
-\subsection{3. Fixed Size and Predictable Memory Usage}
-
-In the case of static arrays, the size of the array is determined at the time of its creation and remains fixed throughout its lifetime. This fixed size offers predictability in memory allocation, which is particularly beneficial in environments where memory management is critical, such as embedded systems or real-time applications. By knowing the exact amount of memory required, developers can optimize resource usage and avoid memory fragmentation.
-
-\subsection{4. Simplified Data Management}
-
-Arrays allow for the grouping of related data under a single variable name, significantly simplifying data management. Instead of declaring multiple variables for related values, an array enables the storage of these values in a single structure, accessed via indices. This not only reduces the complexity of the code but also enhances readability and maintainability. For example, managing a list of student grades becomes more manageable when stored in an array, allowing easy operations such as calculating the average grade, finding the maximum or minimum grade, or sorting the grades.
-
-\subsection{5. Support for Multi-Dimensional Data}
-
-Arrays can be extended to support multiple dimensions, such as two-dimensional (2D) or three-dimensional (3D) arrays, which are essential for representing complex data structures like matrices, tables, and grids. Multi-dimensional arrays are particularly useful in fields such as scientific computing, image processing, and computer graphics, where data naturally forms a multi-dimensional structure. The ability to efficiently manipulate such data structures is a crucial advantage of arrays.
-
-\subsection{6. Compatibility with Low-Level Programming}
-
-In low-level programming languages like C and C++, arrays map directly to contiguous memory locations, providing developers with fine-grained control over data storage and memory management. This direct mapping allows for pointer arithmetic and other low-level optimizations, making arrays an ideal choice for system-level programming where performance and memory efficiency are paramount. Understanding how arrays interact with memory is essential for writing efficient low-level code.
-
-\subsection{7. Foundation for Other Data Structures}
-
-Arrays serve as the foundational building blocks for many other, more complex data structures, such as stacks, queues, linked lists, and hash tables. A solid understanding of arrays is essential for learning and implementing these advanced data structures, as they often rely on the properties of arrays for efficient data access and manipulation.
-
-\subsection{8. Widespread Language Support}
-
-Arrays are universally supported across almost all programming languages, making them a versatile and widely applicable data structure. Whether you are working in C, Java, Python, JavaScript, or any other language, arrays provide a reliable means of storing and manipulating data. The ubiquitous nature of arrays in programming ensures that they are a fundamental tool in every developer's toolkit.
-
 \section{History}
-	
-The concept of arrays as a structure is deeply embedded in the history of computing and goes back to the early days of computer science. Arrays have not only shaped the way data is organized and processed. but to significantly influence the design and development of programming languages ​​and computer architecture.
-	
+
 \subsection{Origins and Necessity of Arrays}
-	
-The concept of arrays originated from the need to manage and manipulate large volumes of data efficiently. The word "array" itself, meaning an orderly arrangement, is apt, as arrays in computing serve to organize data elements of the same type in a structured, sequential manner. The earliest inspiration for arrays comes from mathematics, where arrays functioned as vectors or matrices to perform complex mathematical operations.\\As early computing systems emerged, especially those performing repetitive or large-scale calculations, there was a clear requirement for a structure that could handle collections of similar data elements. Arrays provided a solution by offering a systematic way to store data in contiguous memory locations, enabling quick access and manipulation.\\The first practical implementations of arrays can be traced back to the late 19th and early 20th centuries with the advent of mechanical and electromechanical computing devices. One of the earliest forms of arrays was seen in \href{https://en.wikipedia.org/wiki/Punched_card}{the punch card} systems, where data was organized in a tabular format. Each row in these tables could be considered an early version of an array, with each column representing different data fields. However, the modern conceptualization of arrays truly began to take shape with the advent of digital computers in the 1940s.
-	
+
 \subsection{Early Digital Computers}
-During the 1940s, the first digital computers, such as the \href{https://en.wikipedia.org/wiki/ENIAC}{ENIAC} (Electronic Numerical Integrator and Computer) and the Harvard Mark I, were developed primarily for scientific and engineering applications. These early machines were designed to perform complex calculations, and arrays played a crucial role in organizing and manipulating data. However, the programming methods and languages used during this era were quite rudimentary compared to modern standards.\\Programming these early computers was mostly done in machine language or through plugboards (in the case of the ENIAC), where instructions were hardwired into the machine. These methods required programmers to manage arrays manually, including calculating each element's memory address and writing out explicit instructions for operations such as iteration, sorting, and searching. The task was labor-intensive, and coding errors could easily occur due to the complexity of managing data at such a low level.\\However, by the late 1940s and early 1950s, assembly language started to emerge, providing a slightly higher level of abstraction for programming. Assembly language allowed symbolic representation of machine code instructions, making it somewhat easier to work with arrays and other data structures. Even then, programmers still had to manage many of the details manually, such as addressing and looping through array elements.\\One notable development during this period was the creation of the EDSAC (Electronic Delay Storage Automatic Calculator) in 1949, which was one of the first computers to use a stored-program architecture. The EDSAC ran the first stored program on May 6, 1949, and this architecture allowed both data and instructions to be stored in the same memory. While programming was still done in assembly language, the stored-program concept laid the groundwork for more advanced programming techniques and languages that would emerge in the following decade.\\The limited memory and processing power of these early computers made arrays essential for optimizing performance. Arrays allowed programmers to store data sequentially, reducing the overhead associated with data access and manipulation, and made efficient use of the available memory. Despite the primitive programming tools, arrays were indispensable for tasks like solving systems of linear equations, performing numerical simulations, and managing large datasets in statistical computations, all of which were common in the scientific and engineering calculations for which these early machines were used.
-	
-	\subsection{The Influence of John von Neumann}
-A figure in the history of arrays is the renowned mathematician and computer scientist, \href{https://en.wikipedia.org/wiki/John_von_Neumann#Computer_science}{John von Neumann}. In 1945, von Neumann made significant contributions to the development of the first stored-program computers, where both instructions and data were stored in the same memory. This innovation allowed for more flexible and powerful computational systems.\\One of von Neumann's notable achievements was the creation of the first array-sorting algorithm, known as \textbf{merge sort}. This algorithm efficiently organizes data in an array by dividing the array into smaller sub-arrays, sorting them, and then merging them back together. The merge sort algorithm laid the groundwork for many subsequent sorting techniques and is still widely used today due to its optimal performance in various scenarios.\\Von Neumann’s work on merge sort and his overall contributions to computer architecture and programming set the stage for the development of high-level programming languages. These languages abstracted the complexity of managing arrays, allowing programmers to focus more on algorithmic development rather than low-level memory management.
-	
-	\subsection{Evolution in Programming Languages}
-As programming languages evolved from assembly to higher-level languages in the 1950s and 1960s, the concept of arrays became more formalized and easier to use. Languages like Fortran (1957) and COBOL (1959) introduced built-in support for arrays, enabling programmers to declare and manipulate arrays directly without concerning themselves with the underlying memory management.\\This evolution continued with languages such as C, which provided more advanced features for working with arrays, including multi-dimensional arrays and pointers, giving programmers powerful tools for managing data efficiently. Modern programming languages like Python, Java, and C++ further abstract the concept of arrays, offering dynamic array structures like lists and vectors, which automatically handle resizing and memory allocation.
-	
-	\subsection{Impact on Computer Architecture}
-The use of arrays also had a profound impact on computer system architecture. Arrays necessitated the development of efficient memory access patterns, leading to advancements in cache design, memory hierarchy, and data locality optimization. These improvements helped to maximize the performance of array operations, especially in scientific computing and data-intensive applications.\\The development of vector processors and later, parallel computing architectures, was also heavily influenced by the need to perform operations on arrays more efficiently. These architectures allowed for simultaneous operations on multiple array elements, significantly speeding up computational tasks like matrix multiplication, image processing, and large-scale simulations.
+\subsection{The Influence of John von Neumann}
+\subsection{Evolution in Programming Languages}
+\subsection{Impact on Computer Architecture}
 
 \section{P System}
-A P system is a computational model inspired by the functioning of living cells. It consists of a hierarchy of membranes, each containing chemicals (in finite quantities), catalysts, and a set of rules. These rules dictate how the chemicals interact and transform into products. Additionally, the rules may allow chemicals to pass through membranes or cause the membranes to dissolve.\\Much like a biological cell, where a chemical reaction occurs only if the necessary molecules collide and interact (possibly with the assistance of a catalyst), the rules in a P system are applied in a random, non-deterministic manner. As a result, the computation proceeds unpredictably, often yielding multiple solutions when the process is repeated.\\The computation in a P system continues until it reaches a state where no more reactions are possible. At this stage, the result of the computation is determined by the chemicals that have either passed outside the outermost membrane or entered a designated 'result' membrane \cite{PsystemResults}.
 
 \subsection{Components of a P System}
-A P system comprises several key components:
-
-\begin{itemize}
-	\item \textbf{Environment}: The surroundings of the P system, initially containing only the outermost container membrane. During computation, objects may pass into the environment, and these objects form part of the output result.
-	
-	\item \textbf{Membranes}: Discrete units within the P system that enclose objects, rules, and sometimes other membranes. The outermost membrane is known as the container membrane. Membranes can dissolve and release their contents into their parent membrane.
-	
-	\item \textbf{Symbols}: Represent chemicals that can interact with one another. Symbols are usually represented by letters, and the contents of a membrane are displayed as strings of letters.
-	
-	\item \textbf{Catalysts}: Special symbols that facilitate reactions but are not consumed by them. Some reactions cannot occur without catalysts.
-	
-	\item \textbf{Rules}: Specify how chemicals react within a membrane. Rules consume input symbols to produce output symbols, which may either remain inside the membrane, pass to other membranes, or be passed out of the system.
-\end{itemize}
 
 \subsection{Diagram of a P System}
 
-Below is a simple diagram of a P system, illustrating its structure:
-
-\begin{lstlisting}
-	+--------------------------------------+
-	|             Environment              |
-	|                                      |
-	| +----------------------------------+ |
-	| |        Container Membrane        | |
-	| |                                  | |
-	| |  +----------------------------+  | |
-	| |  |      Membrane 2             |  | |
-	| |  | +------------------------+  |  | |
-	| |  | |     Membrane 3          |  |  | |
-	| |  | |  Symbols: a, c          |  |  | |
-	| |  | |  Rules:                 |  |  | |
-	| |  | |   - a -> ab             |  |  | |
-	| |  | |   - c -> cc             |  |  | |
-	| |  | +------------------------+  |  | |
-	| |  |  Symbols: b, c, d         |  |  | |
-	| |  |  Rules:                   |  |  | |
-	| |  |   - b -> d                |  |  | |
-	| |  |   - c -> δ (dissolve)     |  |  | |
-	| |  +----------------------------+  |  |
-	| |   Symbols: d, e               |  |  |
-	| |   Rules:                      |  |  |
-	| |   - e -> e (out)              |  |  |
-	+--------------------------------------+
-\end{lstlisting}
-
-The diagram shows a hierarchical structure of membranes. Membranes contain symbols, rules, and can be nested within each other. The outermost membrane is the container membrane, and the environment is outside it. Symbols and rules inside membranes dictate how chemicals react and possibly exit the system.
-
 \subsection{Computation Process}
-The computational process of a P system can be summarized in the following steps:
 
-\begin{enumerate}
-	\item \textbf{Apply Rules}: Rules are applied to the symbols within the membranes. During each computation step, all applicable rules are applied in parallel as much as possible.
-	
-	\item \textbf{Non-Deterministic Application}: Since the rules are applied at random, the outcome may vary with each computation, leading to different possible solutions.
-	
-	\item \textbf{Maximally Parallel Application}: In each step, all the rules that can be applied are applied in a maximally parallel manner, meaning that the system tries to apply as many rules as possible simultaneously.
-	
-	\item \textbf{Termination}: The system halts when no further rule applications are possible. The result of the computation is the set of objects that are passed to the environment or placed into a designated result membrane.
-\end{enumerate}
+\chapter{Basics of Array Operations}
 
-\textit{Note: The above provides a brief introduction to the P system. To understand the operations of a P system better, consider its basic operations and how it handles computation in a way similar to chemical reactions.}
+\section{Traversal Operation}
 
-\section{Basic Operations}
+\subsection{Loop Counter in Array Traversal} 
+\subsection{Example in C}
 
-Arrays are a fundamental data structure that allows for the storage of elements in contiguous memory locations. These elements can be accessed and manipulated using various operations. Below are explanations of some common operations performed on arrays using algorithms and techniques.
+\subsection{Traversing a 1D Array Within Upper and Lower Bounds}
 
-\subsection{Traversal Operation}
+\subsection{ Example in Pseudocode}
+\subsection{Traversing a 1D Array Without Explicit Bounds}
+\subsection{Traversal with Initialization}
+\subsection{Algorithm for General Traversal of Linear Array}
 
-In the case of a one-dimensional (1D) array, traversal means visiting each element from the first to the last. For an array \( A \) with \( n \) elements, the indices of the array range from 0 to \( n - 1 \). During traversal, a loop is typically used to iterate over these indices, allowing access to the corresponding elements of the array.
+\section{Insertion Operation}
 
-\subsubsection{Loop Counter in Array Traversal} 
-In high-level languages, a loop counter is commonly used to track the position of the array being accessed. The loop counter is usually initialized at the start of the array (index 0) and increments with each iteration of the loop, eventually reaching the last element.\\
-In most programming languages, the following pseudocode illustrates the traversal process:
+\subsection*{Algorithm for Insertion}
 
-\begin{verbatim}
-	1. DECLARE allGrades INITIALLY [A, B, B, D, F, C, A, A, C, B]
-	2. DECLARE a_total INITIALLY 0
-	3. FOR i FROM 0 TO 9 DO
-	4.     IF allGrades[i] = 'A' THEN
-	5.         SET a_total TO a_total + 1
-	6.     END IF
-	7. END FOR
-\end{verbatim}
-Here, the loop counter \( i \) traverses the indices of the array `allGrades`, and during each iteration, the condition `allGrades[i] = 'A'` is checked.
+\section{Deletion Operation}
 
-\subsubsection{Example in C}
+\subsection*{Algorithm for Deletion}
 
-The following example demonstrates the traversal of a 1D array in the C programming language:
+\section{Search Operation}
 
-\begin{lstlisting}[language=C, caption={Example C Code}]
+\subsection*{Algorithm for Linear Search}
 
-#include <stdio.h>
+\subsection*{Algorithm for Binary Search}
 
-int main() {
-	int arr[2] = {1, 4};   // Initialize the array with two elements
-	int size = sizeof(arr) / sizeof(arr[0]);  // Calculate the number of elements in the array
-	
-	for (int i = 0; i < size; i++) {  // Loop from 0 to size - 1
-		printf("%d\n", arr[i]);  // Print the value of each element
-	}
-	
-	return 0;
-}
-\end{lstlisting}
-In this example:
-- The array `arr[2] = {1, 4}` contains two integers.
-- The size of the array is determined by dividing the total memory size of the array `sizeof(arr)` by the size of one element `sizeof(arr[0])`.
-- The `for` loop iterates from 0 to `size - 1`, printing each element.
+\section{Sorting Operation}
 
-\[
-\text{Output: } 1, 4
-\]
+\subsection*{Common Sorting Algorithms}
 
-\subsubsection{Traversing a 1D Array Within Upper and Lower Bounds}
-In general, a 1D array is defined by its lower bound \( LB \) and upper bound \( UB \). Traversing such an array involves accessing each element from the lower bound to the upper bound in sequence. The loop counter \( i \) begins at \( LB \) and continues until it reaches \( UB \).
+\section{Access Operation}
 
-\subsubsection{Algorithm for Traversing an Array}
-The formal algorithm for array traversal is given below:
+\subsection*{Access Technique}
 
-\[
-\textbf{Algorithm: Traversing a Linear Array}
-\]
-\begin{itemize}
-	\item[1.] \textbf{Initialize:} Set \( i = LB \), where \( LB \) is the lower bound of the array.
-	\item[2.] \textbf{Repeat:} For each index \( i \) from \( LB \) to \( UB \), perform the following steps:
-	\begin{itemize}
-		\item Access the element \( A[i] \).
-		\item Apply the desired operation to \( A[i] \).
-	\end{itemize}
-	\item[3.] \textbf{Exit:} Terminate the loop when \( i > UB \).
-\end{itemize}
-In mathematical terms, this can be represented as:
-
-\[
-\text{For } i = LB \text{ to } UB, \text{ apply } \text{Process}(A[i]).
-\]
-This ensures that each element of the array is visited exactly once, and any operation can be applied to each element.
-
-\subsubsection{ Example in Pseudocode}
-
-The following pseudocode demonstrates a traversal where the operation checks for the presence of the grade 'A' in an array:
-
-\begin{verbatim}
-	1. DECLARE allGrades INITIALLY [A, B, B, D, F, C, A, A, C, B]
-	2. DECLARE a_total INITIALLY 0
-	3. FOR i FROM 0 TO 9 DO
-	4.     IF allGrades[i] = 'A' THEN
-	5.         SET a_total TO a_total + 1
-	6.     END IF
-	7. END FOR
-\end{verbatim}
-In this example, the loop counter \( i \) iterates from 0 to 9, and the array element \texttt{allGrades[i]} is checked for the grade 'A'. The variable \texttt{a\_total} is incremented each time 'A' is found.
-
-\subsubsection{Traversing a 1D Array Without Explicit Bounds}
-In many high-level languages, it is possible to traverse arrays without explicitly specifying the upper and lower bounds. Instead, a `for-each` loop can be used to iterate over each element directly. The loop implicitly handles the traversal, reducing the need for manually tracking the loop counter.
-
-\[
-\textbf{Pseudocode:}
-\]
-\begin{verbatim}
-	1. DECLARE allGrades INITIALLY [A, B, B, D, F, C, A, A, C, B]
-	2. FOR EACH grade FROM allGrades DO
-	3.     IF grade = 'A' THEN
-	4.         SET a_total TO a_total + 1
-	5.     END IF
-	6. END FOR EACH
-\end{verbatim}
-In this example, the loop variable `grade` represents each element of the array `allGrades` in turn, eliminating the need for an explicit index.
-
-\subsubsection{Traversal with Initialization}
-Before performing any array traversal, it is often necessary to initialize certain variables that will be used in the processing of the array's elements. For example, counters or accumulators should be initialized before starting the traversal to ensure accurate results.\\For example, when counting the occurrences of a specific element in an array, the accumulator (such as \texttt{a\_total}) must be initialized to zero before starting the loop:
-
-\[
-a\_total = 0
-\]
-  
-\subsubsection{Algorithm for General Traversal of Linear Array}
-A more formal version of the general traversal algorithm can be represented as:
-
-\[
-\textbf{Algorithm: Traversing a Linear Array}
-\]
-\begin{enumerate}
-	\item \textbf{Initialize:} Set \( K = LB \), where \( LB \) is the lower bound of the array.
-	\item \textbf{Repeat:} For each index \( K \) from \( LB \) to \( UB \), perform the following steps:
-	\begin{itemize}
-		\item Access the element \( A[K] \).
-		\item Apply the desired operation (e.g., printing or modifying the value of \( A[K] \)).
-	\end{itemize}
-	\item \textbf{Increment:} Set \( K = K + 1 \).
-	\item \textbf{Exit:} The loop terminates when \( K > UB \).
-\end{enumerate}
-This algorithm guarantees that all elements of the array between \( LB \) and \( UB \) are accessed exactly once, and the required operation is applied to each.
-
-\subsubsection{Summary}
-Array traversal is a fundamental operation in computing that allows access to each element of an array for processing. In the case of a one-dimensional array, traversal can be done either with explicit bounds or using higher-level constructs such as `for-each` loops. It is crucial to initialize any necessary variables before the traversal begins, ensuring accurate and efficient processing of the array elements.\\Traversing arrays is the building block for more complex operations and algorithms, such as searching, sorting, and modifying arrays.
-
-\subsection{Insertion Operation}
-\textbf{Insertion} is the process of adding a new element to an array at a specified position. This operation requires shifting elements to make room for the new element.
-
-\subsubsection*{Algorithm for Insertion}
-Let the array have size $n$, the position to insert the new element be $\text{pos}$, and the new element be $\text{item}$.
-
-\begin{enumerate}
-	\item \textbf{Start}.
-	\item Set $i = n - 1$ (the index of the last element).
-	\item While $i \geq \text{pos} - 1$, do the following:
-	\begin{itemize}
-		\item Shift element $A[i]$ to $A[i + 1]$.
-		\item Decrease $i$ by 1.
-	\end{itemize}
-	\item Insert the new element $\text{item}$ at $A[\text{pos} - 1]$.
-	\item Update the size $n = n + 1$.
-	\item \textbf{End}.
-\end{enumerate}
-
-
-\textbf{Explanation:}
-\begin{quote}
-	Before inserting the new element, all elements from the insertion position onward must be shifted one index to the right to create space. This operation can be costly for large arrays, especially if the insertion occurs near the beginning, as all subsequent elements must be shifted.
-\end{quote}
-
-\subsection{Deletion Operation}
-
-\textbf{Deletion} refers to removing an element from an array. After removing the element, the subsequent elements must be shifted to fill the gap.
-
-\subsubsection*{Algorithm for Deletion}
-
-Let the array have size $n$, and the element to be deleted is at position $\text{pos}$.
-
-\begin{enumerate}
-	\item \textbf{Start}.
-	\item Set $i = \text{pos} - 1$ (the index of the element to be deleted).
-	\item While $i < n - 1$, do the following:
-	\begin{itemize}
-		\item Shift element $A[i + 1]$ to $A[i]$.
-		\item Increment $i$.
-	\end{itemize}
-	\item Update the size $n = n - 1$.
-	\item \textbf{End}.
-\end{enumerate}
-
-\textbf{Explanation:}
-\begin{quote}
-	The deletion process shifts all elements to the left starting from the position of the deleted element. Like insertion, this operation can be costly for large arrays, especially if the deletion occurs near the beginning of the array.
-\end{quote}
-
-\subsection{Search Operation}
-
-\textbf{Search} involves finding a specific element in an array. Two common techniques for searching include:
-
-\begin{itemize}
-	\item \textbf{Linear Search}: Each element is compared sequentially until the target element is found.
-	\item \textbf{Binary Search}: This technique requires the array to be sorted. The search space is halved at each step, reducing the time complexity significantly.
-\end{itemize}
-
-\subsubsection*{Algorithm for Linear Search}
-
-\begin{enumerate}
-	\item \textbf{Start}.
-	\item Set $i = 0$.
-	\item While $i \leq n - 1$, do the following:
-	\begin{itemize}
-		\item If $A[i] = \text{target}$, return the index.
-		\item Increment $i$.
-	\end{itemize}
-	\item If no match is found, return "not found".
-	\item \textbf{End}.
-\end{enumerate}
-
-\subsubsection*{Algorithm for Binary Search}
-
-\begin{enumerate}
-	\item \textbf{Start}.
-	\item Set $\text{low} = 0$, $\text{high} = n - 1$.
-	\item While $\text{low} \leq \text{high}$, do the following:
-	\begin{itemize}
-		\item Compute the middle index $\text{mid} = \left\lfloor \frac{\text{low} + \text{high}}{2} \right\rfloor$.
-		\item If $A[\text{mid}] = \text{target}$, return the index.
-		\item If $A[\text{mid}] < \text{target}$, set $\text{low} = \text{mid} + 1$.
-		\item Otherwise, set $\text{high} = \text{mid} - 1$.
-	\end{itemize}
-	\item If no match is found, return "not found".
-	\item \textbf{End}.
-\end{enumerate}
-
-\textbf{Explanation:}
-\begin{quote}
-	Linear search is simple but inefficient for large arrays, with a time complexity of $O(n)$. Binary search, on the other hand, has a time complexity of $O(\log n)$, but it requires the array to be sorted beforehand.
-\end{quote}
-
-\subsection{Sorting Operation}
-
-\textbf{Sorting} is the process of arranging elements in a specific order (e.g., ascending or descending). There are several sorting algorithms, with varying time complexities and use cases.
-
-\subsubsection*{Common Sorting Algorithms}
-
-\begin{itemize}
-	\item \textbf{Bubble Sort}: Repeatedly swap adjacent elements if they are in the wrong order.
-	\item \textbf{Insertion Sort}: Build the sorted array one element at a time by inserting elements in their correct positions.
-	\item \textbf{Selection Sort}: Select the smallest element from the unsorted portion of the array and swap it with the first unsorted element.
-	\item \textbf{Merge Sort}: Divide the array into two halves, sort each half, and then merge them together.
-	\item \textbf{Quick Sort}: Partition the array into two subarrays such that elements less than a pivot go to one subarray, and elements greater than the pivot go to the other. Recursively sort the subarrays.
-\end{itemize}
-
-\textbf{Explanation:}
-\begin{quote}
-	Sorting algorithms vary in efficiency. Simple algorithms like Bubble Sort have a time complexity of $O(n^2)$, while more efficient algorithms like Merge Sort and Quick Sort achieve $O(n \log n)$ time complexity.
-\end{quote}
-
-\subsection{Access Operation}
-
-\textbf{Access} is the process of retrieving an element from an array. This is done using the index of the element.
-
-\subsubsection*{Access Technique}
-
-\begin{enumerate}
-	\item \textbf{Start}.
-	\item Given the index $i$, retrieve the element $A[i]$.
-	\item \textbf{End}.
-\end{enumerate}
-
-\textbf{Explanation:}
-\begin{quote}
-	Array access is efficient, with constant time complexity $O(1)$, as elements are stored in contiguous memory locations and can be directly accessed via their index.
-\end{quote}
+\chapter{Types and Representations of Arrays}
 
 \section{Chomsky}
-
 \section{Types}
-\section{Memory Layout and Storage}
+\section{Abstract Arrays}
+
+\chapter{Memory Layout and Storage}
+\section{Memory Layout of Arrays}
 \section{Memory Segmentation and Bounds Checking}
-
-In the 1960s, advancements in mainframe computers led to the incorporation of \textbf{memory segmentation} and \textbf{index-bounds checking} features directly into hardware, significantly improving the safety and efficiency of array operations.
-
 \subsection{Memory Segmentation}
-Memory segmentation is a memory management technique employed by operating systems to divide a computer's primary memory into distinct segments or sections. When using segmentation, a reference to a memory location consists of a segment identifier and an offset within that segment. Segments are often aligned with logical divisions of a program, such as individual routines or data tables, making segmentation more transparent to the programmer compared to paging alone. 
-
-Segments can be created for program modules or memory usage classes, such as code and data segments . In certain systems, segments may be shared between programs, providing flexibility in memory management.
-
 \subsubsection{Hardware Implementation}
-In systems that implement segmentation, memory addresses consist of a segment identifier and an offset. A hardware Memory Management Unit (MMU) translates the segment and offset into a physical address and checks whether the reference is permitted.
-
-Each segment has a defined length and associated permissions (e.g., read, write, execute). A process may only reference a segment if it has the appropriate permissions and the offset is within the segment's length. Otherwise, a hardware exception, such as a segmentation fault, is raised.
-
-Segmentation can also facilitate virtual memory implementations, where each segment has a flag indicating its presence in main memory. If a segment is accessed while not present, an exception is raised, prompting the operating system to load the segment from secondary storage.
-sudo
-Segmentation is one method of implementing memory protection. It can be combined with paging, and the segment size is typically variable, potentially as small as a single byte.
-
 \subsubsection{Segmentation without Paging}
-In systems where segmentation is used without paging, each segment's information includes the segment's base address in memory. A memory reference is calculated by adding the offset to the segment base to generate a physical address.
-
-Virtual memory implementations in such systems require entire segments to be swapped between main memory and secondary storage. The operating system must allocate enough contiguous memory for each segment, leading to potential memory fragmentation.
-
 \subsubsection{Segmentation with Paging}
-In systems using both segmentation and paging, the segment information includes the address of a page table for the segment. Memory references are translated using the page table, allowing segments to be extended by allocating additional pages.
-
-This approach typically results in reduced I/O operations between primary and secondary storage and mitigates memory fragmentation, as pages do not need to be contiguous.
-
 \subsubsection{Historical Implementations}
-The Burroughs Corporation's B5000 computer was among the first to implement segmentation and possibly the first commercial computer to provide virtual memory based on segmentation. The later B6500 also used segmentation, and a version of its architecture remains in use today on Unisys ClearPath Libra servers.
-
-The GE 645 computer, designed in 1964, supported segmentation and paging for the Multics operating system. Intel's iAPX 432, developed in 1975, attempted to implement true segmentation with memory protection on a microprocessor. Several other systems, including IBM's System/38 and AS/400, have also used memory segmentation.
-
 \subsubsection{x86 Architecture}
-Early x86 processors, starting with the Intel 8086, implemented basic memory segmentation without memory protection. Segment registers allowed for 65,536 segments, each offering read-write access to 64 KiB of address space. The Intel 80286 introduced protected mode, which added memory protection and extended the addressable memory space to 16 MiB. Later processors, starting with the i386, introduced paging, allowing for more flexible and powerful memory management.
-
-In modern x86-64 architecture, segmentation is largely deprecated in favor of a flat memory model, with only the FS and GS segment registers retaining special functionality, such as accessing thread-local storage.
-
 \subsection{Index-Bounds Checking}
-\textbf{bounds checking} is a critical method used to ensure that a variable, especially an array index, is within specified limits before it is used. This check prevents accessing memory outside the allocated range, thereby safeguarding against potential errors like \href{https://en.wikipedia.org/wiki/Buffer_overflow}{buffer overflows} and ensuring the stability and security of software. In programming, an array works like that bookshelf. If you have an array with 100 elements, each element is like a slot, and the index (or position) in the array is like the slot number. Index-bounds checking ensures that when your program tries to access an element in the array, it checks whether the index is within the valid range—usually from 0 to 99 (since arrays often start counting from 0). 
-
-If the program tries to access an index outside this range, like -1 or 100, it could lead to accessing memory that doesn't belong to the array. This could cause unexpected behavior, such as crashing the program or, worse, exposing vulnerabilities that hackers could exploit.
-
 \subsubsection{Range Checking}
-\textbf{Range checking} involves verifying that a value falls within a predefined range. For example, when assigning a value to a 16-bit integer, range checking ensures that the value does not exceed the integer's capacity, thus preventing overflow errors. In many programming languages, range checks are built into the language to prevent critical errors, though they can sometimes be disabled to improve performance.
-
 \subsubsection{Index Checking}
-\textbf{Index checking} specifically ensures that any array index used in a program is within the valid bounds of the array. This prevents attempts to access memory outside the array’s allocated space, which can lead to undefined behavior, such as program crashes, data corruption, or security vulnerabilities.
-
-\paragraph{Automatic Bounds Checking in Programming Languages:}
-Languages such as Ada, Java, Python, and Rust enforce runtime bounds checking on array indices, which greatly enhances program safety. For instance, in Python, accessing an array index out of bounds raises an \texttt{IndexError}, and in Java, an \texttt{ArrayIndexOutOfBoundsException} is thrown. These languages prioritize safety and correctness, often at the cost of some runtime overhead.
-
-In contrast, languages like C and C++ do not perform automatic bounds checking by default. While this allows for faster execution, it also means that off-by-one errors can go undetected, leading to potential buffer overflows and other serious issues. Programmers must manually implement bounds checks, which can be error-prone and lead to vulnerabilities if not carefully managed.
-
 \subsubsection{Hardware Bounds Checking}
-To reduce the performance \href{https://en.wikipedia.org/wiki/Overhead_(computing)}{overhead} associated with software-based bounds checking, some computer systems implement bounds checking directly in hardware. 
-
-\paragraph{Historical Implementations:}
-The \textbf{ICL 2900 Series} mainframes, announced in 1974, were among the early systems to include hardware bounds checking, providing a more efficient method for ensuring memory safety. Similarly, the \textbf{Burroughs B6500} also performed bounds checking in hardware, reflecting the importance of this feature in mainframe computers of that era.
-
-\paragraph{Modern Implementations:}
-More recent systems, such as Intel's \textbf{Memory Protection Extensions (MPX)}, introduced in the Skylake processor architecture, integrate bounds checking capabilities directly into the CPU. These extensions allow for more efficient bounds checking by leveraging hardware features, which can help prevent common vulnerabilities like buffer overflows without significantly impacting performance.
-
 \subsubsection{Support in High-Level Programming Languages}
-As programming languages evolved, they began incorporating bounds checking and other safety features into their syntax and semantics, making array operations safer and more intuitive for developers.
-
-\begin{itemize}
-	\item \textbf{FORTRAN and Early Languages:}\\
-	Early high-level languages like \textbf{FORTRAN} abstracted away the complexities of memory management, providing built-in support for arrays. This allowed developers to focus on problem-solving rather than managing memory directly, though it also meant that early languages often lacked comprehensive bounds checking features.
-	
-	\item \textbf{Modern Languages:}\\
-	Modern programming languages like \textbf{Python}, \textbf{Java}, and \textbf{C++} have sophisticated array handling capabilities. These include bounds checking, dynamic resizing, and integration with other data structures. For example, Python's lists dynamically resize, and both Python and Java enforce bounds checking to prevent out-of-bounds access. C++, while offering arrays without automatic bounds checking, provides containers like \texttt{std::vector} that perform bounds checks via methods like \texttt{at()}.
-\end{itemize}
-
 \subsubsection{Buffer Overflow}
-A \textbf{buffer overflow} occurs when a program writes data to a buffer beyond its allocated memory space, overwriting adjacent memory locations. Buffers are areas of memory reserved to hold data temporarily, often during data transfers between different parts of a program or between programs.
-
-\paragraph{Causes and Consequences:}
-Buffer overflows are typically caused by improper handling of input data, where the size of the input exceeds the buffer’s capacity. This can lead to overwriting critical data, resulting in erratic program behavior, including memory access violations, crashes, and even security breaches.
-
-For example, in C and C++, buffers are often implemented using arrays. Since these languages do not enforce bounds checking by default, a buffer overflow can occur if an array index exceeds its bounds. This vulnerability can be exploited by attackers to inject malicious code or manipulate the program’s execution flow.
-
-\paragraph{Exploitation and Security Risks:}
-Exploiting buffer overflows is a common attack vector in software security. By carefully crafting input data, attackers can overwrite parts of memory that control the program's execution, such as return addresses or function pointers, leading to arbitrary code execution or privilege escalation.
-
-Many modern operating systems employ techniques like \textbf{Address Space Layout Randomization (ASLR)} and \textbf{stack canaries} to mitigate the risks of buffer overflow exploits. ASLR randomizes the memory address space layout, making it more difficult for attackers to predict the location of critical code or data. Stack canaries are special values placed on the stack that, when altered, indicate a potential buffer overflow, allowing the program to terminate before any malicious code can be executed.
-
 \subsubsection{Integer Overflow}
-\textbf{Integer overflow} occurs when an arithmetic operation attempts to create a value that exceeds the maximum or minimum limit of the integer type being used. 
 
-\paragraph{Common Results and Risks:}
-When an integer overflow occurs, the result often wraps around to a value within the representable range, which can lead to unintended behavior. For example, adding 1 to the maximum value of an 8-bit unsigned integer (255) wraps around to 0. Similarly, subtracting 1 from 0 in an unsigned integer type results in the maximum value of that type.
-
-Such wraparounds can cause significant issues, particularly in security-sensitive contexts. For instance, if an overflowed value is used to allocate a buffer, the buffer may be allocated with an unexpectedly small size, potentially leading to a buffer overflow. Additionally, if a program assumes that a value will always be positive, an integer overflow that causes a negative result could violate that assumption, leading to further errors.
-
-\paragraph{Handling and Prevention:}
-In languages like C and C++, the responsibility for detecting and handling integer overflows typically falls on the programmer, who must manually implement checks to prevent unintended results. However, in some cases, these languages offer mechanisms to handle overflows more gracefully. For instance, C11 introduced the \texttt{Annex K} functions, which provide bounded alternatives to common operations that detect overflows.
-
-In contrast, some modern languages, such as Rust, handle integer overflows more rigorously by panicking (terminating execution) when an overflow occurs, unless explicitly allowed by wrapping operations. This approach enhances safety, though it may require careful management of overflow conditions to avoid unintended program termination.
-
-\paragraph{Applications of Wrapping Behavior:}
-Despite the risks, wrapping behavior can be desirable in certain applications, such as timers, counters, or circular buffers, where values are expected to cycle through a range repeatedly. In these cases, the predictable nature of modulo wrapping is beneficial.
-
-The C11 standard, for instance, states that unsigned integer arithmetic must wrap around on overflow, making this behavior well-defined and predictable for unsigned types.
-
-
-\section{Development of Array Indexing}
-	
-	Array indexing is the technique used to access elements in an array based on their position or index. Each element in an array is identified by its index, which represents its position relative to the first element. Indexing allows for efficient and direct access to any element in the array, which is essential for various computational tasks.
-	
-	\subsection{Example: One-Dimensional Array}
-	
-	Consider a simple example of a one-dimensional array of integers:
-	
-	\[\text{int } A[5] = \{10, 20, 30, 40, 50\};\]
-	
-	In this array, there are 5 elements, and they are stored in contiguous memory locations. The index of the first element is 0, the second element is 1, and so on. The array looks like this:
-	
-	\begin{center}
-    		\begin{tabular}{|c|c|c|c|c|c|}
-			\hline
-				Index & 0 & 1 & 2 & 3 & 4 \\
-			\hline
-			Element & 10 & 20 & 30 & 40 & 50 \\
-			\hline
-			\end{tabular}
-	\end{center}
-	
-	If you want to access the third element of the array, you would use its index:
-	
-	\[\text{A[2]} = 30\]
-	
-	Here, the index is 2, which points to the third element in the array (since indexing starts from 0). 
+\chapter{Development of Array Indexing}
 		
 \subsection{Address Calculation}
-
-The position of any element in a one-dimensional array can be calculated using a simple formula. This formula accounts for the base address of the array, the index of the element, and the size of each element in memory.
-
-\[
-\text{Address of } A[i] = \text{Base Address} + (i \times \text{Size of each element})
-\]
-
-For instance, if the base address of the array \( A \) is 1000 and each integer occupies 4 bytes of memory, the address of the element at index 2 would be:
-
-\[
-\text{Address of } A[2] = 1000 + (2 \times 4) = 1000 + 8 = 1008
-\]
-
-Thus, the element at index 2 is stored at memory address 1008.
-
 \subsubsection{Address Calculation for Multi-dimensional Arrays}
-
-When working with multi-dimensional arrays, the calculation becomes more complex, as it must account for multiple indices. However, the process can be generalized, and the pattern observed in lower dimensions (like 1D or 2D arrays) can be extended to higher dimensions. We'll review the calculations for one-dimensional and two-dimensional arrays before moving on to k-dimensional arrays.
-
 \subsubsection{One-Dimensional Array}
-
-In a one-dimensional array, each element is accessed by a single index. The formula for calculating the address of an element \( A[i] \) is:
-
-\[
-\text{Address of } A[i] = B + W \times (i - L_B)
-\]
-
-Where:
-\begin{itemize}
-	\item \( B \) is the base address of the array.
-	\item \( W \) is the size of each element in bytes.
-	\item \( i \) is the index of the element.
-	\item \( L_B \) is the lower bound of the index (if not specified, assume 0).
-\end{itemize}
-
-This formula simply shifts the base address by the product of the element's index (relative to the lower bound) and the size of each element.
-
-\[
-\begin{array}{c|c|c|c|c}
-	\text{Index} & 0 & 1 & 2 & 3 \\
-	\hline
-	\text{Element} & A[0] & A[1] & A[2] & A[3] \\
-	\hline
-	\text{Address} & 1000 & 1004 & 1008 & 1012 \\
-\end{array}
-\]
-
-For example, we use this method to implement this formula in C (\href{https://github.com/m-mdy-m/Arliz/blob/main/AddressCalculation/one-dimensional.c}{click and see the example})
-
 \subsubsection{Two-Dimensional Array}
-
-A two-dimensional array can be visualized as a matrix with rows and columns. The address of an element \( A[i][j] \) depends on the storage order of the matrix:
-
-\paragraph{Row Major Order:}
-
-In row-major order, elements of the matrix are stored row by row. The formula to calculate the address of an element is:
-
-\[
-\text{Address of } A[i][j] = B + W \times \left[ N \times (i - L_r) + (j - L_c) \right]
-\]
-
-\paragraph{Column Major Order:}
-
-In column-major order, elements of the matrix are stored column by column. The formula is:
-
-\[
-\text{Address of } A[i][j] = B + W \times \left[ (i - L_r) + M \times (j - L_c) \right]
-\]
-
-Where:
-\begin{itemize}
-	\item \( N \) is the total number of columns.
-	\item \( M \) is the total number of rows.
-	\item \( L_r \) and \( L_c \) are the lower bounds of the row and column indices, respectively (if not specified, assume 0).
-\end{itemize}
-
-\[
-\begin{array}{c|c|c|c}
-	\text{Index} & 0 & 1 & 2 \\
-	\hline
-	A[0][0] & A[0][1] & A[0][2] & A[0][3] \\
-	\hline
-	A[1][0] & A[1][1] & A[1][2] & A[1][3] \\
-\end{array}
-\]
-
-For example, we use this method to implement this formula in C (\href{https://github.com/m-mdy-m/Arliz/blob/main/AddressCalculation/Two-Dimensional.c}{click and see the example})
-
 \subsubsection{Three-Dimensional Array}
-
-In a three-dimensional array, elements are arranged in a structure with three indices, such as \( A[i][j][k] \). The address of an element can be calculated as:
-
-\[
-\text{Address of } A[i][j][k] = B + W \times \left[ (i - L_1) \times n \times p + (j - L_2) \times p + (k - L_3) \right]
-\]
-
-Where:
-\begin{itemize}
-	\item \( m, n, p \) are the dimensions of the array.
-	\item \( L_1, L_2, L_3 \) are the lower bounds of the indices \( i, j, k \), respectively.
-\end{itemize}
-
-\[
-\begin{array}{c|c|c|c}
-	A[i][0][0] & A[i][0][1] & \dots & A[i][0][p-1] \\
-	\hline
-	A[i][1][0] & A[i][1][1] & \dots & A[i][1][p-1] \\
-	\hline
-	\vdots & \vdots & \ddots & \vdots \\
-	\hline
-	A[i][n-1][0] & A[i][n-1][1] & \dots & A[i][n-1][p-1] \\
-\end{array}
-\]
-
-For example, we use this method to implement this formula in C (\href{https://github.com/m-mdy-m/Arliz/blob/main/AddressCalculation/Three-Dimensional.c}{click and see the example})
-
 \subsubsection{Generalizing to a k-Dimensional Array}
-
-To generalize the address calculation for any k-dimensional array, we can use an inductive approach, observing the pattern from 1D to 3D arrays.
-
-Let \( A[i_1][i_2] \dots [i_k] \) represent an element in a k-dimensional array with dimensions \( N_1 \times N_2 \times \dots \times N_k \).
-
-\paragraph{Base Case (1-D Array):}
-For \( k = 1 \):
-
-\[
-\text{Address of } A[i_1] = B + W \times (i_1 - L_1)
-\]
-
-\paragraph{Inductive Step:}
-Assume that for a \( (k-1) \)-dimensional array, the address is given by:
-
-\[
-\text{Address of } A[i_1][i_2] \dots [i_{k-1}] = B + W \times \left[ \sum_{j=1}^{k-1} (i_j - L_j) \times \prod_{l=j+1}^{k-1} N_l \right]
-\]
-
-For a k-dimensional array, the address of \( A[i_1][i_2] \dots [i_k] \) is:
-
-\[
-\text{Address of } A[i_1][i_2] \dots [i_k] = B + W \times \left[ \sum_{j=1}^{k} (i_j - L_j) \times \prod_{l=j+1}^{k} N_l \right]
-\]
-
-Where:
-\begin{itemize}
-	\item \( N_l \) represents the size of the array in the \( l \)-th dimension.
-	\item \( L_j \) represents the lower bound for the \( j \)-th dimension.
-\end{itemize}
-
-This formula provides a general method for calculating the address of any element in a k-dimensional array, by considering all dimensions and their respective bounds.
-
-To better understand the structure of arrays in memory, here are visual representations of one-dimensional, two-dimensional, and three-dimensional arrays:
-
-\[
-\begin{array}{|c|c|c|c|}
-	\hline
-	\text{Index} & \text{Memory Address} & \text{1-D Array} & \text{2-D Array} \\
-	\hline
-	0 & B & A[0] & A[0][0] \\
-	1 & B + W & A[1] & A[0][1] \\
-	2 & B + 2W & A[2] & A[0][2] \\
-	\vdots & \vdots & \vdots & \vdots \\
-	n & B + nW & A[n] & A[0][n] \\
-	\hline
-\end{array}
-\]
-
-In the case of a three-dimensional array, you can visualize the array as a cube, where each element is accessed by three indices.
-
-\[
-\begin{array}{|c|c|c|}
-	\hline
-	\text{Index} & \text{Memory Address} & \text{3-D Array} \\
-	\hline
-	(i, j, k) & B + W \times \left[ (i - L_1) \times n \times p + (j - L_2) \times p + (k - L_3) \right] & A[i][j][k] \\
-	\hline
-\end{array}
-\]
-
-For example, we use this method to implement this formula in C (\href{https://github.com/m-mdy-m/Arliz/blob/main/AddressCalculation/4D-Dimensional.c}{click and see the example})
-
 \subsubsection{Examples}
+\chapter{Array Algorithms}
+\section{Sorting Algorithms}
+\section{Searching Algorithms}
+\section{Array Manipulation Algorithms}
+\section{Dynamic Programming and Arrays}
+\chapter{Practical and Advanced Topics}
 
-Let’s solidify our understanding with some examples:
-
-\paragraph{Example 1: One-Dimensional Array}
-Given a one-dimensional array \( A \) with base address 1000, element size 4 bytes, and lower bound 0, find the address of \( A[3] \):
-
-\[
-\text{Address of } A[3] = 1000 + 4 \times (3 - 0) = 1000 + 12 = 1012
-\]
-
-\paragraph{Example 2: Two-Dimensional Array (Row Major Order)}
-Given a 2D array \( A[2][3] \) with base address 2000, element size 4 bytes, 2 rows, and 3 columns, find the address of \( A[1][2] \) (row-major order):
-
-\[
-\text{Address of } A[1][2] = 2000 + 4 \times \left[ 3 \times (1 - 0) + (2 - 0) \right] = 2000 + 4 \times (3 + 2) = 2000 + 20 = 2020
-\]
-
-\paragraph{Example 3: Three-Dimensional Array}
-Given a 3D array \( A[3][3][3] \) with base address 3000, element size 4 bytes, find the address of \( A[2][2][2] \):
-\[\text{Address of } A[2][2][2] = 3000 + 4 \times \left[ (2 - 0) \times 3 \times 3 + (2 - 0) \times 3 + (2 - 0) \right] = 3104\]\\
-These examples demonstrate how the general formulas apply to specific cases, providing a clear understanding of address calculation in arrays of various dimensions.
-
-
-
-\section{Abstract Arrays}
-In algorithmic descriptions and theoretical computer science, the term "array" may also be used to describe an associative array or an "abstract array." An abstract array is a theoretical model (Abstract Data Type or ADT) used to describe the properties and behaviors of arrays without concern for their specific implementation. This abstraction allows for a focus on the operations that can be performed on arrays, such as accessing, inserting, or deleting elements.
-\section{Array Implementation in Different Programming Languages}
-\section{Index Registers and Indirect Addressing}
-
-As computer architecture evolved, hardware innovations like \textbf{index registers} and  \textbf{indirect addressing} were introduced to simplify array indexing.
-\begin{itemize}
-	\item \textbf{Index Registers:}
-	\begin{itemize}
-		\item \textbf{What They Are:} \\
-		An index register in a computer's CPU is a specialized processor register or an assigned memory location used for pointing to operand addresses during the execution of a program. It plays a crucial role in navigating through strings and arrays, enabling efficient processing of these data structures. Index registers can also hold loop iterations and counters, facilitating repetitive operations. In certain architectures, they are employed for reading and writing blocks of memory.
-		
-		Depending on the system architecture, an index register may be a dedicated hardware component or a general-purpose register repurposed for this function. Some instruction sets permit the use of multiple index registers simultaneously; in these cases, additional instruction fields specify which index registers should be used.
-		
-		Generally, the contents of an index register are added to (or, in some cases, subtracted from) an immediate address. This immediate address may be embedded in the instruction itself or held in another register, forming the "effective" address of the actual operand. Special instructions are typically provided to test the contents of the index register. If a test condition fails, the index register is incremented by an immediate constant, and the program branches, often looping back to the start of a code segment. In some unique cases, such as certain IBM computer lines, the contents of multiple index registers may be combined using bitwise OR operations instead of addition.
-		
-		Index registers have proven particularly useful for performing vector and array operations, as well as in commercial data processing, where they are instrumental in navigating from one field to another within records. By reducing memory usage and increasing execution speed, index registers have had a significant impact on improving computing efficiency.\\
-		\textbf{Example:}\\
-		Here is a simplified assembly language pseudo-code example demonstrating the use of an index register to sum a 100-entry array of 4-byte words:\\
-		\begin{verbatim}
-			Clear_accumulator
-			Load_index 400, index2
-			loop_start: 
-			Add_word_to_accumulator array_start, index2 
-			Branch_and_decrement_if_index_not_zero loop_start, 4, index2 
-		\end{verbatim}
-		In this example, the index register `index2` is loaded with the total byte size of the array and then used to step through each element, adding its value to an accumulator. The loop continues until all elements are processed.
-		\textbf{Simple Example:}
-		
-		Let's say we have an array of 5 elements: `A = [10, 20, 30, 40, 50]`. We want to sum these elements using an index register in assembly-like pseudo-code.
-		
-		\begin{verbatim}
-			Clear_accumulator         
-			Load_index 4, index 
-			loop_start: 
-			Add_to_accumulator A[index] 
-			Decrement_index 1, index 
-			Branch_if_not_zero loop_start 
-		\end{verbatim}
-		In this example, the index register is initialized to the last element of the array and then decrements by 1 on each iteration until it reaches the first element, summing all the values into the accumulator.
-		
-		\item  \textbf{How it Improved Array Access:}\\
-		
-		- \textbf{Efficiency in Early Computers:}\\
-		In the earliest computers, which lacked indirect addressing, array operations were labor-intensive. Each access required modifying the instruction's address manually, necessitating several additional program steps and consuming more memory. This was a significant concern in early computing environments, where memory was a scarce and valuable resource.\\
-		- \textbf{Simplifying Code:}\\
-		With the introduction of index registers, programmers no longer needed to modify instruction addresses directly. Instead, they could set the base address of an array in one register and use an index register to access individual elements. For example, if the base address of an array is stored in register `R1` and the index in register `R2`, the instruction could be `LOAD R3, (R1 + R2)` to load the value of the array element into another register.\\
-		- \textbf{Effective Address Calculation:}\\
-		The contents of an index register are generally combined with an immediate address to form the "effective" address of the actual data or operand. Special instructions allow the index register to be tested, incremented by an immediate constant, and the program to branch back to the start of a loop if necessary.
-		\item  \textbf{Advantages:}\\
-		- \textbf{Simplification and Speed:}\\
-		Index registers significantly simplified and sped up array operations by eliminating the need for manual modification of memory addresses within instructions. This not only enhanced execution speed but also reduced memory usage—a particularly valuable benefit in the early days of computing when memory was limited.\\
-		- \textbf{Flexibility and Error Reduction:}\\
-		The use of index registers made array processing more dynamic and flexible. By automating the address calculation process, it reduced the likelihood of errors associated with manual address manipulation.\\
-		- \textbf{Versatility in Data Processing:}\\
-		Beyond array operations, index registers proved invaluable in commercial data processing. They facilitated efficient navigation from one field to another within records, further underscoring their versatility and importance in various computing applications.
-	\end{itemize}
-	\item \textbf{Indirect Addressing:}
-	\begin{itemize} 
-		\item \textbf{What It Is:} \\
-		Indirect addressing is a method where the address of the data to be accessed is not directly specified in the instruction. Instead, the address is stored in an intermediate location, such as a register or a memory location, which the CPU must first access to retrieve the actual address of the data. This method allows for more dynamic and flexible memory management, as the actual data address can be modified without altering the instruction itself.
-		
-		In general means that instead of directly telling the computer where to find the data, you give it a place (like a note) that tells it where the data is stored. Imagine if someone handed you a piece of paper with an address written on it, and then you went to that address to find what you were looking for.
-		
-		To illustrate, consider the use of software libraries that are loaded into memory at runtime. These libraries often contain subroutines that a program may need to call. However, the exact memory location of these subroutines can vary each time the library is loaded, depending on the system's memory management and the other applications running at the time.\\
-		
-		\textbf{So, how can a program reliably access these subroutines if their memory addresses are not known in advance?}\\
-		
-		\textbf{Answer: Indirect Addressing.}\\
-		1. When the library is loaded into memory, the system's loader creates a specific block of memory known as a 'vector table'. This table doesn't hold the data or subroutines themselves but instead contains the addresses (pointers) of the subroutines within the library. The application is informed by the loader of the location of this vector table.
-		
-		2. To access a subroutine, the program first retrieves the subroutine's address from the vector table. For instance, the CPU might look at memory location 5002, which holds the address of the subroutine within the library.
-		
-		3. The content at location 5002 is then used as the actual address to access the subroutine. For example, if location 5002 holds the value 9000, the program will then look at location 9000 to execute the subroutine or fetch the data.
-		
-		To see this in assembly language, consider the instruction:
-		\[
-		\text{MOV A, @5002}
-		\]
-		This instruction tells the CPU to fetch the address stored at location 5002, then use that address to load the data into the accumulator. If the address stored at 5002 is 302, the instruction will ultimately load the data at memory location 302 into the accumulator.
-		
-		This approach provides a level of indirection that allows for more flexible and dynamic memory usage, as the actual memory address of the data or subroutine can be modified independently of the program code.
-		
-		\item \textbf{Application in Arrays:} \\
-		Indirect addressing is particularly useful in the context of arrays. In many programming languages, arrays are collections of elements stored in contiguous memory locations. To access an element in the array, the program must calculate the memory address of the element based on the array's starting address and the element's index.
-		
-		With indirect addressing, a pointer—a variable that holds a memory address—can be used to dynamically access array elements. Instead of hard-coding the memory address of each element, the program can simply modify the pointer to point to different elements of the array.\\
-		
-		in general when you're working with arrays, instead of telling the computer exactly where each piece of data is, you use something like a pointer (a note with a memory address) to find the data. This way, you can easily move through the array without worrying about where exactly each piece is stored.
-		
-		For example, if an array starts at memory location 1000, the pointer can be set to 1000 to access the first element. To access the next element, the pointer can be incremented by the size of the element (e.g., 4 bytes for a 32-bit integer). This allows for flexible and dynamic access to array elements, making it easier to implement loops, iterate over arrays, and handle complex data structures.
-		
-		\item \textbf{Benefits:} \\
-		Indirect addressing provides several key benefits, particularly in the management of arrays and other data structures:
-		\begin{itemize}
-			\item \textbf{Flexibility:} Indirect addressing allows programs to easily modify the address of the data being accessed without changing the program code. This is especially useful in scenarios where the data's memory location may change, such as when using dynamic memory allocation or working with software libraries that are loaded at runtime.
-			
-			\item \textbf{Dynamic Access:} By using pointers or registers to hold addresses, indirect addressing enables dynamic access to data structures like arrays. This is crucial for implementing algorithms that require iteration, recursion, or other complex operations on arrays and linked lists.
-			
-			\item \textbf{Efficiency:} Indirect addressing can lead to more efficient memory usage and faster execution, as it allows the CPU to quickly jump to different memory locations without needing to re-fetch or re-calculate addresses constantly. This is particularly important in low-level programming and systems with limited resources.
-			
-			\item \textbf{Support for Data Abstraction:} High-level programming languages often use indirect addressing behind the scenes to support features like object-oriented programming, where objects are accessed via references or pointers rather than direct memory addresses. This abstraction simplifies programming and enhances code reusability.
-			
-			\item \textbf{Simplified Code Maintenance:} Since the actual memory addresses do not need to be hard-coded into the program, indirect addressing makes code maintenance and updates easier. Changes in data structure layouts or memory allocation strategies do not require significant code rewrites.
-		\end{itemize}
-		These benefits make indirect addressing a powerful tool in both low-level system programming and high-level application development, enabling the creation of more robust, flexible, and efficient software.
-	\end{itemize}
-\end{itemize}
-
-
-\section{\href{https://en.wikipedia.org/wiki/Self-modifying_code}{Self-Modifying Code in Early Computers}}
-	
-	In the earliest digital computers, array indexing was often managed using a technique known as \textbf{self-modifying code}.
-	
-	\begin{itemize}
-		\item \textbf{What is Self-Modifying Code?} \\
-		Self-modifying code is a programming technique where the program alters its own instructions during execution. This was a common practice in the early days of computing when memory and processing resources were extremely limited. In essence, the program rewrites parts of itself to adapt to new conditions, optimize performance, or manage dynamic data structures like arrays.
-		
-		\item \textbf{How it Worked for Arrays:} \\
-		Let's consider an example to clarify how self-modifying code was used with arrays. Suppose you have an array stored in memory starting at address `1000` and you want to access the element at index `3`. In early computers, the program might include an instruction like:
-		
-		\[
-		\text{LOAD } \text{MEMORY[1000]} \quad \text{; Load the first element of the array}
-		\]
-		
-		To access the element at index `3`, the program would modify this instruction to point to `MEMORY[1003]`. This modification might be done by adjusting the memory address directly in the code:
-		
-		\[
-		\text{LOAD } \text{MEMORY[1003]} \quad \text{; Now the instruction loads the element at index 3}
-		\]
-		
-		Here, the program dynamically changes the instruction to fetch the correct element from the array. This modification is done by calculating the address of the desired element (in this case, `1000 + 3 = 1003`) and updating the code accordingly.
-		
-		\item \textbf{Example of Self-Modifying Code:} \\
-		Consider a simple assembly-like pseudo-code example:
-		\begin{verbatim}
-			START:  LOAD A, MEMORY[1000]  ; Load element at index 0
-			ADD  A, 3             ; We want to access the element at index 3
-			STORE MEMORY[1010], A ; Modify the instruction to access index 3
-			...
-			LOAD A, MEMORY[1003]  ; This is the modified instruction
-		\end{verbatim}
-		
-		Initially, the code loads the first element of the array (`MEMORY[1000]`). After modifying the instruction, the program now loads from `MEMORY[1003]`, effectively accessing the element at index `3`. This type of code was manually crafted, requiring the programmer to carefully manage memory addresses and ensure correctness.
-		
-		For example, you can see an example \href{https://github.com/m-mdy-m/Arliz/blob/main/Self-Modifying-Code/index.asm}{here}. (small and short example)
-		
-		\item \textbf{Drawbacks:} \\
-		Although self-modifying code allowed for more flexible programs, it had significant drawbacks:
-		\begin{itemize}
-			\item \textbf{Complexity:} Writing and understanding self-modifying code was challenging. It required intimate knowledge of the program's memory layout and could easily lead to errors if the modifications were not handled correctly.
-			\item \textbf{Debugging Difficulty:} Debugging programs that modify themselves was notoriously difficult because the code could change during execution, making it hard to trace and understand the program's behavior.
-			\item \textbf{Security Risks:} Self-modifying code could lead to security vulnerabilities, as it was possible for unintended modifications to introduce bugs or security flaws. Additionally, the unpredictability of code changes could lead to system crashes or corrupted data.
-			\item \textbf{Maintainability Issues:} Programs using self-modifying code were harder to maintain, as future developers would struggle to understand and modify the code without introducing new errors.
-		\end{itemize}
-		
-		As computing technology advanced, self-modifying code fell out of favor due to these drawbacks. Modern programming languages and architectures provide safer, more efficient ways to manage dynamic data and memory, making self-modifying code largely obsolete in most applications.
-	\end{itemize}
-
+\section{Self-Modifying Code in Early Computers}
 \section{Common Array Algorithms}
 \section{Performance Considerations}
 \section{Practical Applications of Arrays}
