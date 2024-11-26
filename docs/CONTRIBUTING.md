@@ -23,23 +23,24 @@ Thank you for considering contributing to **Arliz**! This project is an open-sou
 1. **Fork the Repository**:  
    Visit the [Arliz GitHub repository](https://github.com/m-mdy-m/Arliz) and click the "Fork" button to create your copy.
 
-2. **Clone Your Fork**:  
+2. **Clone Your Fork**:
    ```bash
-   git clone https://github.com/<your-username>/Arliz.git
+   git clone https://github.com/m-mdy-m/Arliz.git
    ```
-   
-3. **Set Upstream Remote**:  
+3. **Set Upstream Remote**:
+
    ```bash
    git remote add upstream https://github.com/m-mdy-m/Arliz.git
    ```
 
 4. **Create a New Branch**:  
-   Use a descriptive name for your branch (e.g., `fix-typo-preface` or `feature-exercise-solutions`).  
+   Use a descriptive name for your branch (e.g., `fix-typo-preface` or `feature-exercise-solutions`).
+
    ```bash
    git checkout -b <branch-name>
    ```
 
-5. **Install Dependencies** *(if applicable)*:  
+5. **Install Dependencies** _(if applicable)_:  
    Follow the instructions in the `README.md` to set up the development environment.
 
 ---
@@ -53,6 +54,7 @@ You can contribute in the following ways:
 
 2. **Propose Changes**:  
    Submit a pull request for:
+
    - Fixing typos or errors in the content.
    - Improving explanations or examples.
    - Adding exercises, diagrams, or pseudocode.
