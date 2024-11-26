@@ -1,63 +1,103 @@
-\documentclass[12pt, oneside]{book}  
-\usepackage[T1]{fontenc}   
-\usepackage[utf8]{inputenc}  
-\usepackage{microtype}  
-\usepackage[sc]{mathpazo}  
-\usepackage{hyperref}  
-\usepackage{charter}
-\hypersetup{
-	colorlinks=true,  % Links appear in color
-	linkcolor=black,   % Color for internal links
-	citecolor=blue,   % Color for citations
-	urlcolor=blue     % Color for URLs
-}
+\documentclass[12pt, oneside]{book}
 
-\usepackage{amsmath, amssymb, amsthm}  
-\usepackage[a4paper, margin=1in]{geometry}
-\usepackage{booktabs}  
-\usepackage{array} 
-\usepackage{graphicx}
-\usepackage{caption}
-\usepackage{float}
-\usepackage[backend=biber,style=apa]{biblatex}
-\addbibresource{references.bib}
-\usepackage{fancyhdr}
-% Page layout configuration
-\geometry{a4paper, margin=1in}
+% Encoding and Font Packages
+\usepackage[T1]{fontenc} % Enables more efficient encoding for characters
+\usepackage[utf8]{inputenc} % Allows for direct input of Unicode characters
+\usepackage{microtype} % Improves typography by fine-tuning text spacing
 
-% Fancyhdr configuration for headers and footers
+% Font Setup for Official Text
+\usepackage{charter} % Primary font for readability
+\usepackage{bm} 
+\usepackage{mathpazo} 
+
+% Monospaced Font for Code Listings
+\usepackage[scaled=.95]{inconsolata}
+
+% Color and Graphics
+\usepackage{xcolor} % For custom color definitions
+\usepackage{graphicx} % To insert images, diagrams, etc.
+\usepackage{caption} % Customization of figure captions
+\usepackage{subcaption} % For sub-figures (helpful for detailed diagrams)
+\usepackage{tikz} % For high-quality, custom diagrams and illustrations
+\usetikzlibrary{positioning, shapes.geometric, arrows, calc} % Libraries for complex diagram creation
+
+% Margins and Page Layout
+\usepackage[a4paper, margin=1in]{geometry} % Adjust page margins
+\usepackage{setspace} % For line spacing
+\setstretch{1.3} % Sets a nice line spacing for the text (readable and clear)
+
+% Headers and Footers
+\usepackage{fancyhdr} % For fancy headers and footers
 \pagestyle{fancy}
-\fancyhead[L]{\nouppercase{\leftmark}}
-\fancyhead[R]{\nouppercase{\rightmark}}
-\fancyfoot[C]{\thepage}
-\usepackage{xcolor} 
-\definecolor{myblue}{RGB}{0, 102, 204}
-\usepackage{listings}
-
-\lstset{
-	basicstyle=\ttfamily\small,   % Font style for the code (typewriter font, small size)
-	breaklines=true,              % Automatically break lines that are too long
-	commentstyle=\color{gray},    % Style for comments
-	keywordstyle=\color{blue},    % Style for keywords
-	stringstyle=\color{red},      % Style for strings
-	numbers=left,                % Line numbers on the left
-	numberstyle=\tiny,           % Style for line numbers
-	stepnumber=1,                % Number every line (1 = every line, 2 = every second line, etc.)
-	backgroundcolor=\color{lightgray}, % Background color for code blocks
-	captionpos=b,                % Position of the caption (b = bottom, t = top)
-	escapeinside={(*@}{@*)},     % Escape to LaTeX within code (useful for adding LaTeX commands)
-	morecomment=[s][\color{magenta}]{/*}{*/}, % Additional comment style
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}} % Left-aligned chapter heading
+\fancyhead[R]{\thepage} % Right-aligned page number
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\fancyfoot[C]{\thepage} % Centered page number for "plain" pages
 }
-\usepackage{tocbibind}
-\usepackage{titlesec}
-\usepackage{makeidx}
-\makeindex
+
+% Hyperlink and Navigation
+\usepackage{hyperref} % For hyperlinks and navigation within the document
+\hypersetup{
+	colorlinks=true, % Enables colored links
+	linkcolor=black, % Links are in black (good for printing)
+	citecolor=blue, % Citation links are blue
+	urlcolor=cyan, % URLs are cyan
+	pdfauthor={Mahdi}, % Author metadata for PDF
+	pdftitle={Arliz}, % Title metadata for PDF
+	pdfsubject={Programming, Arrays, and Data Structures}, % Subject for PDF
+	pdfkeywords={Arrays, Data Structures, Programming, History of Computing}, % Keywords for PDF
+}
+
+% Bibliography
+\usepackage[backend=biber,style=apa]{biblatex} % APA-style citations
+\addbibresource{references.bib} % Add the bibliography file
+
+% Listings for Code
+\usepackage{listings} % For code listings and syntax highlighting
+\lstset{
+	basicstyle=\ttfamily\small, % Monospaced font for code
+	frame=single, % Draws a box around the code block
+	breaklines=true, % Automatically breaks lines in code
+	numbers=left, % Line numbers on the left
+	numberstyle=\tiny\color{gray}, % Style of line numbers
+	keywordstyle=\color{myblue}\bfseries, % Keywords in blue and bold
+	commentstyle=\color{olive}, % Comments in green
+	stringstyle=\color{orange}, % Strings in orange
+	backgroundcolor=\color{lightgray!20}, % Light background for code blocks
+	captionpos=b, % Position the caption at the bottom
+	escapeinside={(*@}{@*)}, % Allows for inline LaTeX inside code blocks
+	morekeywords={array, structure, algorithm, complexity}, % Add relevant keywords for highlighting
+}
+
+% Table of Contents and Index
+\usepackage{tocbibind} % Adds bibliography and index to the table of contents
+\usepackage{imakeidx} % For index generation
+\makeindex % Generates the index
+
+% Title Customization
+\usepackage{titlesec} % For customizing chapter and section styles
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptername\ \thechapter}{20pt}{\Huge}
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+
+% Algorithms and Pseudocode
+\usepackage{algorithm} % For displaying algorithms
+\usepackage{algpseudocode} % For pseudocode formatting
+
+% Multicolumn for Glossary or Index
+\usepackage{multicol} % For multicolumn layouts (useful for glossary)
+
+% Custom Colors
+\definecolor{myblue}{RGB}{0, 102, 204} % Define a custom blue color for code and links
+\definecolor{lightgray}{RGB}{240, 240, 240} % Light gray for code backgrounds
 
 % Title and author
-\title{{\Huge Arliz}}
-\author{{\LARGE Mahdi}}
-\date{{\large \today}}
-
+\title{{\Huge Arliz}} % Book title (Large font)
+\author{{\LARGE Mahdi}} % Author name (Large font)
+\date{{\large \today}} % Date of the document
 
 \begin{document}
 	\frontmatter
@@ -66,6 +106,7 @@
 	\tableofcontents
 	
 \section{Preface}
+\addcontentsline{toc}{chapter}{Preface}
 Every book has a story about its creation, and this one is no different. If I were to summarize the process of writing this book in a word, it would be \textbf{improvised}. Yet, in its essence, this book is the result of sheer curiosity. \\
 It all began with a question: \textbf{What is an array?} As I delved deeper into studying data structures and algorithms, I found myself frequently encountering this concept. But I wanted more than just a functional understanding I wanted to know its origins, how it evolved, and how it works at its core. This quest for understanding led me down a rabbit hole of exploration, uncovering not only the technical details of arrays but also the fascinating history and underlying principles that make them indispensable in computing. Along the way, I uncovered not only the origins of arrays but also their profound impact on modern programming. These findings inspired me to consolidate my knowledge into a structured resource, which eventually became this book. \\
 The idea to compile this book came about during a late-night discussion in the \textbf{CodeModule} group. Arrays were part of the conversation, and as I shared what I had learned, my friend Aran suggested that I write an article on the topic. The suggestion planted a seed. Within minutes, I decided to take it a step further: why not write a book? Thus, \textbf{Arliz} was born. The name itself is arbitrary chosen on a whim—but the book quickly grew into a structured effort. \\
@@ -75,10 +116,11 @@ From that moment, I started gathering information from various sources, includin
 	\item  \textbf{Visualization:}  Use diagrams to clarify complex problems, making them easier to understand and recall because sometimes, a visual representation is worth more than a thousand words.  
 	\item \textbf{Portability}  Include concise, well-explained pseudocode that can be easily translated into major programming languages such as C, C++, and Java. and etc.
 \end{itemize}
-\\A unique aspect of this book is its emphasis on implementation. While the theoretical underpinnings of the algorithms are grounded in established knowledge, the code and approaches presented here are largely of our own design. These implementations may differ from standard practices—occasionally for better, occasionally for worse—but they serve as a practical means of applying and internalizing the concepts discussed. \\
+A unique aspect of this book is its emphasis on implementation. While the theoretical underpinnings of the algorithms are grounded in established knowledge, the code and approaches presented here are largely of our own design. These implementations may differ from standard practices—occasionally for better, occasionally for worse—but they serve as a practical means of applying and internalizing the concepts discussed. 
 Ultimately, the goal of \textbf{Arliz} is to deepen your understanding of arrays, empowering you to use this fundamental data structure to build efficient, effective, and elegant programs. \\
 This book is freely available as a PDF or LaTeX file in the \href{https://github.com/m-mdy-m/Arliz}{Arliz repository}. It includes exercises and projects at the end of each chapter to reinforce learning. I encourage you to tackle these exercises before moving on to the next section, as they are integral to mastering the material.\\ It is my hope that this book serves as both a practical guide and a source of inspiration. May it empower you to build efficient and elegant programs, and above all, may it deepen your understanding of the power of representation in programming.
-
+% Main Content
+\mainmatter
 \chapter{Introduction to Arrays}
 	
 \section{Overview}
@@ -392,5 +434,4 @@ Arrays have not just shaped programming and algorithms; they have also influence
 \section{Glossary of Terms}
 \section{Bibliography}
 \section{Index}
-
 \end{document}
