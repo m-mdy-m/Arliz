@@ -8,3 +8,8 @@
 *.blg
 *.idx
 *.xml
+*.ilg
+*.glo
+*.ind
+*.lst
+*.o
