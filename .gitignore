@@ -13,3 +13,6 @@
 *.ind
 *.lst
 *.o
+*.lot
+*.lof
+tags*
