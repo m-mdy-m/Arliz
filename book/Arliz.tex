@@ -119,20 +119,74 @@
 \definecolor{lightgray}{RGB}{240, 240, 240} % Light gray for code backgrounds
 
 % Title and author
-\title{{\Huge\textbf{Arliz}}\\[0.5em]
-	{\LARGE A Journey Through Arrays and Computer Fundamentals}\\[1em]
-	{\large From Bits to Data Structures}}
-\author{{\LARGE Mahdi}} % Author name (Large font)
-\date{{\large \today}} % Date of the document
-
+% \title{{\Huge\textbf{Arliz}}\\[0.5em]
+% {\LARGE A Journey Through Arrays and Computer Fundamentals}\\[1em]
+%	{\large From Bits to Data Structures}}
+% \author{{\LARGE Mahdi}} % Author name (Large font)
+% \date{{\large \today}} % Date of the document
+\usepackage{pdfpages}
 \begin{document}
+	\includepdf[pages=-, pagecommand={}, width=\paperwidth, height=\paperheight]{logo.pdf}
 	\frontmatter
-	\mainmatter
-	\maketitle
-	\tableofcontents
-	\renewcommand{\arraystretch}{1.5} % Adjust row height for better readability
+	% Title Page (Front Matter)
+
+\begin{titlepage}
+	\begin{center}
+		\vspace*{2cm}
+		
+		{\Huge\bfseries In Praise of Arliz}\\[2em]
+		
+		{\Large\scshape Mahdi}\\[0.5em]
+		\textsc{Computer Engineering Student}\\[2em]
+		
+		\begin{minipage}{1\textwidth}
+			\centering
+			This book evolves. Every insight gained—whether a circuit, a structure,\\
+				or a simple idea—is absorbed and integrated. Arliz is never complete.\\
+				Because understanding never is.
+		\end{minipage}
+		
+		\vfill
+		
+	
+	{\large \textsc{First Edition}}\\[0.5em]
+	{\large \today}
+	
+	\vspace*{1cm}
+	{\small
+		\textcopyright\ 2025 Mahdi “Genix”  
+		\par
+		Released under the MIT License  
+		\par
+		\url{https://github.com/m-mdy-m/Arliz}
+	}
+	\end{center}
+\end{titlepage}
+
+%----------------------------------------------
+% Dedication
+%----------------------------------------------
+\cleardoublepage
+\thispagestyle{empty}
+\vspace*{6cm}
+\begin{center}
+	\emph{
+		To those who build from first principles.\\
+		To the silent thinkers who design before they speak.\\
+		To the ones who see in systems—\\
+		not just machines, but metaphors.\\
+		This is for you.}
+\end{center}
+% Acknowledgments
+\chapter*{Acknowledgments}
+\thispagestyle{empty}
+\addcontentsline{toc}{chapter}{Acknowledgments}
+I would like to express my gratitude to everyone who supported me during the creation of this book. Special thanks to the open-source community for their invaluable resources and to all those who reviewed early drafts and provided feedback.
+
+   %\maketitle
 	\newpage
-	\section{Preface}
+	\chapter*{Preface}
+	\thispagestyle{empty}
 	\addcontentsline{toc}{chapter}{Preface}
 	
 	Every book has its own story, and this book is no exception. If I were to summarize the process of creating this book in one word, that word would be “improvised.” Yet the truth is that Arliz is the result of pure, persistent curiosity that has grown in my mind for years. What you are reading now could be called a technical book, a collection of personal notes, or even a journal of unanswered questions and curiosities. But I—officially—call it a \emph{book}, because it is written not only for others but for myself, as a record of my learning journey and an effort to understand more precisely the concepts that once seemed obscure and, at times, frustrating.\\
@@ -143,10 +197,11 @@
 	\emph{If I truly want to understand, I must start from zero.}\\	
 	There is no deeper story behind the name “Arliz.” There is no hidden philosophy or special inspiration—just a random choice. I simply declared:  
 	\emph{This book is called Arliz.}  
-	You may pronounce it “Ar-liz,” “Array-ees,” or any way you like. I personally say “ar-liz.” That is all—simple and arbitrary.\\	
+	You may pronounce it "Ar-liz," "Array-Liz," or any way you like. I personally say "ar-liz." That is all—simple and arbitrary.\\	
 	But Arliz is not merely a technical book on data structures. In fact, \textbf{Arliz grows alongside me}. \\
 	Whenever I learn something I deem worth writing, I add it to this book. Whenever I feel a section could be explained better or more precisely, I revise it. Whenever a new idea strikes me—an algorithm, an exercise, or even a simple diagram to clarify a structure—I incorporate it into Arliz.\\
 	This means Arliz is a living project. As long as I keep learning, Arliz will remain alive.\\	
+	The structure of this book has evolved around a simple belief: true understanding begins with context. That’s why Arliz doesn’t start with code or syntax, but with the origins of computation itself. We begin with the earliest tools and ideas—counting stones, the abacus, mechanical gears, and early notions of logic—long before transistors or binary digits came into play. From there, we follow the evolution of computing: from ancient methods of calculation to vacuum tubes and silicon chips, from Babbage’s Analytical Engine to the modern microprocessor. Along this journey, we discover that concepts like arrays aren’t recent inventions—they are the culmination of centuries of thought about how to structure, store, and process information.\\
 	In writing this book, I have always tried to follow three principles:
 	
 	\begin{itemize}
@@ -166,29 +221,24 @@
 	In each chapter, I have included exercises and projects to aid your understanding. Please do not move on until you have completed these exercises, because true learning happens only by solving problems.\\	
 	I hope this book serves you well—whether for starting out, reviewing, or simply satisfying your curiosity. And if you learn something, find an error, or have a suggestion, please let me know. As I said:
 	\emph{This book grows with me.}
-	
-	% Acknowledgments
-	\chapter*{Acknowledgments}
-	\addcontentsline{toc}{chapter}{Acknowledgments}
-	I would like to express my gratitude to everyone who supported me during the creation of this book. Special thanks to the open-source community for their invaluable resources and to all those who reviewed early drafts and provided feedback.
-	
+	\tableofcontents
+	\renewcommand{\arraystretch}{1.5} % Adjust row height for better readability
 	% Main Content
 	\mainmatter
-	\part{The Birth of Computing: From Mechanical to Electronic}
-	\section*{Introduction}
-	\addcontentsline{toc}{section}{Introduction}
-	Long before a single line of code was ever written, long before the transistor or even electricity became central to our world, the desire to compute—to quantify, to measure, to simulate—was embedded in the human spirit. Computing is not a modern invention. It is an ancient pursuit, born out of necessity and nurtured by imagination. Before we attempt to understand complex abstractions like arrays or the intricate orchestration of modern architectures, it is worth taking a step back and asking a more fundamental question: What does it mean to compute?\\
-	This part of the book invites you on a journey—not just through the technical milestones that led to the digital world, but through the evolution of ideas. Ideas about information. About logic. About representation. And above all, about control. Arrays, as we will explore later, are not simply ways to store numbers in memory. They are symbolic containers for how we humans conceive order, access, structure, and repetition. They are computational reflections of patterns we've observed and manipulated for millennia.\\
-	To truly understand arrays and all data structures that follow, we must understand their philosophical and physical roots. We begin our journey with the abacus, a device that predates recorded history yet encodes principles of state, transformation, and position—concepts which remain foundational in modern computation. From there, we traverse the age of mechanical innovation, when inventors like Pascal and Leibniz attempted to mechanize arithmetic. Then comes Charles Babbage, whose vision of the Analytical Engine outlined the blueprint for a programmable machine nearly a century before electricity revolutionized the field. And Ada Lovelace, who saw beyond machinery to glimpse the essence of algorithmic thought. She realized that machines could go beyond numbers—that they could model logic, creativity, and potentially even cognition.\\
-	As we progress, we enter the era of electromechanical and electronic machines: hulking contraptions powered by relays, vacuum tubes, and eventually transistors. These developments were not just advances in speed or reliability; they marked a conceptual leap. They transformed computing from a mechanical operation into a symbolic one. Logic was no longer just gears and levers—it became voltages and switches, and eventually, binary abstraction.\\
-	One of the most critical conceptual shifts came with the notion of a "stored program." Before this idea took hold, machines were hardwired for a single task. But in the stored-program model, the machine could modify its behavior based on the data it processed—blurring the line between hardware and software, between machine and meaning. This shift underpins all modern computing. Without it, arrays wouldn't exist as dynamic, mutable objects. Memory would not be a programmable canvas. Programs themselves would not be flexible instruments of logic, but static constructs.\\
-	Our journey will then transition into the heart of computer hardware: gates, circuits, boolean algebra, and transistors. Not merely as physical components, but as ideas—ways of controlling flow, enforcing conditions, and making decisions. The logic gate is not just a transistor trick; it is the embodiment of conditionality. It is if, and, or, not—the very syntax of thought, encoded in silicon.\\
-	We then observe the progression from individual gates to integrated circuits and finally microprocessors: the functional cores of computers that now reside on chips smaller than your fingernail but capable of billions of operations per second. As abstraction increases, so does complexity—and yet, the foundational ideas remain remarkably stable. Truth tables, combinational logic, flip-flops, and memory cells still govern our most advanced machines.\\
-	Before concluding this part, we explore the representation of data itself: number systems, binary encoding, character sets, and floating-point arithmetic. These are not merely technical encodings; they are worldviews. They define what a computer can know, can store, and can express. You will encounter how a machine sees numbers, letters, and even concepts like time and position—not with intuition, but with representation, ranges, and encodings. You will see how bits become meaning.\\
-	And finally, we arrive at memory—the substrate of state, the ground on which all computation stands. From early punch cards and magnetic drums to modern RAM hierarchies and virtual address spaces, memory has always been more than storage. It is the record of thought in progress, the only place where logic can become consequence. Arrays, in particular, are born in memory. Their efficiency, limitations, and power derive from how memory is structured, addressed, and accessed.\\
-	If you are someone eager to jump into code, to build systems, to write loops and manipulate structures, you may be tempted to skip ahead. And you are welcome to do so. But by understanding where computation comes from—not just the how, but the why—you will gain something more profound. You will see programming not as instruction-giving, but as idea-expression. Not as control over machines, but as alignment with centuries of thought.\\
-	This is not merely history. It is orientation. It is the intellectual soil from which your code will grow.\\
-	Let us now begin at the beginning—with machines made of wood and brass, and with minds that dared to make them think.
+
+\part{The Birth of Computing: From Mechanical to Electronic}
+\section*{Introduction}
+
+Long before a single line of code was ever written—long before electricity, transistors, or even the concept of modern logic circuits—humans felt an innate drive to calculate, record, and model the world around them. Computing is not a recent invention. It is one of humanity’s oldest intellectual pursuits, rooted in necessity and evolved through creativity. Before we dive into complex abstractions like arrays or data structures, we must ask a deeper, almost philosophical question: \textbf{What does it mean to compute?}\\
+This part of the book invites you on a journey—not just through the machinery and breakthroughs that brought us the modern computer, but through the evolution of human thought about numbers, representation, and control. Arrays, as we will later explore in depth, are not merely structures to store data. They are reflections of how we’ve ordered information for thousands of years. Their logic is built upon ancient insights—on sets, sequences, and patterns—and they embody the fundamental human need to represent, repeat, and manipulate structured information.\\
+Our journey begins in ancient times, long before Christ, with devices like the abacus, first appearing over 2,500 years ago in Mesopotamia and later refined by Chinese, Roman, and Japanese cultures. The abacus was not just a calculator—it was an embodiment of the concepts of \textbf{state}, \textbf{position}, and \textbf{transformation}, principles that continue to underpin all modern computation. It allowed people to model quantities, track multiple values in parallel (an early echo of array indexing), and perform operations based on positional representation.\\
+From these early tools, we progress into the classical mathematical age, where the Greeks formalized logic, and concepts like \textbf{sets} and \textbf{ordered lists} began to take philosophical shape. While not arrays in the modern sense, these ideas laid the intellectual groundwork for thinking about groups of data—grouped, related, or sequential—that could be acted upon as a whole. The set, in particular, became a foundational concept in mathematics and later in programming: an abstract container for elements that obey rules and enable operations. The leap from abstract sets to concrete arrays reflects one of the key transitions in computational history—from idea to implementation.\\
+In the 17th century, visionaries like Blaise Pascal and Gottfried Wilhelm Leibniz attempted to automate arithmetic with mechanical devices. These weren’t just clever tools—they were the first signs of a dream to make thinking itself mechanical. Charles Babbage expanded this dream with his Analytical Engine in the 19th century, envisioning a machine that could be programmed and reprogrammed—a concept that wouldn’t become reality until a century later. Ada Lovelace, who worked with Babbage, went even further. She grasped that machines could go beyond numbers: they could process symbolic logic, follow instructions, and even imitate aspects of reasoning. She anticipated the algorithm as a mental construct, not just a set of steps.\\
+As we move forward into the 20th century, the invention of electromechanical and electronic machines—using relays, vacuum tubes, and later transistors—marked a revolution. No longer limited by gears and levers, computers became faster, more reliable, and more abstract. The idea of a \textbf{stored program} emerged, allowing machines to modify their behavior dynamically. This wasn’t just a technical innovation—it was a conceptual transformation. Programs became data, and data became active. Arrays, now implemented in memory, could be changed, traversed, and manipulated at runtime—opening the door to software as we know it today.\\
+Eventually, we arrive at logic gates, boolean algebra, and the transistor—the atomic units of modern computation. These are more than circuits; they are the physical embodiment of logical thought: conditions, branching, repetition. From gates we build circuits, from circuits microprocessors, and from those, machines that can simulate anything we can formalize.\\
+Before concluding this part, we will look closely at how data is represented: binary numbers, encoding schemes, floating-point formats, and character representations. These are not just technical tools; they are perspectives. They define the limits of what a machine can know, express, and manipulate. And finally, we arrive at memory—where arrays live, grow, and function. Memory is not just storage; it is the canvas of computation. It is where change happens and where order emerges.\\
+If you are excited to write code, build systems, and jump into implementation, you are free to skip ahead. But if you stay with us for this brief but essential historical and conceptual journey, you will see programming not just as control over a machine, but as part of a much older story: the story of how humans learned to structure thought, encode logic, and make abstract ideas come alive.\\
+Let us begin—at the beginning. With sand, stone, wood, and brass. And with minds bold enough to imagine machines that think.
 	\chapter{Mechanical Roots of Computing}
 	\section{From the Abacus to the Analytical Engine}
 	
@@ -260,22 +310,23 @@
 	\subsection{RAM Geometries and Bank Organization}
 	\section{Address Space Concepts}
 	\subsection{Physical vs. Virtual Addressing}
-	
-	
-	\part{From Bits to Structures}
-	\chapter{Data Organization Principles}
-	\section{The Philosophy of Structured Storage}
-	\section{Primitive Data Types}
-	\subsection{Bit Patterns and Value Interpretation}
-	\section{Composite Data Types}
-	\subsection{Packed vs. Unpacked Formats}
-	
-	\chapter{Memory Access Patterns}
-	\section{Big/Little Endian Architectures}
-	\section{Memory Alignment Considerations}
-	\section{Pointer Arithmetic Deep Dive}
-	\subsection{Type-Safe Addressing}
-	
+	\subsection{Memory Mapping and Address Translation}
+	\section{Memory Layout in Programs}
+	\subsection{Code Segment (Text Segment)}
+	\subsection{Data Segment (Initialized Data)}
+	\subsection{BSS Segment (Uninitialized Data)}
+	\subsection{Heap and Stack Segments}
+	\section{Memory Allocation Strategies}
+	\subsection{Static Memory Allocation}
+	\subsection{Stack-Based Allocation}
+	\subsection{Heap-Based Dynamic Allocation}
+	\subsection{Memory Pools and Custom Allocators}
+	\section{Memory Protection and Segmentation}
+	\subsection{Memory Protection Mechanisms}
+	\subsection{Segmentation and Paging}
+	\subsection{Memory Management Unit (MMU)}
+	\subsection{Address Space Layout Randomization (ASLR)}
+		
 	\part{The Array Odyssey}
 	 \chapter{Historical Emergence of Arrays}
 	 \section{Early Array Concepts in Mathematics}
