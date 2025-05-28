@@ -18,3 +18,5 @@
 tags*
 *.bib
 arch*.tex
+*.acn
+*.ist
