@@ -137,18 +137,15 @@
 		{\Huge\bfseries In Praise of Arliz}\\[2em]
 		
 		{\Large\scshape Mahdi}\\[0.5em]
-		\textsc{Computer Engineering Student}\\[2em]
 		
 		\begin{minipage}{1\textwidth}
 			\centering
 			This book evolves. Every insight gained—whether a circuit, a structure,\\
-				or a simple idea—is absorbed and integrated. Arliz is never complete.\\
-				Because understanding never is.
+				or a simple idea—is absorbed and integrated. 
 		\end{minipage}
 		
 		\vfill
 		
-	
 	{\large \textsc{First Edition}}\\[0.5em]
 	{\large \today}
 	
@@ -157,8 +154,6 @@
 		\textcopyright\ 2025 Mahdi “Genix”  
 		\par
 		Released under the MIT License  
-		\par
-		\url{https://github.com/m-mdy-m/Arliz}
 	}
 	\end{center}
 \end{titlepage}
@@ -177,14 +172,7 @@
 		not just machines, but metaphors.\\
 		This is for you.}
 \end{center}
-% Acknowledgments
-\chapter*{Acknowledgments}
-\thispagestyle{empty}
-\addcontentsline{toc}{chapter}{Acknowledgments}
-I would like to express my gratitude to everyone who supported me during the creation of this book. Special thanks to the open-source community for their invaluable resources and to all those who reviewed early drafts and provided feedback.
 
-   %\maketitle
-	\newpage
 	\chapter*{Preface}
 	\thispagestyle{empty}
 	\addcontentsline{toc}{chapter}{Preface}
@@ -221,8 +209,17 @@ I would like to express my gratitude to everyone who supported me during the cre
 	In each chapter, I have included exercises and projects to aid your understanding. Please do not move on until you have completed these exercises, because true learning happens only by solving problems.\\	
 	I hope this book serves you well—whether for starting out, reviewing, or simply satisfying your curiosity. And if you learn something, find an error, or have a suggestion, please let me know. As I said:
 	\emph{This book grows with me.}
+	% Acknowledgments
+	\chapter*{Acknowledgments}
+	\thispagestyle{empty}
+	\addcontentsline{toc}{chapter}{Acknowledgments}
+	I would like to express my gratitude to everyone who supported me during the creation of this book. Special thanks to the open-source community for their invaluable resources and to all those who reviewed early drafts and provided feedback.
+	
+	%\maketitle
+	\newpage
 	\tableofcontents
 	\renewcommand{\arraystretch}{1.5} % Adjust row height for better readability
+	
 	% Main Content
 	\mainmatter
 
@@ -239,94 +236,878 @@ Eventually, we arrive at logic gates, boolean algebra, and the transistor—the 
 Before concluding this part, we will look closely at how data is represented: binary numbers, encoding schemes, floating-point formats, and character representations. These are not just technical tools; they are perspectives. They define the limits of what a machine can know, express, and manipulate. And finally, we arrive at memory—where arrays live, grow, and function. Memory is not just storage; it is the canvas of computation. It is where change happens and where order emerges.\\
 If you are excited to write code, build systems, and jump into implementation, you are free to skip ahead. But if you stay with us for this brief but essential historical and conceptual journey, you will see programming not just as control over a machine, but as part of a much older story: the story of how humans learned to structure thought, encode logic, and make abstract ideas come alive.\\
 Let us begin—at the beginning. With sand, stone, wood, and brass. And with minds bold enough to imagine machines that think.
-	\chapter{Mechanical Roots of Computing}
-	\section{From the Abacus to the Analytical Engine}
+
+% ==========================================
+% CHAPTER 1: PHILOSOPHICAL FOUNDATIONS
+% ==========================================
+
+\chapter{What Does It Mean to Compute?}
+
+\section{The Human Urge to Measure and Represent}
+\subsection{The Birth of Abstraction: From Reality to Symbol}
+\subsection{Quantity, Quality, and the Need for Order}
+\subsection{The Cognitive Origins of Structured Thinking}
+
+\section{From Counting Stones to Conceptual Models}
+\subsection{Tally Marks and Primitive State}
+\subsubsection{The Concept of Discrete Representation}
+\subsubsection{Position and Value: Early Insights}
+\subsubsection{One-to-One Correspondence}
+
+\subsection{Abstraction and the Birth of Mathematical Thought}
+\subsubsection{From Concrete to Abstract Numbers}
+\subsubsection{The Emergence of Zero and Infinity}
+\subsubsection{Symbolic Manipulation vs. Physical Reality}
+
+\section{Mathematical Roots of Arrays}
+\subsection{Sets, Sequences, and Order}
+\subsubsection{Euclid's Elements: Systematic Organization}
+\subsubsection{The Concept of Mathematical Collections}
+\subsubsection{Ordered vs. Unordered Structures}
+
+\subsection{The Notion of Indexing and Mapping}
+\subsubsection{Coordinate Systems in Ancient Mathematics}
+\subsubsection{Positional Notation Systems}
+\subsubsection{Functions and Mappings: Early Abstractions}
+
+\subsection{From Euclid to Euler: Structure in Mathematical Systems}
+\subsubsection{Systematic Proofs and Logical Sequences}
+\subsubsection{Graph Theory and Relational Structures}
+\subsubsection{The Bridge to Modern Data Organization}
+
+% ==========================================
+% CHAPTER 2: ANCIENT COMPUTING TOOLS
+% ==========================================
+
+\chapter{Ancient Tools of Structured Computation}
+
+\section{The Abacus: Humanity's First Array-Like Structure}
+\subsection{Mesopotamian Origins and Clay Tokens}
+\subsubsection{Token Systems as Discrete Data Storage}
+\subsubsection{Positional Value and Place Representation}
+\subsubsection{The Transition from Tokens to Beads}
+
+\subsection{Chinese Suanpan: Parallel Processing in Wood}
+\subsubsection{Bi-quinary System Implementation}
+\subsubsection{Multi-Column Operations and Carry Logic}
+\subsubsection{The Art of Mental-Physical Coordination}
+
+\subsection{Roman and Japanese Variants}
+\subsubsection{Soroban: Precision and Efficiency}
+\subsubsection{Cultural Adaptations and Regional Optimizations}
+\subsubsection{Speed Computing Techniques}
+
+\subsection{Philosophical Implications of the Abacus}
+\subsubsection{State, Transformation, and Memory}
+\subsubsection{Parallel Computation in Ancient Times}
+\subsubsection{The Abacus as a Programming Interface}
+
+\section{Ancient Number Tables: Proto-Arrays in Practice}
+\subsection{Babylonian Mathematical Tablets}
+\subsubsection{Multiplication Tables in Cuneiform}
+\subsubsection{Square and Cube Root Tables}
+\subsubsection{Astronomical Computation Tables}
+\subsubsection{Two-Dimensional Data Organization}
+
+\subsection{Egyptian Mathematical Papyri}
+\subsubsection{Rhind Papyrus: Systematic Problem Solutions}
+\subsubsection{Unit Fraction Tables and Decomposition}
+\subsubsection{Geometric Progression Tables}
+\subsubsection{Tabular Methods for Complex Calculations}
+
+\section{Chinese Rod Numerals and Matrix Operations}
+\subsection{The Rod Numeral System}
+\subsubsection{Physical Representation of Abstract Numbers}
+\subsubsection{Spatial Arrangement and Value}
+\subsubsection{Early Binary-Like Concepts}
+
+\subsection{Ancient Matrix Calculations}
+\subsubsection{Simultaneous Linear Equations}
+\subsubsection{The Nine Chapters on Mathematical Art}
+\subsubsection{Gaussian Elimination in Ancient China}
+\subsubsection{Matrix as a Computational Tool}
+
+\subsection{Multiplication Matrices and Lookup Tables}
+\subsubsection{Pre-computed Result Storage}
+\subsubsection{Cross-Reference Systems}
+\subsubsection{Error Checking and Verification Methods}
+
+% ==========================================
+% CHAPTER 3: MEDIEVAL AND RENAISSANCE
+% ==========================================
+
+\chapter{Medieval and Renaissance: Systematization of Knowledge}
+
+\section{Islamic Golden Age Contributions}
+\subsection{Al-Khwarizmi and Algorithmic thinking}
+\subsubsection{The Word "Algorithm" and Its Origins}
+\subsubsection{Systematic Problem-Solving Procedures}
+\subsubsection{Algebra as Structured Manipulation}
+
+\subsection{Mathematical Tables and Astronomical Calculations}
+\subsubsection{Zij Tables: Astronomical Arrays}
+\subsubsection{Trigonometric Function Tables}
+\subsubsection{Precision and Interpolation Techniques}
+
+\section{Renaissance Calculating Tools}
+\subsection{Calculating Rods and Napier's Bones}
+\subsubsection{John Napier's Logarithmic Innovation}
+\subsubsection{Physical Implementation of Multiplication}
+\subsubsection{Modular Arithmetic Tools}
+
+\subsection{Mathematical Tables Revolution}
+\subsubsection{Printed Logarithm Tables}
+\subsubsection{Trigonometric Function Collections}
+\subsubsection{Navigation and Scientific Computation}
+\subsubsection{Error Propagation and Accuracy}
+
+\section{The Emergence of Systematic Notation}
+\subsection{Symbolic Algebra Development}
+\subsubsection{François Viète and Symbolic Mathematics}
+\subsubsection{The Power of Abstract Representation}
+\subsubsection{From Numbers to Variables}
+
+\subsection{Coordinate Systems and Cartesian Innovation}
+\subsubsection{René Descartes and Analytical Geometry}
+\subsubsection{Two-Dimensional Data Representation}
+\subsubsection{Functions as Mappings}
+
+% ==========================================
+% CHAPTER 4: MECHANICAL COMPUTATION
+% ==========================================
+
+\chapter{Mechanical Computation: The Dream of Automated Thinking}
+
+\section{Early Mechanical Calculators}
+\subsection{Blaise Pascal's Pascaline}
+\subsubsection{Mechanical Carry Implementation}
+\subsubsection{Decimal Wheel Systems}
+\subsubsection{The Challenge of Mechanical Precision}
+
+\subsection{Leibniz's Stepped Reckoner}
+\subsubsection{Four-Function Arithmetic Machine}
+\subsubsection{The Leibniz Wheel Innovation}
+\subsubsection{Mechanical Logic and Binary Concepts}
+
+\section{Charles Babbage's Visionary Machines}
+\subsection{The Difference Engine}
+\subsubsection{Polynomial Calculation Automation}
+\subsubsection{Method of Finite Differences}
+\subsubsection{Precision Manufacturing Challenges}
+
+\subsection{The Analytical Engine: First Programmable Computer}
+\subsubsection{Separation of Processing and Memory}
+\subsubsection{The Mill and the Store}
+\subsubsection{Punched Card Programming}
+\subsubsection{Conditional Branching and Loops}
+
+\section{Ada Lovelace: The First Programmer}
+\subsection{Understanding the Analytical Engine}
+\subsubsection{Beyond Pure Calculation}
+\subsubsection{Symbolic Processing Possibilities}
+\subsubsection{The Concept of a Stored Program}
+
+\subsection{Lovelace's Algorithm}
+\subsubsection{Bernoulli Numbers Calculation}
+\subsubsection{First Computer Program in History}
+\subsubsection{Loop Structures and Iteration}
+
+% ==========================================
+% CHAPTER 5: ELECTROMECHANICAL ERA
+% ==========================================
+
+\chapter{The Electromechanical Revolution}
+
+\section{From Mechanical to Electrical}
+\subsection{Telegraph and Early Electrical Logic}
+\subsubsection{Boolean Algebra in Physical Form}
+\subsubsection{Relay-Based Switching Systems}
+\subsubsection{Binary State Representation}
+
+\subsection{Hollerith's Tabulating Machine}
+\subsubsection{1890 US Census Automation}
+\subsubsection{Punched Card Data Processing}
+\subsubsection{Statistical Analysis Machines}
+
+\section{Early 20th Century Computing Machines}
+\subsection{Konrad Zuse's Z-Series}
+\subsubsection{Z1: Mechanical Binary Computer}
+\subsubsection{Z3: First Working Programmable Computer}
+\subsubsection{Binary Floating-Point Arithmetic}
+\subsubsection{Program Storage and Control}
+
+\subsection{Harvard Mark I and IBM's Contribution}
+\subsubsection{Electromechanical Programming}
+\subsubsection{Grace Hopper and Early Programming}
+\subsubsection{Large-Scale Scientific Computation}
+
+% ==========================================
+% CHAPTER 6: ELECTRONIC COMPUTING BIRTH
+% ==========================================
+
+\chapter{The Birth of Electronic Computing}
+
+\section{The Vacuum Tube Revolution}
+\subsection{From Mechanical to Electronic Switching}
+\subsubsection{Thermionic Valve Principles}
+\subsubsection{Digital Logic Implementation}
+\subsubsection{Speed and Reliability Improvements}
+
+\subsection{ENIAC: Electronic Numerical Integrator and Computer}
+\subsubsection{First General-Purpose Electronic Computer}
+\subsubsection{Programming by Rewiring}
+\subsubsection{Parallel Processing Concepts}
+\subsubsection{The Programming Challenge}
+
+\section{The Stored Program Concept}
+\subsection{Von Neumann Architecture}
+\subsubsection{Programs as Data}
+\subsubsection{Single Memory Space}
+\subsubsection{Sequential Instruction Execution}
+\subsubsection{The Fetch-Decode-Execute Cycle}
+
+\subsection{EDVAC and the Architecture Revolution}
+\subsubsection{Binary Number System Adoption}
+\subsubsection{Memory Hierarchy Concepts}
+\subsubsection{Subroutines and Program Structure}
+
+% ==========================================
+% CHAPTER 7: DIGITAL LOGIC FOUNDATIONS
+% ==========================================
+
+\chapter{Digital Logic: The Foundation of Modern Arrays}
+
+\section{Boolean Algebra and Logical Operations}
+\subsection{George Boole's Mathematical Logic}
+\subsubsection{True/False as Mathematical Objects}
+\subsubsection{AND, OR, NOT Operations}
+\subsubsection{Logical Equivalence and Simplification}
+
+\subsection{Claude Shannon's Digital Circuit Theory}
+\subsubsection{Electrical Circuits as Logical Systems}
+\subsubsection{Switching Theory and Boolean Algebra}
+\subsubsection{The Bridge Between Math and Hardware}
+
+\section{Transistors: The Atomic Units of Computation}
+\subsection{From Vacuum Tubes to Solid State}
+\subsubsection{Bell Labs and the Transistor Invention}
+\subsubsection{Semiconductor Physics Basics}
+\subsubsection{Switching Speed and Power Efficiency}
+
+\subsection{Logic Gates Implementation}
+\subsubsection{NAND and NOR as Universal Gates}
+\subsubsection{Gate Delay and Propagation}
+\subsubsection{Combinational vs. Sequential Logic}
+
+\section{Building Complex Circuits}
+\subsection{Adders and Arithmetic Logic Units}
+\subsubsection{Half Adder and Full Adder}
+\subsubsection{Ripple Carry vs. Look-Ahead}
+\subsubsection{Multi-bit Operations}
+
+\subsection{Memory Cells and Storage Elements}
+\subsubsection{Flip-Flops and Latches}
+\subsubsection{Static vs. Dynamic Memory}
+\subsubsection{Address Decoding Logic}
+
+% ==========================================
+% CHAPTER 8: NUMBER SYSTEMS AND REPRESENTATION
+% ==========================================
+
+\chapter{Number Systems and Data Representation}
+
+\section{Historical Counting Systems}
+\subsection{Unary and Tally Systems}
+\subsubsection{One-to-One Correspondence}
+\subsubsection{Physical Limitation and Scaling}
+\subsubsection{The Need for Positional Systems}
+
+\subsection{Positional Number Systems}
+\subsubsection{Babylonian Base-60 System}
+\subsubsection{Decimal System Development}
+\subsubsection{Binary Concepts in Ancient Cultures}
+
+\section{Binary: The Language of Digital Machines}
+\subsection{Why Binary for Digital Systems?}
+\subsubsection{Physical Implementation Advantages}
+\subsubsection{Noise Immunity and Reliability}
+\subsubsection{Boolean Logic Correspondence}
+
+\subsection{Binary Arithmetic Operations}
+\subsubsection{Addition and Subtraction}
+\subsubsection{Multiplication and Division}
+\subsubsection{Bitwise Operations}
+
+\subsection{Signed Number Representation}
+\subsubsection{Sign-Magnitude Method}
+\subsubsection{One's Complement System}
+\subsubsection{Two's Complement: The Modern Standard}
+\subsubsection{Overflow and Underflow Handling}
+
+\section{Floating-Point: Representing the Continuous}
+\subsection{Fixed-Point Limitations}
+\subsubsection{Precision vs. Range Trade-offs}
+\subsubsection{Scaling Problems in Computation}
+
+\subsection{IEEE 754 Standard}
+\subsubsection{Sign, Exponent, Mantissa Format}
+\subsubsection{Normalization and Hidden Bit}
+\subsubsection{Special Values: Infinity and NaN}
+\subsubsection{Precision Levels: Single, Double, Extended}
+
+\section{Character Encoding Evolution}
+\subsection{From Morse Code to ASCII}
+\subsubsection{Telegraph Encoding Systems}
+\subsubsection{ASCII: American Standard Code}
+\subsubsection{Extended ASCII Limitations}
+
+\subsection{Unicode: Universal Character Representation}
+\subsubsection{Multi-byte Encoding Systems}
+\subsubsection{UTF-8, UTF-16, UTF-32 Formats}
+\subsubsection{Internationalization Challenges}
+
+% ==========================================
+% CHAPTER 9: MEMORY ARCHITECTURE
+% ==========================================
+
+\chapter{Memory: The Canvas Where Arrays Live}
+
+\section{Historical Storage Evolution}
+\subsection{Physical Storage Media Timeline}
+\subsubsection{Punched Cards and Paper Tape}
+\subsubsection{Magnetic Drum Memory}
+\subsubsection{Ferrite Core Memory}
+\subsubsection{Semiconductor Memory Revolution}
+
+\subsection{Storage Hierarchy Development}
+\subsubsection{Access Time vs. Capacity Trade-offs}
+\subsubsection{Cost per Bit Evolution}
+\subsubsection{Volatility and Persistence}
+
+\section{Modern Memory Architecture}
+\subsection{Register Files and Cache Systems}
+\subsubsection{CPU Register Organization}
+\subsubsection{Cache Levels and Hierarchy}
+\subsubsection{Cache Coherency Protocols}
+\subsubsection{Translation Lookaside Buffers}
+
+\subsection{Main Memory Organization}
+\subsubsection{DRAM Technology and Refresh}
+\subsubsection{Memory Banks and Interleaving}
+\subsubsection{Error Correction Codes}
+\subsubsection{Memory Controllers and Arbitration}
+
+\section{Address Space and Virtual Memory}
+\subsection{Physical vs. Virtual Addressing}
+\subsubsection{Address Translation Mechanisms}
+\subsubsection{Memory Management Units}
+\subsubsection{Page Tables and Translation}
+
+\subsection{Memory Protection and Isolation}
+\subsubsection{Process Address Spaces}
+\subsubsection{Segmentation and Paging}
+\subsubsection{Access Control and Permissions}
+\subsubsection{Address Space Layout Randomization}
+
+\section{Memory Layout in Program Execution}
+\subsection{Program Memory Segments}
+\subsubsection{Code Segment (Text): Instruction Storage}
+\subsubsection{Data Segment: Initialized Global Variables}
+\subsubsection{BSS Segment: Uninitialized Data}
+\subsubsection{Stack: Local Variables and Function Calls}
+\subsubsection{Heap: Dynamic Memory Allocation}
+
+\subsection{Memory Allocation Strategies}
+\subsubsection{Static Allocation: Compile-Time Decisions}
+\subsubsection{Stack Allocation: LIFO and Automatic Management}
+\subsubsection{Heap Allocation: Dynamic and Flexible}
+\subsubsection{Memory Pools and Custom Allocators}
+\subsubsection{Garbage Collection Principles}
+
+\section{Array Storage and Memory Layout}
+\subsection{Contiguous Memory Allocation}
+\subsubsection{Sequential Storage Benefits}
+\subsubsection{Cache Locality and Performance}
+\subsubsection{Memory Alignment Considerations}
+
+\subsection{Multi-Dimensional Array Storage}
+\subsubsection{Row-Major vs. Column-Major Layout}
+\subsubsection{Address Calculation Formulas}
+\subsubsection{Memory Access Patterns}
+
+\subsection{Array Bounds and Safety}
+\subsubsection{Buffer Overflow Vulnerabilities}
+\subsubsection{Bounds Checking Mechanisms}
+\subsubsection{Memory Safety Techniques}
 	
-	\subsection{The Abacus: The First Data Structure}
+% ==========================================
+% PART 2: ARRAYS - THEORY TO IMPLEMENTATION
+% ==========================================
+\part{Array Odyssey: From Mathematical Abstraction to Computer Implementation}
+
+\section*{Introduction}
+
+Having traversed the historical landscape of computation—from ancient counting stones to modern silicon-based processors—we now stand at the threshold of understanding arrays not merely as programming constructs, but as fundamental mathematical objects that bridge abstract thinking and concrete implementation. This part of our journey transforms from the philosophical and historical to the rigorously technical, yet maintains the same spirit of deep understanding that has guided us thus far.\\
+Arrays are not arbitrary programming conveniences. They are the digital manifestation of humanity's most basic cognitive operation: the organization of related information into structured, accessible patterns. When we defined arrays historically through Babylonian multiplication tables or Chinese calculation matrices, we were observing the same fundamental concept that now underlies virtually every computation performed by modern computers.\\
+In this part, we will construct a complete understanding of arrays from multiple perspectives: mathematical, theoretical, implementational, and algorithmic. We begin with the mathematical foundations—set theory, functions, and formal definitions—that provide the rigorous framework for understanding what an array actually \emph{is} in the most fundamental sense. From there, we explore how these mathematical abstractions translate into physical reality through memory systems, addressing schemes, and hardware optimization techniques.\\
+The journey continues into the rich ecosystem of array variants and specialized structures that computer scientists have developed to solve specific classes of problems. Dynamic arrays that grow and shrink, associative arrays that provide key-value mappings, bit arrays that compress boolean information, and sparse arrays that efficiently represent mostly-empty data—each represents a different solution to the fundamental challenge of organizing and accessing structured information.\\
+Finally, we dive deep into the algorithmic universe that arrays enable. The fundamental operations of searching and sorting, the elegant patterns of two-pointer techniques and sliding windows, and the powerful framework of dynamic programming all become natural and intuitive when understood through the lens of array manipulation.\\
+This part assumes you have absorbed the historical and conceptual foundation from Part I. If you have not, you may find some concepts challenging to grasp deeply, though the technical content remains accessible. The goal is not merely to teach you how to use arrays in programming languages, but to understand them so thoroughly that you could, if necessary, design and implement them from scratch on any computing system.\\
+Let us begin this transformation from history to implementation, from concept to code.
+
+% ==========================================
+% CHAPTER 10: MATHEMATICAL FOUNDATIONS
+% ==========================================
+
+\chapter{Mathematical Foundations of Arrays}
+
+\section{Formal Mathematical Definition}
+\subsection{Arrays as Mathematical Functions}
+\subsubsection{Domain and Codomain of Array Functions}
+\subsubsection{Index Sets and Value Sets}
+\subsubsection{Finite vs. Infinite Array Concepts}
+\subsubsection{Partial Functions and Undefined Elements}
+
+\subsection{Set-Theoretic Foundations}
+\subsubsection{Arrays as Cartesian Products}
+\subsubsection{Ordered Pairs and N-tuples}
+\subsubsection{Relation Between Sets and Array Elements}
+\subsubsection{Power Sets and Array Dimensions}
+
+\subsection{Algebraic Structure of Arrays}
+\subsubsection{Array Spaces as Vector Spaces}
+\subsubsection{Linear Operations on Arrays}
+\subsubsection{Scalar Multiplication and Addition}
+\subsubsection{Inner Products and Array Metrics}
+
+\section{Abstract Data Type Theory}
+\subsection{ADT vs. Concrete Implementation}
+\subsubsection{Interface Specification Principles}
+\subsubsection{Behavioral Contracts and Invariants}
+\subsubsection{Pre-conditions and Post-conditions}
+\subsubsection{Abstract State vs. Physical Representation}
+
+\subsection{Array ADT Specification}
+\subsubsection{Core Operations: Create, Access, Update, Size}
+\subsubsection{Optional Operations: Insert, Delete, Search}
+\subsubsection{Composite Operations: Copy, Compare, Transform}
+\subsubsection{Error Conditions and Exception Handling}
+
+\subsection{Refinement and Implementation Relations}
+\subsubsection{Data Refinement Theory}
+\subsubsection{Abstraction Functions}
+\subsubsection{Representation Invariants}
+\subsubsection{Correctness of Implementations}
+
+\section{Computational Complexity Theory}
+\subsection{Big O Notation and Asymptotic Analysis}
+\subsubsection{Growth Functions and Complexity Classes}
+\subsubsection{Best, Average, and Worst-Case Analysis}
+\subsubsection{Amortized Analysis Techniques}
+\subsubsection{Space vs. Time Complexity Trade-offs}
+
+\subsection{Array Operation Complexity}
+\subsubsection{Random Access: O(1) Time Complexity}
+\subsubsection{Sequential Access Patterns}
+\subsubsection{Insert and Delete Operations}
+\subsubsection{Memory Complexity Considerations}
+
+\subsection{Lower Bounds and Optimality}
+\subsubsection{Information-Theoretic Lower Bounds}
+\subsubsection{Comparison-Based Operation Limits}
+\subsubsection{Space-Time Trade-off Theory}
+\subsubsection{Optimal Algorithm Design}
+
+\section{Type Theory and Arrays}
+\subsection{Homogeneous vs. Heterogeneous Arrays}
+\subsubsection{Type Safety and Array Elements}
+\subsubsection{Parametric Polymorphism}
+\subsubsection{Generic Array Types}
+\subsubsection{Type Inference in Array Operations}
+
+\subsection{Index Type Systems}
+\subsubsection{Integer Index Domains}
+\subsubsection{Bounded vs. Unbounded Indices}
+\subsubsection{Multi-dimensional Index Types}
+\subsubsection{Dependent Types and Array Bounds}
+
+\subsection{Memory Safety and Type Systems}
+\subsubsection{Bounds Checking at Type Level}
+\subsubsection{Linear Types and Memory Management}
+\subsubsection{Ownership and Borrowing Models}
+\subsubsection{Compile-time vs. Runtime Safety}
+
+% ==========================================
+% CHAPTER 11: PHYSICAL IMPLEMENTATION
+% ==========================================
+
+\chapter{Physical Implementation of Arrays}
+
+\section{Memory Layout and Organization}
+\subsection{Contiguous Memory Allocation}
+\subsubsection{Sequential Address Assignment}
+\subsubsection{Base Address and Offset Calculation}
+\subsubsection{Memory Alignment Requirements}
+\subsubsection{Padding and Structure Alignment}
+
+\subsection{Address Calculation Formulas}
+\subsubsection{One-Dimensional Array Indexing}
+\subsubsection{Multi-Dimensional Array Formulas}
+\subsubsection{Row-Major vs. Column-Major Layouts}
+\subsubsection{Strided Arrays and Custom Layouts}
+
+\subsection{Memory Hierarchy and Cache Performance}
+\subsubsection{Cache Line Size and Array Access}
+\subsubsection{Spatial Locality Optimization}
+\subsubsection{Cache-Friendly Algorithm Design}
+\subsubsection{False Sharing and Multi-threading}
+
+\section{Static vs. Dynamic Array Implementation}
+\subsection{Static Array Characteristics}
+\subsubsection{Compile-Time Size Determination}
+\subsubsection{Stack vs. Data Segment Allocation}
+\subsubsection{Zero-Cost Abstractions}
+\subsubsection{Template/Generic Instantiation}
+
+\subsection{Dynamic Array Architecture}
+\subsubsection{Runtime Size Modification}
+\subsubsection{Heap-Based Memory Management}
+\subsubsection{Growth Strategies and Capacity Management}
+\subsubsection{Shrinking Policies and Memory Reclamation}
+
+\subsection{Hybrid Approaches}
+\subsubsection{Small Array Optimization}
+\subsubsection{Stack-Allocated Dynamic Arrays}
+\subsubsection{Memory Pool Allocation}
+\subsubsection{Arena-Based Management}
+
+\section{Multi-Dimensional Array Implementation}
+\subsection{Linearization Strategies}
+\subsubsection{Row-Major Order (C-style)}
+\subsubsection{Column-Major Order (Fortran-style)}
+\subsubsection{Block-Major and Tiled Layouts}
+\subsubsection{Morton Order (Z-order)}
+
+\subsection{Jagged Array Implementation}
+\subsubsection{Array of Arrays Structure}
+\subsubsection{Pointer Indirection Overhead}
+\subsubsection{Memory Fragmentation Issues}
+\subsubsection{Cache Performance Implications}
+
+\subsection{Sparse Array Techniques}
+\subsubsection{Coordinate List (COO) Format}
+\subsubsection{Compressed Sparse Row (CSR)}
+\subsubsection{Dictionary of Keys (DOK)}
+\subsubsection{Block Sparse Representations}
+
+\section{Hardware-Specific Optimizations}
+\subsection{SIMD and Vector Processing}
+\subsubsection{Vectorized Array Operations}
+\subsubsection{Data Parallelism Exploitation}
+\subsubsection{Alignment for Vector Instructions}
+\subsubsection{Auto-Vectorization Techniques}
+
+\subsection{GPU and Parallel Array Processing}
+\subsubsection{CUDA Memory Hierarchy}
+\subsubsection{Coalesced Memory Access}
+\subsubsection{Shared Memory Optimization}
+\subsubsection{Occupancy and Bandwidth Optimization}
+
+\subsection{Non-Von Neumann Architectures}
+\subsubsection{Dataflow Array Processing}
+\subsubsection{Near-Memory Computing}
+\subsubsection{Processing-In-Memory (PIM)}
+\subsubsection{Neuromorphic Array Structures}
+
+% ==========================================
+% CHAPTER 12: ARRAY VARIANTS AND SPECIALIZATIONS
+% ==========================================
+
+\chapter{Array Variants and Specialized Structures}
+
+\section{Dynamic Arrays and Resizable Structures}
+\subsection{Vector/ArrayList Implementation}
+\subsubsection{Capacity vs. Size Management}
+\subsubsection{Geometric Growth Strategies}
+\subsubsection{Amortized Analysis of Push Operations}
+\subsubsection{Memory Reallocation Policies}
+
+\subsection{Deque (Double-Ended Queue) Arrays}
+\subsubsection{Circular Buffer Implementation}
+\subsubsection{Block-Based Deque Design}
+\subsubsection{Gap Buffer Techniques}
+\subsubsection{Bi-directional Growth Strategies}
+
+\subsection{Dynamic Array Optimization}
+\subsubsection{Small Buffer Optimization}
+\subsubsection{Copy-on-Write Strategies}
+\subsubsection{Memory Pool Integration}
+\subsubsection{Concurrent Dynamic Arrays}
+
+\section{Associative Arrays and Hash-Based Structures}
+\subsection{Hash Table Foundations}
+\subsubsection{Hash Function Design}
+\subsubsection{Collision Resolution Strategies}
+\subsubsection{Open Addressing vs. Chaining}
+\subsubsection{Load Factor and Performance}
+
+\subsection{Advanced Hash Table Techniques}
+\subsubsection{Robin Hood Hashing}
+\subsubsection{Cuckoo Hashing}
+\subsubsection{Consistent Hashing}
+\subsubsection{Bloom Filters and Probabilistic Structures}
+
+\subsection{Ordered Associative Arrays}
+\subsubsection{Tree-Based Maps (Red-Black, AVL)}
+\subsubsection{B+ Tree Array Implementation}
+\subsubsection{Skip List Structures}
+\subsubsection{Trie-Based Arrays}
+
+\section{Bit Arrays and Compact Representations}
+\subsection{Bit Vector Implementation}
+\subsubsection{Bit-Level Operations}
+\subsubsection{Word-Size Optimization}
+\subsubsection{Population Count and Bit Manipulation}
+\subsubsection{Set Operations on Bit Arrays}
+
+\subsection{Bitmap Index Structures}
+\subsubsection{Compressed Bitmaps}
+\subsubsection{Roaring Bitmaps}
+\subsubsection{WAH (Word-Aligned Hybrid) Compression}
+\subsubsection{Bitmap Query Processing}
+
+\subsection{Succinct Data Structures}
+\subsubsection{Rank and Select Operations}
+\subsubsection{Wavelet Trees}
+\subsubsection{Compressed Suffix Arrays}
+\subsubsection{Information-Theoretic Optimality}
+
+\section{Circular Arrays and Ring Buffers}
+\subsection{Circular Buffer Design}
+\subsubsection{Head and Tail Pointer Management}
+\subsubsection{Full vs. Empty Buffer Detection}
+\subsubsection{Lock-Free Circular Buffers}
+\subsubsection{Producer-Consumer Patterns}
+
+\subsection{Specialized Circular Structures}
+\subsubsection{Circular Array for Sliding Window}
+\subsubsection{Circular Buffer for Real-Time Systems}
+\subsubsection{Ring Buffer in Network Processing}
+\subsubsection{Audio/Video Streaming Buffers}
+
+\section{Sparse Arrays and Compressed Structures}
+\subsection{Sparse Matrix Representations}
+\subsubsection{Coordinate (COO) Format}
+\subsubsection{Compressed Sparse Column (CSC)}
+\subsubsection{Block Compressed Sparse Row}
+\subsubsection{Diagonal Storage Schemes}
+
+\subsection{Adaptive Sparse Structures}
+\subsubsection{Dynamic Sparsity Detection}
+\subsubsection{Hybrid Dense-Sparse Representations}
+\subsubsection{Compressed Sensing Applications}
+\subsubsection{Sparse Array Arithmetic}
+
+\subsection{Specialized Compression Techniques}
+\subsubsection{Run-Length Encoding for Arrays}
+\subsubsection{Delta Compression}
+\subsubsection{Dictionary-Based Compression}
+\subsubsection{Lossy Array Compression}
+
+% ==========================================
+% CHAPTER 13: ARRAY ALGORITHMS AND PATTERNS
+% ==========================================
+
+\chapter{Fundamental Array Algorithms and Patterns}
+
+\section{Search Algorithms}
+\subsection{Linear Search Variants}
+\subsubsection{Sequential Search Implementation}
+\subsubsection{Sentinel-Based Linear Search}
+\subsubsection{Binary Search for Sorted Arrays}
+\subsubsection{Interpolation Search}
+\subsubsection{Exponential Search}
+
+\subsection{Advanced Search Techniques}
+\subsubsection{Two-Pointer Search Patterns}
+\subsubsection{Sliding Window Search}
+\subsubsection{Subarray Search Problems}
+\subsubsection{Pattern Matching in Arrays}
+
+\subsection{Search Optimization}
+\subsubsection{Branch Prediction Optimization}
+\subsubsection{Cache-Friendly Search Algorithms}
+\subsubsection{Parallel Search Strategies}
+\subsubsection{Search in Specialized Arrays}
+
+\section{Sorting Algorithms}
+\subsection{Comparison-Based Sorting}
+\subsubsection{Bubble Sort and Variants}
+\subsubsection{Selection Sort Optimization}
+\subsubsection{Insertion Sort and Binary Insertion}
+\subsubsection{Shell Sort and Gap Sequences}
+
+\subsection{Divide and Conquer Sorting}
+\subsubsection{Merge Sort Implementation}
+\subsubsection{Quick Sort and Pivot Selection}
+\subsubsection{Heap Sort and Array-Based Heaps}
+\subsubsection{Intro Sort Hybrid Approach}
+
+\subsection{Non-Comparison Sorting}
+\subsubsection{Counting Sort for Integer Arrays}
+\subsubsection{Radix Sort Implementation}
+\subsubsection{Bucket Sort Strategies}
+\subsubsection{External Sorting for Large Arrays}
+
+\subsection{Specialized Sorting}
+\subsubsection{Stable vs. Unstable Sorting}
+\subsubsection{In-Place Sorting Algorithms}
+\subsubsection{Parallel Sorting Algorithms}
+\subsubsection{Adaptive Sorting Techniques}
+
+\section{Array Traversal Patterns}
+\subsection{Basic Traversal Strategies}
+\subsubsection{Forward and Backward Iteration}
+\subsubsection{Nested Loop Patterns}
+\subsubsection{Iterator-Based Traversal}
+\subsubsection{Functional Programming Approaches}
+
+\subsection{Two-Pointer Techniques}
+\subsubsection{Convergent Two Pointers}
+\subsubsection{Fast and Slow Pointers}
+\subsubsection{Opposite Direction Pointers}
+\subsubsection{Multiple Pointer Coordination}
+
+\subsection{Sliding Window Algorithms}
+\subsubsection{Fixed-Size Window Patterns}
+\subsubsection{Variable-Size Window Techniques}
+\subsubsection{Maximum/Minimum Window Problems}
+\subsubsection{Substring/Subarray Applications}
+
+\section{Dynamic Programming with Arrays}
+\subsection{One-Dimensional DP}
+\subsubsection{Fibonacci and Linear Recurrences}
+\subsubsection{Maximum Subarray Problems}
+\subsubsection{House Robber and Skip Patterns}
+\subsubsection{Climbing Stairs Variations}
+
+\subsection{Two-Dimensional DP}
+\subsubsection{Grid Path Problems}
+\subsubsection{Longest Common Subsequence}
+\subsubsection{Edit Distance Algorithms}
+\subsubsection{Matrix Chain Multiplication}
+
+\subsection{Advanced DP Techniques}
+\subsubsection{Space Optimization in DP}
+\subsubsection{Rolling Array Techniques}
+\subsubsection{State Compression Methods}
+\subsubsection{Memoization vs. Tabulation}
+
+\section{Array-Based Problem Solving Strategies}
+\subsection{Greedy Algorithms on Arrays}
+\subsubsection{Activity Selection Problems}
+\subsubsection{Fractional Knapsack}
+\subsubsection{Meeting Room Scheduling}
+\subsubsection{Gas Station Problems}
+
+\subsection{Divide and Conquer on Arrays}
+\subsubsection{Maximum Subarray Sum}
+\subsubsection{Closest Pair of Points}
+\subsubsection{Inversion Count Problems}
+\subsubsection{Peak Finding Algorithms}
+
+\subsection{Backtracking with Arrays}
+\subsubsection{Permutation Generation}
+\subsubsection{Subset Generation}
+\subsubsection{N-Queens Problem}
+\subsubsection{Sudoku Solving Strategies}
+
+\subsection{Mathematical Array Problems}
+\subsubsection{Number Theory Applications}
+\subsubsection{Combinatorial Problems}
+\subsubsection{Probability and Statistics}
+\subsubsection{Signal Processing Algorithms}
+
+% ==========================================
+% CHAPTER 14: LANGUAGE-SPECIFIC IMPLEMENTATIONS
+% ==========================================
+
+\chapter{Arrays in Programming Languages}
+
+\section{Low-Level Language Implementations}
+\subsection{C Language Arrays}
+\subsubsection{Static Array Declaration and Initialization}
+\subsubsection{Pointer Arithmetic and Array Access}
+\subsubsection{Multi-dimensional Array Syntax}
+\subsubsection{Array Decay to Pointers}
+\subsubsection{Variable Length Arrays (C99)}
+
+\subsection{C++ Array Enhancements}
+\subsubsection{std::array for Fixed-Size Arrays}
+\subsubsection{std::vector Dynamic Implementation}
+\subsubsection{Template-Based Generic Arrays}
+\subsubsection{RAII and Automatic Memory Management}
+\subsubsection{Iterator and Range-Based Loops}
+
+\subsection{Rust Memory-Safe Arrays}
+\subsubsection{Ownership and Borrowing for Arrays}
+\subsubsection{Stack vs. Heap Array Allocation}
+\subsubsection{Vec<T> Dynamic Array Implementation}
+\subsubsection{Compile-Time Bounds Checking}
+\subsubsection{Zero-Cost Abstractions}
+
+\section{High-Level Language Arrays}
+\subsection{Python List Implementation}
+\subsubsection{Dynamic Array with Object References}
+\subsubsection{List Comprehensions and Generators}
+\subsubsection{NumPy Arrays for Numerical Computing}
+\subsubsection{Memory Layout and Performance}
+
+\subsection{Java Array System}
+\subsubsection{Primitive vs. Object Arrays}
+\subsubsection{ArrayList and Dynamic Resizing}
+\subsubsection{Multi-dimensional Array Implementation}
+\subsubsection{Generics and Type Erasure}
+\subsubsection{Collections Framework Integration}
+
+\subsection{JavaScript Array Flexibility}
+\subsubsection{Dynamic Typing and Mixed Arrays}
+\subsubsection{Sparse Array Representation}
+\subsubsection{Array Methods and Functional Programming}
+\subsubsection{Typed Arrays for Binary Data}
+
+\section{Functional Language Arrays}
+\subsection{Haskell Immutable Arrays}
+\subsubsection{Persistent Data Structures}
+\subsubsection{Lazy Evaluation with Arrays}
+\subsubsection{Array Comprehensions}
+\subsubsection{Parallel Array Processing}
+
+\subsection{Lisp-Family Languages}
+\subsubsection{List as Primary Sequence Type}
+\subsubsection{Vector Implementation in Clojure}
+\subsubsection{Persistent Vector Tries}
+\subsubsection{Structural Sharing}
+
+\section{Domain-Specific Array Languages}
+\subsection{MATLAB Array-Centric Design}
+\subsubsection{Matrix as Fundamental Type}
+\subsubsection{Vectorized Operations}
+\subsubsection{Broadcasting and Element-wise Operations}
+\subsubsection{Sparse Matrix Support}
+
+\subsection{R Statistical Arrays}
+\subsubsection{Vector and Matrix Types}
+\subsubsection{Factor Arrays for Categorical Data}
+\subsubsection{Data Frame as Columnar Arrays}
+\subsubsection{Array-Oriented Statistical Functions}
+
+\subsection{GPU Programming Languages}
+\subsubsection{CUDA Array Memory Management}
+\subsubsection{OpenCL Buffer Objects}
+\subsubsection{Shader Language Array Types}
+\subsubsection{Compute Shader Array Processing}
 	
-	\subsection{Pascalin and Leibniz's Wheel}
-	
-	\subsection{Babbie's Analytical Engine}
-	
-	\subsection{Ada Lovelace and the First Algorithm}
-	
-	\section{Electromechanical Computers and Early Concepts}
-	
-	\chapter{Introduction to Computers and Data Storage}
-	\section{A Brief History of Computing}
-	
-	\subsection{From the Abacus to the Analytical Engine}
-	
-	\subsection{The Electronic Computer Revolution}
-	
-	\subsection{The Birth of Stored Programs}
-	
-	\chapter{The Birth of the Modern Computer and Its Architecture}
-	\section{The Transition to Electronic Computing}
-	
-	\subsection{The Age of the Vacuum Tube}
-	
-	\subsection{ENIAC and Early Electronic Computers}
-	
-	\subsection{Von Neumann Architecture}
-	
-	\subsection{The Concept of a Program Saved}
-	
-	\chapter{Hardware Foundations}
-	\section{Hardware Fundamentals}
-	
-	\subsection{Logic Circuits and Gates}
-	
-	\subsection{Von Neumann Architecture}
-	
-	\section{Logic Gates and Boolean Algebra}
-	
-	\section{Transistors: Building Blocks}
-	
-	\section{Integrated Circuits and Microprocessors}
-	
-	\section{Evolution of Computer Architecture}
-	\section{The Birth of Modern Computer Architecture}
-	
-	\chapter{Digital Logic and Boolean Foundations}
-	\section{Transistors: The Atomic Units of Computation}
-	\section{Logic Gates and Circuit Design}
-	\section{From NAND to NOR: Building Computational Primitives}
-	
-	\chapter{Number Systems and Data Representation}
-	\section{Historic Counting Systems}
-	\section{Binary: The Language of Machines}
-	\subsection{Unsigned Integer Representation}
-	\subsection{Two's Complement System}
-	\section{Floating Point: Representing the Continuous}
-	\section{Character Encoding Evolution}
-	\subsection{From EBCDIC to Unicode}
-	
-	\chapter{Memory: The Computer's Canvas}
-	\section{Historic Storage Media}
-	\subsection{Punch Cards to Core Memory}
-	\section{Modern Memory Hierarchy}
-	\subsection{Registers and Cache Architecture}
-	\subsection{RAM Geometries and Bank Organization}
-	\section{Address Space Concepts}
-	\subsection{Physical vs. Virtual Addressing}
-	\subsection{Memory Mapping and Address Translation}
-	\section{Memory Layout in Programs}
-	\subsection{Code Segment (Text Segment)}
-	\subsection{Data Segment (Initialized Data)}
-	\subsection{BSS Segment (Uninitialized Data)}
-	\subsection{Heap and Stack Segments}
-	\section{Memory Allocation Strategies}
-	\subsection{Static Memory Allocation}
-	\subsection{Stack-Based Allocation}
-	\subsection{Heap-Based Dynamic Allocation}
-	\subsection{Memory Pools and Custom Allocators}
-	\section{Memory Protection and Segmentation}
-	\subsection{Memory Protection Mechanisms}
-	\subsection{Segmentation and Paging}
-	\subsection{Memory Management Unit (MMU)}
-	\subsection{Address Space Layout Randomization (ASLR)}
-		
 	\part{The Array Odyssey}
 	 \chapter{Historical Emergence of Arrays}
 	 \section{Early Array Concepts in Mathematics}
