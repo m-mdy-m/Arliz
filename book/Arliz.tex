@@ -204,7 +204,7 @@
 \end{center}
 
 \pagestyle{empty}
-	\chapter*{Preface}
+	\chapter{Preface}
 	\thispagestyle{empty}
 
 	%\maketitle
@@ -243,7 +243,7 @@
 	
 	% Acknowledgments
 	\pagestyle{empty}
-	\chapter*{Acknowledgments}
+	\chapter{Acknowledgments}
 		\thispagestyle{empty}
 		I would like to express my gratitude to everyone who supported me during the creation of this book. Special thanks to the open-source community for their invaluable resources and to all those who reviewed early drafts and provided feedback.
 		
@@ -255,28 +255,26 @@
 \mainmatter
 \chapter*{How to Read This Book}
 
-This book is structured as a comprehensive journey through the concept of arrays—from their deepest philosophical and historical roots to their most advanced modern applications. Understanding how to navigate this journey will significantly enhance your learning experience and ensure you gain both practical skills and profound insights into one of computing's most fundamental concepts.\\
-\textbf{The Seven-Part Architecture:}\\
-Each part serves a specific purpose in building your complete understanding. \textbf{Part 1: Philosophical \& Historical Foundations} establishes the intellectual framework by tracing how humans developed systematic thinking about organized information across millennia. This provides essential context for understanding why arrays work as they do and why certain operations are natural while others are complex.\\
-\textbf{Part 2: Mathematical Fundamentals} formalizes the intuitive concepts from Part 1 into rigorous mathematical frameworks. Here you encounter set theory, functions, combinatorics, and linear algebra—the mathematical foundations that underpin all array operations. This part bridges historical intuition with formal mathematical thinking.\\
-\textbf{Part 3: Data Representation} explores how abstract mathematical concepts become concrete computational reality. Number systems, encoding schemes, memory models, and data type systems transform mathematical arrays into practical programming tools.\\
-\textbf{Part 4: Computer Architecture \& Logic} reveals how hardware systems physically implement array operations. From logic gates to memory hierarchies, you learn how silicon and electrons create the foundation for array manipulation.\\
-\textbf{Part 5: Array Odyssey} forms the heart of the book, providing comprehensive coverage of array concepts, operations, algorithms, and optimization techniques. This is where theoretical understanding meets practical application.\\
-\textbf{Parts 6-7: Data Structures \& Algorithms, Parallelism \& Systems} extend array concepts into advanced topics, showing how fundamental array principles enable sophisticated computational systems and high-performance computing applications.\\
-\\
-\textbf{Reading Strategies:}\\
-\textbf{The Complete Scholar's Path:} Read sequentially from Part 1 through Part 7. This provides the deepest understanding, showing how each concept builds upon previous foundations. Recommended for those seeking comprehensive mastery and appreciation of arrays as both practical tools and intellectual achievements.\\
-\textbf{The Practical Developer's Path:} Begin with Part 1 (for essential context), focus intensively on Parts 2, 5, and 6, while skimming Parts 3-4 and 7. This approach emphasizes immediately applicable knowledge while maintaining sufficient theoretical grounding.\\
-\textbf{The Mathematical Explorer's Path:} Emphasize Parts 1-2 and 5, with careful attention to mathematical proofs and theoretical frameworks. This approach suits those interested in the formal mathematical foundations underlying computational systems.\\
-\textbf{The Systems Engineer's Path:} Focus on Parts 3-4 and 7, with supporting material from Parts 2 and 5. This approach emphasizes implementation details, performance optimization, and system-level considerations.\\
-\textbf{Active Engagement Techniques:}\\
-Don't read passively. Each chapter includes conceptual questions, historical connections, and mathematical relationships that require active mental engagement. Keep a notebook for tracking recurring themes, noting connections between different parts, and developing your own insights about how historical developments influence modern implementations.\\
-When encountering mathematical formalism in later parts, reference the historical context from Part 1. When learning practical programming techniques, consider the mathematical foundations from Part 2. This cross-referencing creates a rich, interconnected understanding that goes far beyond mere technical knowledge.\\
-\textbf{Prerequisites and Preparation:}\\
-This book assumes basic familiarity with programming concepts but does not require advanced mathematical background. Mathematical concepts are introduced gradually, building from historical intuition to formal precision. However, comfort with algebraic thinking and willingness to engage with abstract concepts will significantly enhance your experience.\\
-\textbf{Beyond the Book:}\\
-This book provides comprehensive coverage, but arrays connect to virtually every area of computer science and mathematics. Use this foundation to explore specialized topics: computer graphics, scientific computing, database systems, machine learning, and countless other domains where array-based thinking proves essential.\\
-Remember: arrays are not just programming tools. They represent one of humanity's most successful attempts to create systematic methods for organizing and manipulating information. Understanding arrays deeply means understanding fundamental patterns of human thought about order, structure, and systematic transformation. This perspective will serve you throughout your technical career and intellectual development.
+This book is not like most technical books you've probably encountered. It doesn't start with "Here's how to declare an array" or jump straight into syntax and algorithms. Instead, Arliz takes you on a journey—a long, winding path that begins thousands of years ago with humans counting on their fingers and ends with the sophisticated data structures we use today.\\
+I know what you're thinking: "Why should I care about ancient history when I just want to learn arrays?" That's a fair question, and I've asked myself the same thing many times while writing this book. Here's the thing—understanding where something comes from changes how you think about it. When you know that arrays are not just programming constructs but the culmination of humanity's age-old quest to organize information, you start to see them differently. You begin to understand not just \emph{how} they work, but \emph{why} they work the way they do.\\
+Arliz is structured in seven parts, each building upon the previous one:\\
+\textbf{Part 1: Philosophical \& Historical Foundations} is where we are now. This part traces the human journey from basic counting to systematic representation. We explore ancient civilizations, their counting systems, the invention of the abacus, and the gradual development of mathematical thinking that made modern computation possible. This isn't just history for history's sake—it's the conceptual foundation that makes everything else make sense.\\
+\textbf{Part 2: Mathematical Fundamentals} dives into the mathematical concepts that underlie all data structures. We cover set theory, functions, mathematical logic, and discrete mathematics. If Part 1 gives you the historical context, Part 2 gives you the mathematical tools to understand why data structures work the way they do.\\
+\textbf{Part 3: Data Representation} explores how information is encoded in digital systems. We look at number systems, binary representation, character encoding, and the various ways computers store and manipulate data. This is where the abstract concepts from Parts 1 and 2 start to become concrete.\\
+\textbf{Part 4: Computer Architecture \& Logic} examines the hardware foundations of computation. We explore logic gates, processor architecture, memory systems, and how the physical structure of computers influences the way we organize data.\\
+\textbf{Part 5: Array Odyssey} is the heart of the book. Here, we finally meet arrays in all their glory—not as mysterious programming constructs, but as the natural evolution of thousands of years of human thought about organizing information. We explore their implementation, behavior, and applications in depth.\\
+\textbf{Part 6: Data Structures \& Algorithms} expands beyond arrays to explore the broader landscape of data structures. Having understood arrays thoroughly, we can now appreciate how other structures like linked lists, trees, and graphs relate to and build upon array concepts.\\
+\textbf{Part 7: Parallelism \& Systems} looks at how data structures behave in complex, multi-threaded, and distributed systems. This is where we explore the cutting edge of modern computation.\\
+Now, you might be wondering: "Do I really need to read all of this? Can't I just skip to the arrays part?" \\
+The honest answer is: it depends on who you are and what you want to get out of this book.\\
+If you're a complete beginner—someone who's never programmed before, or who's just starting to learn about computer science—then yes, I strongly recommend reading the book from beginning to end. The concepts build upon each other in a way that's designed to create a solid, unshakeable foundation for your understanding.\\
+If you're an experienced programmer who just wants to deepen your understanding of arrays specifically, you could potentially start with Part 5. However, I'd encourage you to at least skim Parts 1 and 2. You might be surprised by how much the historical and mathematical context enriches your understanding of concepts you thought you already knew.\\
+If you're somewhere in between—maybe you know some programming but feel like you're missing fundamental concepts—then Parts 2, 3, and 4 might be your sweet spot. You can always come back to Part 1 later when you want to understand the bigger picture.\\
+For students and educators, each part serves a different pedagogical purpose. Part 1 provides historical context and motivation. Parts 2-4 build theoretical foundations. Parts 5-7 provide practical application and advanced concepts. You can use different parts for different courses or learning objectives.\\
+But here's what I really want you to understand: this book is not just about consuming information. It's about building intuition. Each part includes exercises, thought experiments, and projects designed to help you internalize the concepts. Don't skip these. They're not just busy work—they're carefully designed to help you develop the kind of deep, intuitive understanding that will serve you throughout your career.\\
+One more thing: as I mentioned in the preface, this book grows with me. If you find errors, have suggestions, or discover better ways to explain something, please let me know. This is a living document, and your feedback helps make it better for everyone.\\
+So, whether you're here for the full journey or just part of it, welcome to Arliz. Let's explore the fascinating world of arrays together—starting from the very beginning.\\
+
 
 \part{Philosophical \& Historical Foundations}
 
