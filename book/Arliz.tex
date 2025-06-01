@@ -162,32 +162,144 @@
 	% Title Page (Front Matter)
 
 \begin{titlepage}
+	\addcontentsline{toc}{chapter}{Title Page}
+	\begin{tikzpicture}[remember picture, overlay]
+		%--------------------------------------------
+		% Two thick diagonal lines in corners
+		%--------------------------------------------
+		\draw[line width=6pt, color=myblue, rotate around={45:(current page.north west)}, 
+		shift={(current page.north west)}] (1cm,-1cm) -- (5cm,-1cm);
+		\draw[line width=6pt, color=myblue, rotate around={45:(current page.south east)}, 
+		shift={(current page.south east)}] (-1cm,1cm) -- (-5cm,1cm);
+	\end{tikzpicture}
+	
 	\begin{center}
-		\vspace*{2cm}
-
-		{\Huge\bfseries In Praise of Arliz}\\[2em]
+		\vspace*{2.5cm}
 		
-		{\Large\scshape Mahdi}\\[0.5em]
+		%--------------------------------------------
+		% Modern Artistic Title: Arliz
+		%--------------------------------------------
+		{\fontsize{72}{80}\selectfont
+			\bfseries
+			\textcolor{myblue}{
+				\textsc{
+					\begin{tikzpicture}
+						\node[opacity=0.08, scale=2.5, text opacity=1, text=black] at (0,0.5) {ARLIZ};
+						\node at (0,0) {\textcolor{myblue}{
+								A\hspace{0.6em}r\hspace{0.5em}l\hspace{0.5em}i\hspace{0.5em}z}};
+					\end{tikzpicture}
+				}
+			}
+		}\\[1.2em]
 		
-		\begin{minipage}{1\textwidth}
+		{\Large\itshape In Praise of}\\[2.5em]
+		
+		%--------------------------------------------
+		% Quote / Tagline
+		%--------------------------------------------
+		\begin{minipage}{0.85\textwidth}
 			\centering
-			This book evolves. Every insight gained—whether a circuit, a structure,\\
-				or a simple idea—is absorbed and integrated. 
+			\large\itshape
+			This book evolves—every insight gained, whether a circuit,\\
+			a structure, or a simple idea, is absorbed into its living form.
 		\end{minipage}
 		
 		\vfill
 		
-	{\large \textsc{First Edition}}\\[0.5em]
-	{\large \today}
-	
-	\vspace*{1cm}
-	{\small
-		\textcopyright\ 2025 Mahdi “Genix”  
-		\par
-		Released under the MIT License  
-	}
+		%--------------------------------------------
+		% Edition with decorative lines
+		%--------------------------------------------
+		\begin{tikzpicture}
+			\node (edition) {\large \textsc{First Edition}};
+			\draw[line width=2pt, color=myblue] ($(edition.west)+(-1cm,0)$) -- ($(edition.west)+( -0.2cm,0)$);
+			\draw[line width=2pt, color=myblue] ($(edition.east)+(0.2cm,0)$) -- ($(edition.east)+( 1cm,0)$);
+		\end{tikzpicture}\\[0.5em]
+		{\large \today}
+		
+		\vspace*{1.5cm}
+		
+		%--------------------------------------------
+		% License and Copyright
+		%--------------------------------------------
+		{\small
+			\textcopyright\ 2025 Mahdi  
+			\par
+			Released under the MIT License
+		}
 	\end{center}
 \end{titlepage}
+
+% ----------------------------------------------
+% ARLIZ Copyright Page
+% ----------------------------------------------
+\thispagestyle{empty}
+\begin{center}
+    \newpage
+    \addcontentsline{toc}{chapter}{Copyright}
+	 {\footnotesize
+		\textbf{ARLIZ: A Living Architecture of Computing}\\
+		\vspace{0.5em}
+		\textit{First Edition}\\
+		\vspace{1.5em}
+		\textbf{Copyright \textcopyright\ 2025 Mahdi}\\
+		\vspace{1em}
+		\textbf{Creative Commons Attribution-ShareAlike 4.0 International License}\\
+		(CC BY-SA 4.0)\\
+		\vspace{1.5em}
+		This work is licensed under a \href{https://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)}.\\
+		You are free to:\newline
+		\begin{itemize}\itemsep0pt
+			\item \textbf{Share} \— copy and redistribute the material in any medium or format,\newline
+			\item \textbf{Adapt} \— remix, transform, and build upon the material for any purpose, even commercially,
+		\end{itemize}
+		provided you follow these terms:\newline
+		\begin{itemize}\itemsep0pt
+			\item \textbf{Attribution (BY):} You must give appropriate credit to Mahdi, provide a link to the license, and indicate if changes were made.\\
+			\item \textbf{ShareAlike (SA):} If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+		\end{itemize}
+		\vspace{1.5em}
+		\textbf{No Warranty.} This book is provided “as is,” without warranty of any kind, express or implied. The author and contributors shall not be liable for any damages arising from its use.\newline
+		\textbf{Repository and Source.} The full source (LaTeX, images, and accompanying code) is available at\newline
+		\url{https://github.com/m-mdy-m/Arliz}\newline
+		under the same CC BY-SA 4.0 license.\newline
+		\vspace{1.5em}
+		\textbf{Printed Version.} A physical (printed) edition is not yet available. If printed in Iran or elsewhere, the print must include this same copyright and license text.\\
+		\vspace{1.5em}
+		{\small
+			This book is typeset using \LaTeX\ with the Charter and Palatino font families, microtype enhancements, and TikZ illustrations for diagrams. All figures, diagrams, and code examples are either authored by Mahdi “Genix” or used with permission under permissive licenses.\\
+			\vspace{0.5em}
+			\textbf{Cover and Design Credits:}\\
+			Cover design by Mahdi and Studio Montage-inspired elements. Title typography arranged with TikZ overlays to reflect the living, evolving nature of \emph{Arliz}.\\
+			\newpage
+		
+			\textbf{Development Team:}\\
+			\vspace{1.5em}
+			\begin{tabular}{@{}l l@{}}
+				Author                             & Mahdi\\
+				Repository Maintenance             & Mahdi\\
+				Editorial Guidance                 & (Open-source community contributions) \\
+				LaTeX Template and Styling         & Mahdi\\
+				Illustrations and Diagrams         & Mahdi and contributors \\
+			\end{tabular}
+		}
+	}
+	\end{center}
+	
+	\vfill
+	
+	\begin{flushleft}
+	{\small
+		Library of Congress Control Number: 2025-ARLIZ\\
+		ISBN: Pending (Digital version only)\\
+		\\
+		\textbf{First Printing:} 2025\\
+		Printed in Iran (when available), or distributed digitally worldwide.\\
+		\\
+		The text of this book is printed on acid-free, archival-quality paper.\\
+		URLs, repository links, and license details were last updated on \today.
+	}
+	\end{flushleft}
+\clearpage
 
 %----------------------------------------------
 % Dedication
@@ -248,7 +360,6 @@
 		I would like to express my gratitude to everyone who supported me during the creation of this book. Special thanks to the open-source community for their invaluable resources and to all those who reviewed early drafts and provided feedback.
 		
 		%\maketitle
-
 	\tableofcontents
 	\renewcommand{\arraystretch}{1.5} % Adjust row height for better readability
 % Main Content
