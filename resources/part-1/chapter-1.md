@@ -1,20 +1,17 @@
-# Sources for Chapter-X
-
-> A curated list of references, readings, and inspirations used in this chapter.
+# Sources for Chapter-1
 
 ## Books
-- *Title*, Author – Notes or relevance.
+- "The History of Mathematics", David M. Burton, [https://jontalle.web.engr.illinois.edu/uploads/298/HistoryMath-Burton.85.pdf]
 
 ## Articles
-- "Title", Author, [Link] – Short context if needed.
 
-## Papers
-- "Paper Title", Journal/Conference, Year – Relevance.
+- "How Humans Learned to Count, Thus Opening the World", Micheal Brooks, [https://lithub.com/how-humans-learned-to-count-thus-opening-the-world/].
 
-## Videos / Talks
-- [Title](link) – Brief reason for inclusion.
+- "The Principles of Psychology", William James, [https://psychclassics.yorku.ca/James/Principles/prin24.htm]
 
-## Others
-- Description or link – Why it's useful.
+- "'Africa Counts' and Ethnomathematics", CLAUDIA ZASLA VSKY , [https://flm-journal.org/Articles/3B80E796AE71BCD65E9962F33C839.pdf] 
 
+- "Khoisan Healing: Understandings, Ideas and Practices", Chris Low , [https://thinkingthreads.com/files/Khoisan_thesis.pdf]
 
+## Talks
+- [How did the ancient humans learn counting? How did even the concepts of counting come into picture?](https://www.quora.com/How-did-the-ancient-humans-learn-counting-How-did-even-the-concepts-of-counting-come-into-picture)

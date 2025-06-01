@@ -8,9 +8,6 @@
 ## Articles
 - "Title", Author, [Link] – Short context if needed.
 
-## Papers
-- "Paper Title", Journal/Conference, Year – Relevance.
-
 ## Videos / Talks
 - [Title](link) – Brief reason for inclusion.
 
