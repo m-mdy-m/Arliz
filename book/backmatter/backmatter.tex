@@ -1,0 +1,29 @@
+%----------------------------------------------
+% BACK MATTER
+%----------------------------------------------
+\backmatter
+
+\pagestyle{backmatter}
+
+% Bibliography
+\printbibliography
+\addcontentsline{toc}{chapter}{Bibliography}
+\chaptermark{Bibliography}
+
+% Glossary (if using)
+\chapter*{Glossary}
+\addcontentsline{toc}{chapter}{Glossary}
+\chaptermark{Glossary}
+
+\begin{multicols}{2}
+	\textbf{Algorithm:} A step-by-step procedure...
+	
+	\textbf{Array:} A data structure consisting...
+	
+	% More glossary entries...
+\end{multicols}
+
+% Index
+\printindex
+\addcontentsline{toc}{chapter}{Index}
+\chaptermark{Index}

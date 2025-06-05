@@ -1,0 +1,67 @@
+\begin{titlepage}
+	\addcontentsline{toc}{chapter}{Title Page}
+	\begin{tikzpicture}[remember picture, overlay]
+		%--------------------------------------------
+		% Two thick diagonal lines in corners
+		%--------------------------------------------
+		\draw[line width=6pt, color=myblue, rotate around={45:(current page.north west)}, 
+		shift={(current page.north west)}] (1cm,-1cm) -- (5cm,-1cm);
+		\draw[line width=6pt, color=myblue, rotate around={45:(current page.south east)}, 
+		shift={(current page.south east)}] (-1cm,1cm) -- (-5cm,1cm);
+	\end{tikzpicture}
+	
+	\begin{center}
+		\vspace*{2.5cm}
+		
+		%--------------------------------------------
+		% Modern Artistic Title: Arliz
+		%--------------------------------------------
+		{\fontsize{72}{80}\selectfont
+			\bfseries
+			\textcolor{myblue}{
+				\textsc{
+					\begin{tikzpicture}
+						\node[opacity=0.08, scale=2.5, text opacity=1, text=black] at (0,0.5) {ARLIZ};
+						\node at (0,0) {\textcolor{myblue}{
+								A\hspace{0.6em}r\hspace{0.5em}l\hspace{0.5em}i\hspace{0.5em}z}};
+					\end{tikzpicture}
+				}
+			}
+		}\\[1.2em]
+		
+		{\Large\itshape In Praise of}\\[2.5em]
+		
+		%--------------------------------------------
+		% Quote / Tagline
+		%--------------------------------------------
+		\begin{minipage}{0.85\textwidth}
+			\centering
+			\large\itshape
+			This book evolves—every insight gained, whether a circuit,\\
+			a structure, or a simple idea, is absorbed into its living form.
+		\end{minipage}
+		
+		\vfill
+		
+		%--------------------------------------------
+		% Edition with decorative lines
+		%--------------------------------------------
+		\begin{tikzpicture}
+			\node (edition) {\large \textsc{First Edition}};
+			\draw[line width=2pt, color=myblue] ($(edition.west)+(-1cm,0)$) -- ($(edition.west)+( -0.2cm,0)$);
+			\draw[line width=2pt, color=myblue] ($(edition.east)+(0.2cm,0)$) -- ($(edition.east)+( 1cm,0)$);
+		\end{tikzpicture}\\[0.5em]
+		{\large \today}
+		
+		\vspace*{1.5cm}
+		
+		%--------------------------------------------
+		% License and Copyright
+		%--------------------------------------------
+		{\small
+			\textcopyright\ 2025 Mahdi  
+			\par
+			Released under the MIT License
+		}
+	\end{center}
+\end{titlepage}
