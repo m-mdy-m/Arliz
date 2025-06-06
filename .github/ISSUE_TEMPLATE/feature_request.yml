@@ -8,36 +8,36 @@ body:
       value: |
         Use this template to propose new functionality, improvements, or additions to Arliz.
   - type: input
+    id: feature_summary
     attributes:
-      id: "feature_summary"
-      label: "### Describe the proposed feature"
+      label: "Describe the proposed feature"
       description: "Provide a concise summary of the feature or enhancement you would like to see."
       placeholder: "A brief description of the new feature."
-      validations:
+    validations:
         required: true
   - type: textarea
+    id: rationale
     attributes:
-      id: "rationale"
-      label: "### Rationale"
+      label: "Rationale"
       description: "Explain why this feature is important or how it would benefit readers/contributors."
       placeholder: "Why is this needed? What problem does it solve?"
-      validations:
+    validations:
         required: true
   - type: input
-    attributes:
-      id: "affected_sections"
-      label: "### Affected section(s) or file(s)"
+    id: affected_sections
+    attributes: 
+      label: "Affected section(s) or file(s)"
       description: |
         Specify which part(s) of the book or configuration would be impacted.  
         Use two-digit part format when referencing parts (e.g., `book/parts/part02/part02.tex`, `config/macros.tex`).
       placeholder: "e.g., book/parts/part03/part03.tex"
-      validations:
+    validations:
         required: false
   - type: textarea
+    id: additional_details
     attributes:
-      id: "additional_details"
-      label: "### Additional details or examples"
+      label: "Additional details or examples"
       description: "Provide any mockups, code snippets, or examples to illustrate how the feature might work."
       placeholder: "Optional: attach diagrams, pseudocode, or sample LaTeX snippets."
-      validations:
+    validations:
         required: false
