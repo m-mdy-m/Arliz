@@ -8,28 +8,28 @@ body:
       value: |
         Use this template to ask general questions about content, structure, or usage of Arliz.
   - type: input
+    id: question_summary
     attributes:
-      id: "question_summary"
-      label: "### What is your question?"
+      label: "What is your question?"
       description: "Summarize your question in one or two sentences."
       placeholder: "For example: “I am unsure how zero is introduced in `book/parts/part02/part02.tex`.”"
-      validations:
+    validations:
         required: true
   - type: textarea
+    id: context
     attributes:
-      id: "context"
-      label: "### Context"
+      label: "Context"
       description: "Provide any background or details that would help us understand and answer your question."
       placeholder: "Optional: reference specific text or sections."
-      validations:
+    validations:
         required: false
   - type: input
+    id: related_file
     attributes:
-      id: "related_file"
-      label: "### Related file(s)"
+      label: "Related file(s)"
       description: |
         If relevant, specify which file(s) this question pertains to (e.g., `book/parts/part04/part04.tex`).  
         Use two-digit part format when referencing parts.
       placeholder: "e.g., book/parts/part04/part04.tex"
-      validations:
+    validations:
         required: false
