@@ -150,7 +150,7 @@ Describe the steps to compile and verify your changes. Include any special instr
    git fetch origin
    git checkout -b feature/YOUR_BRANCH_NAME
    git merge origin/main
-````
+   ```
 
 3. **Compile the Book**
 
