@@ -1,77 +1,82 @@
-name: "Bug report"
-description: "Report a bug or compilation error in the Arliz repository."
+name: "Bug Report"
+description: "Report a bug in the Arliz repository (LaTeX build, content rendering, or asset issues)."
 title: "[BUG] "
 labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for reporting a bug in **Arliz**. Please fill out the fields below to help us reproduce and fix the issue as efficiently as possible.
+        Thank you for taking the time to report a bug. Please fill out the fields below with as much detail as you can. Remove any placeholder text before submitting.
+
   - type: input
-    id: os_platform
+    id: bug_title
     attributes:
-      label: "Operating System / Platform"
-      description: "Specify the OS or platform on which you attempted to compile Arliz (e.g., Ubuntu 22.04, macOS 12.3, Windows 10)."
-      placeholder: "e.g., Ubuntu 22.04"
-  - type: dropdown
-    id: latex_engine
-    attributes:
-      label: "LaTeX Engine"
-      description: "Indicate which LaTeX engine you used to compile the project."
-      options:
-        - "xelatex"
-        - "pdflatex"
-        - "lualatex"
-        - "latexmk"
+      label: "1. Short Description of the Bug"
+      description: "Provide a concise summary (e.g., \"Undefined control sequence in part02.tex\")."
+      placeholder: "e.g., \"LaTeX compilation error: Undefined control sequence in Part 2\""
+      required: true
+
   - type: textarea
-    id: reproduction_steps
+    id: bug_description
     attributes:
-      label: "Steps to Reproduce"
+      label: "2. Steps to Reproduce"
       description: |
-        Describe the exact steps you took leading up to the error. For example:
-        1. Cloned the repository at commit `abcdef`.
-        2. Ran `cd book && xelatex Arliz.tex`.
-        3. Observed the following error messages: …
-  - type: dropdown
-    id: affected_file
-    attributes:
-      label: "Affected File(s)"
-      description: |
-        Select the LaTeX file or configuration file where the error occurred. If multiple files are affected, choose one and list others in “Other File(s)”.
-      options:
-        - "book/Arliz.tex"
-        - "book/frontmatter/title.tex"
-        - "book/parts/part01/part01.tex"
-        - "book/parts/part02/part02.tex"
-        - "book/parts/part03/part03.tex"
-        - "book/parts/part04/part04.tex"
-        - "config/macros.tex"
-        - "config/latex-packages.tex"
-        - "Other"
-  - type: input
-    id: other_file
-    attributes:
-      label: "If “Other”, specify file path"
-      description: "Provide the relative path(s) to any additional file(s) involved."
-      placeholder: "e.g., book/parts/part05/part05.tex"
+        List the exact steps needed to reproduce the bug. Include:
+        - Which file(s) you edited (e.g., `book/parts/part02/part02.tex`).
+        - Commands you ran to compile (e.g., `xelatex Arliz.tex`).
+      placeholder: |
+        1. Open `book/parts/part02/part02.tex`.  
+        2. Add a new theorem environment.  
+        3. Run `xelatex book/Arliz.tex`.  
+      required: true
+
   - type: textarea
     id: expected_behavior
     attributes:
-      label: "Expected Behavior"
-      description: "Describe what you expected to happen (e.g., successful compilation, correct output in PDF)."
+      label: "3. Expected Behavior"
+      description: "Describe what should have happened (e.g., successful compilation, correct rendering of equation)."
+      placeholder: "e.g., \"The new theorem should compile without errors and appear formatted correctly in the PDF.\""
+      required: true
+
   - type: textarea
     id: actual_behavior
     attributes:
-      label: "Actual Behavior"
-      description: "Describe what actually happened, including any console errors or LaTeX warnings."
+      label: "4. Actual Behavior"
+      description: "Describe what actually happened, including error messages or incorrect output."
+      placeholder: |
+        "Compilation failed with the following error:  
+        ```  
+        ! Undefined control sequence.  
+        l.52 \newtheorem{theorem}  
+        ```"
+      required: true
+
   - type: textarea
-    id: error_log
+    id: latex_log
     attributes:
-      label: "Error Log / Console Output"
-      description: "Copy and paste the relevant error messages or console output here. If the log is lengthy, attach a snippet or reference a file under `book/logs/`."
+      label: "5. LaTeX Compilation Log (if applicable)"
+      description: |
+        Copy and paste the relevant portion of the `.log` file or console output that shows the error. If the bug is not related to compilation, you may leave this blank.
+      placeholder: |
+        "  
+        This is the excerpt from the `.log`:  
+        ```
+        ! Undefined control sequence.  
+        l.52 \newtheorem{theorem}  
+        ```  
+        "
+      required: false
+
   - type: textarea
     id: additional_context
     attributes:
-      label: "Additional Context"
-      description: "Provide any other information that might help us diagnose the issue (e.g., custom packages you added, recent changes to `config/`). If this involves images (e.g., missing figures), ensure they are placed in `book/images/` and referenced correctly."
-
+      label: "6. Additional Context (Optional)"
+      description: |
+        Any other information that might help diagnose the issue, such as:
+        - Recent changes you made (e.g., added a new package in `config/latex-packages.tex`).
+        - A minimal code snippet if the bug is reproducible in isolation.
+      placeholder: |
+        "  
+        I recently updated `config/macros.tex` to define `\newcommand{\Z}{\mathbb{Z}}`, and then inserted it in `book/parts/part02/part02.tex`.  
+        "
+      required: false
