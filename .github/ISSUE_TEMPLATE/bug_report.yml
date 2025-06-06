@@ -8,16 +8,16 @@ body:
       value: |
         Please fill out this form to help us diagnose and fix the issue as efficiently as possible.
   - type: input
-    attributes:
-      id: "description"
+    id: description
+    attributes: 
       label: "### Describe the bug"
       description: "Provide a clear and concise description of the issue you encountered."
       placeholder: "A summary of what went wrong."
-      validations:
+    validations:
         required: true
   - type: textarea
+    id: steps_to_reproduce
     attributes:
-      id: "steps_to_reproduce"
       label: "### Steps to reproduce"
       description: |
         List the steps needed to reproduce the bug.  
@@ -27,39 +27,39 @@ body:
         1. Open `book/parts/part02/part02.tex`  
         2. Run `xelatex Arliz.tex`  
         3. Observe the compilation error on line 45
-      validations:
+    validations:
         required: true
   - type: input
-    attributes:
-      id: "expected_behavior"
+    id: expected_behavior
+    attributes:  
       label: "### Expected behavior"
       description: "Explain what you expected to happen when following the steps above."
       placeholder: "What should have happened instead?"
-      validations:
+    validations:
         required: true
   - type: input
+    id: actual_behavior
     attributes:
-      id: "actual_behavior"
       label: "### Actual behavior"
       description: "Describe what actually happened, including any error messages or incorrect output."
       placeholder: "Exact error text or unexpected result."
-      validations:
+    validations:
         required: true
   - type: input
+    id: latex_file
     attributes:
-      id: "latex_file"
       label: "### Affected LaTeX file(s)"
       description: |
         Specify which file(s) are affected by this bug.  
         Use the two-digit format for parts (e.g., `book/parts/part02/part02.tex`, `config/macros.tex`).
       placeholder: "e.g., book/parts/part02/part02.tex"
-      validations:
+    validations:
         required: true
   - type: textarea
-    attributes:
-      id: "additional_context"
+    id: additional_context
+    attributes:  
       label: "### Additional context"
       description: "Add any other context (e.g., error logs, console output, screenshots) that might help diagnose the problem."
       placeholder: "Optional: paste logs, error messages, or screenshot links here."
-      validations:
+    validations:
         required: false
