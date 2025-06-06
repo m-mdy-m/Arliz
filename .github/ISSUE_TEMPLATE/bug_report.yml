@@ -10,7 +10,7 @@ body:
   - type: input
     id: description
     attributes: 
-      label: "### Describe the bug"
+      label: "Describe the bug"
       description: "Provide a clear and concise description of the issue you encountered."
       placeholder: "A summary of what went wrong."
     validations:
@@ -18,7 +18,7 @@ body:
   - type: textarea
     id: steps_to_reproduce
     attributes:
-      label: "### Steps to reproduce"
+      label: "Steps to reproduce"
       description: |
         List the steps needed to reproduce the bug.  
         Include exact commands, file names, or actions.  
@@ -32,7 +32,7 @@ body:
   - type: input
     id: expected_behavior
     attributes:  
-      label: "### Expected behavior"
+      label: "Expected behavior"
       description: "Explain what you expected to happen when following the steps above."
       placeholder: "What should have happened instead?"
     validations:
@@ -40,7 +40,7 @@ body:
   - type: input
     id: actual_behavior
     attributes:
-      label: "### Actual behavior"
+      label: "Actual behavior"
       description: "Describe what actually happened, including any error messages or incorrect output."
       placeholder: "Exact error text or unexpected result."
     validations:
@@ -48,7 +48,7 @@ body:
   - type: input
     id: latex_file
     attributes:
-      label: "### Affected LaTeX file(s)"
+      label: "Affected LaTeX file(s)"
       description: |
         Specify which file(s) are affected by this bug.  
         Use the two-digit format for parts (e.g., `book/parts/part02/part02.tex`, `config/macros.tex`).
