@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "Arliz README"
+    url: "https://github.com/m-mdy-m/Arliz/blob/main/README.md"
+    about: "Consult the README before opening an issue."
+  - name: "Contribution Guidelines"
+    url: "https://github.com/m-mdy-m/Arliz/blob/main/docs/CONTRIBUTING.md"
+    about: "Review instructions for contributing to Arliz."

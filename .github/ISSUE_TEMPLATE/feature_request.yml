@@ -1,0 +1,75 @@
+name: "Feature request"
+description: "Propose a new feature, enhancement, or improvement for the Arliz book or repository."
+title: "[FEATURE] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting an enhancement to **Arliz**. Please fill out the following fields to help us understand and evaluate your proposal.
+  - type: input
+    id: feature_title
+    attributes:
+      label: "Feature Title"
+      description: "Provide a concise title for the proposed feature or improvement."
+      placeholder: "e.g., “Add glossary of terms for Parts 01–04”"
+  - type: textarea
+    id: motivation
+    attributes:
+      label: "Motivation / Use Case"
+      description: |
+        Explain why this feature is needed. What problem does it solve? Who benefits from it?
+      placeholder: |
+        For example:
+        - Readers currently must search for terminology; a glossary would centralize definitions.
+        - Illustrative code examples are missing in Part 03; adding them would clarify array manipulation.
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: "Proposed Solution"
+      description: |
+        Describe your suggested approach to implement this feature. Include any details about file locations or LaTeX packages.
+      placeholder: |
+        For example:
+        - Add `glossary.tex` under `book/frontmatter/` and modify `Arliz.tex` to include it.
+        - Introduce `\newcommand{\glossentry}[2]{…}` in `config/macros.tex`.
+  - type: dropdown
+    id: relevant_section
+    attributes:
+      label: "Relevant Section / File"
+      description: "Select which part of the repository this feature affects."
+      options:
+        - "Frontmatter (`book/frontmatter/...`)"
+        - "Part 01 – Philosophical & Historical Foundations (`book/parts/part01/part01.tex`)"
+        - "Part 02 – Mathematical Fundamentals (`book/parts/part02/part02.tex`)"
+        - "Part 03 – Data Representation (`book/parts/part03/part03.tex`)"
+        - "Part 04 – Computer Architecture & Logic (`book/parts/part04/part04.tex`)"
+        - "Config / Macros (`config/...`)"
+        - "Other"
+  - type: input
+    id: other_section
+    attributes:
+      label: "If “Other”, specify section or file path"
+      description: "Provide the relative path or description for the affected area."
+      placeholder: "e.g., `book/appendix/…`"
+  - type: textarea
+    id: benefits
+    attributes:
+      label: "Benefits"
+      description: "Explain how this feature will improve the book or repository."
+      placeholder: |
+        For example:
+        - Enhances readability.
+        - Provides clearer examples for students.
+        - Reduces compilation errors by standardizing macros.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Alternatives Considered"
+      description: "If there are alternative approaches, describe them here and explain why you chose the proposed solution."
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: "Additional Context"
+      description: "Add any other information, mockups, or links to external references that may help reviewers evaluate your request."
+
