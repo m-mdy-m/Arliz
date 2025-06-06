@@ -1,73 +1,36 @@
 name: "Feature Request"
-description: "Suggest a new feature or improvement for Arliz (new content, LaTeX macros, build enhancements, etc.)."
-title: "[FEATURE] "
+description: "Suggest a new feature or enhancement for Arliz"
+title: "Feature: "
 labels: ["enhancement"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thank you for proposing a new feature or improvement. Please provide details so the maintainers can assess feasibility and priority. Remove placeholder text before submitting.
-
+        Use this template to propose new functionality, improvements, or additions to Arliz.
   - type: input
-    id: feature_title
+    id: "feature_summary"
     attributes:
-      label: "1. Title of the Feature"
-      description: "Provide a concise title (e.g., \"Add TikZ examples for Part 3\")."
-      placeholder: "e.g., \"Illustrative TikZ diagrams for Part 03\""
+      label: "### Describe the proposed feature"
+      description: "Provide a concise summary of the feature or enhancement you would like to see."
+      placeholder: "A brief description of the new feature."
       required: true
-
-  - type: textarea
-    id: feature_description
+  - type: input
+    id: "rationale"
     attributes:
-      label: "2. Detailed Description"
-      description: |
-        Explain what you want to be added or improved. Include:
-        - Which file(s) would be affected (e.g., `book/parts/part03/part03.tex`).  
-        - How this feature would benefit readers or maintainers.
-      placeholder: |
-        "  
-        I propose adding several TikZ diagrams in `book/parts/part03/part03.tex` to illustrate memory layout of arrays.  
-        This will help readers understand pointer arithmetic in later chapters.  
-        "
+      label: "### Rationale"
+      description: "Explain why this feature is important or how it would benefit readers/contributors."
+      placeholder: "Why is this needed? What problem does it solve?"
       required: true
-
-  - type: textarea
-    id: motivation
+  - type: input
+    id: "affected_sections"
     attributes:
-      label: "3. Motivation / Use Case"
-      description: |
-        Why is this feature important? Describe:
-        - The problem it solves or the gap it fills.  
-        - Any specific examples or scenarios where this would be useful.
-      placeholder: |
-        "  
-        Without visual aids, readers may struggle to grasp how multi-dimensional arrays map to contiguous memory.  
-        TikZ diagrams would clarify this concept.  
-        "
-      required: true
-
-  - type: textarea
-    id: alternatives
-    attributes:
-      label: "4. Alternatives Considered (Optional)"
-      description: |
-        If there are existing approaches or workarounds, list them here. Explain why they are insufficient.
-      placeholder: |
-        "  
-        Currently, I use ASCII art in the text, but it is not as clear as a graphical diagram.  
-        "
+      label: "### Affected section(s) or file(s)"
+      description: "Specify which part(s) of the book or configuration would be impacted (e.g., `parts/part03/part03.tex`, `config/macros.tex`)."
+      placeholder: "e.g., parts/part03/part03.tex"
       required: false
-
   - type: textarea
-    id: additional_context
+    id: "additional_details"
     attributes:
-      label: "5. Additional Context (Optional)"
-      description: |
-        Any further information, such as:
-        - External references or inspirations.  
-        - Links to example diagrams or packages.  
-      placeholder: |
-        "  
-        I found a TikZ library example in Overleaf showing 3D array projection, which could be adapted.  
-        "
-      required: false
+      label: "### Additional details or examples"
+      description: "Provide any mockups, code snippets, or examples to illustrate how the feature might work."
+      placeholder: "Optional: attach diagrams, pseudocode, or sample LaTeX snippets."

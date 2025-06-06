@@ -1,59 +1,48 @@
-name: "Documentation Update"
-description: "Request an update or correction to the Arliz documentation (frontmatter, backmatter, README, etc.)."
-title: "[DOC] "
+name: "Documentation update"
+description: "Suggest changes or corrections to documentation, LaTeX macros, or configuration files in Arliz."
+title: "[DOCS] "
 labels: ["documentation"]
 body:
   - type: markdown
     attributes:
       value: |
-        Use this template to request corrections or additions to the documentation. Provide specific details to help reviewers understand the change. Remove placeholder text before submitting.
-
+        Thank you for helping improve the documentation of **Arliz**. Please complete the fields below with as much detail as possible.
+  - type: dropdown
+    id: doc_section
+    attributes:
+      label: "Documentation Section"
+      description: "Which documentation area are you updating?"
+      options:
+        - "Book Content (`book/parts/...`)"
+        - "Frontmatter (`book/frontmatter/...`)"
+        - "Backmatter (`book/backmatter/...`)"
+        - "Configuration (`book/config/...`)"
+        - "README"
+        - "CONTRIBUTING"
+        - "Other"
   - type: input
-    id: doc_title
+    id: other_doc_section
     attributes:
-      label: "1. Short Title"
-      description: "Summarize the documentation issue or request (e.g., \"Fix typo in README.md\")."
-      placeholder: "e.g., \"Update table of contents in frontmatter\""
-      required: true
-
+      label: "If “Other”, specify file or location"
+      description: "Provide the relative path or description for the documentation you wish to update."
+      placeholder: "e.g., `book/appendix/glossary.tex`"
   - type: textarea
-    id: doc_location
+    id: change_details
     attributes:
-      label: "2. Documentation Location"
-      description: |
-        Specify which file(s) need updating (e.g., `book/frontmatter/introduction.tex`, `README.md`).  
-        If the issue spans multiple files, list each one.
+      label: "Description of Changes"
+      description: "Describe the documentation changes you propose, including any LaTeX commands, macros, or new files."
       placeholder: |
-        "  
-        - `book/frontmatter/introduction.tex`  
-        - `README.md`  
-        "
-      required: true
-
+        For example:
+        - Corrected the definition of “identifier” in Part 02.
+        - Added `\newcommand{\Z}{\mathbb{Z}}` macro and updated examples accordingly.
   - type: textarea
-    id: doc_changes
+    id: motivation
     attributes:
-      label: "3. Description of Change"
-      description: |
-        Describe what needs to be updated or corrected (e.g., grammar fix, updated citation, missing link, formatting).  
-        If suggesting new content, explain the rationale.
-      placeholder: |
-        "  
-        In `book/frontmatter/introduction.tex`, change “Aryleez” to “Arliz” in the title.  
-        In `README.md`, add a section on installing required LaTeX packages.  
-        "
-      required: true
-
+      label: "Motivation"
+      description: "Explain why these documentation changes are necessary or beneficial."
   - type: textarea
     id: additional_context
     attributes:
-      label: "4. Additional Context (Optional)"
-      description: |
-        Any extra information, such as:
-        - Link to a rendered PDF where the error appears.  
-        - Example of correct formatting or reference style.
-      placeholder: |
-        "  
-        See the PDF at page 5 where the table of contents is misaligned.  
-        "
-      required: false
+      label: "Additional Context"
+      description: "Provide any other information, references, or sample outputs (e.g., before/after PDF snapshots)."
+
