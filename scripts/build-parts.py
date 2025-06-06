@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+# This script helps us avoid repetitive tasks like creating chapters or deleting and adding different parts.
 import os
 import sys
 from pathlib import Path
