@@ -1,93 +1,360 @@
-# CONTRIBUTING TO ARLIZ
+# Contributing to Arliz
 
-This project is not a product. It’s a long-term, evolving system of thought — about arrays, computation, representation, and the philosophical roots of structured logic. If you’re here, thank you for taking it seriously. Contributions are welcome, but only with full understanding of the system’s direction, precision, and writing discipline.
+Thank you for your interest in contributing to **Arliz**—a bilingual (currently English, with planned Persian support) LaTeX-based book exploring Arrays, Logic, Identity, and Zero. Whether you’re submitting bug reports, suggesting new content, improving existing chapters, or refining build/packaging scripts, this document explains how to work with the repository in a consistent, efficient, and professional manner.
 
----
-
-## Core File
-
-The main file is:
-- `book/Arliz.tex`
-
-This is the entry point for the LaTeX build and contains all parts, structure, macros, and references to chapters. It is edited and compiled using **TeXstudio**. If you intend to change the book itself (content, structure, macros, parts, chapters), you must:
-1. Understand the LaTeX environment well.
-2. Test your changes thoroughly before any pull request.
-3. Avoid unnecessary edits — whitespace changes, formatting deviations, or personal macro preferences will not be accepted.
-4. Avoid adding dependencies or packages unless absolutely necessary.
-
-Do not attempt to "refactor" the LaTeX. Stability matters more than elegance.
+> **Maintainer Contact:** bitsgenix@gmail.com
 
 ---
 
-## Resources Directory
+## Table of Contents
 
-All research, sources, and extended materials live under:
-
-- `resources/`
-
-Each part has its own directory:
-
-- `part-1`, `part-2`, ..., `part-n`
-
-Inside each part, chapters are named:
-
-- `chapter-1.md`
-- `chapter-2.md`
-- etc.
-
-Each Markdown file holds the curated references, readings, notes, and links relevant to that specific chapter.
-
-### When editing/adding/changing these:
-
-- Do **not** add sources you haven’t read or understood.
-- Do **not** dump links. Every entry must have a reason.
-- Follow the format in `TEMPLATE.md` strictly.
-- You may write personal notes and commentary under the `Notes` section.
-- If you're unsure about a source’s validity or placement, comment it out with a `<!-- -->` and explain.
-- Never remove or replace an existing source without explaining why in your commit message or pull request.
-- All content must be in **English**.
-
-Do not treat these files like blogs or link collections. Treat them like academic field notes: precise, minimal, justified.
+1. [Getting Started](#getting-started)  
+2. [Issue Reporting](#issue-reporting)  
+3. [Pull Request Process](#pull-request-process)  
+4. [Branching Strategy](#branching-strategy)  
+5. [Commit Message Guidelines](#commit-message-guidelines)  
+6. [LaTeX Coding Standards](#latex-coding-standards)  
+7. [Building the Project](#building-the-project)  
+8. [Editorial Guidelines](#editorial-guidelines)  
+9. [File Ignorance and Clean Working Directory](#file-ignorance-and-clean-working-directory)  
+10. [Communication and Support](#communication-and-support)
 
 ---
 
-## Philosophical Direction
+## 1. Getting Started
 
-This is not a textbook. It is not a tutorial. It is not for trends or algorithms or syntax. It is a narrative about thought and structure. If you contribute, understand that every part, chapter, and sentence is tied to an intellectual arc. The text avoids simplification. It does not serve beginners, but instead those willing to go back to first principles.
+Before you begin any work, please ensure you have:
 
-If you want to contribute, take time. Read the content. Think like a builder. Do not rush edits. Treat the material with the respect you would give to an architecture plan — not a social post, not a blog, not code.
+1. **A Local Clone of Arliz**  
+   ```bash
+   git clone https://github.com/m-mdy-m/Arliz.git
+   cd Arliz
+````
 
----
+2. **A LaTeX Environment**
 
-## Adding/Editing Chapters
+   * Any modern LaTeX distribution (TeX Live, MiKTeX, MacTeX, etc.)
+   * Although the primary maintainer uses **TeXstudio**, you are free to use any editor or IDE (e.g., TeXworks, Visual Studio Code + LaTeX Workshop, Vim/Emacs with appropriate plugins).
 
-If you wish to propose or edit a chapter:
-- You must open an issue first with a detailed explanation.
-- No pull requests for new chapters will be merged unless there's clear intent, structure, and justification.
+3. **Basic Familiarity with Git and GitHub**
 
-All chapters must:
-- Fit the surrounding philosophical and technical context.
-- Be written in a clear, layered, minimal style.
-- Avoid fluff, digressions, or over-explaining.
-- Include a dedicated resource file in `resources/part-X/chapter-Y.md`.
+   * Fork the repository to your own account.
+   * Create feature or fix branches from `main` (e.g., `feature/part02-clarify-notation`, `bugfix/broken-crossref`).
 
----
+4. **Understanding of Project Layout**
 
-## Deletions
-
-Do not delete anything without understanding its historical or conceptual reason for being. If you think something must go, open a discussion first.
-
-If something is deprecated or no longer valid:
-- Mark it as deprecated in the comments (in LaTeX or Markdown).
-- Explain why it’s no longer necessary.
-- Never hard-delete without trace or justification.
+   * The principal LaTeX file is `book/Arliz.tex`. All content chapters reside under `book/parts/partXX/partXX.tex`.
+   * Build scripts (when available) will live under `scripts/build/` (e.g., a shell or Python script to automate compilation).
 
 ---
 
-## Final Notes
+## 2. Issue Reporting
 
-This is not a collaborative writing playground. It is an evolving document rooted in long-form thinking. Precision matters. Style matters. Thoughtfulness matters.
+If you encounter a problem or have a suggestion, please open an issue using one of the provided templates. This helps maintain clarity and structure.
 
-If you’re ready for that, welcome.
+1. **Bug Report**
 
-Otherwise, feel free to read and observe.
+   * Select the **Bug report** template.
+   * Provide your operating system, LaTeX engine, steps to reproduce, expected vs. actual behavior, and any error logs.
+   * Reference exact file names and line numbers when applicable (e.g., `book/parts/part02/part02.tex: line 134`).
+
+2. **Feature Request**
+
+   * Use the **Feature request** template when suggesting new content, structural changes, or enhancements (e.g., adding a glossary, example code blocks, or new illustrative diagrams).
+   * Clearly explain *why* the feature is needed, *how* it benefits the reader, and, if possible, outline a high-level implementation approach.
+
+3. **Documentation Update**
+
+   * Choose the **Documentation update** template for corrections or improvements to existing text, LaTeX macros, configuration files, or build instructions.
+   * Provide context regarding where in the documentation the change applies.
+
+> ⚠️ **Before opening an issue**:
+>
+> * Search existing issues to see if your problem or suggestion has already been reported.
+> * If you find a duplicate, feel free to comment on the existing issue instead of creating a new one.
+
+---
+
+## 3. Pull Request Process
+
+When you’re ready to submit changes, follow these steps to ensure a smooth review and merge process:
+
+1. **Branch from `main`**
+
+   ```bash
+   git checkout main
+   git pull origin main
+   git checkout -b feature/your-feature-name
+   ```
+
+2. **Adhere to the PR Template**
+
+   * Fill out the **PULL\_REQUEST\_TEMPLATE.md** in full.
+   * Provide a meaningful title, link to related issues, and a clear summary of changes.
+   * Include details on how to compile, verify, or preview your changes (e.g., “Compiled PDF pages 45–52 to verify figure placement”).
+
+3. **Make Incremental, Focused Commits**
+
+   * Follow the [Commit Message Guidelines](#commit-message-guidelines) below.
+   * Keep each commit aligned to a single logical change (e.g., “Update array notation in Part 02” rather than “Various fixes”).
+
+4. **Ensure Build and Compilation Are Clean**
+
+   * Run the build script (if available) or manually compile:
+
+     ```bash
+     cd book
+     xelatex Arliz.tex
+     bibtex Arliz           # if bibliography changed
+     xelatex Arliz.tex      # twice for cross-references
+     ```
+   * Verify that `Arliz.pdf` reflects your intended updates without errors or missing references.
+
+5. **Open a Pull Request on GitHub**
+
+   * Push your branch to your fork:
+
+     ```bash
+     git push origin feature/your-feature-name
+     ```
+   * Navigate to the upstream repository and open a PR from your branch to `main`.
+   * Select an appropriate label (e.g., `enhancement`, `bug`, `documentation`).
+
+6. **Review and Address Feedback**
+
+   * A maintainer or reviewer will comment on your PR. Please respond promptly by updating your branch.
+   * When all review comments are resolved and CI/build checks pass, the PR will be merged.
+
+---
+
+## 4. Branching Strategy
+
+* **`main`**: Always contains the latest stable version of Arliz.
+* **Feature Branches**: Named as `feature/<short-description>` (e.g., `feature/part02-exercise-box`).
+* **Bugfix Branches**: Named as `bugfix/<short-description>` (e.g., `bugfix/latex-crossref-error`).
+* **Hotfix Branches** (rare): For urgent fixes to `main`, named `hotfix/<description>`.
+* **Merge Strategy**:
+
+  * PRs should be **merge-committed** (no squash), preserving commit history.
+  * Avoid rebasing `main`-derived branches that have been shared with others.
+
+---
+
+## 5. Commit Message Guidelines
+
+Arliz follows **Semantic Commit Messages**. This convention helps maintain a clear, human-readable project history.
+
+### Format
+
+```
+<type>(<scope>): <short summary>
+<BLANK LINE>
+<body>        # Optional, but encouraged for clarity
+<BLANK LINE>
+<footer>      # Optional, for breaking changes or issue references
+```
+
+### Types
+
+* **feat**: A new feature or enhancement (e.g., new chapter section, additional example).
+* **fix**: A bug fix (e.g., resolve compilation error, correct typo).
+* **docs**: Documentation changes (e.g., updating frontmatter, modifying README).
+* **chore**: Routine tasks (e.g., update CI script, change build script).
+* **style**: Formatting, whitespace, or LaTeX style fixes (no code/content changes).
+* **refactor**: Refactoring existing code or LaTeX macros without adding features or fixing bugs.
+* **test**: Adding or updating tests/build verification scripts (e.g., scripts/build checks).
+
+### Example
+
+```
+feat(part02): introduce \Z macro for integer notation
+
+- Added \newcommand{\Z}{\mathbb{Z}} to config/macros.tex
+- Updated part02.tex to demonstrate example usage
+- Ensured PDF compiles without warnings
+
+Closes #52
+```
+
+> **Note:** Always reference an issue number in the footer when applicable (e.g., “Closes #23”, “Relates to #45”).
+
+---
+
+## 6. LaTeX Coding Standards
+
+To keep the LaTeX codebase consistent, please adhere to the following guidelines:
+
+1. **File Encoding & Line Endings**
+
+   * Use **UTF-8** encoding for all `.tex`, `.sty`, and `.bib` files.
+   * Use Unix-style line endings (`LF`).
+
+2. **Document Structure**
+
+   * The root file is `book/Arliz.tex`. Do not add standalone `.tex` files outside `book/`.
+   * Each major chapter or part resides in its own folder under `book/parts/partXX/partXX.tex`. Refer to existing parts (e.g., `book/parts/part02/part02.tex`) for naming conventions and folder structure.
+
+3. **Macros and Packages**
+
+   * Place all custom macros in `config/macros.tex`.
+   * Add new package imports to `config/latex-packages.tex`.
+   * Avoid inline `\usepackage{...}` calls inside chapter files; instead, reference the central configuration.
+
+4. **Figures, Tables, and Images**
+
+   * Store all image files (e.g., `.pdf`, `.png`, `.svg`) under `book/images/`.
+   * Filenames should be lowercase, hyphen-separated, and descriptive (e.g., `array-indexing-diagram.pdf`).
+   * Use the `figure` environment with the `htbp` specifier and include `\centering`, `\caption{}`, and `\label{}`.
+   * Verify that all `\ref{}` targets resolve correctly. Run at least two LaTeX passes to ensure references update.
+
+5. **Formatting Conventions**
+
+   * Indent environments and sections by two spaces.
+   * Limit line length to 100 characters if possible for readability.
+   * Use `%` comments to explain nontrivial LaTeX logic (e.g., custom TikZ code, dynamic macros).
+   * Do not commit commented-out blocks of code or text. Remove or archive them elsewhere if needed.
+
+6. **Bibliography and Citations**
+
+   * Use `biblatex` or `natbib` as defined in `config/latex-packages.tex`.
+   * Place `.bib` files under a dedicated folder (e.g., `book/bibliography/`).
+   * Run `bibtex` or `biber` as part of the build script whenever references change.
+
+---
+
+## 7. Building the Project
+
+A consistent build process ensures contributors can verify their changes locally:
+
+1. **Prerequisites**
+
+   * LaTeX distribution with standard packages (`amsmath`, `amssymb`, `graphicx`, `xcolor`, `hyperref`, etc.).
+   * If you do not have all packages installed, refer to your distribution’s package manager (e.g., `tlmgr` for TeX Live).
+
+2. **Optional Build Script**
+
+   * A build script may be provided under `scripts/build/` (e.g., `build.sh` or `build.py`).
+   * To execute:
+
+     ```bash
+     cd scripts/build
+     ./build.sh   # or python build.py
+     ```
+   * The script will typically:
+
+     * Clean old artifacts (`*.aux`, `*.log`, `*.toc`, etc.).
+     * Compile `book/Arliz.tex` with the configured LaTeX engine.
+     * Generate `book/Arliz.pdf` in the `book/` directory.
+
+3. **Manual Build Steps**
+   If no script is available or you prefer a manual approach:
+
+   ```bash
+   cd book
+   xelatex Arliz.tex
+   bibtex Arliz       # only if bibliography changed
+   xelatex Arliz.tex  # second pass for cross-references
+   xelatex Arliz.tex  # optional third pass to ensure all references updated
+   ```
+
+   * Inspect console output for errors or warnings.
+   * Open `Arliz.pdf` to confirm that all figures, tables, references, and citations render correctly.
+
+4. **Cleaning Artifacts**
+
+   * Many intermediate files are automatically ignored by `.gitignore` (e.g., `*.aux`, `*.log`, `*.toc`, `*.out`, `*.bbl`, etc.).
+   * If you manually generate any custom artifacts that should not be committed (e.g., personal notes or scratch files), add them to your local `.git/info/exclude` or update the upstream `.gitignore` via PR.
+
+---
+
+## 8. Editorial Guidelines
+
+Because Arliz is both a technical and conceptual work, consistency in style, terminology, and notation is crucial.
+
+1. **Language and Tone**
+
+   * Primary language is **English**.
+   * Maintain a formal, academic tone. Avoid slang or personal anecdotes unless they serve a technical or historical purpose.
+   * Use American English spelling (e.g., “organization,” “behavior,” “color”).
+
+2. **Terminology**
+
+   * Use consistent terms for core concepts (e.g., “array,” “element,” “index,” “identity element,” “zero”).
+   * Define specialized terminology on first occurrence (e.g., “A **multidimensional array** is a contiguous block of memory indexed by two or more indices…”).
+   * If introducing Persian text in the future, surround it with appropriate font declarations and ensure the build script supports bidirectional typesetting (e.g., via `polyglossia` or `bidi` packages).
+
+3. **Section and Figure Numbering**
+
+   * Follow the existing numbering scheme (e.g., Part 02, Chapter 2, Section 2.3).
+   * Use `\label{}` immediately after section headings. For example:
+
+     ```latex
+     \section{Mathematical Fundamentals}
+     \label{sec:math-fundamentals}
+     ```
+
+4. **Cross-Referencing**
+
+   * Always refer to figures, tables, sections, or chapters using `\ref{}`. Do not hardcode page numbers.
+   * Example:
+
+     ```latex
+     As shown in Figure~\ref{fig:array-structure}, …
+     ```
+
+5. **Equations and Theorems**
+
+   * Number all displayed equations that will be referenced. Use the `equation` environment:
+
+     ```latex
+     \begin{equation}
+       a_n = a_{n-1} + a_{n-2}, \quad \forall\,n \geq 2.
+       \label{eq:fibonacci}
+     \end{equation}
+     ```
+   * For theorems, definitions, and examples, use the appropriate theorem-like environments defined in `config/environments.tex`.
+
+6. **Examples and Code Blocks**
+
+   * Present LaTeX code using the `verbatim` or `lstlisting` environment (if using the `listings` package).
+   * If you add new code examples (e.g., pseudocode for array algorithms), place them in a dedicated folder under `book/parts/partXX/` or `book/appendix/` if applicable.
+
+---
+
+## 9. File Ignorance and Clean Working Directory
+
+Most intermediate and auxiliary files generated by LaTeX are ignored via `.gitignore`. Contributors should **not** commit these files. Typical ignored patterns include (but are not limited to):
+
+```
+*.aux     *.log     *.out     *.toc     *.bbl  
+*.bcf     *.blg     *.idx     *.ilg     *.glo  
+*.gls     *.ist     *.xml     *.lof     *.lot  
+*.lot     *.lot     *.o       tags*     arch*.tex
+*.acn     *.ist     *.idx     *.ilg     *.bbl 
+```
+
+> **Best Practice:** Always run `git status` before committing to ensure no build artifacts or local scratch files are staged.
+
+---
+
+## 10. Communication and Support
+
+* **Questions & Discussion:**
+  If you have questions about the scope of Arliz, how chapters should be structured, or general LaTeX-related queries, you can either:
+
+  * Open an **Issue** of type “Documentation update” or “Feature request.”
+  * Contact the maintainer directly at **[bitsgenix@gmail.com](mailto:bitsgenix@gmail.com)** for off-topic or broader architectural discussions.
+
+* **Review Turnaround:**
+
+  * The maintainer aims to review new issues and PRs within 3–5 business days.
+  * For larger PRs or major content changes, expect additional time for thorough review.
+
+* **Future Translations (Persian):**
+
+  * Arliz is currently written in English. Plans exist to add Persian translations in future versions.
+  * When that effort begins, dedicated guidelines for bilingual typesetting (e.g., `polyglossia` configuration, font selection) will be published in a separate document (e.g., `CONTRIBUTING-PERSIAN.md`).
+
+---
+
+Thank you for your contributions and for helping to make **Arliz** a rigorous, comprehensive, and accessible resource. We look forward to collaborating with you!
