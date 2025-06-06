@@ -8,9 +8,9 @@ body:
       value: |
         Thank you for helping improve the documentation of **Arliz**. Please complete the fields below with as much detail as possible.
   - type: dropdown
+    id: doc_section
     attributes:
-      id: "doc_section"
-      label: "### Documentation Section"
+      label: "Documentation Section"
       description: "Which documentation area are you updating?"
       options:
         - "Book Content (`book/parts/part01/part01.tex`)"
@@ -22,41 +22,41 @@ body:
         - "README"
         - "CONTRIBUTING"
         - "Other"
-      validations:
+    validations:
         required: true
   - type: input
+    id: other_doc_section
     attributes:
-      id: "other_doc_section"
-      label: "### If “Other”, specify file or location"
+      label: "If “Other”, specify file or location"
       description: "Provide the relative path or description for the documentation you wish to update."
       placeholder: "e.g., book/appendix/glossary.tex"
-      validations:
+    validations:
         required: false
   - type: textarea
-    attributes:
-      id: "change_details"
-      label: "### Description of changes"
+    id: change_details
+    attributes:  
+      label: "Description of changes"
       description: |
         Describe the documentation changes you propose, including any LaTeX commands, macros, or new files.  
         Use two-digit part format when referencing parts (e.g., `book/parts/part02/part02.tex`).
       placeholder: |
         - Corrected the definition of “identifier” in `book/parts/part02/part02.tex`.  
         - Added `\newcommand{\Z}{\mathbb{Z}}` macro and updated examples accordingly.
-      validations:
+    validations:
         required: true
   - type: textarea
-    attributes:
-      id: "motivation"
-      label: "### Motivation"
+    id: motivation
+    attributes:  
+      label: "Motivation"
       description: "Explain why these documentation changes are necessary or beneficial."
       placeholder: "Optional: describe the rationale behind these changes."
-      validations:
+    validations:
         required: false
   - type: textarea
+    id: additional_context
     attributes:
-      id: "additional_context"
-      label: "### Additional context"
+      label: "Additional context"
       description: "Provide any other information, references, or sample outputs (e.g., before/after PDF snapshots)."
       placeholder: "Optional: paste links, screenshots, or sample LaTeX snippets here."
-      validations:
+    validations:
         required: false
