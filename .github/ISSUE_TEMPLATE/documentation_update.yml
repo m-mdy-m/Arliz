@@ -1,5 +1,5 @@
-name: "Documentation update"
-description: "Suggest changes or corrections to documentation, LaTeX macros, or configuration files in Arliz."
+name: "Documentation Update"
+description: "Suggest changes or corrections to documentation, LaTeX macros, or configuration files in Arliz"
 title: "[DOCS] "
 labels: ["documentation"]
 body:
@@ -8,41 +8,55 @@ body:
       value: |
         Thank you for helping improve the documentation of **Arliz**. Please complete the fields below with as much detail as possible.
   - type: dropdown
-    id: doc_section
     attributes:
-      label: "Documentation Section"
+      id: "doc_section"
+      label: "### Documentation Section"
       description: "Which documentation area are you updating?"
       options:
-        - "Book Content (`book/parts/...`)"
+        - "Book Content (`book/parts/part01/part01.tex`)"
+        - "Book Content (`book/parts/part02/part02.tex`)"
+        - "Book Content (`book/parts/part03/part03.tex`)"
         - "Frontmatter (`book/frontmatter/...`)"
         - "Backmatter (`book/backmatter/...`)"
-        - "Configuration (`book/config/...`)"
+        - "Configuration (`config/...`)"
         - "README"
         - "CONTRIBUTING"
         - "Other"
+      validations:
+        required: true
   - type: input
-    id: other_doc_section
     attributes:
-      label: "If “Other”, specify file or location"
+      id: "other_doc_section"
+      label: "### If “Other”, specify file or location"
       description: "Provide the relative path or description for the documentation you wish to update."
-      placeholder: "e.g., `book/appendix/glossary.tex`"
+      placeholder: "e.g., book/appendix/glossary.tex"
+      validations:
+        required: false
   - type: textarea
-    id: change_details
     attributes:
-      label: "Description of Changes"
-      description: "Describe the documentation changes you propose, including any LaTeX commands, macros, or new files."
+      id: "change_details"
+      label: "### Description of changes"
+      description: |
+        Describe the documentation changes you propose, including any LaTeX commands, macros, or new files.  
+        Use two-digit part format when referencing parts (e.g., `book/parts/part02/part02.tex`).
       placeholder: |
-        For example:
-        - Corrected the definition of “identifier” in Part 02.
+        - Corrected the definition of “identifier” in `book/parts/part02/part02.tex`.  
         - Added `\newcommand{\Z}{\mathbb{Z}}` macro and updated examples accordingly.
+      validations:
+        required: true
   - type: textarea
-    id: motivation
     attributes:
-      label: "Motivation"
+      id: "motivation"
+      label: "### Motivation"
       description: "Explain why these documentation changes are necessary or beneficial."
+      placeholder: "Optional: describe the rationale behind these changes."
+      validations:
+        required: false
   - type: textarea
-    id: additional_context
     attributes:
-      label: "Additional Context"
+      id: "additional_context"
+      label: "### Additional context"
       description: "Provide any other information, references, or sample outputs (e.g., before/after PDF snapshots)."
-
+      placeholder: "Optional: paste links, screenshots, or sample LaTeX snippets here."
+      validations:
+        required: false

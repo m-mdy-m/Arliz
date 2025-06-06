@@ -8,46 +8,58 @@ body:
       value: |
         Please fill out this form to help us diagnose and fix the issue as efficiently as possible.
   - type: input
-    id: "description"
     attributes:
+      id: "description"
       label: "### Describe the bug"
       description: "Provide a clear and concise description of the issue you encountered."
       placeholder: "A summary of what went wrong."
-      required: true
-  - type: input
-    id: "steps_to_reproduce"
+      validations:
+        required: true
+  - type: textarea
     attributes:
+      id: "steps_to_reproduce"
       label: "### Steps to reproduce"
-      description: "List the steps needed to reproduce the bug. Include exact commands, file names, or actions."
+      description: |
+        List the steps needed to reproduce the bug.  
+        Include exact commands, file names, or actions.  
+        Use the two-digit format for parts (e.g., `book/parts/part02/part02.tex`).
       placeholder: |
-        1. Open `book/parts/part02/part02.tex`
-        2. Run `xelatex Arliz.tex`
+        1. Open `book/parts/part02/part02.tex`  
+        2. Run `xelatex Arliz.tex`  
         3. Observe the compilation error on line 45
-      required: true
+      validations:
+        required: true
   - type: input
-    id: "expected_behavior"
     attributes:
+      id: "expected_behavior"
       label: "### Expected behavior"
       description: "Explain what you expected to happen when following the steps above."
       placeholder: "What should have happened instead?"
-      required: true
+      validations:
+        required: true
   - type: input
-    id: "actual_behavior"
     attributes:
+      id: "actual_behavior"
       label: "### Actual behavior"
       description: "Describe what actually happened, including any error messages or incorrect output."
       placeholder: "Exact error text or unexpected result."
-      required: true
+      validations:
+        required: true
   - type: input
-    id: "latex_file"
     attributes:
+      id: "latex_file"
       label: "### Affected LaTeX file(s)"
-      description: "Specify which file(s) are affected by this bug. For example: `parts/part02/part02.tex`, `config/macros.tex`."
-      placeholder: "e.g., parts/part02/part02.tex"
-      required: true
+      description: |
+        Specify which file(s) are affected by this bug.  
+        Use the two-digit format for parts (e.g., `book/parts/part02/part02.tex`, `config/macros.tex`).
+      placeholder: "e.g., book/parts/part02/part02.tex"
+      validations:
+        required: true
   - type: textarea
-    id: "additional_context"
     attributes:
+      id: "additional_context"
       label: "### Additional context"
       description: "Add any other context (e.g., error logs, console output, screenshots) that might help diagnose the problem."
       placeholder: "Optional: paste logs, error messages, or screenshot links here."
+      validations:
+        required: false
