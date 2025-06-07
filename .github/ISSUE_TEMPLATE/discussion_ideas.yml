@@ -1,0 +1,175 @@
+name: "Discussion & Ideas & Questions"
+description: "Start a discussion, share ideas, or ask questions about Arliz content, structure, design, or concepts"
+title: "[DISCUSSION] "
+labels: ["discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template to start discussions about **Arliz** content, structure, mathematical concepts, design decisions, or to share ideas and get feedback from the community. This is the place for open-ended conversations that don't fit into bug reports or specific feature requests.
+        
+        **Examples of discussion topics:**
+        - Mathematical notation choices and conventions
+        - Book structure and organization decisions
+        - Cover design, logos, or visual elements
+        - Chapter flow and pedagogical approach
+        - Historical context and references
+        - Philosophical questions about arrays, logic, identity, or zero
+        - Translation strategies for Persian version
+        - Alternative explanations or examples
+        - Connections to other mathematical or computer science concepts
+        
+  - type: dropdown
+    id: discussion_category
+    attributes:
+      label: "Discussion Category"
+      description: "What aspect of Arliz would you like to discuss?"
+      options:
+        - "Mathematical Content & Notation"
+        - "Book Structure & Organization"
+        - "Visual Design (Cover, Logos, Diagrams)"
+        - "Pedagogical Approach & Teaching Methods"
+        - "Historical Context & References"
+        - "Philosophical & Conceptual Questions"
+        - "Translation & Localization (Persian)"
+        - "LaTeX Implementation & Technical Choices"
+        - "Community & Collaboration"
+        - "General Ideas & Brainstorming"
+        - "Other"
+    validations:
+        required: true
+        
+  - type: input
+    id: other_category
+    attributes:
+      label: "If "Other", specify the topic area"
+      description: "Briefly describe the main area of discussion if not covered above."
+      placeholder: "e.g., Publishing strategies, Distribution methods, etc."
+    validations:
+        required: false
+        
+  - type: input
+    id: discussion_title
+    attributes:
+      label: "Discussion Topic"
+      description: "Provide a clear, concise title for your discussion topic."
+      placeholder: "e.g., Should we use ℤ or Z for integers throughout the book?"
+    validations:
+        required: true
+        
+  - type: textarea
+    id: context_background
+    attributes:
+      label: "Context & Background"
+      description: |
+        Provide context for your discussion. What prompted this question or idea?  
+        Reference specific sections, pages, or concepts if relevant.  
+        Use two-digit part format when referencing parts (e.g., `book/parts/part02/part02.tex`).
+      placeholder: |
+        For example:
+        - While reading Part 02 on mathematical foundations, I noticed...
+        - In the current cover design, I think...
+        - When explaining arrays to students, I often find...
+        - The historical narrative in Chapter 3 made me wonder...
+    validations:
+        required: true
+        
+  - type: textarea
+    id: main_question
+    attributes:
+      label: "Main Question(s) or Discussion Points"
+      description: |
+        What specific questions do you want to discuss? What ideas do you want to explore?  
+        You can ask multiple related questions or present different aspects of the same topic.
+      placeholder: |
+        Examples:
+        - How should we balance mathematical rigor with accessibility?
+        - What are the pros and cons of different notation systems?
+        - Should we include more visual diagrams or focus on textual explanations?
+        - How can we make the transition between chapters smoother?
+        - What cultural considerations should we keep in mind for the Persian translation?
+    validations:
+        required: true
+        
+  - type: textarea
+    id: current_thoughts
+    attributes:
+      label: "Your Current Thoughts & Ideas"
+      description: |
+        Share your initial thoughts, ideas, or potential solutions.  
+        This helps others understand your perspective and contributes to the discussion.
+      placeholder: |
+        Optional: Share your current thinking, such as:
+        - I think we should consider... because...
+        - One approach could be... but I'm concerned about...
+        - I've seen similar books handle this by...
+        - My experience suggests that...
+    validations:
+        required: false
+        
+  - type: input
+    id: related_sections
+    attributes:
+      label: "Related Section(s) or File(s)"
+      description: |
+        If your discussion relates to specific parts of the book, list them here.  
+        Use two-digit part format when referencing parts (e.g., `book/parts/part02/part02.tex`).
+      placeholder: "e.g., book/parts/part01/part01.tex, frontmatter/preface.tex, config/fonts.tex"
+    validations:
+        required: false
+        
+  - type: checkboxes
+    id: discussion_scope
+    attributes:
+      label: "Discussion Scope"
+      description: "Check all that apply to help others understand the breadth of your discussion:"
+      options:
+        - label: "This affects multiple parts/chapters of the book"
+        - label: "This involves technical LaTeX implementation"
+        - label: "This requires mathematical expertise to discuss properly"
+        - label: "This relates to visual design or aesthetics"
+        - label: "This concerns translation or localization issues"
+        - label: "This is about pedagogical effectiveness"
+        - label: "This might require community input or voting"
+        - label: "This could lead to significant changes if adopted"
+        
+  - type: textarea
+    id: examples_references
+    attributes:
+      label: "Examples, References, or Comparisons"
+      description: |
+        Provide any relevant examples, references to other books/resources, or comparisons that might help the discussion.  
+        Include links, citations, or specific examples that illustrate your points.
+      placeholder: |
+        Optional examples:
+        - "Knuth's Art of Computer Programming handles array indexing by..."
+        - "The visual style in [Book Title] effectively shows..."
+        - "Mathematical notation in [Reference] follows the convention..."
+        - "Similar discussions in [Forum/Paper] concluded that..."
+    validations:
+        required: false
+        
+  - type: input
+    id: urgency_timeline
+    attributes:
+      label: "Timeline or Urgency"
+      description: "Is this discussion time-sensitive? Should it be resolved before a certain milestone?"
+      placeholder: "e.g., Should be discussed before Part 03 is written, No rush - ongoing consideration"
+    validations:
+        required: false
+        
+  - type: textarea
+    id: additional_thoughts
+    attributes:
+      label: "Additional Thoughts or Questions"
+      description: |
+        Any other thoughts, related questions, or aspects you'd like the community to consider?  
+        This is your space to add anything that doesn't fit in the above sections.
+      placeholder: |
+        Optional: Add any final thoughts, such as:
+        - Related questions that came to mind...
+        - Potential concerns or challenges to consider...
+        - Benefits of discussing this now vs. later...
+        - Who might have particular expertise on this topic...
+    validations:
+        required: false
