@@ -143,24 +143,7 @@ When you’re ready to submit changes, follow these steps to ensure a smooth rev
 - Clear distinction between established fact and interpretation
 
 ### Source Format
-Follow `resources/template.md`:
-
-```markdown
-# Sources for Chapter X
-
-## Books
-- *Introduction to Algorithms*, Cormen et al. – Used for algorithm complexity analysis in Section X.2
-
-## Articles  
-- "The History of Zero", Author, Journal (Year) – Historical context for Section X.1
-
-## Videos/Talks
-- [Conference Talk Title](link) – Provided modern perspective on classical problem
-
-## Others
-- Mathematical proof verification using Lean/Coq – Original formal verification
-```
-
+Follow [resources/template.md](https://github.com/m-mdy-m/Arliz/blob/main/resources/template.md)
 
 ---
 ## 6. Commit Message Guidelines
