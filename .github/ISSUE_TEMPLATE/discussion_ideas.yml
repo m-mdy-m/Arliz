@@ -42,7 +42,7 @@ body:
   - type: input
     id: other_category
     attributes:
-      label: "If "Other", specify the topic area"
+      label: "If 'Other', specify the topic area"
       description: "Briefly describe the main area of discussion if not covered above."
       placeholder: "e.g., Publishing strategies, Distribution methods, etc."
     validations:
