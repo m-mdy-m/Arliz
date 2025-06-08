@@ -1,69 +1,138 @@
 % ----------------------------------------------
-% ARLIZ Copyright Page
+% ARLIZ License Page
 % ----------------------------------------------
 \thispagestyle{empty}
-\begin{center}
-	\newpage    
-	{\footnotesize
-		\textbf{ARLIZ: A Living Architecture of Computing}\\
-		\addcontentsline{toc}{chapter}{Copyright}
-		\vspace{0.5em}
-		\textit{First Edition}\\
-		\vspace{1.5em}
-		\textbf{Copyright \textcopyright\ 2025 Mahdi}\\
-		\vspace{1em}
-		\textbf{Creative Commons Attribution-ShareAlike 4.0 International License}\\
-		(CC BY-SA 4.0)\\
-		\vspace{1.5em}
-		This work is licensed under a \href{https://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)}.\\
-		You are free to:\newline
-		\begin{itemize}\itemsep0pt
-			\item \textbf{Share} \— copy and redistribute the material in any medium or format,\newline
-			\item \textbf{Adapt} \— remix, transform, and build upon the material for any purpose, even commercially,
-		\end{itemize}
-		provided you follow these terms:\newline
-		\begin{itemize}\itemsep0pt
-			\item \textbf{Attribution (BY):} You must give appropriate credit to Mahdi, provide a link to the license, and indicate if changes were made.\\
-			\item \textbf{ShareAlike (SA):} If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
-		\end{itemize}
-		\vspace{1.5em}
-		\textbf{No Warranty.} This book is provided “as is,” without warranty of any kind, express or implied. The author and contributors shall not be liable for any damages arising from its use.\newline
-		\textbf{Repository and Source.} The full source (LaTeX, images, and accompanying code) is available at\newline
-		\url{https://github.com/m-mdy-m/Arliz}\newline
-		under the same CC BY-SA 4.0 license.\newline
-		\vspace{1.5em}
-		\textbf{Printed Version.} A physical (printed) edition is not yet available. If printed in Iran or elsewhere, the print must include this same copyright and license text.\\
-		\vspace{1.5em}
-		{\small
-			This book is typeset using \LaTeX\ with the Charter and Palatino font families, microtype enhancements, and TikZ illustrations for diagrams. All figures, diagrams, and code examples are either authored by Mahdi “Genix” or used with permission under permissive licenses.\\
-			\vspace{0.5em}
-			\textbf{Cover and Design Credits:}\\
-			Cover design by Mahdi and Studio Montage-inspired elements. Title typography arranged with TikZ overlays to reflect the living, evolving nature of \emph{Arliz}.\\
-			\newpage
-			
-			\textbf{Development Team:}\\
-			\vspace{1.5em}
-			\begin{tabular}{@{}l l@{}}
-				Author                             & Mahdi\\
-				Repository Maintenance             & Mahdi\\
-				Editorial Guidance                 & (Open-source community contributions) \\
-				LaTeX Template and Styling         & Mahdi\\
-				Illustrations and Diagrams         & Mahdi and contributors \\
-			\end{tabular}
-		}
-	}
-\end{center}
 
-\vfill
+\begin{tikzpicture}[remember picture, overlay]
+	%--------------------------------------------
+	% Decorative corner elements (matching title page style)
+	%--------------------------------------------
+	\draw[line width=3pt, color=myblue!30, rotate around={45:(current page.north west)}, 
+	shift={(current page.north west)}] (0.5cm,-0.5cm) -- (3cm,-0.5cm);
+	\draw[line width=3pt, color=myblue!30, rotate around={45:(current page.south east)}, 
+	shift={(current page.south east)}] (-0.5cm,0.5cm) -- (-3cm,0.5cm);
+\end{tikzpicture}
+
+\begin{center}
+	\vspace*{1.5cm}
+	
+	%--------------------------------------------
+	% License Header with ARLIZ Integration
+	%--------------------------------------------
+	{\Large\bfseries\textcolor{myblue}{LICENSE \& DISTRIBUTION}}\\[0.5em]
+	{\large\textsc{Arliz: Arrays, Reasoning, Logic, Identity, Zero}}\\[0.3em]
+	{\footnotesize\textit{A Living Architecture of Computing}}
+	
+	\vspace{1em}
+	\rule{0.6\textwidth}{1pt}
+	\vspace{1.5em}
+\end{center}
 
 \begin{flushleft}
 	{\small
-		Library of Congress Control Number: 2025-ARLIZ\\
-		ISBN: Pending (Digital version only)\\
-		\textbf{First Printing:} 2025\\
-		Printed in Iran (when available), or distributed digitally worldwide.\\
-		The text of this book is printed on acid-free, archival-quality paper.\\
-		URLs, repository links, and license details were last updated on \today.
+		\textbf{ARLIZ} is released under the \textbf{Creative Commons Attribution-ShareAlike 4.0 International License} (CC BY-SA 4.0), embodying the core principles that define this work:
+		
+		\vspace{1em}
+		\begin{tikzpicture}
+			\node (core) {\textbf{Core Licensing Principles}};
+			\draw[line width=1pt, color=myblue] ($(core.west)+(-0.5cm,0)$) -- ($(core.west)+(-0.1cm,0)$);
+			\draw[line width=1pt, color=myblue] ($(core.east)+(0.1cm,0)$) -- ($(core.east)+(0.5cm,0)$);
+		\end{tikzpicture}
+		
+		\vspace{0.8em}
+		\textbf{Arrays:} \textit{Structured sharing} — This work is organized for systematic access and distribution, like elements in an array.\\[0.4em]
+		\textbf{Reasoning:} \textit{Logical attribution} — All derivatives must maintain clear reasoning chains back to the original work and author.\\[0.4em]
+		\textbf{Logic:} \textit{Consistent application} — The same license terms apply uniformly to all uses and modifications.\\[0.4em]
+		\textbf{Identity:} \textit{Preserved authorship} — The identity and contribution of the original author (Mahdi) must be maintained.\\[0.4em]
+		\textbf{Zero:} \textit{No restrictions beyond license} — Starting from zero barriers, with only the essential requirements for attribution and share-alike.
+		
+		\vspace{1.5em}
+		
+		%--------------------------------------------
+		% Formal License Terms
+		%--------------------------------------------
+		\begin{center}
+			\textbf{FORMAL LICENSE TERMS}
+		\end{center}
+		
+		\textbf{Copyright \textcopyright\ 2025 Mahdi}\\
+		This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License.\\
+		\textbf{License URL:} \url{https://creativecommons.org/licenses/by-sa/4.0/}
+		
+		\vspace{1em}
+		\textbf{You are free to:}
+		\begin{itemize}\itemsep2pt
+			\item \textbf{Share} — copy and redistribute the material in any medium or format for any purpose, even commercially.
+			\item \textbf{Adapt} — remix, transform, and build upon the material for any purpose, even commercially.
+		\end{itemize}
+		
+		\textbf{Under the following terms:}
+		\begin{itemize}\itemsep2pt
+			\item \textbf{Attribution} — You must give appropriate credit to Mahdi, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+			\item \textbf{ShareAlike} — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+			\item \textbf{No additional restrictions} — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+		\end{itemize}
+		
+		\vspace{1.5em}
+		
+		%--------------------------------------------
+		% Technical and Distribution Information
+		%--------------------------------------------
+		\begin{center}
+			\textbf{DISTRIBUTION \& SOURCE ACCESS}
+		\end{center}
+		
+		\textbf{Repository:} The complete source code (LaTeX, diagrams, examples) is available at:\\
+		\url{https://github.com/m-mdy-m/Arliz}
+		
+		\textbf{Preferred Citation Format:}\\
+		Mahdi. (2025). \textit{Arliz}. Retrieved from \url{https://github.com/m-mdy-m/Arliz}
+		
+		\textbf{Version Control:} This is a living document. Check the repository for the most current version and revision history.
+		
+		\vspace{1.5em}
+		
+		%--------------------------------------------
+		% Warranties and Disclaimers
+		%--------------------------------------------
+		\begin{center}
+			\textbf{WARRANTIES \& DISCLAIMERS}
+		\end{center}
+		
+		\textbf{No Warranty:} This work is provided "AS IS" without warranty of any kind, either expressed or implied, including but not limited to the implied warranties of merchantability and fitness for a particular purpose.
+		
+		\textbf{Limitation of Liability:} In no event shall Mahdi be liable for any direct, indirect, incidental, special, exemplary, or consequential damages arising from the use of this work.
+		
+		\textbf{Educational Purpose:} This work is intended for educational and research purposes. Practical implementation of algorithms and techniques should be thoroughly tested and validated for production use.
+		
+		\vspace{1.5em}
+		
+		%--------------------------------------------
+		% Technical Specifications
+		%--------------------------------------------
+		\begin{center}
+			\textbf{TECHNICAL SPECIFICATIONS}
+		\end{center}
+		
+		\textbf{Typeset with:} \LaTeX\ using Charter and Palatino font families\\
+		\textbf{Graphics:} TikZ and custom illustrations\\
+		\textbf{Standards:} Follows academic publishing conventions\\
+		\textbf{Encoding:} UTF-8 with full Unicode support\\
+		\textbf{Format:} Available in PDF, and LaTeX source formats
 	}
 \end{flushleft}
+
+\vfill
+
+\begin{center}
+	{\footnotesize
+		\begin{tikzpicture}
+			\node (footer) {\textit{License last updated: \today}};
+			\draw[line width=0.5pt, color=myblue!50] ($(footer.west)+(-2cm,0)$) -- ($(footer.west)+(-0.2cm,0)$);
+			\draw[line width=0.5pt, color=myblue!50] ($(footer.east)+(0.2cm,0)$) -- ($(footer.east)+(2cm,0)$);
+		\end{tikzpicture}\\[0.3em]
+		\textbf{For questions about licensing, contact:} \url{bitsgenix@gmail.com}
+	}
+\end{center}
+
 \clearpage
