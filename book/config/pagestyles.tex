@@ -6,16 +6,31 @@
 \usepackage{ifthen}                % Conditional formatting
 
 %----------------------------------------------
-% Clear all default headers and footers
+% Clear Default Headers and Footers
 %----------------------------------------------
-\fancyhf{}
+\fancyhf{}                         % Clear all headers and footers
+\renewcommand{\headrulewidth}{0pt} % Remove default header rule
+\renewcommand{\footrulewidth}{0pt} % Remove default footer rule
+%----------------------------------------------
+% Custom Rule Definitions
+%----------------------------------------------
+% Header rule with custom color and thickness
+\newcommand{\headerrule}{%
+	\color{headerblue}\hrule width\headwidth height 0.6pt
+}
 
-%----------------------------------------------
-% Define custom line thickness and colors
-%----------------------------------------------
-\renewcommand{\headrulewidth}{0.8pt}
-\renewcommand{\footrulewidth}{0.4pt}
+% Footer rule with custom color and thickness
+\newcommand{\footerrule}{%
+	\color{footerline}\hrule width\headwidth height 0.4pt
+}
 
+% Decorative rule for special pages
+\newcommand{\decorativerule}{%
+	\begingroup
+	\color{arlizlightblue}%
+	\rule{0.3\textwidth}{1.2pt}%
+	\endgroup
+}
 %----------------------------------------------
 % Main Page Style (for regular content pages)
 %----------------------------------------------
@@ -24,36 +39,44 @@
 	
 	% Headers for odd pages (right-hand pages)
 	\fancyhead[RO]{
-		\small\textcolor{headerblue}{\textbf{\nouppercase{\rightmark}}} % Section title
+	     \headerfont\color{headerblue}
+		{\nouppercase{\rightmark}} % Section title
 	}
 	\fancyhead[LO]{
-		\small\textcolor{headerblue}{\textsc{Arliz}} % Book title
+		\headerfont\color{headerblue}
+		{\textsc{ARLIZ}} % Book title
 	}
-	
+
 	% Headers for even pages (left-hand pages)  
 	\fancyhead[LE]{
-		\small\textcolor{headerblue}{\textbf{\nouppercase{\leftmark}}} % Chapter title
+     	\headerfont\color{headerblue}
+		{\nouppercase{\leftmark}} % Chapter title
 	}
 	\fancyhead[RE]{
-		\small\textcolor{headerblue}{\textsc{Arrays, Logic, Identity, Zero}}
+		\headerfont\color{headerblue}{\textsc{Arrays, Reasoning, Logic, Identity, Zero}}
 	}
 	
-	% Footers for odd pages (right-hand pages)
-	\fancyfoot[RO]{
-		\thepage of \textbf{\pageref{LastPage}}
+   % Footers
+	\fancyfoot[LE]{%
+		\footerfont\color{footergray}%
+		\textbf{\thepage}\ \textbar\ \pageref{LastPage}%
 	}
-	
-	% Footers for even pages (left-hand pages)
-	\fancyfoot[LE]{
-		\textbf{\thepage}\ of \textbf{\pageref{LastPage}}
+	\fancyfoot[RO]{%
+		\footerfont\color{footergray}%
+		\textbf{\thepage}\ \textbar\ \pageref{LastPage}%
 	}
-	\fancyfoot[RE]{
-		\textit{Mahdi • MIT License}
+	 \fancyfoot[RE]{%
+		\footerfont\color{textsecondary}%
+		\textit{Mahdi \textbullet\ MIT License}%
+	}
+	 \fancyfoot[LO]{%
+		\footerfont\color{textsecondary}%
+		\textit{First Edition \textbullet\ \the\year}%
 	}
 	
 	% Custom header and footer rules
-	\renewcommand{\headrulewidth}{0.5pt}
-	\renewcommand{\footrulewidth}{0.3pt}
+	\renewcommand{\headrulewidth}{0.6pt}
+	\renewcommand{\footrulewidth}{0.4pt}
 	\renewcommand{\headrule}{\hbox to\headwidth{\color{myblue}\leaders\hrule height \headrulewidth\hfill}}
 	\renewcommand{\footrule}{\hbox to\headwidth{\color{gray!50}\leaders\hrule height \footrulewidth\hfill}}
 }
@@ -63,19 +86,15 @@
 %----------------------------------------------
 \fancypagestyle{chapter}{
 	\fancyhf{} % Clear all
-	\renewcommand{\headrulewidth}{0pt} % No header rule on chapter pages
-	\renewcommand{\footrulewidth}{0.4pt}
+	\renewcommand{\headrulewidth}{0pt} % No header rule
+	\renewcommand{\footrulewidth}{0pt} % No footer rule
 	
 	% Minimal footer for chapter opening pages
-	\fancyfoot[C]{
-		\small\textcolor{footergray}{
-			\rule{2cm}{0.4pt}\ \textbf{\thepage}\ \rule{2cm}{0.4pt}
-		}
-	}
-	
-	% Custom footer rule for chapter pages
-	\renewcommand{\footrule}{
-		\color{footergray}\hrule width\headwidth height\footrulewidth
+	 \fancyfoot[C]{%
+		\footerfont\color{arlizblue}%
+		\decorativerule\quad%
+		\textbf{\large\thepage}%
+		\quad\decorativerule%
 	}
 }
 
@@ -83,62 +102,64 @@
 % Front Matter Style (TOC, Preface, etc.)
 %----------------------------------------------
 \fancypagestyle{frontmatter}{
-	\fancyhf{} % Clear all
-	\renewcommand{\headrulewidth}{0.4pt}
-	\renewcommand{\footrulewidth}{0.4pt}
-	
-	% Simple headers for front matter
-	\fancyhead[C]{
-		\small\textcolor{headerblue}{\textsc{Arliz • Front Matter}}
-	}
-	
-	% Roman numerals for front matter pages
-	\fancyfoot[C]{
-		\small\textcolor{footergray}{
-			\textbf{\thepage}
+		 % Simple centered header
+		\fancyhead[C]{%
+			\headerfont\color{headerblue}%
+			\textsc{Arliz \textbullet\ Front Matter}%
 		}
-	}
+
+	
+		% Roman numeral page numbers
+		\fancyfoot[C]{%
+			\pagenotefont\color{footergray}%
+			\textbf{\thepage}%
+		}
 	
 	% Lighter rules for front matter
 	\renewcommand{\headrule}{
-		\color{headerblue!50}\hrule width\headwidth height\headrulewidth
+		\color{headerblue!70}\hrule width\headwidth height\headrulewidth
 	}
 	\renewcommand{\footrule}{
 		\color{footergray!50}\hrule width\headwidth height\footrulewidth
 	}
 }
+%----------------------------------------------
+% Part Opening Pages Style
+%----------------------------------------------
+\fancypagestyle{part}{%
+	\fancyhf{} % Clear all
+	\renewcommand{\headrulewidth}{0pt} % No header rule
+	\renewcommand{\footrulewidth}{0pt} % No footer rule
+}
+
 
 %----------------------------------------------
 % Bibliography and Index Style
 %----------------------------------------------
 \fancypagestyle{backmatter}{
 	\fancyhf{} % Clear all
-	\renewcommand{\headrulewidth}{0.6pt}
-	\renewcommand{\footrulewidth}{0.4pt}
 	
-	% Headers for bibliography/index
+	% Headers 
 	\fancyhead[LE,RO]{
-		\small\textcolor{headerblue}{\textbf{\nouppercase{\leftmark}}}
+		\headerfont\color{headerblue}{\nouppercase{\leftmark}}
 	}
 	\fancyhead[LO,RE]{
-		\small\textcolor{headerblue}{\textsc{Arliz • References \& Index}}
+		\headerfont\color{textsecondary}{\textsc{Arliz  \textbullet\ References}}
 	}
 	
 	% Standard page numbers for back matter
 	\fancyfoot[LE,RO]{
-		\small\textcolor{footergray}{\textbf{\thepage}}
+		\footerfont\color{footergray}{\textbf{\thepage}}
 	}
 	\fancyfoot[LO,RE]{
-		\small\textcolor{footergray}{\textit{Back Matter}}
+		\footerfont\color{textsecondary}{\textit{Back Matter}}
 	}
 	
 	% Standard rules
-	\renewcommand{\headrule}{
-		\color{headerblue}\hrule width\headwidth height\headrulewidth
-	}
-	\renewcommand{\footrule}{
-		\color{footergray}\hrule width\headwidth height\footrulewidth
-	}
+	\renewcommand{\headrulewidth}{0.5pt}
+	\renewcommand{\footrulewidth}{0.3pt}
+ \renewcommand{\headrule}{\headerrule}
+\renewcommand{\footrule}{\footerrule}
 }
 
 %----------------------------------------------
@@ -157,7 +178,6 @@
 % Set main page style as default
 \pagestyle{main}
 
-% Automatic style switching for different document parts
 \let\oldchapter\chapter
 \renewcommand{\chapter}{
 	\cleardoublepage
@@ -165,6 +185,12 @@
 	\oldchapter
 }
 
+\let\oldpart\part
+\renewcommand{\part}{
+	\clearpage
+	\thispagestyle{part}
+	\oldpart
+}
 % Front matter setup
 \let\oldfrontmatter\frontmatter
 \renewcommand{\frontmatter}{
@@ -185,3 +211,10 @@
 	\oldbackmatter
 	\pagestyle{backmatter}
 }
+
+%----------------------------------------------
+% Custom Page Style Commands
+%----------------------------------------------
+
+% Command to return to main style
+\newcommand{\mainstyle}{\pagestyle{main}}

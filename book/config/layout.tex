@@ -1,4 +1,137 @@
-\usepackage[a4paper, margin=1in]{geometry} % 1" margins on A4
-\usepackage{setspace}              % Line-spacing control
-\setstretch{1.3}                   % 1.3× line spacing
-\usepackage{float}                 % Float positioning
+\usepackage[
+a4paper,
+top=2.5cm,
+bottom=2.5cm,
+inner=3cm,           % Larger inner margin for binding
+outer=2.5cm,         % Balanced outer margin
+headheight=1.2cm,    % Space for elaborate headers
+headsep=0.8cm,       % Separation between header and text
+footskip=1cm,        % Space for footers
+marginparwidth=2cm,  % Margin notes width
+marginparsep=0.3cm   % Separation for margin notes
+]{geometry}
+
+%----------------------------------------------
+% Line Spacing and Typography
+%----------------------------------------------
+\usepackage{setspace}
+\setstretch{1.25}  
+\setlength{\parindent}{1.5em} 
+\setlength{\parskip}{0.4ex plus 0.2ex minus 0.1ex}
+%----------------------------------------------
+% Float Positioning and Control
+%----------------------------------------------
+\usepackage{float}                 % Enhanced float positioning
+\usepackage{placeins}              % Float barriers
+\usepackage{afterpage}             % Execute commands after page breaks
+% Float placement preferences
+\renewcommand{\topfraction}{0.85}          % Max fraction of page for top floats
+\renewcommand{\bottomfraction}{0.70}       % Max fraction of page for bottom floats
+\renewcommand{\textfraction}{0.1}         % Min fraction of page for text
+\renewcommand{\floatpagefraction}{0.8}    % Min fraction for float-only pages
+\setcounter{topnumber}{3}                  % Max top floats per page
+\setcounter{bottomnumber}{2}               % Max bottom floats per page
+\setcounter{totalnumber}{5}                % Max floats per page
+
+%----------------------------------------------
+% List and Enumeration Spacing
+%----------------------------------------------
+\usepackage{enumitem}              % Enhanced list control
+
+% Configure itemize (bullet lists)
+\setlist[itemize]{
+	leftmargin=20pt,               % Left margin
+	itemsep=4pt plus 1pt minus 1pt, % Space between items
+	parsep=2pt plus 1pt minus 1pt,  % Space between paragraphs in items
+	topsep=8pt plus 2pt minus 2pt   % Space before/after list
+}
+
+% Configure enumerate (numbered lists)
+\setlist[enumerate]{
+	leftmargin=25pt,               % Left margin
+	itemsep=4pt plus 1pt minus 1pt, % Space between items
+	parsep=2pt plus 1pt minus 1pt,  % Space between paragraphs in items
+	topsep=8pt plus 2pt minus 2pt   % Space before/after list
+}
+
+% Configure description lists
+\setlist[description]{
+	leftmargin=0pt,                % No extra left margin
+	itemsep=6pt plus 2pt minus 1pt, % Space between items
+	parsep=2pt plus 1pt minus 1pt,  % Space between paragraphs in items
+	topsep=8pt plus 2pt minus 2pt,  % Space before/after list
+	font=\bfseries\color{arlizblue} % Bold blue labels
+}
+
+%----------------------------------------------
+% Code Block and Verbatim Spacing
+%----------------------------------------------
+\usepackage{fancyvrb}              % Enhanced verbatim
+
+% Configure verbatim environments
+\fvset{
+	xleftmargin=15pt,              % Left margin for code blocks
+	xrightmargin=15pt,             % Right margin for code blocks
+	frame=leftline,                % Left border line
+	framerule=2pt,                 % Border thickness
+	rulecolor=\color{arlizblue},   % Border color
+	fontsize=\small                % Font size for code
+}
+
+%----------------------------------------------
+% Margin Notes and Annotations
+%----------------------------------------------
+\usepackage{marginnote}            % Enhanced margin notes
+\renewcommand*{\marginfont}{\scriptsize\sffamily\color{textsecondary}}
+
+% Custom margin note command
+\newcommand{\sidenote}[1]{%
+	\marginnote{\raggedright #1}%
+}
+
+%----------------------------------------------
+% Page Breaking and Widow/Orphan Control
+%----------------------------------------------
+\widowpenalty=10000                  % Prevent widows
+\clubpenalty=10000                   % Prevent orphans
+\raggedbottom                        % Allow flexible page endings
+\brokenpenalty=4991                % Penalty for page break in paragraph
+\predisplaypenalty=10000           % Penalty before display math
+\postdisplaypenalty=1549           % Penalty after display math
+\displaywidowpenalty=1602          % Penalty for display math widows
+
+%----------------------------------------------
+% Table of Contents and Lists
+%----------------------------------------------
+\usepackage{tocloft}
+
+% TOC spacing and formatting
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftaftertoctitleskip}{2ex}
+\setlength{\cftbeforepartskip}{1.5ex plus 0.3ex}
+\setlength{\cftbeforechapskip}{1ex plus 0.2ex}
+\setlength{\cftbeforesecskip}{0.5ex plus 0.1ex}
+
+% Chapter entries in TOC
+\renewcommand{\cftchapfont}{\bfseries\headerfont}
+\renewcommand{\cftchappagefont}{\bfseries\headerfont}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+
+% Part entries in TOC
+\renewcommand{\cftpartfont}{\Large\bfseries\headerfont\color{arlizblue}}
+\renewcommand{\cftpartpagefont}{\Large\bfseries\headerfont\color{arlizblue}}
+
+%----------------------------------------------
+% Footnotes and Margin Notes
+%----------------------------------------------
+
+% Footnote formatting
+\usepackage[hang,flushmargin]{footmisc}
+\setlength{\footnotemargin}{1.2em}
+\setlength{\footnotesep}{1ex}
+
+% Margin notes formatting
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\scriptfontsize\sourcesanspro\color{secondarytext}}
+
+
