@@ -18,6 +18,9 @@ marginparsep=0.3cm   % Separation for margin notes
 \setstretch{1.25}  
 \setlength{\parindent}{1.5em} 
 \setlength{\parskip}{0.4ex plus 0.2ex minus 0.1ex}
+\tolerance=2000                     % Allow more flexible line breaking
+\hbadness=1000                     % Suppress minor overfull warnings
+\emergencystretch=15pt             % Emergency stretch for difficult paragraphs
 %----------------------------------------------
 % Float Positioning and Control
 %----------------------------------------------
@@ -92,34 +95,62 @@ marginparsep=0.3cm   % Separation for margin notes
 %----------------------------------------------
 % Page Breaking and Widow/Orphan Control
 %----------------------------------------------
-\widowpenalty=10000                  % Prevent widows
-\clubpenalty=10000                   % Prevent orphans
-\raggedbottom                        % Allow flexible page endings
-\brokenpenalty=4991                % Penalty for page break in paragraph
-\predisplaypenalty=10000           % Penalty before display math
-\postdisplaypenalty=1549           % Penalty after display math
-\displaywidowpenalty=1602          % Penalty for display math widows
+
+% Widow and orphan control
+\widowpenalty=10000                % Prevent widows completely
+\clubpenalty=10000                 % Prevent orphans completely
+\brokenpenalty=7500                % Heavy penalty for hyphenated page breaks
+\predisplaypenalty=10000           % Prevent breaks before display math
+\postdisplaypenalty=2500           % Discourage breaks after display math
+\displaywidowpenalty=3000          % Prevent display math widows
+
+% Hyphenation control
+\lefthyphenmin=3                   % Minimum chars before hyphen
+\righthyphenmin=3                  % Minimum chars after hyphen
+
+% Line breaking parameters
+\linepenalty=10                    % Penalty for each line in paragraph
+\adjdemerits=10000                 % Penalty for consecutive lines with different tightness
+
+% Page breaking preferences
+\raggedbottom                      % Allow flexible page endings
+\flushbottom                       % Comment out raggedbottom for justified pages
+
 
 %----------------------------------------------
 % Table of Contents and Lists
 %----------------------------------------------
 \usepackage{tocloft}
+\usepackage{titletoc}              % Advanced TOC formatting
 
-% TOC spacing and formatting
+% TOC spacing and visual hierarchy
 \setlength{\cftbeforetoctitleskip}{0pt}
-\setlength{\cftaftertoctitleskip}{2ex}
-\setlength{\cftbeforepartskip}{1.5ex plus 0.3ex}
-\setlength{\cftbeforechapskip}{1ex plus 0.2ex}
-\setlength{\cftbeforesecskip}{0.5ex plus 0.1ex}
-
-% Chapter entries in TOC
-\renewcommand{\cftchapfont}{\bfseries\headerfont}
-\renewcommand{\cftchappagefont}{\bfseries\headerfont}
-\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\setlength{\cftaftertoctitleskip}{3ex}
+\setlength{\cftbeforepartskip}{2ex plus 0.5ex}
+\setlength{\cftbeforechapskip}{1.2ex plus 0.3ex}
+\setlength{\cftbeforesecskip}{0.8ex plus 0.2ex}
+\setlength{\cftbeforesubsecskip}{0.4ex plus 0.1ex}
 
 % Part entries in TOC
-\renewcommand{\cftpartfont}{\Large\bfseries\headerfont\color{arlizblue}}
-\renewcommand{\cftpartpagefont}{\Large\bfseries\headerfont\color{arlizblue}}
+\renewcommand{\cftpartfont}{\Large\sffamily\bfseries\color{arlizblue}}
+\renewcommand{\cftpartpagefont}{\Large\sffamily\bfseries\color{arlizblue}}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftpartdotsep}}
+\renewcommand{\cftpartdotsep}{4.5}
+
+% Chapter entries in TOC
+\renewcommand{\cftchapfont}{\large\sffamily\bfseries\color{arliznavy}}
+\renewcommand{\cftchappagefont}{\large\sffamily\bfseries\color{arliznavy}}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}}
+\renewcommand{\cftchapdotsep}{2.6}
+
+% Section entries in TOC
+\renewcommand{\cftsecfont}{\sffamily\color{textprimary}}
+\renewcommand{\cftsecpagefont}{\sffamily\color{textprimary}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+
+% Subsection entries in TOC
+\renewcommand{\cftsubsecfont}{\small\sffamily\color{textsecondary}}
+\renewcommand{\cftsubsecpagefont}{\small\sffamily\color{textsecondary}}
 
 %----------------------------------------------
 % Footnotes and Margin Notes
@@ -133,5 +164,3 @@ marginparsep=0.3cm   % Separation for margin notes
 % Margin notes formatting
 \usepackage{marginnote}
 \renewcommand*{\marginfont}{\scriptfontsize\sourcesanspro\color{secondarytext}}
-
-
