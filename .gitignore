@@ -16,7 +16,6 @@
 *.lot
 *.lof
 tags*
-*.bib
 arch*.tex
 *.acn
 *.ist

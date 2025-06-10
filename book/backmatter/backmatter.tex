@@ -5,25 +5,79 @@
 
 \pagestyle{backmatter}
 
-% Bibliography
-\printbibliography
-\addcontentsline{toc}{chapter}{Bibliography}
-\chaptermark{Bibliography}
-
-% Glossary (if using)
-\chapter*{Glossary}
-\addcontentsline{toc}{chapter}{Glossary}
-\chaptermark{Glossary}
-
-\begin{multicols}{2}
-	\textbf{Algorithm:} A step-by-step procedure...
+%----------------------------------------------
+% APPENDICES
+%----------------------------------------------
+\appendix
+	%----------------------------------------------
+	% GLOSSARY
+	%----------------------------------------------
+	\chapter*{Glossary}
+	\addcontentsline{toc}{chapter}{Glossary}
+	\chaptermark{Glossary}
+	\begin{multicols}{2}
+			
+	\end{multicols}
 	
-	\textbf{Array:} A data structure consisting...
+	%----------------------------------------------
+	% BIBLIOGRAPHY
+	%----------------------------------------------
+	\printbibliography[title={Bibliography \& Further Reading}]
+	\addcontentsline{toc}{chapter}{Bibliography \& Further Reading}
+	\chaptermark{Bibliography}
+		
+	%----------------------------------------------
+	% AUTHOR'S REFLECTIONS
+	%----------------------------------------------
+	\chapter*{Reflections at the End}
+	\addcontentsline{toc}{chapter}{Reflections at the End}
+	\chaptermark{Reflections at the End}
 	
-	% More glossary entries...
-\end{multicols}
+	As you turn the final pages of *Arliz*, I invite you to pause—just for a moment—and look back. Think about the path you’ve taken through these chapters. Let yourself ask:  
+	\begin{quote}
+		“Wait… what just happened? What did I actually learn?”
+	\end{quote}
+	I won’t pretend to answer that for you. The truth is—**only you can**. Maybe it was a lot. Maybe it wasn’t what you expected. But if you’re here, reading this, something must have kept you going. That means something. \\	
+	This book didn’t start with a grand plan. It started with a simple itch: \textbf{What even is an array, really?} What began as a curiosity about a “data structure” became something much stranger and—hopefully—much richer. We wandered through history, philosophy, mathematics, logic gates, and machine internals. We stared at ancient stones and modern memory layouts and tried to see the invisible threads connecting them.\\
+	If that sounds like a weird journey, well—yeah. It was.
+		
+	\section*{This is Not the End}
+	Arliz isn’t a closed book. It’s a snapshot. A frame in motion. And maybe your understanding is the same. You'll return to these ideas later, years from now, and see new angles. You’ll say, “Oh. That’s what it meant.” That’s good. That’s growth.\\	
+	Everything you’ve read here is connected to something bigger—algorithms, networks, languages, systems, even the people who built them. There’s no finish line. And that’s beautiful.  
+	\section*{From Me to You}
+	If this book gave you something—an idea, a shift in thinking, a pause to wonder—then it has done its job. If it made you feel like maybe programming isn’t just code and rules, but a window into something deeper—then that means everything to me.\\	
+	Thank you for being here.\\
+	Thank you for not skipping the hard parts.\\
+	Thank you for choosing to think.
+	\section*{One More Thing}
+	You’re not alone in this.\\
+	The Arliz project lives on GitHub, and the conversations around it will (hopefully) continue. If you spot mistakes, have better explanations, or just want to say hi—come by. Teach me something. Teach someone else. That’s the best way to say thanks.\\
+	Knowledge grows in community.\\
+	So share. Build. Break. Rebuild.\\
+	Ask better questions.\\
+	And always, always—stay curious.\\
+	\section*{Final Words}
+	Arrays were just the excuse.\\
+	Thinking was the goal.\\
+	And if you’ve started to think more clearly, more deeply, or more historically about what you’re doing when you write code—then this wasn’t just a technical book.\\
+	It was a human one.\\
+	Welcome to the quiet, lifelong joy of understanding.\\
+	
+	%----------------------------------------------
+	% INDEX
+	%----------------------------------------------
+	\printindex
+	\addcontentsline{toc}{chapter}{Index}
+	\chaptermark{Index}
 
-% Index
-\printindex
-\addcontentsline{toc}{chapter}{Index}
-\chaptermark{Index}
+\vfill
+
+\begin{center}
+	\begin{tikzpicture}
+		\node (final) {\textit{This completes the first living edition of Arliz.}};
+		\draw[line width=1pt, color=myblue!50] ($(final.west)+(-3cm,0)$) -- ($(final.west)+(-0.5cm,0)$);
+		\draw[line width=1pt, color=myblue!50] ($(final.east)+(0.5cm,0)$) -- ($(final.east)+(3cm,0)$);
+	\end{tikzpicture}\\[1em]
+	\small\textcolor{gray}{Thank you for joining this journey from zero to arrays, from ancient counting to modern computation.\\
+		The exploration continues...}
+\end{center}

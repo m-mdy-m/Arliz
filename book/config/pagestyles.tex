@@ -145,7 +145,7 @@
 \fancypagestyle{chapter}{
 	\fancyhf{} % Clear all
 	\renewcommand{\headrulewidth}{0pt} % No header rule
-	\renewcommand{\footrulewidth}{0pt} % No footer rule
+	\renewcommand{\footrulewidth}{0.4pt} % Keep footer rule
 	
 	% Minimal footer for chapter opening pages
 	\fancyfoot[C]{%
@@ -154,6 +154,8 @@
 		\textbf{\large\thepage}%
 		\quad\decorativerule%
 	}
+		\renewcommand{\footrule}{\hbox to\headwidth{\color{arlizlightblue}\leaders\hrule height \footrulewidth\hfill}}
+	
 }
 
 %----------------------------------------------
@@ -162,7 +164,7 @@
 \fancypagestyle{frontmatter}{
 	% Simple centered header
 	\fancyhead[C]{%
-		\headerfont\color{headerblue}%
+		\headerfont\color{headercolor}%
 		\textsc{Arliz \textbullet\ Front Matter}%
 	}
 	
@@ -175,7 +177,7 @@
 	
 	% Lighter rules for front matter
 	\renewcommand{\headrule}{
-		\color{headerblue!70}\hrule width\headwidth height\headrulewidth
+		\color{headercolor!70}\hrule width\headwidth height\headrulewidth
 	}
 	\renewcommand{\footrule}{
 		\color{footergray!50}\hrule width\headwidth height\footrulewidth
@@ -188,6 +190,16 @@
 	\fancyhf{} % Clear all
 	\renewcommand{\headrulewidth}{0pt} % No header rule
 	\renewcommand{\footrulewidth}{0pt} % No footer rule
+	% Minimal footer for part pages
+	\fancyfoot[C]{%
+		\footerfont\color{arliznavy}%
+		\decorativerule\quad%
+		\textbf{\Large\thepage}%
+		\quad\decorativerule%
+	}
+	
+	% Footer rule
+	\renewcommand{\footrule}{\hbox to\headwidth{\color{arlizblue}\leaders\hrule height \footrulewidth\hfill}}
 }
 
 
@@ -207,7 +219,7 @@
 	
 	% Standard page numbers for back matter
 	\fancyfoot[LE,RO]{
-		\footerfont\color{footergray}{\textbf{\thepage}}
+		\footerfont\color{footercolor}{\textbf{\thepage}}
 	}
 	\fancyfoot[LO,RE]{
 		\footerfont\color{textsecondary}{\textit{Back Matter}}
@@ -236,19 +248,6 @@
 % Set main page style as default
 \pagestyle{main}
 
-\let\oldchapter\chapter
-\renewcommand{\chapter}{
-	\cleardoublepage
-	\thispagestyle{chapter}
-	\oldchapter
-}
-
-\let\oldpart\part
-\renewcommand{\part}{
-	\clearpage
-	\thispagestyle{part}
-	\oldpart
-}
 % Front matter setup
 \let\oldfrontmatter\frontmatter
 \renewcommand{\frontmatter}{
