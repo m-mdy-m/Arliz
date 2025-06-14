@@ -5,6 +5,14 @@
 - "The History of Mathematics", David M. Burton, [https://jontalle.web.engr.illinois.edu/uploads/298/HistoryMath-Burton.85.pdf]
 - "General Features of Neolithic Revolution Introduction",IDK , [https://iasfreeanthrocom.files.wordpress.com/2017/07/neolithic-revolution.pdf]
 - "The Neolithic Revolution and Human Societies: Diverse Origins and Development Paths", Serge Svizzero and Clem Tisdell , [https://hal.univ-reunion.fr/hal-02153090v1/document]
+سس
+- "The Birth of Civilization", [https://www.pearsonhighered.com/assets/samplechapter/0/2/0/5/0205803504.pdf]
+
+- "The origins and co-evolution of literacy and numeracy",  Stephen Chrisomalis, [https://www.academia.edu/6178046/The_origins_and_co_evolution_of_literacy_and_numeracy]
+
+- " The Number Sense"وStanislas Dehaene ,[https://api.pageplace.de/preview/DT0400.9780199877058_A23585278/preview-9780199877058_A23585278.pdf]
+
+- "CHANCE AND NECESSITY: THE LANGUAGES OF PROBABILITY AND MATHEMATICS", Ramesh Kapadia ,[http://iase-web.org/documents/papers/icots8/ICOTS8_3F1_KAPADIA.pdf?1402524970]
 
 ## Articles
 - "TOKENS: FACTS AND INTERPRETATION", Denise Schmandt-Besserat , [https://sites.utexas.edu/dsb/files/2021/10/New-Tokens-FactsandInterpretationVisibleLanguage.pdf]
