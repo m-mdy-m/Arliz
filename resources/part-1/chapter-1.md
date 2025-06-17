@@ -11,7 +11,7 @@
 - "The origins and co-evolution of literacy and numeracy",  Stephen Chrisomalis, [https://www.academia.edu/6178046/The_origins_and_co_evolution_of_literacy_and_numeracy]
 
 - " The Number Sense"وStanislas Dehaene ,[https://api.pageplace.de/preview/DT0400.9780199877058_A23585278/preview-9780199877058_A23585278.pdf]
-
+   - SECOND - > [https://cognitionandculture.net/wp-content/uploads/the-number-sense-how-the-mind-creates-mathematics.pdf]
 - "CHANCE AND NECESSITY: THE LANGUAGES OF PROBABILITY AND MATHEMATICS", Ramesh Kapadia ,[http://iase-web.org/documents/papers/icots8/ICOTS8_3F1_KAPADIA.pdf?1402524970]
 
 ## Articles
