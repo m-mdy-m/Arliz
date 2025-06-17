@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARLIZ Timeline - Journey Through Computational History</title>
+    <title>ARLIZ - A Journey Through Computational History</title>
     <style>
         * {
             margin: 0;
@@ -13,10 +13,11 @@
 
         body {
             font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
             color: #e8e8e8;
             overflow-x: hidden;
             min-height: 100vh;
+            line-height: 1.6;
         }
 
         .container {
@@ -28,39 +29,101 @@
 
         .header {
             text-align: center;
-            margin-bottom: 80px;
-            animation: fadeInDown 1s ease-out;
+            margin-bottom: 100px;
+            animation: fadeInDown 1.5s ease-out;
         }
 
-        .title {
-            font-size: 3.5rem;
+        .title-container {
+            margin-bottom: 40px;
+        }
+
+        .main-title {
+            font-size: 4rem;
             font-weight: bold;
-            background: linear-gradient(45deg, #ffd700, #ffb347, #ff6b35);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 15px;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
         }
 
-        .subtitle {
-            font-size: 1.4rem;
-            color: #c9c9c9;
-            font-style: italic;
-            margin-bottom: 10px;
+        .title-letter {
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: default;
+            position: relative;
         }
 
-        .description {
+        .title-letter:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+
+        .letter-a { color: #FF6B35; text-shadow: 0 0 20px #FF6B35; }
+        .letter-r { color: #4ECDC4; text-shadow: 0 0 20px #4ECDC4; }
+        .letter-l { color: #45B7D1; text-shadow: 0 0 20px #45B7D1; }
+        .letter-i { color: #96CEB4; text-shadow: 0 0 20px #96CEB4; }
+        .letter-z { color: #FFEAA7; text-shadow: 0 0 20px #FFEAA7; }
+
+        .acronym-explanation {
+            margin-top: 30px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .acronym-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .acronym-item {
+            text-align: center;
+            padding: 15px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.3s ease;
+        }
+
+        .acronym-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .acronym-letter {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .acronym-word {
             font-size: 1.1rem;
-            color: #a0a0a0;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .acronym-desc {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        .book-description {
+            font-size: 1.2rem;
+            color: #d0d0d0;
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
         }
 
         .timeline {
             position: relative;
-            margin: 60px 0;
+            margin: 80px 0;
         }
 
         .timeline::before {
@@ -73,14 +136,15 @@
             width: 6px;
             background: linear-gradient(
                 to bottom,
-                #8B4513 0%,     /* Ancient brown */
-                #DAA520 15%,    /* Golden antiquity */
-                #CD853F 30%,    /* Classical bronze */
-                #4682B4 45%,    /* Medieval blue */
-                #9932CC 60%,    /* Renaissance purple */
-                #FF6347 75%,    /* Industrial red */
-                #00CED1 90%,    /* Modern cyan */
-                #7FFF00 100%    /* Future green */
+                #8B4513 0%,
+                #DAA520 12.5%,
+                #CD853F 25%,
+                #4682B4 37.5%,
+                #9932CC 50%,
+                #FF6347 62.5%,
+                #00CED1 75%,
+                #7FFF00 87.5%,
+                #32CD32 100%
             );
             border-radius: 3px;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
@@ -88,18 +152,18 @@
 
         .timeline-item {
             position: relative;
-            margin: 80px 0;
+            margin: 100px 0;
             animation: fadeInUp 0.8s ease-out;
             animation-fill-mode: both;
         }
 
         .timeline-item:nth-child(odd) .timeline-content {
-            margin-left: calc(50% + 60px);
+            margin-left: calc(50% + 70px);
             text-align: left;
         }
 
         .timeline-item:nth-child(even) .timeline-content {
-            margin-right: calc(50% + 60px);
+            margin-right: calc(50% + 70px);
             text-align: right;
         }
 
@@ -107,13 +171,14 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             border-radius: 50%;
-            border: 4px solid;
+            border: 5px solid;
             background: #1a1a2e;
             z-index: 2;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
+            cursor: pointer;
         }
 
         .timeline-item:nth-child(1) .timeline-dot { border-color: #8B4513; }
@@ -125,22 +190,28 @@
         .timeline-item:nth-child(7) .timeline-dot { border-color: #00CED1; }
         .timeline-item:nth-child(8) .timeline-dot { border-color: #7FFF00; }
 
+        .timeline-dot:hover {
+            transform: translateX(-50%) scale(1.4);
+            box-shadow: 0 0 30px currentColor;
+        }
+
         .timeline-content {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 450px;
+            border-radius: 25px;
+            padding: 40px;
+            max-width: 500px;
             position: relative;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
 
         .timeline-content:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.08);
         }
 
         .timeline-content::before {
@@ -150,16 +221,16 @@
             transform: translateY(-50%);
             width: 0;
             height: 0;
-            border: 15px solid transparent;
+            border: 20px solid transparent;
         }
 
         .timeline-item:nth-child(odd) .timeline-content::before {
-            left: -30px;
+            left: -40px;
             border-right-color: rgba(255, 255, 255, 0.1);
         }
 
         .timeline-item:nth-child(even) .timeline-content::before {
-            right: -30px;
+            right: -40px;
             border-left-color: rgba(255, 255, 255, 0.1);
         }
 
@@ -167,47 +238,62 @@
             display: inline-block;
             background: linear-gradient(45deg, #ff6b35, #ffd700);
             color: #000;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
             font-weight: bold;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
         }
 
         .part-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: bold;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             line-height: 1.3;
+            color: #f8f8f8;
         }
 
         .timeline-period {
-            font-size: 1.1rem;
-            color: #ffd700;
+            font-size: 1.2rem;
             font-weight: bold;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            background: linear-gradient(45deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
+            border-radius: 15px;
+            display: inline-block;
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .part-description {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #d0d0d0;
-            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #e0e0e0;
+            margin-bottom: 20px;
         }
 
         .key-topics {
-            font-size: 0.9rem;
-            color: #a8a8a8;
+            font-size: 1rem;
+            color: #b8b8b8;
             font-style: italic;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border-left: 4px solid #ffd700;
+        }
+
+        .key-topics::before {
+            content: "Key Topics: ";
+            font-weight: bold;
+            color: #ffd700;
         }
 
         @keyframes fadeInDown {
             from {
                 opacity: 0;
-                transform: translateY(-50px);
+                transform: translateY(-60px);
             }
             to {
                 opacity: 1;
@@ -218,7 +304,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(60px);
             }
             to {
                 opacity: 1;
@@ -235,44 +321,6 @@
         .timeline-item:nth-child(7) { animation-delay: 1.4s; }
         .timeline-item:nth-child(8) { animation-delay: 1.6s; }
 
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 30px;
-            }
-
-            .timeline-item:nth-child(odd) .timeline-content,
-            .timeline-item:nth-child(even) .timeline-content {
-                margin-left: 80px;
-                margin-right: 0;
-                text-align: left;
-                max-width: calc(100vw - 120px);
-            }
-
-            .timeline-dot {
-                left: 30px;
-            }
-
-            .timeline-content::before {
-                left: -30px !important;
-                right: auto !important;
-                border-right-color: rgba(255, 255, 255, 0.1) !important;
-                border-left-color: transparent !important;
-            }
-
-            .title {
-                font-size: 2.5rem;
-            }
-
-            .subtitle {
-                font-size: 1.2rem;
-            }
-        }
-
-        .timeline-dot:hover {
-            transform: translateX(-50%) scale(1.3);
-            box-shadow: 0 0 20px currentColor;
-        }
-
         .floating-particles {
             position: fixed;
             top: 0;
@@ -285,11 +333,11 @@
 
         .particle {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgba(255, 215, 0, 0.3);
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 215, 0, 0.4);
             border-radius: 50%;
-            animation: float 6s infinite linear;
+            animation: float 8s infinite linear;
         }
 
         @keyframes float {
@@ -308,6 +356,63 @@
                 opacity: 0;
             }
         }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 3rem;
+            }
+
+            .acronym-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 80px;
+                margin-right: 0;
+                text-align: left;
+                max-width: calc(100vw - 120px);
+            }
+
+            .timeline-dot {
+                left: 30px;
+            }
+
+            .timeline-content::before {
+                left: -40px !important;
+                right: auto !important;
+                border-right-color: rgba(255, 255, 255, 0.1) !important;
+                border-left-color: transparent !important;
+            }
+
+            .part-title {
+                font-size: 1.6rem;
+            }
+
+            .timeline-content {
+                padding: 30px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .container {
+                padding: 40px 15px;
+            }
+
+            .timeline-content {
+                max-width: calc(100vw - 100px);
+                padding: 25px 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -315,9 +420,48 @@
     
     <div class="container">
         <div class="header">
-            <h1 class="title">ARLIZ</h1>
-            <p class="subtitle">A Journey Through Computational History</p>
-            <p class="description">Tracing the evolution of human systematic thinking from ancient counting methods to modern array operations</p>
+            <div class="title-container">
+                <h1 class="main-title">
+                    <span class="title-letter letter-a">A</span>
+                    <span class="title-letter letter-r">R</span>
+                    <span class="title-letter letter-l">L</span>
+                    <span class="title-letter letter-i">I</span>
+                    <span class="title-letter letter-z">Z</span>
+                </h1>
+            </div>
+            
+            <div class="acronym-explanation">
+                <div class="acronym-grid">
+                    <div class="acronym-item">
+                        <span class="acronym-letter letter-a">A</span>
+                        <div class="acronym-word">Arrays</div>
+                        <div class="acronym-desc">Structured Organization</div>
+                    </div>
+                    <div class="acronym-item">
+                        <span class="acronym-letter letter-r">R</span>
+                        <div class="acronym-word">Reasoning</div>
+                        <div class="acronym-desc">Logical Thinking</div>
+                    </div>
+                    <div class="acronym-item">
+                        <span class="acronym-letter letter-l">L</span>
+                        <div class="acronym-word">Logic</div>
+                        <div class="acronym-desc">Computational Rules</div>
+                    </div>
+                    <div class="acronym-item">
+                        <span class="acronym-letter letter-i">I</span>
+                        <div class="acronym-word">Identity</div>
+                        <div class="acronym-desc">Element Recognition</div>
+                    </div>
+                    <div class="acronym-item">
+                        <span class="acronym-letter letter-z">Z</span>
+                        <div class="acronym-word">Zero</div>
+                        <div class="acronym-desc">Origin of Counting</div>
+                    </div>
+                </div>
+                <div class="book-description">
+                    A comprehensive journey through the evolution of computational thinking, from ancient counting methods to modern data structures and algorithms.
+                </div>
+            </div>
         </div>
 
         <div class="timeline">
@@ -326,9 +470,9 @@
                 <div class="timeline-content">
                     <span class="part-number">Part 1</span>
                     <h3 class="part-title">Philosophical & Historical Foundations</h3>
-                    <p class="timeline-period">100,000 BCE - 1700 CE</p>
-                    <p class="part-description">The primordial urge to count and order. From Paleolithic counting bones to Enlightenment computational dreams.</p>
-                    <p class="key-topics">Ancient counting, Mesopotamian records, Greek mathematics, Islamic algorithms, Renaissance synthesis</p>
+                    <div class="timeline-period">100,000 BCE - 1600 CE</div>
+                    <p class="part-description">The birth of systematic thinking begins with humanity's earliest attempts to quantify and organize the world. From Paleolithic counting bones and Mesopotamian clay tablets to Greek mathematical proofs and Islamic algorithmic innovations, this part explores how the fundamental human need to count, categorize, and reason laid the groundwork for all computational thinking.</p>
+                    <div class="key-topics">Prehistoric counting systems, Ancient number systems, Greek mathematical foundations, Islamic algorithmic contributions, Medieval computational devices, Renaissance mathematical synthesis</div>
                 </div>
             </div>
 
@@ -337,9 +481,9 @@
                 <div class="timeline-content">
                     <span class="part-number">Part 2</span>
                     <h3 class="part-title">Mathematical Fundamentals</h3>
-                    <p class="timeline-period">1700 CE - 1900 CE</p>
-                    <p class="part-description">Building precise mathematical foundations for systematic computation and data representation.</p>
-                    <p class="key-topics">Number theory, operations, set theory, functions, linear algebra, mathematical synthesis</p>
+                    <div class="timeline-period">1600 CE - 1900 CE</div>
+                    <p class="part-description">The formalization of mathematical thinking through the Scientific Revolution and Enlightenment. This era established rigorous mathematical foundations essential for computation: precise number systems, algebraic operations, set theory, and function theory. These mathematical structures directly inform how we organize and manipulate data in computational systems.</p>
+                    <div class="key-topics">Number theory and operations, Set theory foundations, Function theory, Linear algebra, Mathematical logic, Discrete mathematics, Combinatorics and permutations</div>
                 </div>
             </div>
 
@@ -348,9 +492,9 @@
                 <div class="timeline-content">
                     <span class="part-number">Part 3</span>
                     <h3 class="part-title">Data Representation</h3>
-                    <p class="timeline-period">1900 CE - 1950 CE</p>
-                    <p class="part-description">The transition from mathematical abstractions to concrete computational data structures.</p>
-                    <p class="key-topics">Binary systems, encoding, primitive data types, memory models, representation theory</p>
+                    <div class="timeline-period">1850 CE - 1950 CE</div>
+                    <p class="part-description">The critical transition from abstract mathematical concepts to concrete computational representation. Explore how information is encoded, stored, and manipulated in digital systems. This foundation explains how real-world data becomes the binary patterns that computers can process, setting the stage for understanding arrays as organized collections of represented data.</p>
+                    <div class="key-topics">Binary number systems, Character encoding (ASCII, Unicode), Primitive data types, Memory models and addressing, Data conversion and representation, Floating-point systems</div>
                 </div>
             </div>
 
@@ -359,9 +503,9 @@
                 <div class="timeline-content">
                     <span class="part-number">Part 4</span>
                     <h3 class="part-title">Computer Architecture & Logic</h3>
-                    <p class="timeline-period">1940 CE - 1970 CE</p>
-                    <p class="part-description">Understanding how hardware enables array operations and systematic data processing.</p>
-                    <p class="key-topics">Von Neumann architecture, memory hierarchies, CPU design, instruction sets, hardware optimization</p>
+                    <div class="timeline-period">1930 CE - 1980 CE</div>
+                    <p class="part-description">Understanding how hardware enables systematic data processing and array operations. From Boolean logic gates to von Neumann architecture, this part reveals how physical systems implement the logical operations that make arrays possible. Explore memory hierarchies, CPU design, and instruction sets that directly support array indexing and manipulation.</p>
+                    <div class="key-topics">Boolean logic and gates, Von Neumann architecture, Memory hierarchies (cache, RAM, storage), CPU instruction sets, Assembly language basics, Hardware optimization for data structures</div>
                 </div>
             </div>
 
@@ -370,9 +514,9 @@
                 <div class="timeline-content">
                     <span class="part-number">Part 5</span>
                     <h3 class="part-title">Array Odyssey</h3>
-                    <p class="timeline-period">1950 CE - 1990 CE</p>
-                    <p class="part-description">The heart of the journey - understanding arrays as the fundamental structure of organized computation.</p>
-                    <p class="key-topics">Array fundamentals, indexing, multidimensional arrays, operations, optimization, applications</p>
+                    <div class="timeline-period">1940 CE - 1990 CE</div>
+                    <p class="part-description">The heart of our journey - a comprehensive exploration of arrays as the fundamental structure of organized computation. Starting from basic concepts of indexing and element access, we progress through multidimensional arrays, memory layout, optimization techniques, and real-world applications. This is where all previous knowledge converges into practical understanding.</p>
+                    <div class="key-topics">Array fundamentals and indexing, Memory layout and addressing, Multidimensional arrays, Array operations and algorithms, Performance optimization, Dynamic arrays and resizing, Array applications across domains</div>
                 </div>
             </div>
 
@@ -381,9 +525,9 @@
                 <div class="timeline-content">
                     <span class="part-number">Part 6</span>
                     <h3 class="part-title">Data Structures & Algorithms</h3>
-                    <p class="timeline-period">1960 CE - 2000 CE</p>
-                    <p class="part-description">Expanding beyond arrays to comprehensive systematic approaches to data organization and manipulation.</p>
-                    <p class="key-topics">Advanced structures, algorithmic thinking, complexity analysis, systematic problem solving</p>
+                    <div class="timeline-period">1950 CE - 2000 CE</div>
+                    <p class="part-description">Expanding beyond arrays to comprehensive systematic approaches to data organization. Explore linked lists, stacks, queues, trees, graphs, and hash tables - each building on array concepts while addressing specific computational needs. Learn algorithmic thinking, complexity analysis, and how to choose appropriate structures for different problems.</p>
+                    <div class="key-topics">Linear structures (stacks, queues, linked lists), Tree structures (binary trees, AVL, B-trees), Graph structures and algorithms, Hash tables and associative arrays, Algorithm complexity analysis, Sorting and searching algorithms</div>
                 </div>
             </div>
 
@@ -392,9 +536,9 @@
                 <div class="timeline-content">
                     <span class="part-number">Part 7</span>
                     <h3 class="part-title">Parallelism & Systems</h3>
-                    <p class="timeline-period">1980 CE - 2010 CE</p>
-                    <p class="part-description">Scaling computational thinking to distributed and parallel processing paradigms.</p>
-                    <p class="key-topics">Concurrent processing, distributed systems, parallel algorithms, system design, scalability</p>
+                    <div class="timeline-period">1970 CE - 2010 CE</div>
+                    <p class="part-description">Scaling computational thinking to distributed and parallel processing paradigms. Learn how array operations can be parallelized, how data structures behave in concurrent environments, and how systems thinking applies to large-scale data processing. Explore distributed arrays, parallel algorithms, and system design principles.</p>
+                    <div class="key-topics">Parallel array processing, Concurrent data structures, Distributed systems design, MapReduce and distributed computing, Parallel algorithms, Thread safety and synchronization, Scalability patterns</div>
                 </div>
             </div>
 
@@ -403,52 +547,103 @@
                 <div class="timeline-content">
                     <span class="part-number">Part 8</span>
                     <h3 class="part-title">Synthesis & Frontiers</h3>
-                    <p class="timeline-period">2000 CE - Present & Future</p>
-                    <p class="part-description">Integrating all knowledge into comprehensive understanding and exploring emerging computational frontiers.</p>
-                    <p class="key-topics">Quantum computing, AI integration, computational theory synthesis, future paradigms</p>
+                    <div class="timeline-period">1990 CE - Present & Future</div>
+                    <p class="part-description">Integrating all accumulated knowledge into comprehensive understanding while exploring emerging computational frontiers. Examine how quantum computing might revolutionize data structures, how AI and machine learning leverage arrays and matrices, and what the future holds for computational thinking. This synthesis connects our journey from ancient counting to tomorrow's possibilities.</p>
+                    <div class="key-topics">Quantum computing implications, Machine learning and tensor operations, Advanced optimization techniques, Computational complexity theory, Future computing paradigms, Integration of all learned concepts</div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Create floating particles
+        // Create floating particles with varied colors
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 50;
+            const particleCount = 40;
+            const colors = ['rgba(255, 215, 0, 0.4)', 'rgba(255, 107, 53, 0.3)', 'rgba(78, 205, 196, 0.3)', 'rgba(69, 183, 209, 0.3)'];
 
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
                 particlesContainer.appendChild(particle);
             }
         }
 
-        window.addEventListener('load', createParticles);
-
+        // Enhanced intersection observer for timeline items
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                    entry.target.querySelector('.timeline-dot').style.transform = 'translateX(-50%) scale(1.2)';
+                    const dot = entry.target.querySelector('.timeline-dot');
+                    const content = entry.target.querySelector('.timeline-content');
+                    
+                    // Animate dot
+                    dot.style.transform = 'translateX(-50%) scale(1.3)';
+                    dot.style.boxShadow = '0 0 40px currentColor';
+                    
+                    // Add subtle content animation
+                    content.style.transform = 'translateY(-10px)';
+                    
                     setTimeout(() => {
-                        entry.target.querySelector('.timeline-dot').style.transform = 'translateX(-50%) scale(1)';
-                    }, 300);
+                        dot.style.transform = 'translateX(-50%) scale(1)';
+                        dot.style.boxShadow = '0 0 20px currentColor';
+                        content.style.transform = 'translateY(0)';
+                    }, 600);
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.timeline-item').forEach(item => {
-            observer.observe(item);
+        // Letter hover effects
+        function initializeLetterEffects() {
+            const letters = document.querySelectorAll('.title-letter');
+            letters.forEach((letter, index) => {
+                letter.addEventListener('mouseenter', () => {
+                    letter.style.transform = 'translateY(-10px) scale(1.2) rotate(5deg)';
+                    letter.style.filter = 'brightness(1.3)';
+                });
+                
+                letter.addEventListener('mouseleave', () => {
+                    letter.style.transform = 'translateY(0) scale(1) rotate(0deg)';
+                    letter.style.filter = 'brightness(1)';
+                });
+            });
+        }
+
+        // Acronym item hover effects
+        function initializeAcronymEffects() {
+            const items = document.querySelectorAll('.acronym-item');
+            items.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    const letter = item.querySelector('.acronym-letter');
+                    letter.style.transform = 'scale(1.2) rotate(10deg)';
+                    letter.style.filter = 'brightness(1.3)';
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    const letter = item.querySelector('.acronym-letter');
+                    letter.style.transform = 'scale(1) rotate(0deg)';
+                    letter.style.filter = 'brightness(1)';
+                });
+            });
+        }
+        window.addEventListener('load', () => {
+            createParticles();
+            initializeLetterEffects();
+            initializeAcronymEffects();
+            
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                observer.observe(item);
+            });
         });
+        document.documentElement.style.scrollBehavior = 'smooth';
     </script>
 </body>
 </html>
