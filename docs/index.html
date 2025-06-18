@@ -5,447 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ARLIZ - A Journey Through Computational History</title>
     <meta name="description" content="Explore ARLIZ: a comprehensive journey through the history of computation—from ancient tally marks to modern AI paradigms. Arrays, reasoning, logic, identity & zero explained.">
-      <meta name="keywords" content="computational history, arrays, reasoning, logic, identity, zero, data structures, algorithms">
-      <meta property="og:title" content="ARLIZ | A Journey Through Computational History">
-      <meta property="og:description" content="A deep dive into the evolution of computation: from primitive counting to quantum algorithms.">
-      <meta property="og:type" content="book">
-      <meta name="twitter:card" content="summary_large_image">
-      <meta name="twitter:title" content="ARLIZ | A Journey Through Computational History">
-      <meta name="twitter:description" content="From tally marks to AI: the story of computational thought.">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-            color: #e8e8e8;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-            position: relative;
-        }
-
-        /* ARLIZ Title Section */
-        .arliz-header {
-            text-align: center;
-            margin-bottom: 80px;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        .arliz-title {
-            font-size: 4rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-        }
-
-        .arliz-letter {
-            display: inline-block;
-            background: linear-gradient(45deg, #ffd700, #ffb347, #ff6b35);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            transition: transform 0.3s ease, text-shadow 0.3s ease;
-            position: relative;
-            margin: 0 2px;
-            cursor: pointer;
-        }
-
-        .arliz-letter:hover {
-            transform: translateY(-15px) rotate(5deg) scale(1.1);
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
-        }
-
-        
-       .arliz-letter::after {
-          content: attr(data-tooltip);
-          position: absolute;
-          top: -60px;
-          left: 50%;
-          transform: translateX(-50%);
-          background: rgba(0, 0, 0, 0.9);
-          color: #ffd700;
-          padding: 8px 12px;
-          border-radius: 8px;
-          font-size: 0.9rem;
-          white-space: nowrap;
-          opacity: 0;
-          pointer-events: none;
-          transition: opacity 0.3s ease, top 0.3s ease;
-          z-index: 1000;
-         -webkit-background-clip: border-box;
-          background-clip: border-box;
-          -webkit-text-fill-color: initial;
-          color: #ffd700;
-      }
-
-       .arliz-letter:hover::after {
-            opacity: 1;
-            top: -30px;
-        }
-
-
-        .subtitle {
-            font-size: 1.4rem;
-            color: #c9c9c9;
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .description {
-            font-size: 1.1rem;
-            color: #a0a0a0;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* Timeline Styles */
-        .timeline {
-            position: relative;
-            margin: 80px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            top: 0;
-            bottom: 0;
-            width: 6px;
-            background: linear-gradient(
-                to bottom,
-                #8B4513 0%,
-                #DAA520 12.5%,
-                #CD853F 25%,
-                #4682B4 37.5%,
-                #9932CC 50%,
-                #FF6347 62.5%,
-                #00CED1 75%,
-                #7FFF00 87.5%,
-                #FF69B4 100%
-            );
-            border-radius: 3px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-            animation: timelineGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes timelineGlow {
-            0% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); }
-            100% { box-shadow: 0 0 30px rgba(255, 255, 255, 0.5); }
-        }
-
-        .timeline-item {
-            position: relative;
-            margin: 120px 0;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-
-        .timeline-item.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-left: calc(50% + 60px);
-            text-align: left;
-        }
-
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-right: calc(50% + 60px);
-            text-align: right;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            border: 4px solid;
-            background: radial-gradient(circle, #1a1a2e 0%, #000 100%);
-            z-index: 2;
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-
-        .timeline-item:nth-child(1) .timeline-dot { border-color: #8B4513; }
-        .timeline-item:nth-child(2) .timeline-dot { border-color: #DAA520; }
-        .timeline-item:nth-child(3) .timeline-dot { border-color: #CD853F; }
-        .timeline-item:nth-child(4) .timeline-dot { border-color: #4682B4; }
-        .timeline-item:nth-child(5) .timeline-dot { border-color: #9932CC; }
-        .timeline-item:nth-child(6) .timeline-dot { border-color: #FF6347; }
-        .timeline-item:nth-child(7) .timeline-dot { border-color: #00CED1; }
-        .timeline-item:nth-child(8) .timeline-dot { border-color: #7FFF00; }
-
-        .timeline-dot:hover {
-            transform: translateX(-50%) scale(1.4);
-            box-shadow: 0 0 25px currentColor;
-        }
-
-        .timeline-content {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 35px;
-            max-width: 480px;
-            position: relative;
-            transition: all 0.4s ease;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0;
-            height: 0;
-            border: 15px solid transparent;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            left: -30px;
-            border-right-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .timeline-item:nth-child(even) .timeline-content::before {
-            right: -30px;
-            border-left-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .part-number {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff6b35, #ffd700);
-            color: #000;
-            padding: 8px 18px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-bottom: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-        }
-
-        .part-title {
-            font-size: 1.9rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            line-height: 1.3;
-            color: #fff;
-        }
-
-        .timeline-period {
-            font-size: 1.2rem;
-            color: #ffd700;
-            font-weight: bold;
-            margin-bottom: 18px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
-        }
-
-        .part-description {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: #d5d5d5;
-            margin-bottom: 18px;
-        }
-
-        /* Part-specific animations */
-        .part-ancient { animation: ancientGlow 3s ease-in-out infinite alternate; }
-        .part-math { animation: mathPulse 2s ease-in-out infinite; }
-        .part-data { animation: dataBinary 1.5s linear infinite; }
-        .part-arch { animation: archProcess 2.5s ease-in-out infinite; }
-        .part-array { animation: arrayFlow 2s ease-in-out infinite; }
-        .part-algo { animation: algoSort 3s ease-in-out infinite; }
-        .part-parallel { animation: parallelSync 1.8s ease-in-out infinite; }
-        .part-future { animation: futureQuantum 2.2s ease-in-out infinite; }
-
-        @keyframes ancientGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(139, 69, 19, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(218, 165, 32, 0.5); }
-        }
-
-        @keyframes mathPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-        }
-
-        @keyframes dataBinary {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        @keyframes archProcess {
-            0%, 100% { border-left: 4px solid #4682B4; }
-            50% { border-left: 4px solid #87CEEB; }
-        }
-
-        @keyframes arrayFlow {
-            0% { box-shadow: inset 0 0 20px rgba(153, 50, 204, 0.3); }
-            50% { box-shadow: inset 0 0 40px rgba(153, 50, 204, 0.6); }
-            100% { box-shadow: inset 0 0 20px rgba(153, 50, 204, 0.3); }
-        }
-
-        @keyframes algoSort {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-2px); }
-            75% { transform: translateX(2px); }
-        }
-
-        @keyframes parallelSync {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
-        @keyframes futureQuantum {
-            0%, 100% { 
-                background: rgba(255, 255, 255, 0.05);
-                transform: rotateX(0deg);
-            }
-            50% { 
-                background: rgba(127, 255, 0, 0.1);
-                transform: rotateX(2deg);
-            }
-        }
-
-        /* Floating particles */
-        .floating-particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            width: 3px;
-            height: 3px;
-            background: rgba(255, 215, 0, 0.4);
-            border-radius: 50%;
-            animation: float 8s infinite linear;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Scroll indicators */
-        .scroll-indicator {
-            position: fixed;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 100;
-        }
-
-        .scroll-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .scroll-dot.active {
-            background: #ffd700;
-            transform: scale(1.3);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 30px;
-            }
-
-            .timeline-item:nth-child(odd) .timeline-content,
-            .timeline-item:nth-child(even) .timeline-content {
-                margin-left: 80px;
-                margin-right: 20px;
-                text-align: left;
-                max-width: calc(100vw - 120px);
-            }
-
-            .timeline-dot {
-                left: 30px;
-            }
-
-            .timeline-content::before {
-                left: -30px !important;
-                right: auto !important;
-                border-right-color: rgba(255, 255, 255, 0.1) !important;
-                border-left-color: transparent !important;
-            }
-
-            .arliz-title {
-                font-size: 2.8rem;
-            }
-
-            .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .scroll-indicator {
-                display: none;
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <meta name="keywords" content="computational history, arrays, reasoning, logic, identity, zero, data structures, algorithms">
+    <meta property="og:title" content="ARLIZ | A Journey Through Computational History">
+    <meta property="og:description" content="A deep dive into the evolution of computation: from primitive counting to quantum algorithms.">
+    <meta property="og:type" content="book">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ARLIZ | A Journey Through Computational History">
+    <meta name="twitter:description" content="From tally marks to AI: the story of computational thought.">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="floating-particles" id="particles"></div>
+    <!-- Minimal Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="nav-brand">
+                <span class="nav-logo">⧉</span>
+                <span class="nav-text">ARLIZ</span>
+            </div>
+            <div class="time-indicator">
+                <span class="time-text">Journey through time</span>
+                <div class="time-progress"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Background Elements -->
+    <div class="cosmic-background">
+        <div class="stars"></div>
+        <div class="floating-particles" id="particles"></div>
+        <div class="cosmic-grid"></div>
+    </div>
     
-    <div class="scroll-indicator" id="scrollIndicator"></div>
+    <!-- Scroll Navigation -->
+    <div class="scroll-indicator" id="scrollIndicator">
+        <div class="scroll-line"></div>
+    </div>
     
     <div class="container">
+        <!-- ARLIZ Header -->
         <div class="arliz-header">
             <h1 class="arliz-title">
                 <span class="arliz-letter" data-tooltip="Arrays">A</span>
@@ -456,33 +53,43 @@
             </h1>                                                                                                                                                                                            
             <p class="subtitle">From Roots to Frontiers</p>
             <p class="description">From ancient counting methods to modern computational thinking - exploring how humanity's systematic approach to organizing information evolved into the digital age</p>
+            <div class="timeline-span">
+                <span class="start-date">100,000 BCE</span>
+                <div class="timeline-connector"></div>
+                <span class="end-date">Present & Future</span>
+            </div>
         </div>
 
+        <!-- Timeline -->
         <div class="timeline">
-            <div class="timeline-item">
+            <div class="timeline-line"></div>
+            
+            <div class="timeline-item" data-era="ancient">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content part-ancient">
+                <div class="timeline-content">
+                    <div class="era-badge ancient">Ancient Era</div>
                     <span class="part-number">Part 1</span>
-                    <h3 class="part-title">Philosophical &amp; Historical Foundations</h3>
+                    <h3 class="part-title">Philosophical & Historical Foundations</h3>
                     <p class="timeline-period">~100,000 BCE - 1700 CE</p>
-                    <p class="part-description"> Early humans used marks and tokens to record counts—an implicit array of tallies. This section shows how grouping ideas and ordering items in sequences laid the groundwork for the array concept.</p>
+                    <p class="part-description">Early humans used marks and tokens to record counts—an implicit array of tallies. This section shows how grouping ideas and ordering items in sequences laid the groundwork for the array concept.</p>
                 </div>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item" data-era="mathematical">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content part-math">
+                <div class="timeline-content">
+                    <div class="era-badge mathematical">Mathematical Era</div>
                     <span class="part-number">Part 2</span>
                     <h3 class="part-title">Mathematical Fundamentals</h3>
                     <p class="timeline-period">~600 BCE – 1900 CE</p>
-                    <p class="part-description">
-                        Formal math introduced notation and structures that inform array theory. Here we cover how number systems, set concepts, and early algebra shaped how we index, partition, and manipulate collections.
-                    </p>                </div>
+                    <p class="part-description">Formal math introduced notation and structures that inform array theory. Here we cover how number systems, set concepts, and early algebra shaped how we index, partition, and manipulate collections.</p>
+                </div>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item" data-era="data">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content part-data">
+                <div class="timeline-content">
+                    <div class="era-badge data">Data Era</div>
                     <span class="part-number">Part 3</span>
                     <h3 class="part-title">Data Representation</h3>
                     <p class="timeline-period">~1679 CE – 1950 CE</p>
@@ -490,19 +97,21 @@
                 </div>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item" data-era="architecture">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content part-arch">
+                <div class="timeline-content">
+                    <div class="era-badge architecture">Architecture Era</div>
                     <span class="part-number">Part 4</span>
-                    <h3 class="part-title">Computer Architecture &amp; Logic</h3>
+                    <h3 class="part-title">Computer Architecture & Logic</h3>
                     <p class="timeline-period">~1837 CE – 1970 CE</p>
                     <p class="part-description">Hardware designs and instruction sets rely on arrays for registers, memory buffers, and data paths. We examine how architectures implement and optimize array access in early computers.</p>
                 </div>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item" data-era="array">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content part-array">
+                <div class="timeline-content">
+                    <div class="era-badge array">Array Era</div>
                     <span class="part-number">Part 5</span>
                     <h3 class="part-title">Array Odyssey</h3>
                     <p class="timeline-period">1950 CE - 1990 CE</p>
@@ -510,125 +119,42 @@
                 </div>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item" data-era="algorithms">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content part-algo">
+                <div class="timeline-content">
+                    <div class="era-badge algorithms">Algorithm Era</div>
                     <span class="part-number">Part 6</span>
-                    <h3 class="part-title">Data Structures &amp; Algorithms</h3>
+                    <h3 class="part-title">Data Structures & Algorithms</h3>
                     <p class="timeline-period">~2000 BCE – 2000 CE</p>
                     <p class="part-description">Building on arrays, this section outlines how lists, stacks, queues, trees, and graphs extend the basic indexed collection. We focus on array-based implementations and their performance implications.</p>
                 </div>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item" data-era="parallel">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content part-parallel">
+                <div class="timeline-content">
+                    <div class="era-badge parallel">Parallel Era</div>
                     <span class="part-number">Part 7</span>
-                    <h3 class="part-title">Parallelism &amp; Systems</h3>
+                    <h3 class="part-title">Parallelism & Systems</h3>
                     <p class="timeline-period">1950 CE – 2010 CE</p>
                     <p class="part-description">When data grows, arrays must be split, shared, or processed concurrently. This part reviews parallel array algorithms, distributed data layouts, and system designs that scale array operations.</p>
                 </div>
             </div>
 
-            <div class="timeline-item">
+            <div class="timeline-item" data-era="future">
                 <div class="timeline-dot"></div>
-                <div class="timeline-content part-future">
+                <div class="timeline-content">
+                    <div class="era-badge future">Future Era</div>
                     <span class="part-number">Part 8</span>
                     <h3 class="part-title">Synthesis & Frontiers</h3>
-                    <p class="timeline-period">2000 CE - Present &amp; Future</p>
+                    <p class="timeline-period">2000 CE - Present & Future</p>
                     <p class="part-description">Arrays remain central as computing evolves: from GPU kernels to tensor processing, from AI data batches to quantum registers. We tie past lessons to emerging array paradigms and future challenges.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        // Create floating particles
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 60;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 8 + 's';
-                particle.style.animationDuration = (Math.random() * 4 + 6) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        // Timeline animation on scroll
-        function animateTimeline() {
-            const timelineItems = document.querySelectorAll('.timeline-item');
-            const scrollIndicator = document.getElementById('scrollIndicator');
-            
-            // Create scroll indicator dots
-            timelineItems.forEach((item, index) => {
-                const dot = document.createElement('div');
-                dot.className = 'scroll-dot';
-                dot.addEventListener('click', () => {
-                    item.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                });
-                scrollIndicator.appendChild(dot);
-            });
-
-            const observerOptions = {
-                threshold: 0.2,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    const index = Array.from(timelineItems).indexOf(entry.target);
-                    const scrollDot = scrollIndicator.children[index];
-                    
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                        scrollDot.classList.add('active');
-                        
-                        // Add special animation to timeline dot
-                        const timelineDot = entry.target.querySelector('.timeline-dot');
-                        timelineDot.style.transform = 'translateX(-50%) scale(1.3)';
-                        timelineDot.style.boxShadow = '0 0 30px currentColor';
-                        
-                        setTimeout(() => {
-                            timelineDot.style.transform = 'translateX(-50%) scale(1)';
-                            timelineDot.style.boxShadow = '0 0 15px currentColor';
-                        }, 500);
-                    } else {
-                        scrollDot.classList.remove('active');
-                    }
-                });
-            }, observerOptions);
-
-            timelineItems.forEach(item => {
-                observer.observe(item);
-            });
-        }
-
-        // Smooth scroll behavior for better time travel effect
-        function enhanceScrolling() {
-            let isScrolling = false;
-            
-            window.addEventListener('scroll', () => {
-                if (!isScrolling) {
-                    document.body.style.transform = 'translateZ(0)';
-                    isScrolling = true;
-                }
-                
-                clearTimeout(window.scrollTimeout);
-                window.scrollTimeout = setTimeout(() => {
-                    isScrolling = false;
-                    document.body.style.transform = '';
-                }, 150);
-            });
-        }
-        window.addEventListener('load', () => {
-            createParticles();
-            animateTimeline();
-            enhanceScrolling();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
+
