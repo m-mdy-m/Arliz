@@ -57,36 +57,26 @@
             transform: translateY(-15px) rotate(5deg) scale(1.1);
             text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
         }
-
-        .letter-tooltip {
-            position: absolute;
-            top: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.9);
-            color: #ffd700;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: normal;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s ease;
-            z-index: 1000;
+        
+        .arliz-letter::after {
+          content: attr(data-tooltip);
+          position: absolute;
+          top: -60px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: rgba(0, 0, 0, 0.9);
+          color: #ffd700;
+          padding: 8px 12px;
+          border-radius: 8px;
+          font-size: 0.9rem;
+          white-space: nowrap;
+          opacity: 0;
+          pointer-events: none;
+          transition: all 0.3s ease;
+          z-index: 1000;
         }
 
-        .letter-tooltip::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            border: 6px solid transparent;
-            border-top-color: rgba(0, 0, 0, 0.9);
-        }
-
-        .arliz-letter:hover .letter-tooltip {
+       .arliz-letter:hover::after {
             opacity: 1;
             top: -30px;
         }
@@ -451,26 +441,11 @@
     <div class="container">
         <div class="arliz-header">
             <h1 class="arliz-title">
-                <span class="arliz-letter" data-tooltip="Arrays">
-                    A
-                    <div class="letter-tooltip">Arrays</div>
-                </span>
-                <span class="arliz-letter" data-tooltip="Reasoning">
-                    R
-                    <div class="letter-tooltip">Reasoning</div>
-                </span>
-                <span class="arliz-letter" data-tooltip="Logic">
-                    L
-                    <div class="letter-tooltip">Logic</div>
-                </span>
-                <span class="arliz-letter" data-tooltip="Identity">
-                    I
-                    <div class="letter-tooltip">Identity</div>
-                </span>
-                <span class="arliz-letter" data-tooltip="Zero">
-                    Z
-                    <div class="letter-tooltip">Zero</div>
-                </span>
+                <span class="arliz-letter" data-tooltip="Arrays">A</span>
+                <span class="arliz-letter" data-tooltip="Reasoning">R</span>
+                <span class="arliz-letter" data-tooltip="Logic">L</span>
+                <span class="arliz-letter" data-tooltip="Identity">I</span>
+                <span class="arliz-letter" data-tooltip="Zero">Z</span>
             </h1>
             <p class="subtitle">A Journey Through Computational History</p>
             <p class="description">From ancient counting methods to modern computational thinking - exploring how humanity's systematic approach to organizing information evolved into the digital age</p>
