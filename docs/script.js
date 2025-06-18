@@ -5,6 +5,7 @@ class ARLIZTimeline {
     this.timeProgress = document.querySelector(".time-progress::after")
     this.particles = []
     this.isScrolling = false
+    this.scrollDots = []
 
     this.init()
   }
@@ -72,6 +73,7 @@ class ARLIZTimeline {
   setupScrollIndicator() {
     // Clear existing dots
     this.scrollIndicator.innerHTML = '<div class="scroll-line"></div>'
+    this.scrollDots = []
 
     // Create scroll dots for each timeline item
     this.timelineItems.forEach((item, index) => {
@@ -85,37 +87,49 @@ class ARLIZTimeline {
       })
 
       this.scrollIndicator.appendChild(dot)
+      this.scrollDots.push(dot)
     })
   }
 
   setupIntersectionObserver() {
     const observerOptions = {
-      threshold: 0.3,
-      rootMargin: "0px 0px -20% 0px",
+      threshold: 0.4,
+      rootMargin: "0px 0px -30% 0px",
     }
 
     const observer = new IntersectionObserver((entries) => {
+      let mostVisibleEntry = null
+      let maxIntersectionRatio = 0
+
+      // Find the most visible timeline item
       entries.forEach((entry) => {
-        const index = Array.from(this.timelineItems).indexOf(entry.target)
-        const scrollDot = this.scrollIndicator.children[index + 1] // +1 because of scroll-line
+        if (entry.isIntersecting && entry.intersectionRatio > maxIntersectionRatio) {
+          maxIntersectionRatio = entry.intersectionRatio
+          mostVisibleEntry = entry
+        }
+      })
 
-        if (entry.isIntersecting) {
-          // Animate timeline item
-          entry.target.classList.add("animate")
+      // Update active states based on most visible item
+      if (mostVisibleEntry) {
+        const index = Number.parseInt(mostVisibleEntry.target.getAttribute("data-index"))
 
-          // Update scroll indicator
-          this.updateActiveScrollDot(index)
+        // Animate timeline item
+        mostVisibleEntry.target.classList.add("animate")
 
-          // Animate timeline dot
-          this.animateTimelineDot(entry.target)
+        // Update scroll indicator
+        this.updateActiveScrollDot(index)
 
-          // Update era-specific effects
-          this.updateEraEffects(entry.target)
-        } else {
-          // Remove active state when not in view
-          if (scrollDot) {
-            scrollDot.classList.remove("active")
-          }
+        // Animate timeline dot
+        this.animateTimelineDot(mostVisibleEntry.target)
+
+        // Update era-specific effects
+        this.updateEraEffects(mostVisibleEntry.target)
+      }
+
+      // Handle items going out of view
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          entry.target.classList.remove("animate")
         }
       })
     }, observerOptions)
@@ -126,14 +140,12 @@ class ARLIZTimeline {
   }
 
   updateActiveScrollDot(activeIndex) {
-    const scrollDots = this.scrollIndicator.querySelectorAll(".scroll-dot")
-
     // Remove active class from all dots
-    scrollDots.forEach((dot) => dot.classList.remove("active"))
+    this.scrollDots.forEach((dot) => dot.classList.remove("active"))
 
     // Add active class to current dot
-    if (scrollDots[activeIndex]) {
-      scrollDots[activeIndex].classList.add("active")
+    if (this.scrollDots[activeIndex]) {
+      this.scrollDots[activeIndex].classList.add("active")
     }
   }
 
@@ -166,7 +178,7 @@ class ARLIZTimeline {
     const updateProgress = () => {
       const scrollTop = window.pageYOffset
       const docHeight = document.documentElement.scrollHeight - window.innerHeight
-      const scrollPercent = (scrollTop / docHeight) * 100
+      const scrollPercent = Math.min((scrollTop / docHeight) * 100, 100)
 
       // Update navigation progress bar
       const progressBar = document.querySelector(".time-progress")
@@ -206,6 +218,9 @@ class ARLIZTimeline {
         top: offsetTop,
         behavior: "smooth",
       })
+
+      // Immediately update the active dot to provide instant feedback
+      this.updateActiveScrollDot(index)
     }
   }
 
@@ -277,6 +292,9 @@ class ARLIZTimeline {
           }
 
           this.scrollToItem(nextIndex)
+        } else {
+          // If no active dot, start with first item
+          this.scrollToItem(0)
         }
       }
     })
@@ -340,4 +358,3 @@ window.addEventListener("load", () => {
     }, 100)
   })
 })
-
