@@ -48,17 +48,19 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
             position: relative;
             margin: 0 2px;
+            cursor: pointer;
         }
 
         .arliz-letter:hover {
             transform: translateY(-15px) rotate(5deg) scale(1.1);
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
         }
+
         
-        .arliz-letter::after {
+       .arliz-letter::after {
           content: attr(data-tooltip);
           position: absolute;
           top: -60px;
@@ -72,14 +74,19 @@
           white-space: nowrap;
           opacity: 0;
           pointer-events: none;
-          transition: all 0.3s ease;
+          transition: opacity 0.3s ease, top 0.3s ease;
           z-index: 1000;
-        }
+         -webkit-background-clip: border-box;
+          background-clip: border-box;
+          -webkit-text-fill-color: initial;
+          color: #ffd700;
+      }
 
        .arliz-letter:hover::after {
             opacity: 1;
             top: -30px;
         }
+
 
         .subtitle {
             font-size: 1.4rem;
@@ -628,21 +635,6 @@
             createParticles();
             animateTimeline();
             enhanceScrolling();
-        });
-        document.addEventListener('DOMContentLoaded', () => {
-            const letters = document.querySelectorAll('.arliz-letter');
-            
-            letters.forEach(letter => {
-                letter.addEventListener('mouseenter', () => {
-                    letter.style.transform = 'translateY(-5px) rotate(5deg) scale(1.1)';
-                    letter.style.textShadow = '0 0 30px rgba(255, 215, 0, 0.8)';
-                });
-                
-                letter.addEventListener('mouseleave', () => {
-                    letter.style.transform = '';
-                    letter.style.textShadow = '';
-                });
-            });
         });
     </script>
 </body>
