@@ -93,15 +93,14 @@ class ARLIZTimeline {
 
   setupIntersectionObserver() {
     const observerOptions = {
-      threshold: 0.4,
-      rootMargin: "0px 0px -30% 0px",
+      threshold: 0.5,
+      rootMargin: "-20% 0px -20% 0px",
     }
 
     const observer = new IntersectionObserver((entries) => {
       let mostVisibleEntry = null
       let maxIntersectionRatio = 0
 
-      // Find the most visible timeline item
       entries.forEach((entry) => {
         if (entry.isIntersecting && entry.intersectionRatio > maxIntersectionRatio) {
           maxIntersectionRatio = entry.intersectionRatio
@@ -109,24 +108,18 @@ class ARLIZTimeline {
         }
       })
 
-      // Update active states based on most visible item
       if (mostVisibleEntry) {
         const index = Number.parseInt(mostVisibleEntry.target.getAttribute("data-index"))
 
-        // Animate timeline item
         mostVisibleEntry.target.classList.add("animate")
 
-        // Update scroll indicator
         this.updateActiveScrollDot(index)
 
-        // Animate timeline dot
         this.animateTimelineDot(mostVisibleEntry.target)
 
-        // Update era-specific effects
         this.updateEraEffects(mostVisibleEntry.target)
       }
 
-      // Handle items going out of view
       entries.forEach((entry) => {
         if (!entry.isIntersecting) {
           entry.target.classList.remove("animate")
@@ -140,10 +133,8 @@ class ARLIZTimeline {
   }
 
   updateActiveScrollDot(activeIndex) {
-    // Remove active class from all dots
     this.scrollDots.forEach((dot) => dot.classList.remove("active"))
 
-    // Add active class to current dot
     if (this.scrollDots[activeIndex]) {
       this.scrollDots[activeIndex].classList.add("active")
     }
@@ -166,7 +157,6 @@ class ARLIZTimeline {
     const era = timelineItem.getAttribute("data-era")
     const content = timelineItem.querySelector(".timeline-content")
 
-    // Add era-specific glow effect
     content.style.boxShadow = `0 20px 60px rgba(0, 0, 0, 0.4), 0 0 30px var(--${era}-color, rgba(255, 215, 0, 0.3))`
 
     setTimeout(() => {
@@ -180,20 +170,17 @@ class ARLIZTimeline {
       const docHeight = document.documentElement.scrollHeight - window.innerHeight
       const scrollPercent = Math.min((scrollTop / docHeight) * 100, 100)
 
-      // Update navigation progress bar
       const progressBar = document.querySelector(".time-progress")
       if (progressBar) {
         progressBar.style.setProperty("--progress", `${scrollPercent}%`)
       }
 
-      // Update scroll line
       const scrollLine = document.querySelector(".scroll-line")
       if (scrollLine) {
         scrollLine.style.setProperty("--scroll-progress", `${scrollPercent}%`)
       }
     }
 
-    // Add CSS custom property support
     const style = document.createElement("style")
     style.textContent = `
             .time-progress::after {
@@ -212,20 +199,25 @@ class ARLIZTimeline {
   scrollToItem(index) {
     const targetItem = this.timelineItems[index]
     if (targetItem) {
-      const offsetTop = targetItem.offsetTop - window.innerHeight / 2 + targetItem.offsetHeight / 2
+      const targetRect = targetItem.getBoundingClientRect()
+      const currentScrollTop = window.pageYOffset
+
+      const targetAbsoluteTop = targetRect.top + currentScrollTop
+
+      const viewportHeight = window.innerHeight
+      const targetHeight = targetRect.height
+      const offsetTop = targetAbsoluteTop - viewportHeight / 2 + targetHeight / 2
 
       window.scrollTo({
-        top: offsetTop,
+        top: Math.max(0, offsetTop),
         behavior: "smooth",
       })
 
-      // Immediately update the active dot to provide instant feedback
       this.updateActiveScrollDot(index)
     }
   }
 
   addEventListeners() {
-    // Navbar scroll effect
     let lastScrollTop = 0
     const navbar = document.querySelector(".navbar")
 
@@ -233,24 +225,20 @@ class ARLIZTimeline {
       const scrollTop = window.pageYOffset
 
       if (scrollTop > lastScrollTop && scrollTop > 100) {
-        // Scrolling down
+
         navbar.style.transform = "translateY(-100%)"
       } else {
-        // Scrolling up
         navbar.style.transform = "translateY(0)"
       }
 
       lastScrollTop = scrollTop
     })
 
-    // Enhanced ARLIZ letter interactions
     const arlizLetters = document.querySelectorAll(".arliz-letter")
     arlizLetters.forEach((letter, index) => {
       letter.addEventListener("mouseenter", () => {
-        // Create ripple effect
         this.createRippleEffect(letter)
 
-        // Animate other letters
         arlizLetters.forEach((otherLetter, otherIndex) => {
           if (otherIndex !== index) {
             otherLetter.style.transform = "scale(0.95)"
