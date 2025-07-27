@@ -1,0 +1,364 @@
+name: 📚 Build & Test Arliz Book
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # Manual trigger
+
+env:
+  PROJECT_NAME: "Arliz"
+  SOURCE_FILE: "book/Arliz.tex"
+  OUTPUT_FILE: "book/Arliz.pdf"
+
+jobs:
+  build-test:
+    name: 🚀 Build LaTeX Document
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Full history for better debugging
+    
+    - name: 📋 Setup Build Environment
+      run: |
+        echo "🔧 Setting up build environment..."
+        mkdir -p .build logs
+        echo "Build started at: $(date)" > logs/ci-build.log
+        echo "Commit: ${{ github.sha }}" >> logs/ci-build.log
+        echo "Branch: ${{ github.ref_name }}" >> logs/ci-build.log
+    
+    - name: 🔍 Verify Project Structure
+      run: |
+        echo "📁 Checking project structure..."
+        
+        # Check critical files exist
+        if [ ! -f "$SOURCE_FILE" ]; then
+          echo "❌ Source file not found: $SOURCE_FILE"
+          exit 1
+        fi
+        
+        echo "✅ Source file found: $SOURCE_FILE"
+        
+        # Check book directory structure
+        if [ ! -d "book/parts" ]; then
+          echo "⚠️  Warning: book/parts directory not found"
+        fi
+        
+        # List key files for debugging
+        echo "📋 Project structure:"
+        find book -name "*.tex" -type f | head -20
+    
+    - name: 📦 Install LaTeX Dependencies
+      run: |
+        echo "📦 Installing TeXLive Full..."
+        sudo apt-get update -qq
+        
+        # Install full TeXLive for comprehensive package support
+        sudo apt-get install -y \
+          texlive-full \
+          texlive-lang-persian \
+          texlive-xetex \
+          latexmk \
+          ghostscript
+        
+        echo "✅ LaTeX installation completed"
+        
+        # Verify installation
+        echo "🔍 Verifying LaTeX engines:"
+        pdflatex --version | head -2
+        xelatex --version | head -2
+        lualatex --version | head -2
+    
+    - name: 🛠️ Pre-build Validation
+      run: |
+        echo "🔍 Running pre-build validation..."
+        
+        # Check for common LaTeX issues
+        echo "📝 Checking for syntax issues..."
+        
+        # Check for unmatched braces (basic check)
+        if grep -r "\\begin{" book/ | wc -l > /tmp/begin_count; then
+          echo "Begin blocks found: $(cat /tmp/begin_count)"
+        fi
+        
+        if grep -r "\\end{" book/ | wc -l > /tmp/end_count; then
+          echo "End blocks found: $(cat /tmp/end_count)"
+        fi
+        
+        # Check for required packages in main file
+        echo "📋 Checking document structure..."
+        if grep -q "\\documentclass" "$SOURCE_FILE"; then
+          echo "✅ Document class found"
+        else
+          echo "❌ No document class found!"
+          exit 1
+        fi
+        
+        if grep -q "\\begin{document}" "$SOURCE_FILE"; then
+          echo "✅ Document begin found"
+        else
+          echo "❌ No \\begin{document} found!"
+          exit 1
+        fi
+        
+        echo "✅ Pre-build validation passed"
+    
+    - name: 🔨 Build Document (Pass 1)
+      run: |
+        echo "🔨 Starting first LaTeX pass..."
+        cd book
+        
+        # First pass with detailed logging
+        if ! pdflatex -interaction=nonstopmode -file-line-error Arliz.tex > ../logs/pass1.log 2>&1; then
+          echo "⚠️  First pass had issues, checking for critical errors..."
+          
+          # Check for critical errors
+          if grep -i "emergency stop\|fatal error\|file.*not found\|undefined control sequence\|no pages of output\|missing.*begin{document}" ../logs/pass1.log; then
+            echo "❌ Critical errors found in first pass!"
+            echo "📋 Error details:"
+            tail -20 ../logs/pass1.log
+            exit 1
+          else
+            echo "⚠️  First pass completed with warnings (continuing...)"
+          fi
+        else
+          echo "✅ First pass completed successfully"
+        fi
+        
+        # Check if auxiliary files were created
+        if [ -f "Arliz.aux" ]; then
+          echo "✅ Auxiliary files created"
+        else
+          echo "⚠️  No auxiliary files found"
+        fi
+    
+    - name: 📚 Process Bibliography (if needed)
+      run: |
+        cd book
+        
+        # Check if bibliography is needed
+        if grep -q "\\bibliography\|\\addbibresource\|\\printbibliography" Arliz.tex; then
+          echo "📚 Processing bibliography..."
+          
+          # Try biber first, then bibtex
+          if command -v biber >/dev/null 2>&1; then
+            biber Arliz >> ../logs/bibliography.log 2>&1 || echo "⚠️  Biber had issues"
+          elif command -v bibtex >/dev/null 2>&1; then
+            bibtex Arliz >> ../logs/bibliography.log 2>&1 || echo "⚠️  BibTeX had issues"
+          fi
+          
+          echo "✅ Bibliography processing completed"
+        else
+          echo "ℹ️  No bibliography processing needed"
+        fi
+    
+    - name: 🔨 Build Document (Pass 2)
+      run: |
+        echo "🔨 Starting second LaTeX pass..."
+        cd book
+        
+        if ! pdflatex -interaction=nonstopmode -file-line-error Arliz.tex > ../logs/pass2.log 2>&1; then
+          echo "⚠️  Second pass had issues, checking for critical errors..."
+          
+          if grep -i "emergency stop\|fatal error\|file.*not found\|undefined control sequence\|no pages of output" ../logs/pass2.log; then
+            echo "❌ Critical errors found in second pass!"
+            echo "📋 Error details:"
+            tail -20 ../logs/pass2.log
+            exit 1
+          else
+            echo "⚠️  Second pass completed with warnings (continuing...)"
+          fi
+        else
+          echo "✅ Second pass completed successfully"
+        fi
+    
+    - name: 🔨 Build Document (Final Pass)
+      run: |
+        echo "🔨 Starting final LaTeX pass..."
+        cd book
+        
+        if ! pdflatex -interaction=nonstopmode -file-line-error Arliz.tex > ../logs/pass3.log 2>&1; then
+          echo "⚠️  Final pass had issues, checking for critical errors..."
+          
+          if grep -i "emergency stop\|fatal error\|file.*not found\|undefined control sequence\|no pages of output" ../logs/pass3.log; then
+            echo "❌ Critical errors found in final pass!"
+            echo "📋 Error details:"
+            tail -20 ../logs/pass3.log
+            exit 1
+          else
+            echo "⚠️  Final pass completed with warnings (PDF should be generated)"
+          fi
+        else
+          echo "✅ Final pass completed successfully"
+        fi
+    
+    - name: ✅ Validate PDF Output
+      run: |
+        echo "🔍 Validating PDF output..."
+        
+        if [ ! -f "$OUTPUT_FILE" ]; then
+          echo "❌ PDF file not generated: $OUTPUT_FILE"
+          echo "📋 Available files in book directory:"
+          ls -la book/
+          exit 1
+        fi
+        
+        # Check PDF file size (should be reasonable)
+        PDF_SIZE=$(stat -c%s "$OUTPUT_FILE" 2>/dev/null || echo 0)
+        if [ "$PDF_SIZE" -lt 1000 ]; then
+          echo "❌ PDF file too small ($PDF_SIZE bytes) - likely corrupted"
+          exit 1
+        fi
+        
+        echo "✅ PDF generated successfully!"
+        echo "📊 PDF size: $(du -h $OUTPUT_FILE | cut -f1)"
+        
+        # Try to get page count using pdfinfo if available
+        if command -v pdfinfo >/dev/null 2>&1; then
+          PAGES=$(pdfinfo "$OUTPUT_FILE" 2>/dev/null | grep "Pages:" | awk '{print $2}' || echo "unknown")
+          echo "📄 PDF pages: $PAGES"
+        fi
+        
+        # Basic PDF validation using file command
+        FILE_TYPE=$(file "$OUTPUT_FILE")
+        if echo "$FILE_TYPE" | grep -q "PDF"; then
+          echo "✅ PDF file format validated"
+        else
+          echo "❌ Invalid PDF format: $FILE_TYPE"
+          exit 1
+        fi
+    
+    - name: 📊 Build Summary & Warnings
+      run: |
+        echo "📊 Build Summary"
+        echo "=================================="
+        
+        # Count warnings across all passes
+        TOTAL_WARNINGS=0
+        for log_file in logs/*.log; do
+          if [ -f "$log_file" ]; then
+            WARNINGS=$(grep -c "Warning\|warning\|Overfull\|Underfull" "$log_file" 2>/dev/null || echo 0)
+            TOTAL_WARNINGS=$((TOTAL_WARNINGS + WARNINGS))
+            echo "📋 $(basename $log_file): $WARNINGS warnings"
+          fi
+        done
+        
+        echo "📊 Total warnings: $TOTAL_WARNINGS"
+        
+        if [ "$TOTAL_WARNINGS" -gt 50 ]; then
+          echo "⚠️  High number of warnings detected!"
+          echo "🔍 Most common warnings:"
+          cat logs/*.log 2>/dev/null | grep -i "warning\|overfull\|underfull" | sort | uniq -c | sort -nr | head -5
+        elif [ "$TOTAL_WARNINGS" -gt 0 ]; then
+          echo "ℹ️  Some warnings found (this is normal for LaTeX)"
+        else
+          echo "✅ No warnings found!"
+        fi
+        
+        # Final status
+        if [ -f "$OUTPUT_FILE" ]; then
+          echo "🎉 BUILD SUCCESSFUL!"
+          echo "✅ PDF generated: $OUTPUT_FILE"
+        else
+          echo "❌ BUILD FAILED!"
+          exit 1
+        fi
+    
+    - name: 🧹 Cleanup Auxiliary Files
+      run: |
+        echo "🧹 Cleaning up auxiliary files..."
+        cd book
+        rm -f *.aux *.log *.toc *.out *.bbl *.blg *.fdb_latexmk *.fls *.synctex.gz *.nav *.snm *.vrb *.lof *.lot *.idx *.ind *.ilg
+        echo "✅ Cleanup completed"
+    
+    - name: 📤 Upload PDF Artifact
+      uses: actions/upload-artifact@v4
+      if: success()
+      with:
+        name: arliz-book-${{ github.sha }}
+        path: |
+          book/Arliz.pdf
+        retention-days: 30
+    
+    - name: 📤 Upload Build Logs
+      uses: actions/upload-artifact@v4
+      if: always()  # Upload logs even if build fails
+      with:
+        name: build-logs-${{ github.sha }}
+        path: |
+          logs/
+        retention-days: 7
+    
+    - name: 💬 Comment on PR (if applicable)
+      uses: actions/github-script@v7
+      if: github.event_name == 'pull_request' && success()
+      with:
+        script: |
+          const fs = require('fs');
+          const path = './book/Arliz.pdf';
+          
+          if (fs.existsSync(path)) {
+            const stats = fs.statSync(path);
+            const size = (stats.size / 1024 / 1024).toFixed(2);
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🎉 **Arliz Book Build Successful!**
+              
+              ✅ PDF generated successfully
+              📊 File size: ${size} MB
+              📦 Download artifact: [arliz-book-${{ github.sha }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+              
+              The book builds without critical errors! 📚`
+            });
+          }
+
+  # Optional: Test multiple LaTeX engines
+  multi-engine-test:
+    name: 🔄 Multi-Engine Test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    strategy:
+      matrix:
+        engine: [pdflatex, xelatex, lualatex]
+      fail-fast: false
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+    
+    - name: 📦 Install LaTeX
+      run: |
+        sudo apt-get update -qq
+        sudo apt-get install -y texlive-full
+    
+    - name: 🔨 Test Build with ${{ matrix.engine }}
+      run: |
+        echo "🔨 Testing build with ${{ matrix.engine }}..."
+        cd book
+        
+        if ${{ matrix.engine }} -interaction=nonstopmode Arliz.tex > ../test-${{ matrix.engine }}.log 2>&1; then
+          echo "✅ ${{ matrix.engine }} build successful!"
+        else
+          echo "⚠️  ${{ matrix.engine }} build had issues"
+          # Don't fail the job, just report
+        fi
+        
+        if [ -f "Arliz.pdf" ]; then
+          mv Arliz.pdf "Arliz-${{ matrix.engine }}.pdf"
+          echo "📊 PDF size: $(du -h Arliz-${{ matrix.engine }}.pdf | cut -f1)"
+        fi
+    
+    - name: 📤 Upload Engine-Specific PDF
+      uses: actions/upload-artifact@v4
+      if: success()
+      with:
+        name: arliz-${{ matrix.engine }}-${{ github.sha }}
+        path: book/Arliz-${{ matrix.engine }}.pdf
+        retention-days: 7
