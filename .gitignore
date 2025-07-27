@@ -19,3 +19,4 @@ tags*
 arch*.tex
 *.acn
 *.ist
+.build/
