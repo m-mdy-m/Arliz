@@ -20,3 +20,4 @@ arch*.tex
 *.acn
 *.ist
 .build/
+.backups
