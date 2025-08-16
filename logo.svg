@@ -48,13 +48,20 @@
   
   <!-- Mathematical foundation layer - representing the seven parts -->
   <g opacity="0.12">
-    <!-- Part 1: Historical Foundations - Ancient symbols -->
-    <g transform="translate(60,100)">
-      <circle cx="0" cy="0" r="8" fill="#6366f1" opacity="0.6" filter="url(#subtleBlur)"/>
-      <circle cx="15" cy="8" r="5" fill="#6366f1" opacity="0.4"/>
-      <circle cx="-10" cy="12" r="6" fill="#6366f1" opacity="0.5"/>
+    <!-- Part 1: Historical Foundations - Ancient counting symbols -->
+    <g transform="translate(80,90)">
+      <circle cx="0" cy="0" r="6" fill="#3b82f6" opacity="0.7" filter="url(#subtleBlur)"/>
+      <circle cx="12" cy="6" r="4" fill="#3b82f6" opacity="0.5"/>
+      <circle cx="-8" cy="10" r="5" fill="#3b82f6" opacity="0.6"/>
+      <!-- Ancient tally marks -->
+      <g transform="translate(20,0)" stroke="#3b82f6" stroke-width="1.5" opacity="0.4">
+        <line x1="0" y1="-5" x2="0" y2="5"/>
+        <line x1="3" y1="-5" x2="3" y2="5"/>
+        <line x1="6" y1="-5" x2="6" y2="5"/>
+        <line x1="9" y1="-5" x2="9" y2="5"/>
+        <line x1="-2" y1="-3" x2="11" y2="3" stroke-width="2"/>
+      </g>
     </g>
-    
     <!-- Part 2: Mathematical Fundamentals - Geometric progression -->
     <g transform="translate(340,120)">
       <rect x="0" y="0" width="12" height="12" rx="2" fill="#7c3aed" opacity="0.6" filter="url(#subtleBlur)"/>
@@ -70,29 +77,40 @@
       <rect x="24" y="0" width="4" height="4" fill="#8b5cf6"/>
     </g>
     
-    <!-- Part 4: Architecture - Grid structure -->
-    <g transform="translate(300,180)" stroke="#a855f7" stroke-width="0.8" opacity="0.25">
-      <line x1="0" y1="0" x2="20" y2="0"/>
-      <line x1="0" y1="8" x2="20" y2="8"/>
-      <line x1="0" y1="16" x2="20" y2="16"/>
-      <line x1="0" y1="0" x2="0" y2="16"/>
-      <line x1="10" y1="0" x2="10" y2="16"/>
-      <line x1="20" y1="0" x2="20" y2="16"/>
+    <!-- Part 4: Architecture - Memory cells visualization -->
+    <g transform="translate(290,170)" opacity="0.3">
+      <!-- Memory blocks like array indices -->
+      <rect x="0" y="0" width="8" height="8" fill="#8b5cf6" rx="1"/>
+      <rect x="10" y="0" width="8" height="8" fill="#7c3aed" rx="1"/>
+      <rect x="20" y="0" width="8" height="8" fill="#6d28d9" rx="1"/>
+      <rect x="30" y="0" width="8" height="8" fill="#581c87" rx="1"/>
+      <!-- Index labels -->
+      <text x="4" y="16" font-size="5" fill="#8b5cf6" text-anchor="middle" opacity="0.6">[0]</text>
+      <text x="14" y="16" font-size="5" fill="#7c3aed" text-anchor="middle" opacity="0.6">[1]</text>
+      <text x="24" y="16" font-size="5" fill="#6d28d9" text-anchor="middle" opacity="0.6">[2]</text>
+      <text x="34" y="16" font-size="5" fill="#581c87" text-anchor="middle" opacity="0.6">[3]</text>
     </g>
-    
     <!-- Part 5: Array Odyssey - Central flow -->
     <path d="M 70 300 Q 150 280 230 300 Q 310 320 380 300" 
-          stroke="#6366f1" stroke-width="2" fill="none" opacity="0.15"/>
-    
-    <!-- Part 6: Data Structures - Interconnected nodes -->
-    <g transform="translate(100,400)">
-      <circle cx="0" cy="0" r="4" fill="#7c3aed" opacity="0.4"/>
-      <circle cx="20" cy="-10" r="4" fill="#7c3aed" opacity="0.4"/>
-      <circle cx="15" cy="15" r="4" fill="#7c3aed" opacity="0.4"/>
-      <line x1="0" y1="0" x2="20" y2="-10" stroke="#7c3aed" stroke-width="1" opacity="0.3"/>
-      <line x1="0" y1="0" x2="15" y2="15" stroke="#7c3aed" stroke-width="1" opacity="0.3"/>
+          stroke="#6366f1" stroke-width="5" fill="#6366f1" opacity="0.15"/>
+   
+     <!-- Part 6: Data Structures - Interconnected network -->
+    <g transform="translate(110,380)">
+      <g opacity="0.4">
+        <!-- Nodes -->
+        <circle cx="0" cy="0" r="4" fill="#7c3aed"/>
+        <circle cx="25" cy="-8" r="4" fill="#7c3aed"/>
+        <circle cx="20" cy="12" r="4" fill="#7c3aed"/>
+        <circle cx="-15" cy="18" r="4" fill="#7c3aed"/>
+        <!-- Connections -->
+        <g stroke="#7c3aed" stroke-width="1.5" opacity="0.6">
+          <line x1="0" y1="0" x2="25" y2="-8"/>
+          <line x1="0" y1="0" x2="20" y2="12"/>
+          <line x1="0" y1="0" x2="-15" y2="18"/>
+          <line x1="25" y1="-8" x2="20" y2="12"/>
+        </g>
+      </g>
     </g>
-    
     <!-- Part 7: Parallelism - Multiple streams -->
     <g transform="translate(280,420)" opacity="0.2">
       <path d="M 0 0 L 30 0" stroke="#8b5cf6" stroke-width="2"/>
@@ -128,72 +146,75 @@
   <!-- Main Title: ARLIZ with perfect typography -->
   <rect width="400" height="600" fill="none"/>
 
-  <!-- Centered refined typography -->
-  <g transform="translate(200,150)" aria-label="ARLIZ Typography">
-    <!-- A -->
-    <g transform="translate(-120,0)">
-      <!-- Left and right strokes + crossbar -->
-      <path d="M -18 22 L 0 -14 L 18 22" 
-            stroke="url(#titleGradient)" stroke-width="4" fill="none"
+   <!-- Precise academic typography for ARLIZ -->
+  <g transform="translate(200,140)" aria-label="ARLIZ Academic Typography">
+    <!-- A - Perfectly constructed -->
+    <g transform="translate(-110,0)">
+      <path d="M -16 24 L 0 -16 L 16 24" 
+            stroke="url(#titleGradient)" stroke-width="4.2" fill="none"
             stroke-linecap="round" stroke-linejoin="round" filter="url(#titleShadow)"/>
-      <path d="M -10 4 L 10 4"
-            stroke="url(#titleGradient)" stroke-width="3.2" fill="none"
+      <path d="M -9 6 L 9 6"
+            stroke="url(#titleGradient)" stroke-width="3.5" fill="none"
             stroke-linecap="round" stroke-linejoin="round" filter="url(#titleShadow)"/>
     </g>
 
-    <!-- R -->
-    <g transform="translate(-60,0)">
-      <!-- Stem + bowl (smooth) -->
-      <path d="M -10 22 L -10 -14" 
-            stroke="url(#titleGradient)" stroke-width="4" fill="none"
-            stroke-linecap="round" stroke-linejoin="round" filter="url(#titleShadow)"/>
-      <path d="M -10 -12 
-               C 6 -12, 14 -6, 8 0 
-               C 4 4, -4 6, -10 6"
+    <!-- R - Academic precision -->
+    <g transform="translate(-55,0)">
+      <!-- Vertical stem -->
+      <path d="M -10 24 L -10 -16" 
+            stroke="url(#titleGradient)" stroke-width="4.2" fill="none"
+            stroke-linecap="round" filter="url(#titleShadow)"/>
+      <!-- Top bowl -->
+      <path d="M -10 -16 L 8 -16 Q 18 -16 18 -8 Q 18 0 8 0 L -10 0"
             stroke="url(#titleGradient)" stroke-width="3.8" fill="none"
             stroke-linecap="round" stroke-linejoin="round" filter="url(#titleShadow)"/>
-      <!-- Leg of R -->
-      <path d="M 0 6 L 10 22"
+      <!-- Leg -->
+      <path d="M 2 0 L 14 24"
             stroke="url(#titleGradient)" stroke-width="3.8" fill="none"
+            stroke-linecap="round" filter="url(#titleShadow)"/>
+    </g>
+
+    <!-- L - Clean and academic -->
+    <g transform="translate(0,0)">
+      <path d="M -8 -16 L -8 20 L 16 20" 
+            stroke="url(#titleGradient)" stroke-width="4.2" fill="none"
             stroke-linecap="round" stroke-linejoin="round" filter="url(#titleShadow)"/>
     </g>
 
-    <!-- L -->
-     <g transform="translate(0,0)">
-    <path d="M -8 -14 L -8 20 Q -8 22, -6 22 L 18 22" 
-          stroke="url(#titleGradient)" stroke-width="4" fill="none"
-          stroke-linecap="round" stroke-linejoin="round" filter="url(#titleShadow)"/>
+    <!-- I - Refined academic style -->
+    <g transform="translate(50,0)">
+      <!-- Main stem -->
+      <rect x="-2.5" y="-16" width="5" height="40" rx="2.5"
+            fill="url(#titleGradient)" filter="url(#titleGlow)"/>
+      <!-- Top serif -->
+      <path d="M -8 -16 L 8 -16"
+            stroke="url(#titleGradient)" stroke-width="3" fill="none"
+            stroke-linecap="round" filter="url(#titleShadow)"/>
+      <!-- Bottom serif -->
+      <path d="M -8 24 L 8 24"
+            stroke="url(#titleGradient)" stroke-width="3" fill="none"
+            stroke-linecap="round" filter="url(#titleShadow)"/>
     </g>
 
-    <!-- I -->
-    <g transform="translate(56,0)">
-    <rect x="-3.5" y="-14" width="7" height="36" rx="3.5"
-          fill="url(#titleGradient)" filter="url(#titleGlow)"/>
-    <circle cx="0" cy="-18" r="3.5" 
-            fill="url(#titleGradient)" filter="url(#titleShadow)"/>
-    <circle cx="0" cy="26" r="3.5" 
-            fill="url(#titleGradient)" filter="url(#titleShadow)"/>
+    <!-- Z - Sharp academic precision -->
+    <g transform="translate(105,0)">
+      <path d="M -16 -16 L 16 -16 L -12 24 L 16 24" 
+            stroke="url(#titleGradient)" stroke-width="4.2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round" filter="url(#titleShadow)"/>
+      <!-- Central diagonal reinforcement -->
+      <path d="M 12 -12 L -8 20"
+            stroke="url(#titleAccent)" stroke-width="1.5" fill="none"
+            stroke-linecap="round" opacity="0.6" filter="url(#titleShadow)"/>
     </g>
-
-    <!-- Z -->
-     <g transform="translate(116,0)">
-    <path d="M -18 -14 L 18 -14 
-             L -14 22 
-             L 18 22" 
-          stroke="url(#titleGradient)" stroke-width="4.5" fill="none"
-          stroke-linecap="round" stroke-linejoin="round" filter="url(#titleShadow)"/>
-    <!-- Add a diagonal lightning-like accent -->
-    <path d="M -12 -8 L 12 16"
-          stroke="url(#titleAccent)" stroke-width="2.5" fill="none"
-          stroke-linecap="round" stroke-linejoin="round" filter="url(#titleShadow)"/>
-      </g>
   </g>
   
   <!-- Elegant divider -->
-  <g transform="translate(200,200)" opacity="0.7">
-    <line x1="-50" y1="0" x2="-15" y2="0" stroke="#6366f1" stroke-width="1.5"/>
-    <circle cx="0" cy="0" r="2.5" fill="#8b5cf6"/>
-    <line x1="15" y1="0" x2="50" y2="0" stroke="#6366f1" stroke-width="1.5"/>
+  <g transform="translate(200,190)" opacity="0.8">
+    <line x1="-60" y1="0" x2="-20" y2="0" stroke="#3b82f6" stroke-width="1.2"/>
+    <circle cx="-10" cy="0" r="1.5" fill="#2563eb"/>
+    <circle cx="0" cy="0" r="2" fill="#3b82f6"/>
+    <circle cx="10" cy="0" r="1.5" fill="#2563eb"/>
+    <line x1="20" y1="0" x2="60" y2="0" stroke="#3b82f6" stroke-width="1.2"/>
   </g>
   
   <!-- Refined subtitle -->
@@ -201,8 +222,6 @@
         font-size="10" font-weight="300" fill="#94a3b8" text-anchor="middle" 
         opacity="0.9" letter-spacing="4px">A JOURNEY THROUGH ARRAYS</text>
   
-  <!-- Five foundational pillars (A.R.L.I.Z) with improved proportions -->
-  <!-- Five pillars visualization (A.R.L.I.Z) - more elegant -->
   <g transform="translate(200,280)" opacity="0.25">
     <!-- Arrays -->
     <rect x="-80" y="0" width="6" height="20" rx="3" fill="#3b82f6" filter="url(#softShadow)"/>
@@ -219,7 +238,18 @@
     <path d="M -77 10 Q 0 -2 77 10" 
           stroke="#0891b2" stroke-width="0.8" fill="none" opacity="0.6"/>
   </g>
-  
+   <!-- Enhanced corner accents with array-like structure -->
+  <g opacity="0.18">   
+    <!-- Bottom right - Binary pattern -->
+    <g transform="translate(340,520)">
+      <circle cx="0" cy="0" r="3" fill="#8b5cf6"/>
+      <circle cx="-10" cy="0" r="3" fill="none" stroke="#7c3aed" stroke-width="1"/>
+      <circle cx="-20" cy="0" r="3" fill="#6d28d9"/>
+      <circle cx="0" cy="10" r="3" fill="#8b5cf6"/>
+      <circle cx="-10" cy="10" r="3" fill="none" stroke="#7c3aed" stroke-width="1"/>
+      <circle cx="-20" cy="10" r="3" fill="none" stroke="#6d28d9" stroke-width="1"/>
+    </g>
+  </g>
   <!-- Concept labels with better spacing -->
   <g font-family="'SF Pro Text', system-ui, sans-serif" font-size="8" fill="#64748b" text-anchor="middle" opacity="0.7">
     <text x="120" y="315">Arrays</text>
