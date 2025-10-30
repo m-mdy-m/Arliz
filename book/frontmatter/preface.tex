@@ -1,16 +1,17 @@
 \chapter{Preface}
+\addcontentsline{toc}{chapter}{Preface}
 
-Every book has its origin story, and this one is no exception. If I were to capture the essence of creating this book in a single word, that word would be \textbf{curiosity}—though \emph{improvised} comes as a close second. What you hold in your hands (or view on your screen) is the result of years of persistent questioning, a journey that began with a simple yet profound realization: I didn't truly understand what an array was.\\
+\lettrine{E}{very book has its origin story}, and this one is no exception. If I were to capture the essence of creating this book in a single word, that word would be \textbf{curiosity}—though \emph{improvised} comes as a close second. What you hold in your hands (or view on your screen) is the result of years of persistent questioning, a journey that began with a simple yet profound realization: I didn't truly understand what an array was.
 
-This might sound trivial to some. After all, arrays are fundamental to programming, covered in every computer science curriculum, explained in countless tutorials. Yet despite encountering terms like \texttt{array}, \texttt{stack}, \texttt{queue}, \texttt{linked list}, \texttt{hash table}, and \texttt{heap} repeatedly throughout my studies, I found myself increasingly frustrated by the superficial explanations typically offered. Most resources assumed you already knew what these structures fundamentally represented—their conceptual essence, their historical significance, their mathematical foundations.\\
+This might sound trivial to some. After all, arrays are fundamental to programming, covered in every computer science curriculum, explained in countless tutorials. Yet despite encountering terms like \texttt{array}, \texttt{stack}, \texttt{queue}, \texttt{linked list}, \texttt{hash table}, and \texttt{heap} repeatedly throughout my studies, I found myself increasingly frustrated by the superficial explanations typically offered. Most resources assumed you already knew what these structures fundamentally represented—their conceptual essence, their implementation mechanics, their performance characteristics.
 
-But I wanted the \emph{roots}. I needed to understand not just how to use an array, but what it truly meant, how it came to exist, and what hidden capacities it possessed. This led me to a decisive moment:
+But I wanted the \emph{roots}. I needed to understand not just how to use an array, but what it truly meant at every level—from hardware representation to high-level abstractions. This led me to a decisive moment:
 
 \begin{center}
-	\emph{If I truly want to understand, I must start from zero.}
+	\emph{If I truly want to understand, I must build from the foundation.}
 \end{center}
 
-And so began the journey that became Arliz.\\
+And so began the journey that became Arliz.
 
 \section*{The Name and Its Meaning}
 
@@ -22,46 +23,95 @@ The name "Arliz" started as a somewhat arbitrary choice—I needed a title, and 
 
 This backronym embodies the core pillars of our exploration:
 \begin{itemize}
-	\item \textbf{Arrays:} The fundamental data structure we seek to understand from its origins
-	\item \textbf{Reasoning:} The logical thinking behind systematic data organization
-	\item \textbf{Logic:} The formal principles that govern how computers manipulate information
+	\item \textbf{Arrays:} The fundamental data structure we seek to understand from implementation to application
+	\item \textbf{Reasoning:} The systematic thinking behind data organization and algorithmic design
+	\item \textbf{Logic:} The formal principles that govern computation and data manipulation
 	\item \textbf{Identity:} The concept of distinguishing, indexing, and assigning meaning to elements within structures
-	\item \textbf{Zero:} The philosophical and mathematical foundation from which all computation, counting, and indexing originate
+	\item \textbf{Zero:} The foundation from which all indexing, computation, and systematic organization originates
 \end{itemize}
 
-You may pronounce it "Ar-liz," "Array-Liz," or however feels natural to you. I personally say "ar-liz," but the pronunciation matters less than the journey it represents.\\
+You may pronounce it "Ar-liz," "Array-Liz," or however feels natural to you. I personally say "ar-liz," but the pronunciation matters less than the journey it represents.
+
+\section*{The Genesis of This Work}
+
+This book was not conceived in its current form. Originally, Arliz was intended to be a comprehensive seven-part exploration spanning:
+
+\begin{enumerate}
+	\item Philosophical and Historical Foundations
+	\item Mathematical Fundamentals
+	\item Data Representation
+	\item Computer Architecture and Logic
+	\item Array Odyssey
+	\item Data Structures and Algorithms
+	\item Parallelism and Systems
+\end{enumerate}
+
+As I delved deeper into writing the first two parts—covering the historical evolution of counting systems and the mathematical prerequisites for understanding data structures—I confronted an uncomfortable reality. These sections were becoming substantial works in their own right, yet they were foundational not only for arrays but for understanding algorithmic analysis and computational thinking more broadly.
+
+Simultaneously, I realized that array analysis alone could not stand without a proper treatment of algorithmic complexity. Understanding why an array operation is $O(1)$ or $O(n)$ requires deep analytical foundations that extend far beyond arrays themselves.
+
+This led to a critical decision: rather than compromise the depth of treatment by constraining everything within a single volume, I would separate the foundational material into dedicated works. Thus emerged:
+
+\begin{itemize}
+	\item \textbf{Mathesis: The Mathematical Foundations of Computing} — A comprehensive treatment of the mathematical concepts underlying all of computer science, from ancient number systems through modern discrete mathematics and linear algebra
+	
+	\item \textbf{The Art of Algorithmic Analysis} — A rigorous exploration of analytical techniques for understanding computational complexity, from asymptotic notation through advanced amortized analysis and complexity theory
+\end{itemize}
+
+These books were not afterthoughts or supplements—they became the essential prerequisites that enable Arliz to focus purely on what it does best: a deep, implementation-focused exploration of arrays and their role in computing systems.
+
+The current Arliz, therefore, begins where those foundations end. It assumes mathematical maturity at an intermediate level—comfort with discrete mathematics, basic linear algebra, and algorithmic analysis—and builds from there into the concrete realities of array implementation, optimization, and application.
 
 \section*{What This Book Represents}
 
-Arliz is not merely a technical manual on data structures, nor is it a traditional computer science textbook. Instead, it represents something more personal and, I believe, more valuable: a comprehensive exploration of understanding itself. This book grows alongside my own learning, evolving as I discover better ways to explain concepts, uncover new connections, and develop deeper insights.\\
+Arliz is not a gentle introduction to programming, nor is it a purely theoretical treatment of data structures. Instead, it represents something more focused and, I believe, more valuable: a comprehensive technical exploration of the most fundamental data structure in computing, examined from every relevant angle.
 
-This living nature means that Arliz is, in many ways, a conversation—between past and present understanding, between theoretical foundations and practical applications, between the author and reader. As long as I continue learning, Arliz will continue growing.\\
+This living work evolves continuously as I discover better explanations, uncover new implementation details, or recognize deeper connections between concepts. As long as I continue learning, Arliz will continue growing. Your engagement—through corrections, suggestions, and questions—makes you part of this evolution.
 
-The structure of this book reflects a fundamental belief: genuine understanding requires context. Rather than beginning with syntax and moving to application (the typical approach), we start with the conceptual and historical foundations that make modern data structures possible. We trace the evolution of human thought about organizing information, from ancient counting methods to contemporary computing paradigms.\\
+The structure reflects a deliberate progression through increasingly sophisticated understanding:
 
-This approach serves a specific purpose: when you understand the intellectual journey that led to arrays, you develop an intuitive grasp of their behavior, limitations, and potential that no amount of syntax memorization can provide.\\
+\begin{itemize}
+	\item \textbf{Data Representation} — How information is encoded in digital systems, from number systems to character encoding
+	\item \textbf{Computer Architecture and Logic} — The hardware foundations that determine how arrays actually work
+	\item \textbf{Array Odyssey} — Deep exploration of array implementation, behavior, and optimization
+	\item \textbf{Data Structures and Algorithms} — How arrays enable other structures and algorithmic techniques
+	\item \textbf{Parallelism and Systems} — Arrays in multi-threaded, distributed, and high-performance contexts
+\end{itemize}
+
+\section*{Prerequisites and Expectations}
+
+This book assumes you have completed (or are comfortable with) the material in:
+
+\begin{itemize}
+	\item \textbf{Mathesis} — Mathematical foundations including discrete mathematics, linear algebra, and basic analysis
+	\item \textbf{The Art of Algorithmic Analysis} — Asymptotic analysis, recurrence relations, and algorithmic complexity
+\end{itemize}
+
+Without these foundations, much of this book will be challenging. With them, it becomes a focused, deep dive into one of computing's most elegant and essential abstractions.
+
+We will not shy away from technical complexity. Array implementation touches hardware architecture, memory hierarchies, compiler optimizations, and operating system interfaces. Understanding arrays properly means understanding these layers and their interactions.
+
+That said, I have worked to avoid unnecessary mathematical abstraction. While mathematical rigor appears where needed—particularly when analyzing performance characteristics or proving correctness properties—the focus remains practical: how do arrays actually work, why do they behave as they do, and how can we use them effectively?
 
 \section*{My Approach and Principles}
 
 Throughout the writing process, I have maintained three core principles:
 
 \begin{enumerate}
-	\item \textbf{Conceptual Clarity:} Every concept is presented in its simplest form while maintaining accuracy and depth. My goal is accessibility without superficiality.
+	\item \textbf{Implementation Focus:} Every abstract concept is grounded in concrete implementation. You will see how arrays are actually represented in memory, how compilers optimize array operations, and how hardware characteristics influence performance.
 	
-	\item \textbf{Visual Understanding:} Complex ideas are accompanied by diagrams, figures, and visual examples. I believe that concepts which can be visualized are concepts that can be truly understood and retained.
+	\item \textbf{Visual Understanding:} Complex concepts are accompanied by diagrams, memory layouts, and visual representations. Arrays are inherently spatial structures—understanding them requires seeing their organization.
 	
-	\item \textbf{Practical Implementation:} Nearly every topic includes working code and pseudocode that can be easily adapted to major programming languages. Theory without practice is incomplete; practice without theory is fragile.
+	\item \textbf{Practical Code:} Nearly every topic includes working implementations that can be studied, modified, and adapted. Theory without implementation is incomplete; implementation without theory is fragile.
 \end{enumerate}
 
-An important disclosure: many of the algorithms and implementations in this book are my own constructions. Rather than copying optimized solutions from established sources, I have chosen to build understanding from first principles. This means some implementations may run slower than industry standards—or occasionally faster. For me, the process of understanding and constructing has been more valuable than simply achieving optimal performance.\\
-
-This approach reflects the book's core philosophy: genuine mastery comes from understanding principles deeply enough to reconstruct solutions, not from memorizing existing ones.\\
+An important disclosure: many of the implementations in this book are my own constructions, built from first principles to demonstrate concepts clearly. Some may run slower than heavily optimized production libraries—others may reveal surprising efficiencies. The goal is understanding, not necessarily optimal performance in every case.
 
 \section*{About the Author}
 
-I am \textbf{Mahdi}, though you may know me by my online alias: \emph{Genix}. At the time of writing, I am a Computer Engineering student, but more fundamentally, I am someone who grew up alongside computers—from simple games to terminal commands—always wondering what lies behind the screen of black and green text.\\
+I am \textbf{Mahdi}, though you may know me by my online alias: \emph{Genix}. At the time of writing, I am a Computer Engineering student, but more fundamentally, I am someone driven by a relentless need to understand the systems I work with at their deepest levels.
 
-My relationship with computers has been one of continuous curiosity. I am someone who gives computers commands and, more importantly, learns from their responses. There is not much more you need to know about me personally, except that this book represents my attempt to understand the digital world I inhabit as completely as possible.\\
+My relationship with computers has been one of continuous investigation—never satisfied with surface-level explanations, always pushing toward the foundational principles that make everything work. This book represents that drive crystallized into a focused exploration of arrays.
 
 \section*{How to Use This Book}
 
@@ -71,16 +121,33 @@ Arliz is freely available and open source. You can access the complete PDF, LaTe
 	\url{https://github.com/m-mdy-m/Arliz}
 \end{center}
 
-Each chapter includes carefully designed exercises and projects. Please do not skip these—they are not busy work but essential components of the learning process. True understanding comes only through active engagement with concepts, through solving problems and building solutions yourself.\\
+Each chapter includes carefully designed exercises and implementation challenges. These are not optional—they are essential components of the learning process. True understanding of arrays comes only through implementing them yourself, seeing how they break under stress, and discovering their performance characteristics through measurement.
 
-I encourage you to approach this book as a collaborative effort. If you discover errors, have suggestions for improvement, or develop insights that could benefit other readers, please share them. This book improves through community engagement, and your contributions make it more valuable for everyone.\\
+I encourage you to approach this book as a collaborative effort. If you discover errors, have implementation insights, or develop optimizations worth sharing, please contribute. This book improves through community engagement.
 
-\section*{A Living Document}
+\section*{A Living Technical Document}
 
-Finally, I want to be transparent about what you are engaging with. This is not a finished, polished product in the traditional sense. It is an evolving exploration of fundamental concepts, growing and improving as understanding deepens. You may encounter sections that could be clearer, examples that could be more intuitive, or explanations that could be more complete.\\
+Finally, I want to be transparent about what you are engaging with. This is not a finished, polished textbook in the traditional sense. It is an evolving technical exploration, growing and improving as understanding deepens and new implementation techniques emerge.
 
-This is intentional. Arliz represents learning in progress, understanding in development. It invites you to participate in this process rather than simply consume its content.\\
+You may encounter sections that could be clearer, implementations that could be more efficient, or explanations that could be more rigorous. This is intentional—Arliz represents learning in progress, understanding in development. It invites you to participate in this process of refinement rather than simply consume its content.
 
-I hope this book serves you well—whether you are beginning your journey with data structures, seeking to deepen existing knowledge, or simply satisfying intellectual curiosity. And if you learn something valuable, discover an error, or develop an insight worth sharing, I hope you will let me know.\\
+I hope this book serves you well—whether you are building your first serious data structures, optimizing performance-critical systems, or simply satisfying intellectual curiosity about how arrays actually work. And if you learn something valuable, discover an error, or develop an insight worth sharing, I hope you will contribute.
 
-\emph{After all, this book grows with all of us.}\\
+\emph{After all, this book grows with all of us.}
+
+\vfill
+
+\begin{flushright}
+	\textit{Mahdi} \\
+	\textit{2025} \\
+\end{flushright}
+
+\vspace{2em}
+
+\begin{quote}
+	\textit{``The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise.''}
+	
+	\hfill--- \textsc{Edsger W. Dijkstra}
+\end{quote}
+
+\clearpage
