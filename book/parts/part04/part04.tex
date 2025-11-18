@@ -1,0 +1,384 @@
+%==============================================
+% PART 4: DATA STRUCTURES & ALGORITHMS
+%==============================================
+\part{Data Structures \& Algorithms}
+\label{part:data-structures-algorithms}
+
+\begin{partintro}
+\lettrine[lines=3]{A}{rrays enable} everything. This part explores how arrays serve as the foundation for sophisticated data structures and algorithmic techniques—from simple stacks to complex graph algorithms.
+
+\vspace{1em}
+\textbf{What Makes This Different:}
+\begin{itemize}[noitemsep]
+    \item \textbf{Array-First Perspective:} Every structure rooted in arrays
+    \item \textbf{Implementation Focus:} Actual array-based implementations
+    \item \textbf{Complexity Rigor:} Detailed time and space analysis
+    \item \textbf{Practical Tradeoffs:} When to use each structure
+\end{itemize}
+
+\begin{quote}
+\textit{``Bad programmers worry about the code. Good programmers worry about data structures and their relationships.''}
+
+\hfill--- \textsc{Linus Torvalds}
+\end{quote}
+\end{partintro}
+
+\chapter{Abstract Data Types}
+ADT specification, interface vs. implementation, invariants, contracts.
+
+\chapter{Stacks: Array Implementation}
+LIFO principle, push/pop operations, array-based stack, dynamic resizing, applications.
+
+\chapter{Stack Applications}
+Expression evaluation, parenthesis matching, backtracking, function call stack.
+
+\chapter{Queues: Circular Array Implementation}
+FIFO principle, circular buffer, enqueue/dequeue, front/rear pointers, full vs. empty detection.
+
+\chapter{Queue Applications}
+BFS, task scheduling, buffering, producer-consumer patterns.
+
+\chapter{Deques: Double-Ended Queues}
+Operations at both ends, circular array implementation, applications (sliding window).
+
+\chapter{Priority Queue: Concept}
+Priority-based access, operations (insert, find-min, delete-min), applications.
+
+\chapter{Binary Heaps: Array Representation}
+Complete binary tree in array, parent-child formulas, heap property (min-heap, max-heap).
+
+\chapter{Binary Heap: Operations}
+Insert (sift-up), extract-min (sift-down), decrease-key, build-heap in O(n).
+
+\chapter{Binary Heap: Analysis}
+Time complexity analysis, comparison count, space efficiency.
+
+\chapter{Heap Variants}
+d-ary heaps, binary heaps vs. d-ary heaps, cache performance.
+
+\chapter{Heap Sort Revisited}
+Using heap as sorting technique, in-place sorting, comparison with other sorts.
+
+\chapter{Priority Queue Applications}
+Dijkstra's algorithm, Prim's MST, event simulation, job scheduling.
+
+\chapter{Hash Table Fundamentals}
+Hash function, collision resolution, load factor, dynamic resizing.
+
+\chapter{Hash Functions}
+Division method, multiplication method, universal hashing, perfect hashing.
+
+\chapter{Collision Resolution: Chaining}
+Separate chaining with linked lists, array of lists, dynamic arrays for chains.
+
+\chapter{Collision Resolution: Open Addressing}
+Linear probing, quadratic probing, double hashing, clustering problems.
+
+\chapter{Open Addressing: Advanced Techniques}
+Robin Hood hashing, hopscotch hashing, cuckoo hashing (multiple tables).
+
+\chapter{Hash Table Resizing}
+Doubling table size, rehashing all elements, amortized analysis, incremental resizing.
+
+\chapter{Hash Table Performance Analysis}
+Load factor impact, expected chain length, probe sequence length, worst-case scenarios.
+
+\chapter{Perfect Hashing}
+Collision-free for static sets, two-level hashing, construction algorithms.
+
+\chapter{Minimal Perfect Hashing}
+Space-optimal perfect hashing, CHD algorithm, MPHF construction.
+
+\chapter{Bloom Filters: Fundamentals}
+Probabilistic set membership, bit array with k hash functions, false positive rate.
+
+\chapter{Bloom Filters: Analysis}
+Optimal k (number of hash functions), size determination, false positive probability.
+
+\chapter{Bloom Filter Variants}
+Counting Bloom filters, scalable Bloom filters, cuckoo filters.
+
+\chapter{Count-Min Sketch}
+Frequency estimation, point queries, range queries, space-accuracy tradeoffs.
+
+\chapter{HyperLogLog}
+Cardinality estimation, approximate distinct counting, logarithmic space.
+
+\chapter{Approximate Membership and Counting}
+Space-efficient probabilistic structures, applications (databases, networks, caches).
+
+\chapter{Dynamic Arrays in Standard Libraries}
+C++ std::vector, Java ArrayList, Python list, implementation comparison.
+
+\chapter{Dynamic Array: Iterator Invalidation}
+When iterators become invalid, reallocation impact, safe iteration patterns.
+
+\chapter{Strings as Character Arrays}
+Null termination (C strings), length-prefixed strings, string representations.
+
+\chapter{String Manipulation Primitives}
+Concatenation, substring, character access, modification operations.
+
+\chapter{String Matching: Naive Algorithm}
+Brute force, sliding window, complexity O(nm), when it's acceptable.
+
+\chapter{Knuth-Morris-Pratt (KMP) Algorithm}
+Failure function, avoiding redundant comparisons, O(n+m) complexity, preprocessing.
+
+\chapter{Boyer-Moore Algorithm}
+Bad character rule, good suffix rule, right-to-left scanning, sublinear average case.
+
+\chapter{Boyer-Moore-Horspool Variant}
+Simplified bad character rule, practical performance, implementation simplicity.
+
+\chapter{Rabin-Karp Algorithm}
+Rolling hash, fingerprint matching, multiple pattern matching, collision handling.
+
+\chapter{Aho-Corasick Algorithm}
+Multiple pattern matching, trie with failure links, dictionary matching applications.
+
+\chapter{Suffix Arrays: Construction}
+Sorting suffixes, O(n log n) construction algorithms, linear-time construction (SA-IS).
+
+\chapter{Suffix Arrays: Applications}
+Pattern matching, longest common substring, substring queries.
+
+\chapter{LCP Array (Longest Common Prefix)}
+Auxiliary array for suffix array, Kasai's algorithm, applications to string problems.
+
+\chapter{Suffix Trees vs. Suffix Arrays}
+Space-time tradeoffs, construction complexity, practical considerations.
+
+\chapter{Tries: Array-Based Nodes}
+Alphabet array in each node, space overhead, fast lookup.
+
+\chapter{Compressed Tries and Radix Trees}
+Path compression, patricia trees, space efficiency.
+
+\chapter{Trie Applications}
+Autocomplete, spell checking, IP routing, prefix matching.
+
+\chapter{Ternary Search Trees}
+Space-efficient trie variant, BST-like structure, balanced performance.
+
+\chapter{Graph Representations: Overview}
+Adjacency matrix, adjacency list, edge list, tradeoffs for different operations.
+
+\chapter{Adjacency Matrix Representation}
+2D array, space O(V²), edge checking O(1), suitable for dense graphs.
+
+\chapter{Matrix Operations on Graphs}
+Transitive closure (Floyd-Warshall), matrix multiplication for path counting.
+
+\chapter{Adjacency List: Array of Lists}
+Space O(V+E), neighbor iteration, suitable for sparse graphs.
+
+\chapter{Adjacency List: Implementation Variants}
+Array of vectors, array of linked lists, array of dynamic arrays.
+
+\chapter{Edge List Representation}
+Array of edges, simple representation, useful for edge-centric algorithms.
+
+\chapter{Graph Algorithm Fundamentals}
+Traversal, path finding, connectivity, topological sort, minimum spanning tree.
+
+\chapter{Breadth-First Search (BFS) on Arrays}
+Queue-based traversal, level-order exploration, shortest path in unweighted graphs.
+
+\chapter{Depth-First Search (DFS) on Arrays}
+Stack-based (explicit or recursive), preorder/postorder, cycle detection.
+
+\chapter{Topological Sorting}
+DFS-based, Kahn's algorithm (BFS-based), applications (dependency resolution).
+
+\chapter{Shortest Path: Dijkstra's Algorithm}
+Priority queue (binary heap), relaxation, non-negative weights, O((V+E) log V).
+
+\chapter{Shortest Path: Bellman-Ford Algorithm}
+Handling negative weights, negative cycle detection, O(VE) complexity.
+
+\chapter{All-Pairs Shortest Paths: Floyd-Warshall}
+Dynamic programming on adjacency matrix, O(V³), dense graph suitability.
+
+\chapter{Minimum Spanning Tree: Prim's Algorithm}
+Priority queue, growing MST from single vertex, O((V+E) log V).
+
+\chapter{Minimum Spanning Tree: Kruskal's Algorithm}
+Sorting edges, union-find for cycle detection, O(E log E).
+
+\chapter{Disjoint-Set Union (Union-Find)}
+Array-based parent pointers, path compression, union by rank/size.
+
+\chapter{Union-Find: Analysis}
+Inverse Ackermann function, nearly constant amortized time, proof sketch.
+
+\chapter{Union-Find: Applications}
+Connected components, Kruskal's MST, dynamic connectivity, percolation.
+
+\chapter{Segment Trees: Fundamentals}
+Binary tree for range queries, array representation, recursive structure.
+
+\chapter{Segment Tree: Construction and Queries}
+Building O(n), range query O(log n), point update O(log n).
+
+\chapter{Segment Tree: Lazy Propagation}
+Range updates, deferred updates, maintaining correctness, complexity analysis.
+
+\chapter{Segment Tree: Variations}
+Range minimum query (RMQ), range sum, range GCD, arbitrary associative operations.
+
+\chapter{Fenwick Tree (Binary Indexed Tree)}
+Cumulative frequency, update and query O(log n), compact representation.
+
+\chapter{Fenwick Tree: Implementation}
+Bit manipulation for parent/child, 1-indexed arrays, prefix sum queries.
+
+\chapter{Fenwick Tree: Range Updates}
+Difference array technique, point query with range update, dual representation.
+
+\chapter{Sparse Table}
+Preprocessing for RMQ, O(n log n) space, O(1) query, immutable arrays.
+
+\chapter{Sparse Table: Construction}
+Dynamic programming, overlapping ranges, idempotent operation requirement.
+
+\chapter{Range Query Structures Comparison}
+Segment tree, Fenwick tree, sparse table, tradeoffs and use cases.
+
+\chapter{Monotonic Stack}
+Maintaining monotonic property, next greater element, O(n) amortized.
+
+\chapter{Monotonic Queue}
+Sliding window maximum/minimum, deque-based, O(n) total operations.
+
+\chapter{Monotonic Stack Applications}
+Largest rectangle in histogram, stock span problem, maximum area problems.
+
+\chapter{Dynamic Programming Fundamentals}
+Optimal substructure, overlapping subproblems, memoization vs. tabulation.
+
+\chapter{DP: State Representation in Arrays}
+1D, 2D, multi-dimensional state spaces, state transition.
+
+\chapter{DP: Space Optimization}
+Rolling arrays, reducing dimensions, in-place updates.
+
+\chapter{0/1 Knapsack Problem}
+Items with weight and value, capacity constraint, 2D DP array.
+
+\chapter{Unbounded Knapsack}
+Unlimited copies of items, 1D DP array suffices, coin change connection.
+
+\chapter{Subset Sum Problem}
+Boolean DP, target sum reachability, space-optimized solution.
+
+\chapter{Longest Common Subsequence (LCS)}
+2D DP table, traceback for reconstruction, O(nm) time and space.
+
+\chapter{Longest Increasing Subsequence (LIS)}
+O(n²) DP solution, O(n log n) binary search solution, patience sorting.
+
+\chapter{Edit Distance (Levenshtein)}
+2D DP, insertions/deletions/substitutions, sequence alignment.
+
+\chapter{Edit Distance: Space Optimization}
+Linear space, Hirschberg's algorithm, divide and conquer.
+
+\chapter{Matrix Chain Multiplication}
+Optimal parenthesization, 2D DP, O(n³) complexity, reconstruction.
+
+\chapter{Optimal Binary Search Trees}
+Weighted search cost, 2D DP, Knuth's optimization.
+
+\chapter{Palindrome Problems}
+Longest palindromic substring, palindrome partitioning, DP on strings.
+
+\chapter{DP on Grids and Paths}
+Minimum path sum, unique paths, grid DP patterns.
+
+\chapter{DP with Bitmasks}
+Representing subsets, traveling salesman, Hamiltonian path, assignment problem.
+
+\chapter{Divide and Conquer Fundamentals}
+Recurrence relations, master theorem, merge step complexity.
+
+\chapter{Merge Sort Analysis}
+Recurrence T(n) = 2T(n/2) + O(n), master theorem application.
+
+\chapter{Quicksort Analysis}
+Average case, randomized analysis, worst case handling.
+
+\chapter{Binary Search Analysis}
+Recurrence T(n) = T(n/2) + O(1), logarithmic complexity.
+
+\chapter{Closest Pair of Points}
+Divide and conquer, O(n log n), geometric algorithms on arrays.
+
+\chapter{Convex Hull Algorithms}
+Graham scan, Jarvis march, quick hull, geometric array processing.
+
+\chapter{Computational Geometry Primitives}
+Point arrays, line segments, orientation test, intersection tests.
+
+\chapter{Greedy Algorithms on Arrays}
+Greedy choice property, optimal substructure, exchange arguments.
+
+\chapter{Activity Selection Problem}
+Interval scheduling, earliest finish time, greedy correctness proof.
+
+\chapter{Fractional Knapsack}
+Greedy by value-to-weight ratio, sorting step, O(n log n).
+
+\chapter{Huffman Coding}
+Optimal prefix-free codes, priority queue, tree construction from array.
+
+\chapter{Backtracking Fundamentals}
+Exhaustive search with pruning, state space tree, recursive exploration.
+
+\chapter{N-Queens Problem}
+Placing queens on chessboard, backtracking, array representation.
+
+\chapter{Subset Generation}
+Generating all subsets, backtracking, bit manipulation approaches.
+
+\chapter{Permutation Generation}
+Generating all permutations, backtracking, iterative algorithms (Heap's).
+
+\chapter{Sudoku Solver}
+Constraint satisfaction, backtracking, array representation.
+
+\chapter{Online Algorithms: Introduction}
+Online vs. offline, competitive ratio, worst-case analysis.
+
+\chapter{Online Algorithms: Paging}
+Cache replacement (LRU, FIFO, optimal), competitive analysis.
+
+\chapter{Streaming Algorithms: Fundamentals}
+One-pass algorithms, sublinear space, sampling techniques.
+
+\chapter{Streaming: Heavy Hitters}
+Finding frequent elements, Count-Min sketch, Misra-Gries algorithm.
+
+\chapter{Streaming: Distinct Elements}
+Flajolet-Martin, HyperLogLog, approximate counting.
+
+\chapter{Reservoir Sampling}
+Uniform random sample, single-pass, unknown stream size.
+
+\chapter{Amortized Analysis: Aggregate Method}
+Total cost divided by operations, examples (dynamic array, binary counter).
+
+\chapter{Amortized Analysis: Accounting Method}
+Amortized cost as credit, maintaining non-negative balance.
+
+\chapter{Amortized Analysis: Potential Method}
+Potential function, relating amortized to actual cost, flexibility.
+
+\chapter{Cache-Oblivious Algorithms}
+Optimal cache usage without knowing cache parameters, ideal cache model.
+
+\chapter{Cache-Oblivious Matrix Transpose}
+Recursive divide-and-conquer, automatically adapting to cache hierarchy.
+
+\chapter{Cache-Oblivious Searching and Sorting}
+Van Emde Boas layout, funnelsort, optimal cache complexity.

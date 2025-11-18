@@ -1,0 +1,403 @@
+%==============================================
+% PART 2: COMPUTER ARCHITECTURE & LOGIC
+%==============================================
+\part{Computer Architecture \& Logic}
+\label{part:architecture-logic}
+
+\begin{partintro}
+\lettrine[lines=3]{A}{rrays exist} in physical hardware. To understand array performance, we must understand the machines that execute our code—from transistors to complete systems. This part builds a complete picture of computational machinery.
+
+\vspace{1em}
+\textbf{What Makes This Different:}
+\begin{itemize}[noitemsep]
+    \item \textbf{Silicon to Software:} Complete vertical integration
+    \item \textbf{Modern Architecture:} Multi-core, SIMD, heterogeneous systems
+    \item \textbf{Performance Foundations:} Why code runs fast or slow
+    \item \textbf{Hardware-Software Contract:} What each layer assumes
+\end{itemize}
+
+\begin{quote}
+\textit{``The purpose of computing is insight, not numbers.''}
+
+\hfill--- \textsc{Richard Hamming}
+\end{quote}
+\end{partintro}
+
+\chapter{Semiconductor Physics Foundations}
+Silicon properties, doping (n-type, p-type), P-N junctions, depletion regions, how semiconductors enable switching.
+
+\chapter{MOSFET Transistors}
+Gate, source, drain, channel, threshold voltage, NMOS and PMOS, how transistors act as switches.
+
+\chapter{CMOS Logic Fundamentals}
+Complementary MOS, pull-up and pull-down networks, static power vs. dynamic power, why CMOS won.
+
+\chapter{Logic Gate Implementation}
+CMOS implementation of NOT, NAND, NOR gates, gate delay, rise/fall time, fan-out limitations.
+
+\chapter{Logic Gate Families}
+AND, OR, XOR, XNOR from NAND/NOR, transmission gates, tri-state buffers.
+
+\chapter{Combinational Circuit Design}
+Truth tables to logic expressions, Karnaugh maps, minimization, multi-level logic.
+
+\chapter{Arithmetic Circuits: Adders}
+Half adder, full adder, ripple-carry adder, carry-lookahead adder, carry-select adder.
+
+\chapter{Arithmetic Circuits: Multipliers and Dividers}
+Array multiplier, Booth multiplier, Wallace tree, division algorithms, restoring vs. non-restoring.
+
+\chapter{Multiplexers and Demultiplexers}
+2:1 mux, 4:1 mux, tree structures, using muxes for logic implementation.
+
+\chapter{Encoders and Decoders}
+Binary encoding, priority encoding, 7-segment decoder, address decoding.
+
+\chapter{Arithmetic Logic Circuits}
+Half adder, full adder, ripple-carry adder, carry-lookahead adder, carry-save adder, subtraction using two's complement, magnitude comparators.
+
+\chapter{Advanced Arithmetic Units}
+Multipliers (array multiplier, Booth's algorithm, Wallace tree), dividers, floating-point units (FPUs), fused multiply-add (FMA).
+
+\chapter{Sequential Logic Fundamentals}
+Difference between combinational and sequential logic, feedback, state, clock signals, synchronous versus asynchronous design.
+
+\chapter{Comparators and Magnitude Detection}
+Equality comparator, magnitude comparator, signed vs. unsigned comparison.
+
+\chapter{Sequential Logic Fundamentals}
+Need for memory elements, clock signals, synchronous vs. asynchronous design.
+
+\chapter{Latches: SR, D Latches}
+Set-reset latch, gated D latch, transparent latch, latch vs. flip-flop distinction.
+
+\chapter{Flip-Flops: D, JK, T Flip-Flops}
+Edge-triggered flip-flops, master-slave configuration, setup and hold time, clock-to-Q delay.
+
+\chapter{Registers and Register Files}
+Parallel-load register, shift registers (SISO, SIPO, PISO, PIPO), register banks for CPU.
+
+\chapter{Counters and Timers}
+Ripple counter, synchronous counter, up/down counter, modulo-N counter, timer circuits.
+
+\chapter{Finite State Machines}
+Moore vs. Mealy machines, state diagrams, state table, state minimization, FSM implementation.
+
+\chapter{Memory Cell Design: SRAM}
+6-transistor SRAM cell, read and write operations, stability analysis, SRAM array organization.
+
+\chapter{Memory Cell Design: DRAM}
+1-transistor 1-capacitor cell, charge storage, sense amplifiers, refresh requirement.
+
+\chapter{Memory Array Organization}
+Row and column decoding, wordline and bitline, memory cell array structure, address multiplexing.
+
+\chapter{DRAM Operation and Timing}
+Row activation, column access, precharge, timing parameters (tRCD, tRP, tRAS, CAS latency).
+
+\chapter{DRAM Generations}
+SDR SDRAM, DDR, DDR2, DDR3, DDR4, DDR5, bandwidth evolution, power efficiency.
+
+\chapter{Advanced DRAM Features}
+Burst mode, bank interleaving, dual-channel, command queuing, on-die termination.
+
+\chapter{Non-Volatile Memory Technologies}
+Flash memory (NAND, NOR), program/erase cycles, wear leveling, EEPROM, ROM variants.
+
+\chapter{Flash Memory Operations}
+Programming (writing), erasing, read operations, wear leveling, write amplification, garbage collection, over-provisioning.
+
+\chapter{Emerging Memory Technologies}
+Phase-change memory (PCM), resistive RAM (ReRAM), magnetoresistive RAM (MRAM), 3D XPoint.
+
+\chapter{Memory Hierarchy Fundamentals}
+Pyramid structure, latency-capacity tradeoffs, why hierarchies exist, locality principles.
+
+\chapter{Cache Memory Fundamentals}
+Temporal locality, spatial locality, cache line (block), tag-data organization.
+
+\chapter{Cache Mapping Strategies}
+Direct-mapped cache, fully-associative cache, set-associative cache (2-way, 4-way, 8-way, N-way).
+
+\chapter{Cache Replacement Policies}
+LRU (least recently used), LFU, FIFO, random, pseudo-LRU, practical implementations.
+
+\chapter{Cache Write Policies}
+Write-through, write-back, write-allocate, no-write-allocate, dirty bits.
+
+\chapter{Multi-Level Cache Hierarchies}
+L1 instruction and data caches, unified L2 cache, L3 shared cache, inclusive vs. exclusive caches.
+
+\chapter{Victim Caches and Advanced Structures}
+Victim cache for conflict misses, stream buffers for prefetching, trace caches.
+
+\chapter{Cache Coherence Problem}
+Shared memory multiprocessors, cache inconsistency, coherence vs. consistency.
+
+\chapter{Cache Coherence Protocols: MESI}
+Modified, Exclusive, Shared, Invalid states, state transitions, bus snooping.
+
+\chapter{Cache Coherence Protocols: MOESI and Beyond}
+Owned state, directory-based coherence, scalability issues.
+
+\chapter{Cache Performance Analysis}
+Hit rate, miss rate, average memory access time (AMAT), miss penalty, classifying misses (compulsory, capacity, conflict).
+
+\chapter{Cache Optimization Techniques}
+Blocking/tiling, array padding, loop interchange, prefetching, cache-aware algorithms.
+
+\chapter{Instruction Set Architecture (ISA)}
+RISC versus CISC philosophy, instruction encoding and formats, addressing modes, register architecture, condition codes.
+
+\chapter{x86 Architecture}
+x86 instruction encoding, variable-length instructions, complex addressing modes, backward compatibility, x86-64 extensions.
+
+\chapter{ARM Architecture}
+Load-store architecture, fixed-length instructions (ARM mode), Thumb instruction set, NEON SIMD, ARM versus x86 comparison.
+
+\chapter{RISC-V Architecture}
+Open ISA, modular extensions, base integer instruction set, standard extensions (M, A, F, D, C), design philosophy.
+
+\chapter{Pipelining Fundamentals}
+Instruction pipeline stages (IF, ID, EX, MEM, WB), throughput improvement, latency, ideal CPI, pipeline diagrams.
+
+\chapter{Pipeline Hazards}
+Structural hazards, data hazards (RAW, WAR, WAW), control hazards, stalls and bubbles, hazard detection and resolution.
+
+\chapter{Data Forwarding and Bypassing}
+Forwarding paths, bypassing results from later stages, forwarding logic, load-use hazard, limitations of forwarding.
+
+\chapter{Branch Handling in Pipelines}
+Branch penalty, delayed branches, branch prediction necessity, flushing pipeline on misprediction, branch delay slots.
+
+\chapter{Branch Prediction Techniques}
+Static prediction (always taken, always not-taken, backward taken forward not-taken), dynamic prediction, branch history.
+
+\chapter{Advanced Branch Prediction}
+Two-bit saturating counters, branch history table (BHT), branch target buffer (BTB), two-level adaptive predictors, tournament predictors.
+
+\chapter{Return Address Stack}
+Function call prediction, hardware return address stack, depth and accuracy, correlation with call-return patterns.
+
+\chapter{Superscalar Architecture}
+Multiple issue, instruction-level parallelism (ILP), dispatch width, execution units, dependency checking, instruction window.
+
+\chapter{Out-of-Order Execution}
+Tomasulo's algorithm, reservation stations, register renaming, reorder buffer (ROB), commit stage, speculative execution.
+
+\chapter{Register Renaming}
+Eliminating false dependencies (WAR, WAW), physical versus architectural registers, register alias table (RAT), freelist management.
+
+\chapter{Speculative Execution}
+Branch speculation, memory speculation, exceptions in speculative execution, precise interrupts, ROB and commit.
+
+\chapter{Speculative Execution Vulnerabilities}
+Spectre attacks (branch target injection, bounds check bypass), Meltdown (rogue data cache load), side-channel exploitation, mitigations.
+
+\chapter{Memory Hierarchy Principles}
+Principle of locality (temporal and spatial), access time gaps, capacity and cost tradeoffs, memory wall problem.
+
+\chapter{Virtual Memory Fundamentals}
+Virtual address space, physical address space, address translation, memory protection.
+
+\chapter{Page Tables and Address Translation}
+Page table entry structure, multi-level page tables, page table walk.
+
+\chapter{Translation Lookahead Buffer (TLB)}
+TLB structure, TLB hit/miss, TLB reach, large pages (huge pages, superpages).
+
+\chapter{Page Replacement Algorithms}
+Optimal (Belady), FIFO, LRU, clock (second chance), working set model.
+
+\chapter{Demand Paging and Page Faults}
+Page fault handling, major vs. minor faults, swap space, thrashing.
+
+\chapter{Memory Management Unit (MMU)}
+Hardware implementation, page table base register, protection bits, privilege levels.
+
+\chapter{Memory Protection and Isolation}
+Process isolation, kernel vs. user space, protection rings, segmentation.
+
+\chapter{CPU Microarchitecture Overview}
+Instruction fetch, decode, execute, memory, writeback, datapath and control path.
+
+\chapter{Instruction Set Architecture Principles}
+Instruction formats, operand addressing, register vs. memory operands, RISC philosophy.
+
+\chapter{CISC vs. RISC}
+Complex instruction set (x86), reduced instruction set (ARM, RISC-V), microcode, instruction encoding density.
+
+\chapter{Register Architecture}
+General-purpose registers, special-purpose registers (PC, SP, flags), register windows, register renaming.
+
+\chapter{Addressing Modes}
+Immediate, register direct, memory direct, register indirect, indexed, PC-relative, stack addressing.
+
+\chapter{Instruction Encoding}
+Fixed-length vs. variable-length, opcode, operands, prefix bytes (x86), instruction alignment.
+
+\chapter{Pipelining Fundamentals}
+Instruction pipeline stages, throughput vs. latency, ideal speedup, pipeline registers.
+
+\chapter{Pipeline Hazards}
+Structural hazards, data hazards (RAW, WAR, WAW), control hazards (branches).
+
+\chapter{Data Forwarding and Bypassing}
+Forwarding paths, resolving data hazards, bypass network.
+
+\chapter{Pipeline Stalls and Bubbles}
+When forwarding isn't enough, NOP insertion, performance impact.
+
+\chapter{Branch Prediction Fundamentals}
+Static prediction, dynamic prediction, branch history, importance for performance.
+
+\chapter{Branch Prediction: Simple Schemes}
+1-bit predictor, 2-bit saturating counter, bimodal predictor.
+
+\chapter{Branch Prediction: Advanced Schemes}
+Two-level adaptive predictors, local vs. global history, correlating predictors.
+
+\chapter{Branch Target Buffer and Return Stack}
+BTB for target prediction, return address stack (RAS) for function returns, indirect branch prediction.
+
+\chapter{Speculative Execution}
+Executing before knowing if needed, branch prediction enabling speculation, squashing mispredicted paths.
+
+\chapter{Out-of-Order Execution}
+Instruction reordering, Tomasulo's algorithm, reservation stations, reorder buffer.
+
+\chapter{Register Renaming}
+Eliminating false dependencies (WAR, WAW), physical vs. architectural registers, register allocation table.
+
+\chapter{Instruction Scheduling}
+Issue width, instruction window, dependency checking, wake-up and select logic.
+
+\chapter{Superscalar Execution}
+Multiple issue, dispatch width, execution units, commit width, IPC (instructions per cycle).
+
+\chapter{Very Long Instruction Word (VLIW)}
+Static scheduling by compiler, explicit parallelism, no dependency checking hardware, Itanium example.
+
+\chapter{Simultaneous Multithreading (SMT)}
+Hyper-threading, thread-level parallelism, sharing execution resources, Intel and AMD implementations.
+
+\chapter{Memory Ordering and Consistency}
+Load/store reordering, memory fences, barriers, acquire-release semantics.
+
+\chapter{Consistency Models}
+Sequential consistency, total store order (TSO), weak ordering, relaxed models.
+
+
+\chapter{Input/Output Systems}
+I/O devices and controllers, I/O address space (port-mapped versus memory-mapped I/O), programmed I/O, interrupt-driven I/O.
+
+\chapter{Interrupt Handling}
+Interrupt request (IRQ), interrupt vector table, interrupt service routine (ISR), interrupt priority, nested interrupts, interrupt latency.
+
+\chapter{Direct Memory Access (DMA)}
+DMA controller, bus mastering, DMA transfer modes (burst, cycle stealing), scatter-gather DMA, reducing CPU overhead.
+
+\chapter{I/O Buses and Interconnects}
+System bus, front-side bus, peripheral buses, PCIe (lanes, endpoints, root complex), bus arbitration, bandwidth and latency.
+
+\chapter{Storage Controllers and Interfaces}
+SATA, SAS, NVMe, NVMe over Fabrics, command queuing, storage protocol stack, queue depth and parallelism.
+
+\chapter{Multi-Core Processors}
+Chip multiprocessors (CMP), symmetric multiprocessing (SMP), shared L2/L3 caches, on-chip interconnect (ring, mesh, crossbar).
+
+\chapter{NUMA Architecture}
+Non-uniform memory access, memory affinity, local versus remote memory, NUMA domains, NUMA-aware programming.
+
+\chapter{SIMD and Vector Processing}
+Single instruction multiple data, vector registers, lane-based execution, packed operations.
+
+\chapter{x86 SIMD Extensions}
+MMX, SSE, SSE2-SSE4, AVX, AVX2, AVX-512, register width evolution.
+
+\chapter{ARM NEON and SVE}
+NEON instruction set, Scalable Vector Extension, predication, variable vector length.
+
+\chapter{GPU Architecture Overview}
+Massively parallel architecture, streaming multiprocessors, SIMT execution model.
+
+\chapter{GPU Execution Model}
+Threads, warps/wavefronts, thread blocks, grid, kernel launch, occupancy.
+
+\chapter{GPU Memory Hierarchy}
+Global memory, shared memory, registers, constant memory, texture memory, L1/L2 caches.
+
+\chapter{GPU Programming Models}
+CUDA, OpenCL, compute shaders, host-device interaction, kernel code.
+
+\chapter{Input/Output Architecture}
+I/O devices, device controllers, I/O buses, programmed I/O vs. interrupt-driven I/O.
+
+\chapter{Interrupt Mechanism}
+Interrupt vector table, interrupt service routines, interrupt priority, nested interrupts.
+
+\chapter{Interrupt Handling Details}
+Context saving/restoration, interrupt latency, interrupt masking, edge vs. level triggered.
+
+\chapter{Exception Handling}
+Faults, traps, aborts, exception vectors, privilege level transitions.
+
+\chapter{Direct Memory Access (DMA)}
+DMA controllers, bus mastering, scatter-gather DMA, DMA descriptors, reducing CPU overhead.
+
+\chapter{I/O Memory Management Unit (IOMMU)}
+Device address translation, DMA protection, virtualization support, IOMMU page tables.
+
+\chapter{Bus Architecture and Protocols}
+System bus, memory bus, I/O bus, bus arbitration, split transactions.
+
+\chapter{Interconnect Fabrics}
+Point-to-point links, crossbar switches, mesh networks, ring interconnects.
+
+\chapter{PCIe Architecture}
+Lanes, link width, generations (1.0-6.0), packets and transactions, TLP/DLLP/Physical layers.
+
+\chapter{Cache-Coherent Interconnects}
+Intel QPI/UPI, AMD Infinity Fabric, coherence traffic, non-uniform cache access (NUCA).
+
+\chapter{Network-on-Chip (NoC)}
+On-chip routing, wormhole routing, virtual channels, deadlock avoidance.
+
+\chapter{Power Management Mechanisms}
+Dynamic voltage and frequency scaling (DVFS), clock gating, power gating, C-states, P-states.
+
+\chapter{Thermal Design and Throttling}
+Thermal design power (TDP), temperature monitoring, thermal throttling, cooling solutions.
+
+\chapter{Hardware Performance Counters}
+Performance monitoring units (PMU), counting events (cycles, instructions, cache misses, branch mispredictions).
+
+\chapter{Profiling with Hardware Counters}
+Perf tools, VTune, hardware event sampling, attributing performance to code.
+
+\chapter{Hardware Security Features}
+Secure boot, trusted execution environments (SGX, TrustZone), memory encryption (SEV, TME).
+
+\chapter{Spectre and Meltdown}
+Speculative execution vulnerabilities, side-channel attacks, mitigations (KPTI, retpoline, microcode updates).
+
+\chapter{Memory Safety Mechanisms}
+Bounds checking (Intel MPX), pointer authentication (ARM PAC), tagged memory, stack canaries.
+
+\chapter{Hardware Debugging Infrastructure}
+JTAG, boundary scan, trace debugging, watchpoints, breakpoints.
+
+\chapter{Design for Testability}
+Scan chains, built-in self-test (BIST), fault injection, manufacturing test.
+
+\chapter{Hardware Description Languages}
+Verilog and SystemVerilog, VHDL, behavioral vs. structural modeling, simulation vs. synthesis.
+
+\chapter{Digital Design Flow}
+RTL design, logic synthesis, place and route, timing closure, physical design.
+
+\chapter{FPGA Architecture}
+Look-up tables (LUTs), configurable logic blocks (CLBs), programmable interconnect, block RAM, DSP slices.
+
+\chapter{ASIC vs. FPGA Tradeoffs}
+Performance, power, cost, flexibility, development time, reconfigurability.

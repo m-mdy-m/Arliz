@@ -1,0 +1,363 @@
+%==============================================
+% PART 5: PARALLELISM & SYSTEMS
+%==============================================
+\part{Parallelism \& Systems}
+\label{part:parallelism-systems}
+
+\begin{partintro}
+\lettrine[lines=3]{M}{odern computing} is parallel. From multi-core CPUs to massive GPU clusters, arrays must be processed concurrently. This part examines parallelism at every level—threads, SIMD, GPUs, distributed systems.
+
+\vspace{1em}
+\textbf{What Makes This Different:}
+\begin{itemize}[noitemsep]
+    \item \textbf{Practical Concurrency:} Real APIs and programming models
+    \item \textbf{Performance Engineering:} Achieving actual speedup
+    \item \textbf{Distributed Scale:} From shared memory to data centers
+    \item \textbf{Modern Hardware:} Multi-core, GPU, heterogeneous systems
+\end{itemize}
+
+\begin{quote}
+\textit{``The free lunch is over.''}
+
+\hfill--- \textsc{Herb Sutter}
+\end{quote}
+\end{partintro}
+
+\chapter{Concurrency vs. Parallelism}
+Definitions, distinctions, concurrent execution, parallel execution, when each matters.
+
+\chapter{Parallel Performance Metrics}
+Speedup, efficiency, scalability, work, span, Amdahl's law, Gustafson's law.
+
+\chapter{Amdahl's Law}
+Serial fraction limits speedup, diminishing returns, implications for algorithm design.
+
+\chapter{Gustafson's Law}
+Scaled speedup, weak scaling vs. strong scaling, problem size growth.
+
+\chapter{Work and Span Model}
+DAG representation, work (total operations), span (critical path), parallelism = work/span.
+
+\chapter{Processes vs. Threads}
+Separate address spaces, shared memory, creation overhead, context switching.
+
+\chapter{Thread Creation and Management}
+POSIX threads (pthreads), C++11 std::thread, thread creation, joining, detaching.
+
+\chapter{Thread Pools}
+Worker threads, task queues, reducing creation overhead, load distribution.
+
+\chapter{Work Stealing}
+Dynamic load balancing, task stealing from other threads, Cilk model, deque-based implementation.
+
+\chapter{Fork-Join Parallelism}
+Divide and conquer parallelism, recursive task spawning, join synchronization.
+
+\chapter{Parallel Recursion}
+Parallelizing divide-and-conquer algorithms, base case threshold, overhead management.
+
+\chapter{OpenMP: Parallel Loops}
+Parallel for directive, work sharing, scheduling (static, dynamic, guided), loop dependencies.
+
+\chapter{OpenMP: Data Sharing Clauses}
+Shared, private, firstprivate, lastprivate, reduction, default clauses.
+
+\chapter{OpenMP: Reductions}
+Reduction operations, private copies, combining results, common patterns.
+
+\chapter{OpenMP: Task Parallelism}
+Task directive, task dependencies, taskwait, taskloop, irregular parallelism.
+
+\chapter{OpenMP: SIMD Directives}
+SIMD loops, aligned clauses, vectorization hints, safelen.
+
+\chapter{OpenMP: Memory Model}
+Flush operations, memory ordering, atomic operations, thread-safe programming.
+
+\chapter{Data Races and Race Conditions}
+Concurrent read-write, write-write conflicts, non-deterministic behavior, debugging races.
+
+\chapter{Memory Consistency Models}
+Sequential consistency, total store order (TSO), weak ordering, relaxed models.
+
+\chapter{Happens-Before Relation}
+Partial ordering, synchronizes-with, inter-thread ordering, reasoning about concurrency.
+
+\chapter{Memory Ordering in C++11}
+memory_order_relaxed, memory_order_acquire, memory_order_release, memory_order_seq_cst.
+
+\chapter{Synchronization Primitives: Mutexes}
+Mutual exclusion locks, lock/unlock, critical sections, deadlock potential.
+
+\chapter{Spinlocks vs. Mutexes}
+Busy waiting vs. blocking, context switch overhead, when to use each.
+
+\chapter{Reader-Writer Locks}
+Multiple readers, exclusive writer, read-heavy workloads, fairness considerations.
+
+\chapter{Semaphores}
+Counting semaphores, binary semaphores, signaling, producer-consumer synchronization.
+
+\chapter{Barriers}
+Thread synchronization point, waiting for all threads, reusable barriers, OpenMP barrier.
+
+\chapter{Condition Variables}
+Wait/notify pattern, avoiding busy waiting, producer-consumer queues, spurious wakeups.
+
+\chapter{Lock-Free Programming: Fundamentals}
+Atomic operations, compare-and-swap (CAS), ABA problem, wait-free vs. lock-free.
+
+\chapter{Atomic Operations}
+Atomic reads/writes, fetch-and-add, compare-and-exchange, memory ordering.
+
+\chapter{Lock-Free Stack}
+CAS-based push/pop, ABA problem, tagged pointers, hazard pointers.
+
+\chapter{Lock-Free Queue}
+Michael-Scott queue, enqueue/dequeue with CAS, memory reclamation challenges.
+
+\chapter{Memory Reclamation in Lock-Free Structures}
+Hazard pointers, epoch-based reclamation, reference counting, safe memory reclamation (SMR).
+
+\chapter{Transactional Memory: Concepts}
+Atomic blocks, optimistic concurrency, conflict detection, rollback.
+
+\chapter{Software Transactional Memory (STM)}
+STM implementations, versioning, validation, commit protocol.
+
+\chapter{Hardware Transactional Memory (HTM)}
+Intel TSX, cache-based implementation, capacity limits, fallback paths.
+
+\chapter{False Sharing}
+Cache line contention, performance degradation, detecting false sharing (perf, VTune).
+
+\chapter{Avoiding False Sharing}
+Padding to cache line boundaries, alignment, data layout optimization.
+
+\chapter{Cache Line Bouncing}
+Cache coherence traffic, ping-pong effect, minimizing shared writes.
+
+\chapter{NUMA Architecture}
+Non-uniform memory access, local vs. remote memory, latency differences.
+
+\chapter{NUMA-Aware Programming}
+First-touch policy, memory binding (numactl), thread affinity, optimizing placement.
+
+\chapter{Thread Affinity}
+Pinning threads to cores, cache locality, avoiding migration, OS interfaces.
+
+\chapter{Data Parallelism}
+Same operation on multiple data, SIMD, array operations, vectorization.
+
+\chapter{SIMD Programming: Intrinsics}
+Compiler intrinsics, vector types, operations, portability challenges.
+
+\chapter{SIMD Programming: SSE/AVX}
+x86 SIMD instruction sets, 128-bit (SSE), 256-bit (AVX), 512-bit (AVX-512).
+
+\chapter{SIMD Programming: ARM NEON}
+ARM SIMD, 128-bit vectors, intrinsics, mobile/embedded optimization.
+
+\chapter{SIMD: Alignment Requirements}
+Aligned loads/stores, performance penalties for misalignment, ensuring alignment.
+
+\chapter{SIMD: Masked Operations}
+Conditional execution, AVX-512 mask registers, handling irregular arrays.
+
+\chapter{Autovectorization}
+Compiler automatic vectorization, loop dependencies, enabling vectorization.
+
+\chapter{Vectorization: Loop Dependencies}
+Data dependencies preventing vectorization, loop-carried dependencies, array privatization.
+
+\chapter{Vectorization: Compiler Hints}
+Pragmas (ivdep, vector), assume_aligned, restrict keyword, helping the compiler.
+
+\chapter{GPU Architecture Deep Dive}
+Streaming multiprocessors (SMs), CUDA cores, warp schedulers, memory hierarchy.
+
+\chapter{GPU Execution Model: CUDA}
+Kernel launches, thread hierarchy (thread, warp, block, grid), device functions.
+
+\chapter{GPU Thread Organization}
+blockIdx, threadIdx, blockDim, gridDim, mapping threads to data.
+
+\chapter{GPU Memory Hierarchy}
+Global memory, shared memory, registers, constant memory, texture memory, L1/L2 caches.
+
+\chapter{GPU Global Memory Access Patterns}
+Coalesced access, strided access, memory transactions, alignment requirements.
+
+\chapter{GPU Shared Memory}
+On-chip memory, fast access, bank conflicts, tiling for shared memory.
+
+\chapter{GPU Bank Conflicts}
+Shared memory banks, conflict-free access patterns, broadcast, padding to avoid conflicts.
+
+\chapter{GPU Synchronization}
+__syncthreads(), block-level synchronization, warp-level primitives, atomics.
+
+\chapter{GPU Atomic Operations}
+atomicAdd, atomicCAS, global vs. shared memory atomics, performance implications.
+
+\chapter{GPU Occupancy}
+Active warps per SM, register usage, shared memory usage, occupancy calculator.
+
+\chapter{GPU Kernel Optimization}
+Maximizing occupancy, minimizing divergence, memory coalescing, arithmetic intensity.
+
+\chapter{GPU Warp Divergence}
+Branch divergence, serialized execution, masking, minimizing divergence.
+
+\chapter{GPU Register Pressure}
+Register spilling, local memory, reducing register usage, occupancy tradeoff.
+
+\chapter{GPU Streams and Concurrency}
+Asynchronous execution, overlapping compute and memory transfer, stream priorities.
+
+\chapter{GPU Multi-Stream Processing}
+Concurrent kernel execution, data dependencies, stream synchronization.
+
+\chapter{GPU Memory Transfer Optimization}
+Pinned memory, async transfers, batching, minimizing host-device communication.
+
+\chapter{GPU Unified Memory}
+Automatic data migration, page faults, prefetching, simplifying memory management.
+
+\chapter{GPU Profiling Tools}
+nvprof, Nsight Compute, Nsight Systems, identifying bottlenecks.
+
+\chapter{GPU Sorting Algorithms}
+Bitonic sort, radix sort on GPU, merge sort, library implementations (Thrust).
+
+\chapter{GPU Reduction Algorithms}
+Tree-based reduction, warp-level primitives, shuffle operations, optimized patterns.
+
+\chapter{GPU Scan (Prefix Sum)}
+Blelloch scan on GPU, work-efficient implementation, bank conflict avoidance.
+
+\chapter{GPU Matrix Operations}
+Matrix multiplication, tiling, shared memory usage, cuBLAS library.
+
+\chapter{GPU Stencil Computations}
+Halo exchange, shared memory tiling, minimizing global memory access.
+
+\chapter{Heterogeneous Computing}
+CPU-GPU collaboration, task partitioning, host-device coordination.
+
+\chapter{OpenCL Programming Model}
+Platform, device, context, command queue, kernels, portability across devices.
+
+\chapter{OpenCL Memory Model}
+Global, local, private, constant memory, explicit transfers, buffer objects.
+
+\chapter{Distributed Computing Fundamentals}
+Distributed memory, message passing, latency and bandwidth, network topology.
+
+\chapter{Message Passing Interface (MPI): Basics}
+Communicators, ranks, MPI_Init, MPI_Finalize, basic communication.
+
+\chapter{MPI Point-to-Point Communication}
+Send, receive, buffering modes, blocking vs. non-blocking, message tags.
+
+\chapter{MPI Non-Blocking Communication}
+MPI_Isend, MPI_Irecv, overlapping communication and computation, MPI_Wait.
+
+\chapter{MPI Collective Operations}
+Broadcast, scatter, gather, all-to-all, reduction, barrier, synchronization.
+
+\chapter{MPI Reductions}
+MPI_Reduce, MPI_Allreduce, custom reduction operations, combining data.
+
+\chapter{MPI Derived Datatypes}
+Contiguous, vector, indexed types, describing complex data layouts.
+
+\chapter{Distributed Array Partitioning}
+Block distribution, cyclic distribution, block-cyclic, load balancing.
+
+\chapter{Ghost Cells and Halo Exchange}
+Boundary regions, stencil computations, communication patterns, optimizing exchange.
+
+\chapter{Domain Decomposition}
+1D, 2D, 3D decomposition, minimizing surface-to-volume ratio, communication overhead.
+
+\chapter{Load Balancing in Distributed Systems}
+Static vs. dynamic, work stealing across nodes, balancing irregular workloads.
+
+\chapter{Parallel I/O}
+MPI-IO, parallel file systems (Lustre, GPFS), collective I/O, avoiding bottlenecks.
+
+\chapter{Checkpoint/Restart}
+Fault tolerance, periodic checkpointing, restart from checkpoint, overhead.
+
+\chapter{Fault Tolerance Strategies}
+Replication, algorithm-based fault tolerance, detecting failures, recovery.
+
+\chapter{MapReduce Programming Model}
+Map phase, shuffle/sort, reduce phase, data-parallel programming at scale.
+
+\chapter{MapReduce on Arrays}
+Array processing patterns, sorting, filtering, aggregation, distributed arrays.
+
+\chapter{Hadoop and HDFS}
+Distributed file system, block storage, replication, data locality.
+
+\chapter{Spark and RDDs}
+Resilient distributed datasets, in-memory processing, transformations and actions.
+
+\chapter{Spark Array Operations}
+DataFrame operations, array columns, broadcast variables, distributed array processing.
+
+\chapter{Partitioned Global Address Space (PGAS)}
+Global view with local control, UPC, Chapel, X10, one-sided communication.
+
+\chapter{Array Notation in PGAS Languages}
+Distributed array declarations, affinity, local vs. remote access.
+
+\chapter{Distributed Consensus}
+Paxos, Raft, leader election, maintaining consistency, fault tolerance.
+
+\chapter{Eventual Consistency}
+Convergent data types, CRDTs, conflict resolution, distributed arrays.
+
+\chapter{Real-Time Systems}
+Hard vs. soft deadlines, WCET (worst-case execution time), predictability.
+
+\chapter{WCET Analysis for Array Operations}
+Static analysis, timing bounds, cache analysis, array access time.
+
+\chapter{Real-Time Scheduling}
+Rate monotonic scheduling (RMS), earliest deadline first (EDF), priority assignment.
+
+\chapter{Cache Locking for Real-Time}
+Locking cache lines, predictable access times, avoiding cache misses.
+
+\chapter{Scratchpad Memory}
+Software-managed memory, predictable access, explicitly controlled, vs. caches.
+
+\chapter{Energy-Efficient Computing}
+Power models, dynamic power, static power, energy-aware algorithms.
+
+\chapter{DVFS and Power Management}
+Dynamic voltage and frequency scaling, race-to-idle vs. energy proportional.
+
+\chapter{Energy-Efficient Array Processing}
+Minimizing memory access, data reuse, approximate computing for energy savings.
+
+\chapter{Green Computing Principles}
+Energy proportionality, workload consolidation, resource efficiency.
+
+\chapter{Parallel Debugging}
+Race detection, Valgrind, ThreadSanitizer, Intel Inspector, deterministic replay.
+
+\chapter{Performance Analysis Tools}
+gprof, perf, VTune, TAU, HPCToolkit, profiling parallel programs.
+
+\chapter{Scalability Analysis}
+Strong scaling, weak scaling, scalability plots, identifying bottlenecks.
+
+\chapter{Communication vs. Computation Ratio}
+Bandwidth-limited vs. compute-limited, optimizing the ratio, hiding latency.
+
+\chapter{Parallel Algorithm Design Patterns}
+Task parallelism, data parallelism, pipeline, master-worker, SPMD.

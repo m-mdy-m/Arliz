@@ -1,0 +1,483 @@
+%==============================================
+% PART 3: ARRAY ODYSSEY
+%==============================================
+\part{Array Odyssey}
+\label{part:array-odyssey}
+
+\begin{partintro}
+\lettrine[lines=3]{A}{t last} we arrive at arrays themselves—the most fundamental data structure in computing. This part explores arrays from every conceivable angle: theory, implementation, optimization, and application.
+
+\vspace{1em}
+\textbf{What Makes This Different:}
+\begin{itemize}[noitemsep]
+    \item \textbf{Complete Coverage:} Every variant, every technique
+    \item \textbf{Hardware Awareness:} Cache effects, alignment, prefetching
+    \item \textbf{Rigorous Analysis:} Mathematical foundations and performance
+    \item \textbf{Practical Optimization:} Making arrays fast in real systems
+\end{itemize}
+
+\begin{quote}
+\textit{``Simplicity is prerequisite for reliability.''}
+
+\hfill--- \textsc{Edsger W. Dijkstra}
+\end{quote}
+\end{partintro}
+
+\chapter{Mathematical Foundations of Arrays}
+Formal definition, array as function from index set to value set, properties, mathematical operations.
+
+\chapter{Array as Abstract Data Type}
+Interface specification, invariants, preconditions, postconditions, ADT vs. implementation.
+
+\chapter{One-Dimensional Array: Memory Layout}
+Contiguous allocation, base address, element offset calculation, memory alignment.
+
+\chapter{Address Calculation and Pointer Arithmetic}
+Computing element addresses, stride, pointer arithmetic rules, bounds.
+
+\chapter{Zero-Based vs. One-Based Indexing}
+Historical reasons, language conventions, conversion, pros and cons.
+
+\chapter{Array Bounds and Boundary Conditions}
+Index range, out-of-bounds access, undefined behavior, bounds checking strategies.
+
+\chapter{Array Allocation: Stack vs. Heap}
+Automatic (stack) allocation, dynamic (heap) allocation, lifetime management, size limitations.
+
+\chapter{Static Array Declaration}
+Compile-time size, storage duration, initialization, usage patterns.
+
+\chapter{Dynamic Memory Allocation for Arrays}
+malloc/calloc/realloc, new/delete, memory leaks, fragmentation.
+
+\chapter{Array Deallocation and Resource Management}
+Proper cleanup, RAII pattern, smart pointers, memory ownership.
+
+\chapter{Array Initialization Techniques}
+Zero-initialization, value initialization, aggregate initialization, designated initializers.
+
+\chapter{Array Initialization Performance}
+memset internals, compiler optimizations, initialization costs, lazy initialization.
+
+\chapter{Array Copying Fundamentals}
+Shallow vs. deep copy, copy semantics, assignment operators.
+
+\chapter{Memory Transfer Operations}
+memcpy, memmove, bulk copy performance, vectorized copying.
+
+\chapter{Array Access Patterns and Performance}
+Sequential access, random access, strided access, impact on cache and prefetching.
+
+\chapter{Cache Line Utilization}
+Cache line size (64 bytes typical), spatial locality, utilizing full cache lines.
+
+\chapter{Prefetching for Array Access}
+Hardware prefetching, software prefetching, prefetch instructions, prefetch distance.
+
+\chapter{Array Traversal Optimization}
+Loop order, blocking/tiling, minimizing cache misses, memory access patterns.
+
+\chapter{Dynamic Arrays: Implementation}
+Capacity vs. size, growth strategy, amortized analysis, C++ std::vector internals.
+
+\chapter{Dynamic Array Growth Strategies}
+Doubling, multiplicative (√2, golden ratio), additive growth, tradeoff analysis.
+
+\chapter{Dynamic Array Amortized Analysis}
+Proving O(1) amortized append, potential method, aggregate analysis.
+
+\chapter{Dynamic Array Reallocation}
+In-place vs. move to new location, realloc behavior, minimizing copying.
+
+\chapter{Dynamic Array Shrinking}
+Shrink-to-fit, hysteresis, when to shrink, avoiding oscillation.
+
+\chapter{Multidimensional Array Fundamentals}
+Dimensions, shape, indexing multiple dimensions, row-major vs. column-major.
+
+\chapter{Row-Major Order (C Convention)}
+Layout in memory, linearization formula, cache implications.
+
+\chapter{Column-Major Order (Fortran Convention)}
+Layout differences, when it matters, interfacing with Fortran libraries (BLAS, LAPACK).
+
+\chapter{Multidimensional Array Address Calculation}
+Linear index from multiple indices, stride computation, optimization.
+
+\chapter{Multidimensional Array Traversal}
+Loop nesting order, cache-friendly traversal, impact of memory layout.
+
+\chapter{Array of Arrays vs. True Multidimensional}
+Pointer indirection, flexibility, memory overhead, cache implications.
+
+\chapter{Jagged Arrays}
+Non-rectangular arrays, array of arrays for irregular sizes, applications.
+
+\chapter{Dope Vectors and Array Descriptors}
+Metadata representation, bounds information, enabling flexible array operations.
+
+\chapter{Sparse Array Fundamentals}
+When most elements are zero (or default), compression ratio, sparsity pattern.
+
+\chapter{Sparse Array: Coordinate List (COO)}
+List of (row, col, value) tuples, easy construction, inefficient access.
+
+\chapter{Sparse Array: Compressed Sparse Row (CSR)}
+Row pointers, column indices, values, efficient row operations.
+
+\chapter{Sparse Array: Compressed Sparse Column (CSC)}
+Column-oriented version of CSR, efficient column operations.
+
+\chapter{Sparse Array: Dictionary of Keys (DOK)}
+Hash table representation, flexible construction, conversion to other formats.
+
+\chapter{Sparse Array: List of Lists (LIL)}
+List per row, incremental construction, conversion to CSR.
+
+\chapter{Sparse Matrix Operations}
+Sparse matrix-vector multiply, sparse-sparse operations, fill-in problem.
+
+\chapter{Bit Arrays: Representation}
+Packing bits into words, storage efficiency, applications (sets, flags).
+
+\chapter{Bit Array: Indexing and Access}
+Computing word and bit offset, extracting bits, setting bits.
+
+\chapter{Bit Array Operations}
+Bitwise operations on arrays, parallel operations, applications.
+
+\chapter{Bitmap Indexes}
+Using bitmaps for indexing, rank and select operations, succinct data structures preview.
+
+\chapter{Circular Arrays and Ring Buffers}
+Wrap-around indexing, modulo arithmetic, avoiding data movement, queue implementation.
+
+\chapter{Circular Array: Head and Tail Management}
+Tracking fill level, full vs. empty distinction, producer-consumer patterns.
+
+\chapter{Array Searching: Linear Search}
+Sequential scan, early termination, best/worst/average case, sentinel technique.
+
+\chapter{Array Searching: Binary Search}
+Prerequisites (sorted array), algorithm, invariants, complexity analysis.
+
+\chapter{Binary Search: Implementation Variants}
+Iterative vs. recursive, overflow-safe midpoint, lower_bound vs. upper_bound.
+
+\chapter{Binary Search: Applications}
+Finding insertion point, counting occurrences, rotated arrays.
+
+\chapter{Interpolation Search}
+Estimating position, prerequisites (uniform distribution), O(log log n) average case.
+
+\chapter{Exponential Search}
+Unbounded search, doubling range, combination with binary search.
+
+\chapter{Ternary Search}
+Dividing into three parts, unimodal functions, finding extrema.
+
+\chapter{Jump Search}
+Block jumping, optimal jump size (√n), combination with linear search, cache-friendly properties.
+
+\chapter{Fibonacci Search}
+Division using Fibonacci numbers, single comparison per step, applications.
+
+\chapter{Sorting Fundamentals}
+Comparison-based lower bound (Ω(n log n)), stability, adaptivity, in-place vs. out-of-place.
+
+\chapter{Bubble Sort}
+Adjacent swaps, optimization (early termination), adaptive behavior, teaching value.
+
+\chapter{Selection Sort}
+Finding minimum, swap to position, in-place but not stable, O(n²) always.
+
+\chapter{Insertion Sort}
+Inserting into sorted prefix, adaptive (O(n) on nearly sorted), online algorithm.
+
+\chapter{Shell Sort}
+Gap sequences, h-sorting, diminishing increments, performance depends on gap sequence.
+
+\chapter{Merge Sort Fundamentals}
+Divide and conquer, merge procedure, guaranteed O(n log n), stability.
+
+\chapter{Merge Sort: Implementation Variants}
+Top-down recursive, bottom-up iterative, in-place merging attempts, natural merge sort.
+
+\chapter{Merge Sort: Optimization Techniques}
+Switching to insertion sort for small subarrays, eliminating copy to auxiliary array.
+
+\chapter{External Merge Sort}
+Sorting data larger than memory, multi-way merge, minimizing I/O, B-tree connection.
+
+\chapter{Quick Sort Fundamentals}
+Partitioning, divide and conquer, average O(n log n), worst O(n²).
+
+\chapter{Quick Sort: Pivot Selection Strategies}
+First element, random element, median-of-three, median-of-medians, ninther.
+
+\chapter{Quick Sort: Partitioning Schemes}
+Lomuto partition, Hoare partition, three-way partition (Dutch National Flag).
+
+\chapter{Quick Sort: Optimizations}
+Tail recursion elimination, switching to insertion sort, handling duplicates.
+
+\chapter{Randomized Quick Sort}
+Random pivot selection, probabilistic analysis, expected O(n log n).
+
+\chapter{Introsort}
+Hybrid algorithm, depth limiting, switching to heapsort, C++ std::sort implementation.
+
+\chapter{Heap Sort Fundamentals}
+Building heap, extract-max repeatedly, in-place, not stable, guaranteed O(n log n).
+
+\chapter{Binary Heap: Array Representation}
+Complete binary tree in array, parent/child index formulas, level-order storage.
+
+\chapter{Heapify Operations}
+Sift-up (bubble-up), sift-down (percolate-down), building heap in O(n).
+
+\chapter{Heap Sort: Optimization}
+Bottom-up heap construction, cache optimization, comparison count.
+
+\chapter{Counting Sort}
+Integer sorting, counting occurrences, cumulative sum, linear time O(n+k).
+
+\chapter{Radix Sort Fundamentals}
+Digit-by-digit sorting, LSD vs. MSD, stable sub-sorting required.
+
+\chapter{Radix Sort: Implementations}
+Base/radix selection, counting sort as sub-routine, in-place variants.
+
+\chapter{Bucket Sort}
+Distributing into buckets, uniform distribution assumption, O(n) average case.
+
+\chapter{Timsort}
+Python's sorting algorithm, galloping mode, merge runs, adaptive merging.
+
+\chapter{pdqsort (Pattern-Defeating Quicksort)}
+Rust's sort, detecting bad patterns, fallback strategies, block partitioning.
+
+\chapter{Sorting Networks}
+Comparator networks, Batcher's sort, bitonic sort, parallel sorting.
+
+\chapter{Parallel Sorting Algorithms}
+Parallel merge sort, parallel quicksort, sample sort, GPU sorting.
+
+\chapter{Array Rotation: Reversal Algorithm}
+Reverse portions, three reversals, in-place, O(n) time, elegant proof.
+
+\chapter{Array Rotation: Juggling Algorithm}
+GCD-based, moving elements in cycles, in-place, optimal moves.
+
+\chapter{Array Rotation: Block Swap Algorithm}
+Recursive block swapping, handling unequal blocks, in-place rotation.
+
+\chapter{Array Reversal In-Place}
+Two-pointer technique, swapping elements, O(n) time, O(1) space.
+
+\chapter{Array Permutation: Application}
+Applying permutation in-place, cycle decomposition, O(n) time.
+
+\chapter{Array Permutation: Generation}
+Generating all permutations, lexicographic order, Heap's algorithm, iterative methods.
+
+\chapter{Array Shuffling}
+Fisher-Yates shuffle, uniform random permutation, in-place, bias-free.
+
+\chapter{Array Partitioning Algorithms}
+Two-way partition (quicksort), three-way partition (Dutch flag), k-way partition.
+
+\chapter{Stable Partitioning}
+Maintaining relative order, applications, implementation strategies.
+
+\chapter{Quickselect Algorithm}
+Finding k-th smallest element, partition-based selection, average O(n).
+
+\chapter{Median of Medians}
+Deterministic linear-time selection, choosing good pivots, theoretical importance.
+
+\chapter{Two-Pointer Technique: Basics}
+Meeting in middle, opposite directions, applications (two sum, container problems).
+
+\chapter{Two-Pointer: Sliding Window Fixed Size}
+Window size k, maintaining window state, deque for min/max in window.
+
+\chapter{Two-Pointer: Sliding Window Variable Size}
+Expanding and contracting, maintaining invariants, applications (substring problems).
+
+\chapter{Three-Pointer and Multiple-Pointer Techniques}
+Dutch National Flag, merging sorted arrays, complex partitioning.
+
+\chapter{Prefix Sum: Construction}
+Cumulative sum array, O(n) construction, range sum query in O(1).
+
+\chapter{Prefix Sum: Applications}
+Range queries, subarray sum, equilibrium index, difference arrays.
+
+\chapter{Two-Dimensional Prefix Sum}
+2D cumulative sum, O(1) rectangle sum query, inclusion-exclusion.
+
+\chapter{Difference Arrays}
+Inverse of prefix sum, range updates in O(1), final array in O(n).
+
+\chapter{Kadane's Algorithm}
+Maximum subarray sum, dynamic programming, linear time, variations.
+
+\chapter{Kadane's Algorithm: Variations}
+Maximum product subarray, circular array, maximum sum with deletions.
+
+\chapter{Subarray Problems}
+Subarray vs. subsequence, contiguous vs. non-contiguous, counting subarrays.
+
+\chapter{Dutch National Flag Problem}
+Three-way partitioning, single pass, constant space, applications to quicksort.
+
+\chapter{Array Intersection}
+Finding common elements, sorted arrays (two-pointer), unsorted (hash set).
+
+\chapter{Array Union and Set Operations}
+Union, intersection, difference, symmetric difference, complexity analysis.
+
+\chapter{Merging Sorted Arrays}
+Two-way merge, k-way merge (heap-based), in-place merging.
+
+\chapter{Array Compaction}
+Removing elements while maintaining order, in-place, stable compaction.
+
+\chapter{Array Gap Removal}
+Removing duplicates, removing specific elements, in-place techniques.
+
+\chapter{Array Element Frequency}
+Counting occurrences, mode finding, frequency map, Boyer-Moore majority vote.
+
+\chapter{Majority Element Algorithm}
+Boyer-Moore voting, linear time, constant space, verification step.
+
+\chapter{Array Rearrangement Problems}
+Alternating positive-negative, even-odd segregation, custom ordering.
+
+\chapter{In-Place Array Manipulation Techniques}
+Swapping, reversing, rotating without extra space, index mapping.
+
+\chapter{Constant Space Algorithms}
+O(1) auxiliary space, in-place transformations, iterative approaches.
+
+\chapter{Array Memory Alignment: Cache Lines}
+Aligning to 64-byte boundaries, false sharing prevention, performance impact.
+
+\chapter{Array Memory Alignment: SIMD}
+16-byte, 32-byte, 64-byte alignment requirements, aligned_alloc, posix_memalign.
+
+\chapter{Alignment Attributes and Directives}
+Compiler attributes (alignas, __attribute__), pragma directives, ensuring alignment.
+
+\chapter{Array Bounds Checking Strategies}
+Runtime bounds checking, compiler-generated checks, safe array access.
+
+\chapter{Bounds Checking: Performance Impact}
+Overhead analysis, optimization opportunities, eliminating redundant checks.
+
+\chapter{Bounds Checking: Language Support}
+Rust's borrow checker, C++ std::array, Java array bounds, safe languages.
+
+\chapter{Array Views and Slices}
+Non-owning references, NumPy slicing, stride manipulation, views vs. copies.
+
+\chapter{Array Slicing Semantics}
+Syntax (start:stop:step), negative indices, omitted bounds, Python/NumPy conventions.
+
+\chapter{Strided Array Access}
+Non-contiguous access, stride specification, performance implications, vectorization challenges.
+
+\chapter{Array Subviews and Windows}
+Creating windows without copying, sliding windows, overlapping windows.
+
+\chapter{Array Broadcasting}
+Implicit dimension expansion, NumPy broadcasting rules, shape compatibility.
+
+\chapter{Broadcasting: Implementation}
+Virtual expansion, avoiding memory duplication, optimized iteration.
+
+\chapter{Array Reduction Operations}
+Sum, product, min, max, logical operations, custom reductions.
+
+\chapter{Parallel Reduction Patterns}
+Tree-based reduction, associativity requirement, work-efficient algorithms.
+
+\chapter{Array Scan Operations}
+Inclusive scan (cumulative sum), exclusive scan (shifted cumulative sum).
+
+\chapter{Parallel Scan Algorithms}
+Up-sweep and down-sweep (Blelloch), work efficiency, GPU implementation.
+
+\chapter{Scan Applications}
+Stream compaction, radix sort, allocation, quicksort partitioning.
+
+\chapter{Array Gather Operations}
+Indexed reads, gather from array using index array, vectorization support.
+
+\chapter{Array Scatter Operations}
+Indexed writes, scatter to array using index array, conflict handling.
+
+\chapter{Gather-Scatter in SIMD}
+AVX2 gather instructions, AVX-512 gather/scatter, performance characteristics.
+
+\chapter{Array Comprehensions}
+Declarative array construction, Python list comprehensions, functional style.
+
+\chapter{Array Generators and Iterators}
+Lazy evaluation, generator expressions, memory efficiency, iterator protocols.
+
+\chapter{Array Reshaping}
+Changing dimensions without copying data, view manipulation, fortran vs. C order.
+
+\chapter{Array Transposition}
+Swapping dimensions, in-place transpose (square), out-of-place (rectangular).
+
+\chapter{Cache-Oblivious Transpose}
+Recursive divide-and-conquer, optimal cache usage, no tuning parameters.
+
+\chapter{Array Concatenation}
+Joining arrays along axis, horizontal stack (column-wise), vertical stack (row-wise).
+
+\chapter{Array Splitting}
+Dividing array, chunk-based splitting, equal vs. unequal splits.
+
+\chapter{Array Tiling}
+Dividing into tiles, blocked algorithms, cache optimization, matrix multiplication.
+
+\chapter{Array Padding Techniques}
+Border padding (image processing), alignment padding, ghost cells (stencil computations).
+
+\chapter{Toeplitz and Circulant Matrices}
+Special array structures, efficient storage, fast multiplication (FFT).
+
+\chapter{Triangular and Symmetric Matrices}
+Storing only half, index mapping, packed storage, BLAS conventions.
+
+\chapter{Band Matrices and Sparse Diagonal}
+Diagonal storage format, bandwidth, tridiagonal systems, efficient solvers.
+
+\chapter{Array Vectorization Fundamentals}
+Writing vector-friendly code, enabling autovectorization, compiler hints.
+
+\chapter{Loop Vectorization}
+Data dependencies, trip count, alignment, remainder loops.
+
+\chapter{Array Expressions and Lazy Evaluation}
+Expression templates (C++), deferred computation, Eigen library example.
+
+\chapter{Array Versioning and Copy-on-Write}
+Persistent arrays, sharing data between versions, efficient versioning.
+
+\chapter{Immutable Arrays}
+Functional programming, structural sharing, immutability benefits.
+
+\chapter{Array Performance Profiling}
+Measuring access patterns, cache simulation tools, hardware counters.
+
+\chapter{Roofline Model for Arrays}
+Arithmetic intensity, bandwidth bounds, computational bounds, optimization guidance.
+
+\chapter{Array Benchmarking Methodology}
+Microbenchmarks, cache warming, timing techniques, statistical significance.
