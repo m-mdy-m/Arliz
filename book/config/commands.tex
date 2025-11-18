@@ -2,13 +2,11 @@
 % Custom Commands for Special Pages
 %----------------------------------------------
 
-% Command for part pages (if using \part)
 \newcommand{\partpage}{
 	\thispagestyle{empty}
 	\cleardoublepage
 }
 
-% Command for appendix pages
 \newcommand{\appendixpage}{
 	\thispagestyle{chapter}
 }
@@ -17,10 +15,7 @@
 % Page Number Formatting Enhancements
 %----------------------------------------------
 
-% Ensure proper page numbering format
 \renewcommand{\thepage}{\arabic{page}}
-
-% Custom page number formatting for special sections
 \newcommand{\frontmatterpagenumber}{
 	\renewcommand{\thepage}{\roman{page}}
 }
@@ -33,7 +28,6 @@
 % Header Content Customization
 %----------------------------------------------
 
-% Customize chapter and section marks
 \renewcommand{\chaptermark}[1]{
 	\markboth{\textsc{Chapter \thechapter:\ #1}}{}
 }
