@@ -1,0 +1,175 @@
+%==============================================
+% PART 1: DATA REPRESENTATION
+%==============================================
+\part{Data Representation}
+\label{part:data-representation}
+
+\begin{partintro}
+\lettrine[lines=3]{B}{efore we} can understand how arrays store elements, we must first understand how computers represent information itself. Every piece of data—numbers, text, images, instructions—exists as patterns of bits. This part explores the foundational question: how do we encode meaning into binary?
+
+\vspace{1em}
+\textbf{What Makes This Different:}
+\begin{itemize}[noitemsep]
+    \item \textbf{Complete Coverage:} From physical voltage levels to abstract types
+    \item \textbf{Hardware Connection:} How silicon encodes information
+    \item \textbf{Practical Implementation:} Memory dumps and real representations
+    \item \textbf{Historical Evolution:} Why we chose these representations
+\end{itemize}
+
+\begin{quote}
+\textit{``The choice of representation is often more important than the choice of algorithm.''}
+
+\hfill--- \textsc{Donald E. Knuth}
+\end{quote}
+\end{partintro}
+
+
+\chapter{The Philosophy of Representation}
+Why representation matters. Historical evolution from tally marks to bits. The abstraction hierarchy. Information theory fundamentals. Shannon's insight.
+
+\chapter{Physical Representation: Voltage to Bits}
+How transistors encode binary states, voltage levels, noise margins, signal integrity, why binary won over ternary.
+
+\chapter{Binary Representation and Boolean Algebra}
+Two-state logic, Boolean operations, truth tables, De Morgan's laws, bit as fundamental unit.
+
+\chapter{Number Systems and Bases}
+Positional notation, decimal, binary, octal, hexadecimal. Base conversion algorithms. Historical development. Why different bases matter for different purposes.
+
+\chapter{Integer Representation: Unsigned}
+Binary positional notation, range limitations, conversion algorithms, hexadecimal convenience.
+
+\chapter{Signed Integer Representation}
+Sign-magnitude, one's complement, two's complement (why it won), arithmetic operations, overflow detection.
+
+\chapter{Integer Overflow and Wraparound Behavior}
+Undefined behavior, modular arithmetic, detecting overflow, saturating arithmetic, language-specific behaviors.
+
+\chapter{Fixed-Point Representation}
+Q-format notation, scaling factors, precision-range tradeoffs, embedded systems applications, fixed-point arithmetic.
+
+\chapter{Floating-Point Representation: IEEE 754}
+Sign, exponent, mantissa encoding, normalized and denormalized numbers, single vs. double precision.
+
+\chapter{Special Floating-Point Values}
+Infinity (positive and negative), NaN (quiet and signaling), signed zero, subnormal numbers.
+
+\chapter{Floating-Point Arithmetic Operations}
+Addition, multiplication, division, rounding modes (round to nearest, toward zero, toward ±∞), fused multiply-add.
+
+\chapter{Floating-Point Error Analysis}
+Precision loss, catastrophic cancellation, machine epsilon, relative error, Kahan summation algorithm.
+
+\chapter{Decimal Floating-Point Representation}
+IEEE 754-2008 decimal formats, financial computing requirements, densely packed decimal.
+
+\chapter{Extended Precision and Arbitrary Precision}
+80-bit extended precision, quadruple precision (128-bit), arbitrary precision libraries (GMP, MPFR).
+
+\chapter{Character Encoding: ASCII and Extensions}
+7-bit ASCII, extended ASCII variants, code pages, limitations for internationalization.
+
+\chapter{Unicode: Universal Character Encoding}
+Code points, planes, combining characters, grapheme clusters, normalization forms (NFC, NFD, NFKC, NFKD).
+
+\chapter{Unicode Transformation Formats}
+UTF-8 (variable length, backward compatible), UTF-16 (surrogate pairs), UTF-32 (fixed length), BOM issues.
+
+\chapter{Text Processing Complexities}
+Grapheme vs. code point counting, case folding, locale-dependent operations, text segmentation.
+
+\chapter{Endianness: Byte Ordering}
+Big-endian vs. little-endian, historical reasons, network byte order, bi-endian systems, byte swapping.
+
+\chapter{Cross-Platform Data Exchange}
+Serialization formats, portable binary formats, protocol design considerations.
+
+\chapter{Bitwise Operations Fundamentals}
+AND, OR, XOR, NOT operations, truth tables, bit manipulation primitives.
+
+\chapter{Bit Shifting and Rotation}
+Logical shift, arithmetic shift, rotate left/right, applications to multiplication/division by powers of 2.
+
+\chapter{Bit Manipulation Techniques}
+Setting/clearing/toggling bits, bit masks, extracting bit fields, counting set bits (population count).
+
+\chapter{Bit Packing and Flags}
+Packing multiple boolean flags, bitfields in structs, union tricks, bit arrays.
+
+\chapter{Advanced Bit Hacking}
+Finding rightmost set bit, isolating bit patterns, bit reversal, Gray code conversion.
+
+\chapter{Data Alignment Fundamentals}
+Natural alignment, alignment requirements by type, misalignment penalties.
+
+\chapter{Structure Padding and Layout}
+Compiler padding rules, struct member ordering, packing pragmas, cache line awareness.
+
+\chapter{Alignment Optimization Techniques}
+Manual padding, alignment attributes, reordering for cache efficiency.
+
+\chapter{Color Representation Models}
+RGB, RGBA, HSV, HSL, CMYK, YUV, color spaces, gamma correction.
+
+\chapter{Pixel Formats and Bit Depth}
+1-bit, 8-bit indexed, 16-bit (RGB565), 24-bit, 32-bit (with alpha), HDR formats.
+
+\chapter{Image Compression Fundamentals}
+Lossless (PNG, GIF) vs. lossy (JPEG), compression ratios, quality tradeoffs.
+
+\chapter{Video Encoding Principles}
+Frame types (I, P, B), motion compensation, codecs (H.264, H.265, VP9, AV1).
+
+\chapter{Audio Representation: Sampling Theory}
+Nyquist theorem, sample rate, bit depth, quantization noise, aliasing.
+
+\chapter{Audio Encoding Formats}
+PCM (uncompressed), FLAC (lossless), MP3, AAC, Opus (lossy), perceptual coding.
+
+\chapter{Signal Processing Representations}
+Time domain, frequency domain, spectrograms, wavelet transforms.
+
+\chapter{Pointer Representation}
+How pointers are stored in memory, pointer size (32-bit vs. 64-bit), pointer tagging.
+
+\chapter{Pointer Arithmetic and Address Calculation}
+Array element addressing, struct member offsets, pointer subtraction.
+
+\chapter{Special Pointer Values}
+Null pointers, wild pointers, dangling pointers, pointer alignment requirements.
+
+\chapter{Error Detection Codes}
+Parity bits (even/odd), checksums, CRC algorithms, hash-based integrity.
+
+\chapter{Error Correction Codes}
+Hamming codes, Reed-Solomon codes, LDPC codes, convolutional codes.
+
+\chapter{Cyclic Redundancy Checks (CRC)}
+CRC polynomials, CRC-8, CRC-16, CRC-32 standards, efficient implementation using tables, applications in data integrity.
+
+\chapter{Data Serialization Fundamentals}
+Converting in-memory structures to byte streams, portability issues.
+
+\chapter{Binary Serialization Formats}
+Protocol Buffers, FlatBuffers, Cap'n Proto, MessagePack, CBOR.
+
+\chapter{Text Serialization Formats}
+JSON, XML, YAML, TOML, human-readable vs. machine-efficient tradeoffs.
+
+\chapter{Custom Binary Protocols}
+Designing efficient binary formats, alignment considerations, versioning.
+
+\chapter{Data Compression Theory}
+Information theory basics, entropy, lossless vs. lossy bounds.
+
+\chapter{Dictionary-Based Compression}
+LZ77, LZ78, LZW, Lempel-Ziv family, dictionary construction.
+
+\chapter{Entropy Coding}
+Huffman coding, arithmetic coding, asymmetric numeral systems (ANS).
+
+\chapter{Modern Compression Algorithms}
+zlib, gzip, bzip2, LZMA, Zstandard, Brotli, compression levels.
+
+\chapter{Specialized Compression}
+Run-length encoding, delta encoding, columnar compression, domain-specific methods.
