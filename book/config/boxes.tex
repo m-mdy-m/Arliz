@@ -2,34 +2,94 @@
 % Special Boxes and Environments
 %----------------------------------------------
 \usepackage{tcolorbox}
-\tcbuselibrary{most}
+\tcbuselibrary{most, skins, breakable}
 
 %----------------------------------------------
-% Note Box
+% NOTE BOX
+% For supplementary information
 %----------------------------------------------
 \newtcolorbox{notebox}[1][]{
-	colback   = blue!5!white,
-	colframe  = blue!75!black,
-	title     = Note,
-	#1
+    enhanced,
+    colback=blue!5,
+    colframe=blue!60!black,
+    boxrule=0.5pt,
+    arc=3pt,
+    left=12pt,
+    right=12pt,
+    top=10pt,
+    bottom=10pt,
+    breakable,
+    before skip=10pt,
+    after skip=12pt,
+    title={\small\sffamily\bfseries Note},
+    fonttitle=\sffamily\bfseries,
+    coltitle=blue!80!black,
+    attach boxed title to top left={yshift=-3mm, xshift=8mm},
+    boxed title style={
+        colback=white,
+        colframe=blue!60!black,
+        boxrule=0.5pt,
+        arc=2pt
+    },
+    #1
 }
 
 %----------------------------------------------
-% Tip Box
+% TIP BOX
+% For practical advice and best practices
 %----------------------------------------------
 \newtcolorbox{tipbox}[1][]{
-	colback   = green!5!white,
-	colframe  = green!75!black,
-	title     = Tip,
-	#1
+    enhanced,
+    colback=green!5,
+    colframe=green!60!black,
+    boxrule=0.5pt,
+    arc=3pt,
+    left=12pt,
+    right=12pt,
+    top=10pt,
+    bottom=10pt,
+    breakable,
+    before skip=10pt,
+    after skip=12pt,
+    title={\small\sffamily\bfseries Tip},
+    fonttitle=\sffamily\bfseries,
+    coltitle=green!70!black,
+    attach boxed title to top left={yshift=-3mm, xshift=8mm},
+    boxed title style={
+        colback=white,
+        colframe=green!60!black,
+        boxrule=0.5pt,
+        arc=2pt
+    },
+    #1
 }
 
 %----------------------------------------------
-% Warning Box
+% WARNING BOX
+% For important caveats and critical information
 %----------------------------------------------
 \newtcolorbox{warningbox}[1][]{
-	colback   = red!5!white,
-	colframe  = red!75!black,
-	title     = Important,
-	#1
+    enhanced,
+    colback=red!5,
+    colframe=red!70!black,
+    boxrule=0.5pt,
+    arc=3pt,
+    left=12pt,
+    right=12pt,
+    top=10pt,
+    bottom=10pt,
+    breakable,
+    before skip=10pt,
+    after skip=12pt,
+    title={\small\sffamily\bfseries Important},
+    fonttitle=\sffamily\bfseries,
+    coltitle=red!80!black,
+    attach boxed title to top left={yshift=-3mm, xshift=8mm},
+    boxed title style={
+        colback=white,
+        colframe=red!70!black,
+        boxrule=0.5pt,
+        arc=2pt
+    },
+    #1
 }

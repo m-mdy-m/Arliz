@@ -1,17 +1,194 @@
-\usepackage{listings}             % Source code highlighting
+\usepackage{listings}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+
+
 \lstset{
-	basicstyle      = \ttfamily\small,
-	frame           = single,
-	breaklines      = true,
-	numbers         = left,
-	numberstyle     = \tiny\color{gray},
-	keywordstyle    = \color{myblue}\bfseries,
-	commentstyle    = \color{olive},
-	stringstyle     = \color{orange},
-	backgroundcolor = \color{lightgray!20},
-	captionpos      = b,
-	escapeinside    = {(*@}{@*)},
-	morekeywords    = {array, structure, algorithm, complexity}
+	basicstyle       = \ttfamily\small,
+	backgroundcolor  = \color{codebg},
+	frame            = leftline,
+	framerule        = 2pt,
+	rulecolor        = \color{arlizblue},
+	xleftmargin      = 15pt,
+	framexleftmargin = 15pt,
+	breaklines       = true,
+	breakatwhitespace= true,
+	showstringspaces = false,
+	showtabs         = false,
+	tabsize          = 4,
+	keepspaces       = true,
+	columns          = flexible,
+	numbers          = left,
+	numberstyle      = \tiny\color{arlizgray}\ttfamily,
+	numbersep        = 10pt,
+	stepnumber       = 1,
+	captionpos       = b,
+	aboveskip        = 12pt,
+	belowskip        = 12pt,
+	escapeinside     = {(*@}{@*)},
+	commentstyle     = \color{green!60!black}\itshape,
+	keywordstyle     = \color{arlizblue}\bfseries,
+	stringstyle      = \color{orange!80!black},
+	identifierstyle  = \color{textprimary},
+	morekeywords     = {array, structure, algorithm, complexity}
 }
-\usepackage{algorithm}             % Algorithm floats
-\usepackage{algpseudocode}         % Pseudocode environment
+
+%----------------------------------------------
+% C LANGUAGE STYLE
+%----------------------------------------------
+
+\lstdefinestyle{cstyle}{
+	language         = C,
+	morekeywords     = {size_t, uint8_t, uint16_t, uint32_t, uint64_t, int8_t, int16_t, int32_t, int64_t, bool},
+	keywordstyle     = \color{arlizblue}\bfseries,
+	commentstyle     = \color{green!60!black}\itshape,
+	stringstyle      = \color{orange!80!black},
+	directivestyle   = \color{purple!70!black},
+	emph             = {malloc, calloc, realloc, free, sizeof, printf, scanf, memcpy, memset},
+	emphstyle        = \color{red!70!black}\bfseries
+}
+
+%----------------------------------------------
+% PSEUDOCODE STYLE
+%----------------------------------------------
+
+\lstdefinestyle{pseudostyle}{
+	basicstyle       = \ttfamily\small,
+	mathescape       = true,
+	keywords         = {if, then, else, elif, fi, while, do, od, for, to, return, function, procedure, end, begin},
+	keywordstyle     = \color{arlizblue}\bfseries,
+	commentstyle     = \color{green!60!black}\itshape,
+	morecomment      = [l]{//},
+	literate         = 
+	{<=}{$\leq$}1
+	{>=}{$\geq$}1
+	{!=}{$\neq$}1
+	{->}{$\rightarrow$}1
+	{<-}{$\leftarrow$}1
+	{:=}{$\gets$}1
+	{=}{$=$}1
+}
+
+%----------------------------------------------
+% ASSEMBLY LANGUAGE STYLE
+%----------------------------------------------
+
+\lstdefinestyle{asmstyle}{
+	language         = [x86masm]Assembler,
+	keywordstyle     = \color{arlizblue}\bfseries,
+	commentstyle     = \color{green!60!black}\itshape,
+	stringstyle      = \color{orange!80!black},
+	morekeywords     = {mov, add, sub, mul, div, push, pop, call, ret, jmp, je, jne, cmp, lea}
+}
+
+%----------------------------------------------
+% ALGORITHM PSEUDOCODE CONFIGURATION
+%----------------------------------------------
+
+% Customize algorithmic appearance
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}
+\algrenewcommand\algorithmiccomment[1]{\hfill\textcolor{green!60!black}{\textit{// #1}}}
+
+% Custom algorithm commands
+\algnewcommand\algorithmicto{\textbf{to}}
+\algnewcommand\algorithmicdownto{\textbf{downto}}
+\algnewcommand\Break{\State \textbf{break}}
+\algnewcommand\Continue{\State \textbf{continue}}
+
+%----------------------------------------------
+% INLINE CODE ENVIRONMENTS
+%----------------------------------------------
+
+% Inline code with automatic language detection
+\newcommand{\inlinecode}[2][]{%
+	\lstinline[style=#1]{#2}%
+}
+
+%----------------------------------------------
+% CODE LISTING ENVIRONMENTS
+%----------------------------------------------
+
+% Standard code listing
+\lstnewenvironment{codelisting}[2][]{%
+	\lstset{
+		style=#1,
+		caption=#2,
+		captionpos=b
+	}
+}{}
+
+% Code without line numbers
+\lstnewenvironment{codeblock}[1][]{%
+	\lstset{
+		style=#1,
+		numbers=none
+	}
+}{}
+
+% Code with highlighting specific lines
+\lstnewenvironment{highlightcode}[2][]{%
+	\lstset{
+		style=#1,
+		linebackgroundcolor={%
+			\ifnum\value{lstnumber}=#2
+			\color{yellow!20}%
+			\fi
+		}
+	}
+}{}
+
+
+%----------------------------------------------
+% TERMINAL/SHELL OUTPUT STYLE
+%----------------------------------------------
+
+\lstdefinestyle{terminalstyle}{
+	basicstyle       = \ttfamily\small\color{white},
+	backgroundcolor  = \color{black!90},
+	frame            = single,
+	framerule        = 1pt,
+	rulecolor        = \color{arlizgray},
+	numbers          = none,
+	breaklines       = true,
+	showstringspaces = false,
+	commentstyle     = \color{green!80},
+	keywordstyle     = \color{cyan!80},
+	stringstyle      = \color{yellow!80}
+}
+
+%----------------------------------------------
+% OUTPUT/RESULT STYLE
+%----------------------------------------------
+
+\lstdefinestyle{outputstyle}{
+	basicstyle       = \ttfamily\small,
+	backgroundcolor  = \color{gray!10},
+	frame            = single,
+	framerule        = 1pt,
+	rulecolor        = \color{gray!40},
+	numbers          = none,
+	breaklines       = true,
+	showstringspaces = false,
+	commentstyle     = \color{textgray},
+	xleftmargin      = 10pt
+}
+
+%----------------------------------------------
+% CONFIGURATION/DATA FILE STYLE
+%----------------------------------------------
+
+\lstdefinestyle{configstyle}{
+	basicstyle       = \ttfamily\small,
+	backgroundcolor  = \color{subtle},
+	frame            = leftline,
+	framerule        = 2pt,
+	rulecolor        = \color{arlizgray},
+	numbers          = left,
+	numberstyle      = \tiny\color{gray},
+	breaklines       = true,
+	showstringspaces = false,
+	commentstyle     = \color{green!60!black}\itshape,
+	keywordstyle     = \color{arlizblue}\bfseries
+}
