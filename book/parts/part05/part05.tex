@@ -361,3 +361,177 @@ Bandwidth-limited vs. compute-limited, optimizing the ratio, hiding latency.
 
 \chapter{Parallel Algorithm Design Patterns}
 Task parallelism, data parallelism, pipeline, master-worker, SPMD.
+
+%----------------------------------------------
+% MULTI-CORE CPU DIAGNOSTICS
+%----------------------------------------------
+
+\chapter{Multi-Core CPU Core-Specific Testing}
+Per-core stress testing, core-to-core latency measurement, asymmetric core degradation, thermal throttling per core, core parking behavior, turbo boost verification.
+
+\chapter{CPU Microcode and Firmware Diagnostics}
+Microcode version verification, speculative execution mitigations, microcode update stability, errata workarounds, BIOS microcode loading, CPU stepping identification.
+
+\chapter{Hyper-Threading and SMT Diagnostics}
+Logical processor enumeration, sibling core identification, resource sharing contention, SMT performance scaling, security vulnerability testing (MDS, L1TF).
+
+\chapter{CPU Frequency Scaling Diagnostics}
+P-state transitions, C-state depth analysis, turbo boost duration, thermal velocity boost, clock stretching detection, BCLK stability, PLL lock verification.
+
+\chapter{Inter-Core Communication Diagnostics}
+Cache coherence traffic analysis, QPI/UPI link testing, ring bus performance, mesh interconnect diagnostics, NUMA node latency, cross-socket communication overhead.
+
+\chapter{CPU Package Power Delivery Testing}
+VRM load line calibration, voltage droop measurement, transient load response, power delivery noise, per-core power reporting, package power limits (PL1/PL2).
+
+\chapter{CPU Thermal Management Verification}
+Thermal sensor accuracy, junction temperature monitoring, thermal throttling thresholds, TDP compliance, cooling solution adequacy, thermal interface degradation.
+
+%----------------------------------------------
+% GPU HARDWARE DIAGNOSTICS AND REPAIR
+%----------------------------------------------
+
+\chapter{GPU Core and Memory Testing}
+VRAM testing (MATS, pattern tests), GPU core stability (artifact detection), compute unit availability, rasterization unit testing, texture unit verification.
+
+\chapter{GPU Clock Domain Diagnostics}
+Core clock stability, memory clock testing, power state transitions (P-states), clock gating effectiveness, dynamic frequency adjustment, thermal throttling analysis.
+
+\chapter{GPU Power Delivery and VRM Testing}
+Per-rail voltage monitoring, GPU VRM phase count, power connector capacity, PCIe slot power limits, auxiliary power requirements, power limit throttling.
+
+\chapter{GPU Memory Subsystem Diagnostics}
+GDDR5/GDDR6/HBM testing, memory controller functionality, memory bandwidth verification, ECC (when available), compression effectiveness, memory temperature monitoring.
+
+\chapter{GPU Thermal Solution Verification}
+Hotspot temperature analysis, thermal pad contact, vapor chamber effectiveness, fan curve optimization, backplate thermal dissipation, memory cooling adequacy.
+
+\chapter{GPU Display Output Diagnostics}
+DisplayPort signal integrity, HDMI compliance, multi-monitor configuration, refresh rate capability, color depth support, HDR functionality, cable quality impact.
+
+\chapter{GPU Compute Unit Failure Diagnosis}
+Partial SM/CU failure, compute test (CUDA/OpenCL), shader execution correctness, occupancy degradation, warp scheduler issues, register file corruption.
+
+\chapter{GPU Firmware and VBIOS Testing}
+VBIOS integrity verification, firmware corruption detection, VBIOS update/recovery, fan control tables, power limit tables, clock limit tables, memory timing straps.
+
+\chapter{GPU Artifact and Visual Defect Analysis}
+Texture artifacts, polygon corruption, screen tearing, pixel flickering, color banding, checkerboard patterns, triangles/lines appearance, systematic defect patterns.
+
+\chapter{GPU PCIe Interface Diagnostics}
+PCIe link speed negotiation, lane width verification, resizable BAR functionality, atomics support, peer-to-peer DMA, TLP (Transaction Layer Packet) errors.
+
+\chapter{GPU Hardware Scheduling and Preemption}
+Context switching performance, preemption latency, priority enforcement, multi-process scheduling, time slicing effectiveness, starvation detection.
+
+%----------------------------------------------
+% PARALLEL SYSTEM INTERCONNECT DIAGNOSTICS
+%----------------------------------------------
+
+\chapter{Infinity Fabric and Chiplet Interconnect Testing}
+Inter-die communication latency, fabric clock frequency, cross-CCX latency, I/O die communication, fabric power states, data fabric errors.
+
+\chapter{Intel UPI and Multi-Socket Diagnostics}
+UPI link training, lane degradation, CRC error counting, link width reduction, socket-to-socket bandwidth, NUMA penalty measurement, snoop filter effectiveness.
+
+\chapter{PCIe Bifurcation and Lane Configuration}
+Lane allocation verification, bifurcation mode testing, x16 vs x8 x8 configurations, CPU lane vs chipset lane, lane margining, signal integrity per lane.
+
+\chapter{NVLink and High-Speed Interconnect Diagnostics}
+NVLink bandwidth measurement, error correction statistics, peer-to-peer access verification, topology discovery, heterogeneous computing link testing.
+
+%----------------------------------------------
+% SIMD AND VECTOR UNIT DIAGNOSTICS
+%----------------------------------------------
+
+\chapter{SIMD Unit Functionality Testing}
+SSE/AVX/AVX-512 instruction set testing, vector unit availability, lane-wise operation verification, masked operation correctness, denormal handling.
+
+\chapter{Vector Unit Thermal and Power Behavior}
+AVX offset voltage drop, frequency throttling under AVX load, AVX-512 heavy vs light distinction, power limit enforcement, current limit throttling.
+
+\chapter{ARM NEON and SVE Diagnostics}
+NEON lane testing, SVE vector length detection, predication correctness, gather/scatter operation testing, cryptographic extension verification.
+
+%----------------------------------------------
+% SPECIALIZED PARALLEL HARDWARE
+%----------------------------------------------
+
+\chapter{FPGA Configuration and Diagnostics}
+Bitstream loading verification, FPGA fabric testing, block RAM testing, DSP slice functionality, reconfiguration reliability, JTAG boundary scan.
+
+\chapter{Hardware Accelerator Diagnostics}
+AI accelerator (TPU, NPU) functionality, fixed-function units, DMA engine testing, dedicated memory testing, interface compliance, thermal behavior.
+
+\chapter{Heterogeneous Computing Platform Testing}
+CPU-GPU synchronization, unified memory coherency, heterogeneous task scheduling, resource allocation fairness, power management coordination.
+
+%----------------------------------------------
+% SYSTEM-LEVEL PARALLEL DIAGNOSTICS
+%----------------------------------------------
+
+\chapter{NUMA Architecture Diagnostics}
+Memory locality verification, local vs remote access latency, memory interleaving, NUMA balancing effectiveness, page migration tracking, memory affinity enforcement.
+
+\chapter{Symmetric Multiprocessing (SMP) Verification}
+Load balancing across cores, interrupt distribution, cache coherence correctness, spinlock fairness, barrier synchronization overhead, deadlock detection.
+
+\chapter{Distributed System Network Diagnostics}
+InfiniBand testing, RoCE (RDMA over Converged Ethernet) verification, MPI communication patterns, collective operation performance, network topology validation.
+
+\chapter{Cluster Node Hardware Validation}
+Node-to-node communication testing, network switch configuration, storage area network (SAN) verification, management network isolation, BMC accessibility.
+
+%----------------------------------------------
+% ADVANCED DIAGNOSTIC TECHNIQUES
+%----------------------------------------------
+
+\chapter{Hardware Performance Counter Analysis}
+PMU (Performance Monitoring Unit) configuration, event multiplexing, sampling vs counting, attribution accuracy, overhead measurement, correlation analysis.
+
+\chapter{Bus and Interconnect Protocol Analysis}
+Protocol analyzer usage, timing diagram interpretation, transaction ordering verification, deadlock detection, bandwidth utilization, quality of service (QoS).
+
+\chapter{Hardware Error Injection and Fault Testing}
+Controlled fault injection, error propagation analysis, recovery mechanism testing, redundancy verification, silent data corruption detection.
+
+\chapter{Radiation and Environmental Stress Testing}
+Single-event upset (SEU) testing, temperature cycling, humidity testing, vibration testing, ESD susceptibility, electromagnetic compatibility (EMC).
+
+%----------------------------------------------
+% REPAIR AND MAINTENANCE PROCEDURES
+%----------------------------------------------
+
+\chapter{GPU Memory Module Replacement}
+GDDR/HBM module identification, rework challenges, memory chip sourcing, testing post-replacement, thermal considerations, adhesive management.
+
+\chapter{CPU Socket and Land Grid Array Repair}
+Bent pin straightening (PGA), damaged pad repair (BGA), socket replacement, ball grid reflow, underfill considerations, alignment verification.
+
+\chapter{Multi-Layer PCB Trace Repair}
+Inner layer trace damage assessment, via repair, jumper wire techniques, impedance matching, signal integrity preservation, rework documentation.
+
+\chapter{Chiplet and Advanced Package Repair}
+Die-to-die interconnect challenges, through-silicon via (TSV) testing, silicon interposer integrity, organic substrate damage, limited repairability considerations.
+
+\chapter{Cooling System Maintenance for Parallel Hardware}
+Vapor chamber inspection, liquid cooling loop maintenance, thermal paste reapplication for multi-die packages, fan bearing replacement, airflow optimization.
+
+\chapter{Power Delivery System Upgrade}
+Higher amperage VRM installation, capacitor upgrade, PCB trace reinforcement, connector replacement for higher power, inductor selection, controller IC upgrade.
+
+%----------------------------------------------
+% PROFESSIONAL PRACTICES FOR PARALLEL SYSTEMS
+%----------------------------------------------
+
+\chapter{Parallel System Burn-In Procedures}
+Comprehensive stress testing, thermal equilibrium verification, stability duration requirements, load pattern variety, monitoring thresholds, pass/fail criteria.
+
+\chapter{Parallel Hardware Benchmarking Methodology}
+Reproducible test conditions, benchmark selection, scaling analysis, bottleneck identification, comparison fairness, result interpretation, documentation standards.
+
+\chapter{Failure Analysis for Parallel Systems}
+Root cause identification, failure mode analysis, mean time between failures (MTBF), failure pattern recognition, preventive maintenance scheduling.
+
+\chapter{Obsolescence Management for Parallel Hardware}
+Component end-of-life tracking, last-time-buy planning, alternative sourcing, reverse engineering considerations, long-term support strategies.

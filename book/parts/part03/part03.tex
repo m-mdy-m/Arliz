@@ -476,6 +476,72 @@ Functional programming, structural sharing, immutability benefits.
 \chapter{Array Performance Profiling}
 Measuring access patterns, cache simulation tools, hardware counters.
 
+%----------------------------------------------
+% MEMORY TESTING AND DIAGNOSTICS
+%----------------------------------------------
+
+\chapter{Memory Array Testing Patterns}
+March algorithms (March C-, March C+), walking ones/zeros, checkerboard patterns, address uniqueness test, data retention testing, algorithm complexity for coverage.
+
+\chapter{DRAM Cell Testing Techniques}
+Row hammer testing, refresh rate verification, bit flipping detection, weak cell identification, temperature-dependent failures, voltage margining for stability.
+
+\chapter{RAM Module Physical Inspection}
+PCB examination, DRAM chip authenticity, SPD chip reading, thermal sensor verification, decoupling capacitor condition, trace damage, counterfeit detection.
+
+\chapter{Memory Timing and Stability Testing}
+Stress testing (Prime95, MemTest86), timing adjustment (tCL, tRCD, tRP), voltage stability, thermal throttling, XMP profile validation, subtiming optimization.
+
+\chapter{Memory Controller Diagnostics}
+Integrated memory controller testing, channel population rules, memory training process, post codes for memory initialization, dual/quad-channel verification, IMC degradation.
+
+\chapter{ECC Memory Diagnostics and Monitoring}
+Single-bit error correction verification, multi-bit error detection, EDAC (Error Detection and Correction) logs, scrubbing efficiency, dimm-specific error patterns.
+
+%----------------------------------------------
+% STORAGE ARRAY DIAGNOSTICS
+%----------------------------------------------
+
+\chapter{Storage Media Testing Patterns}
+Sequential read/write patterns, random I/O patterns, mixed workload testing, queue depth variation, 4K alignment verification, sustained performance measurement.
+
+\chapter{Bad Block Detection and Mapping}
+Media scan algorithms, grown defect list, pending sector detection, reallocated sector analysis, uncorrectable error patterns, predictive failure indicators.
+
+\chapter{SSD Garbage Collection and TRIM Analysis}
+Write amplification measurement, garbage collection behavior observation, TRIM command effectiveness, over-provisioning impact, background operations monitoring.
+
+\chapter{SMART Attribute Interpretation for Diagnostics}
+Critical attributes (reallocated sectors, current pending sectors, uncorrectable errors), predictive attributes, vendor-specific meanings, threshold values, trend analysis.
+
+\chapter{Flash Memory Wear Leveling Verification}
+Erase count distribution, block usage patterns, wear leveling algorithm effectiveness, hot/cold data identification, endurance estimation, P/E cycle tracking.
+
+\chapter{Storage Controller Failure Modes}
+Controller hang detection, firmware corruption symptoms, cache buffer issues, DRAM cache failure (for SSD), interface negotiation problems, power loss protection testing.
+
+\chapter{NVMe-Specific Diagnostics}
+NVMe command set testing, submission/completion queue verification, namespace management, thermal throttling (T1/T2), power state transitions, PCIe link stability.
+
+\chapter{Hard Drive Mechanical Component Testing}
+Spindle motor health, head positioning accuracy, actuator arm movement, platter surface condition, read/write head integrity, bearing wear assessment.
+
+\chapter{Storage Interface Signal Integrity}
+SATA signal quality, PCIe lane testing, cable quality impact, connector wear, EMI interference, bit error rate measurement, link training failures.
+
+%----------------------------------------------
+% CACHE AND MEMORY HIERARCHY DIAGNOSTICS
+%----------------------------------------------
+
+\chapter{CPU Cache Diagnostics}
+L1/L2/L3 cache testing, cache coherency verification, cache line corruption detection, tag array integrity, ECC protection effectiveness, cache disable testing.
+
+\chapter{Cache Performance Degradation Detection}
+Miss rate monitoring, cache pollution identification, thrashing detection, false sharing diagnosis, cache-unfriendly code patterns, profiling cache behavior.
+
+\chapter{TLB (Translation Lookahead Buffer) Testing}
+TLB miss rate analysis, huge page effectiveness, TLB flush frequency, PCID (Process Context Identifier) utilization, TLB shootdown overhead.
+
 \chapter{Roofline Model for Arrays}
 Arithmetic intensity, bandwidth bounds, computational bounds, optimization guidance.
 

@@ -387,6 +387,246 @@ Bounds checking (Intel MPX), pointer authentication (ARM PAC), tagged memory, st
 \chapter{Hardware Debugging Infrastructure}
 JTAG, boundary scan, trace debugging, watchpoints, breakpoints.
 
+%----------------------------------------------
+% MOBILE DEVICE HARDWARE SECTION
+%----------------------------------------------
+
+\chapter{Mobile Device System-on-Chip (SoC) Architecture}
+Integrated CPU, GPU, modem, ISP on single die, ARM Cortex cores, heterogeneous computing, power islands, mobile SoC vendors (Qualcomm, Apple, MediaTek).
+
+\chapter{Mobile Power Management IC (PMIC)}
+Voltage regulation, power sequencing, buck converters, LDO regulators, battery charging control, thermal management, power state transitions.
+
+\chapter{Mobile Display Technology and Controllers}
+LCD vs OLED, display driver IC, timing controller (TCON), MIPI DSI interface, backlight control, touch controller integration, digitizer architecture.
+
+\chapter{Mobile Battery Management Systems}
+Lithium-ion chemistry, charge cycles, protection circuits, fuel gauge IC, State of Charge (SoC) estimation, State of Health (SoH), battery authentication.
+
+\chapter{Mobile Charging Circuit Architecture}
+USB Power Delivery, Quick Charge, voltage/current regulation, thermal throttling, charge pump topology, wireless charging (Qi standard), reverse charging.
+
+\chapter{Mobile Baseband and RF Subsystems}
+Modem architecture, RF transceiver, power amplifier, antenna tuning, MIMO configuration, cellular bands, signal integrity, EMI considerations.
+
+\chapter{Mobile Audio Codec and Amplifier}
+Digital-to-analog conversion, headphone amplifier, speaker amplifier, noise cancellation, audio routing, microphone bias, impedance matching.
+
+\chapter{Mobile Camera ISP and Sensor Interface}
+Image signal processor, MIPI CSI, sensor array, autofocus driver, optical image stabilization (OIS), electronic image stabilization (EIS).
+
+%----------------------------------------------
+% COMPUTER HARDWARE REPAIR SECTION
+%----------------------------------------------
+
+\chapter{Motherboard Component Identification}
+Visual inspection techniques, component labeling conventions, voltage regulator modules (VRM), chipset identification, power delivery phases, capacitor types (electrolytic, ceramic, tantalum).
+
+\chapter{Desktop Power Supply Unit Architecture}
+ATX standard, 12V rails, 5V standby, power good signal, overcurrent protection, ripple suppression, efficiency ratings (80 Plus), modular vs non-modular.
+
+\chapter{Power Supply Diagnostic Techniques}
+Paperclip test, multimeter voltage verification, load testing, ripple measurement, fan operation check, capacitor bulging inspection, burning smell identification.
+
+\chapter{RAM Architecture and Organization}
+DIMM vs SO-DIMM, DDR generations, module organization (single-rank, dual-rank), SPD (Serial Presence Detect), XMP profiles, memory timings (CL, tRCD, tRP, tRAS).
+
+\chapter{RAM Testing Methodologies}
+MemTest86, Windows Memory Diagnostic, POST beep codes, slot isolation testing, voltage verification, compatibility checking, ECC error detection.
+
+\chapter{Storage Controller Interfaces}
+SATA controller, AHCI vs RAID mode, NVMe controller, M.2 key types (B, M, B+M), PCIe lane allocation, hot-swap capability, TRIM command.
+
+\chapter{Hard Drive Diagnostic Tools}
+SMART attributes (reallocated sectors, pending sectors, CRC errors), surface scan, bad sector mapping, firmware corruption, mechanical failure sounds (clicking, grinding).
+
+\chapter{SSD Architecture and Diagnostics}
+NAND flash types (SLC, MLC, TLC, QLC), wear leveling, garbage collection, over-provisioning, TRIM effectiveness, SSD-specific SMART attributes, controller firmware updates.
+
+%----------------------------------------------
+% COMMON DIAGNOSTIC TECHNIQUES
+%----------------------------------------------
+
+\chapter{Thermal Management System Analysis}
+Heat sink design, thermal paste application, thermal pads, heat pipe operation, vapor chamber cooling, thermal interface material (TIM) degradation, temperature monitoring (thermal diodes, thermistors).
+
+\chapter{Voltage Regulation Module (VRM) Operation}
+Buck converter topology, PWM controller, MOSFET switching, inductor selection, output capacitor filtering, load line calibration, voltage droop, VRM phase count.
+
+\chapter{Component-Level Voltage Testing}
+Reference voltage points, power rail sequencing, voltage ripple measurement, load-induced voltage drop, ground plane continuity, short circuit detection.
+
+\chapter{Circuit Board Visual Inspection}
+Burnt components identification, electrolytic capacitor failure (bulging, leaking), cold solder joints, cracked traces, corrosion detection, flux residue, water damage indicators.
+
+\chapter{Multimeter Diagnostic Techniques}
+Continuity testing, diode testing mode, capacitor ESR estimation, resistance measurement interpretation, AC/DC voltage verification, current measurement safety.
+
+\chapter{Oscilloscope Diagnostics for Repair}
+Signal integrity verification, clock signal analysis, power supply ripple measurement, PWM duty cycle measurement, trigger setup, probe compensation, bandwidth requirements.
+
+\chapter{Logic Analyzer for Bus Debugging}
+I2C bus analysis, SPI communication verification, USB signal quality, protocol decoding, timing violation detection, multi-channel capture.
+
+\chapter{Component Identification and Datasheet Reading}
+SMD marking codes, component package types (SOT, SOIC, QFN, BGA), pin 1 identification, polarity markings, datasheet interpretation (absolute maximum ratings, typical operating conditions).
+
+\chapter{Schematic and PCB Layout Reading}
+Schematic symbol conventions, net naming, component reference designators, power and ground symbols, PCB layer stackup, trace routing, via types, copper pour, silkscreen interpretation.
+
+%----------------------------------------------
+% PRACTICAL REPAIR TECHNIQUES
+%----------------------------------------------
+
+\chapter{SMD Soldering and Desoldering}
+Soldering iron temperature control, flux application, component alignment, heat dissipation management, hot air rework station usage, desoldering braid, solder sucker.
+
+\chapter{BGA and QFN Rework Techniques}
+Ball grid array structure, reflow profile (preheat, soak, reflow, cooling), X-ray inspection, underfill removal, stencil alignment, solder ball placement.
+
+\chapter{Microsoldering Under Microscope}
+Magnification selection, lighting techniques, steady hand positioning, tweezers usage, fine-pitch component handling, flux pen application, solder wire diameter selection.
+
+\chapter{Component Replacement Decision Matrix}
+Cost-benefit analysis, availability considerations, compatibility verification, firmware dependencies, security chip replacement implications, serialized component handling.
+
+\chapter{ESD Protection During Repair}
+Electrostatic discharge fundamentals, wrist strap usage, ESD mat grounding, ionizer benefits, component handling procedures, humidity control, triboelectric series.
+
+\chapter{Diagnostic Flowchart Construction}
+Symptom identification, component isolation, probability-based testing order, decision tree optimization, documentation importance, feedback loop integration.
+
+\chapter{Firmware and BIOS Diagnostics}
+BIOS POST codes, UEFI firmware interface, CMOS battery replacement, BIOS recovery modes, firmware corruption detection, update procedures, downgrade considerations.
+
+\chapter{Power-On Self-Test (POST) Analysis}
+POST sequence stages, beep code interpretation by manufacturer, LED diagnostic codes, minimal POST configuration, component isolation testing, POST card usage.
+
+\chapter{No Power Diagnosis Methodology}
+Power button continuity, PSU verification, motherboard standby voltage, short circuit detection, component-by-component isolation, breadboard testing.
+
+\chapter{No Display Troubleshooting}
+Monitor vs system isolation, GPU reseating, CMOS reset, RAM testing, integrated vs discrete graphics, display cable verification, external display testing.
+
+\chapter{Intermittent Fault Diagnosis}
+Temperature-dependent failures, connector oxidation, solder joint cracking, capacitor degradation, environmental factor correlation, stress testing.
+
+\chapter{Water Damage Recovery Procedures}
+Immediate power disconnection, disassembly urgency, ultrasonic cleaning, isopropyl alcohol washing, corrosion neutralization, drying time requirements, component-level inspection.
+
+\chapter{Board-Level Troubleshooting Strategy}
+Power rail verification sequence, signal path tracing, component substitution testing, known-good board comparison, documentation review, community knowledge utilization.
+
+%----------------------------------------------
+% MOBILE-SPECIFIC REPAIR
+%----------------------------------------------
+
+\chapter{Mobile Device Disassembly Techniques}
+Adhesive removal (heat gun, isopropyl alcohol), spudger usage, screw organization, cable connector types (ZIF, FPC, BTB), shielding can removal, warranty seal implications.
+
+\chapter{Mobile Display Assembly Replacement}
+Digitizer vs LCD separation, frame transfer, adhesive application, cable routing, testing before full assembly, touch calibration, backlight testing.
+
+\chapter{Mobile Battery Replacement Procedures}
+Adhesive strip removal, pull tab technique, battery connector identification, swelling detection, capacity verification, recycling considerations, calibration requirements.
+
+\chapter{Mobile Charging Port Replacement}
+Daughterboard identification, flex cable replacement, direct mainboard soldering, pin alignment verification, USB-C orientation testing, data line continuity.
+
+\chapter{Mobile IC-Level Repair Techniques}
+Hotplate vs hot air station selection, flux type for rework, underfill challenges, shield can handling, thermal coupling considerations, component height matching.
+
+\chapter{Mobile Baseband Repair and IMEI}
+Baseband processor role, IMEI storage locations, legal considerations, carrier lock implications, baseband firmware flashing, signal strength testing.
+
+\chapter{Mobile Microphone and Speaker Replacement}
+Component location identification, adhesive vs clip mounting, polarity verification, sound quality testing, water damage impact, mesh cleaning.
+
+%----------------------------------------------
+% COMPUTER-SPECIFIC REPAIR
+%----------------------------------------------
+
+\chapter{Desktop Motherboard Diagnostic LEDs}
+Debug LED interpretation, CPU, RAM, VGA, BOOT sequence indicators, Q-code displays, troubleshooting based on LED patterns.
+
+\chapter{CPU Installation and Socket Inspection}
+LGA vs PGA socket types, pin damage assessment, bent pin straightening techniques, thermal paste application patterns, mounting pressure, cooler compatibility.
+
+\chapter{GPU Troubleshooting and Repair}
+Artifacting causes, memory chip failure, VRM failure, reflow as temporary fix, VRAM testing, power connector verification, driver vs hardware isolation.
+
+\chapter{Storage Device Recovery Techniques}
+Logical vs physical failure, partition table corruption, filesystem repair, firmware corruption, PCB swap considerations, data recovery services, clean room requirements.
+
+\chapter{Laptop-Specific Repair Challenges}
+Proprietary components, serviceability variation, keyboard replacement, screen hinge repair, DC jack replacement, trackpad connector issues, cooling system maintenance.
+
+\chapter{Network Interface Diagnostics}
+Ethernet PHY testing, link light interpretation, loopback testing, MAC address verification, speed negotiation issues, cable tester usage.
+
+\chapter{USB Port Repair and Diagnosis}
+USB protocol layers (physical, link, transaction), port power issues, data line integrity, device enumeration failure, controller chip identification, per-port fuse/limiting.
+
+\chapter{Audio System Troubleshooting}
+Codec chip identification, HD Audio vs AC'97, front panel header pinout, impedance sensing, pop/click diagnosis, amplifier testing, line-out vs headphone-out.
+
+%----------------------------------------------
+% ADVANCED DIAGNOSTIC EQUIPMENT
+%----------------------------------------------
+
+\chapter{Thermal Imaging for Fault Detection}
+Infrared camera operation, thermal hotspot identification, component overheating patterns, short circuit localization, VRM phase imbalance detection.
+
+\chapter{Power Supply Load Testing}
+Electronic load usage, dynamic load testing, cross-load testing, hold-up time measurement, transient response testing, aging effects.
+
+\chapter{Signal Integrity Testing Equipment}
+Time-domain reflectometry (TDR), vector network analyzer (VNA), bit error rate testing (BERT), eye diagram analysis, jitter measurement.
+
+\chapter{X-Ray Inspection for BGA Repair}
+X-ray system operation, void detection in solder balls, bridge identification, component alignment verification, non-destructive testing benefits.
+
+\chapter{Micro-Rework Station Setup}
+Hot air station temperature profiling, preheater usage, fume extraction, ESD-safe workspace, tool organization, component storage, microscope positioning.
+
+%----------------------------------------------
+% PROFESSIONAL PRACTICES
+%----------------------------------------------
+
+\chapter{Repair Documentation Best Practices}
+Photography during disassembly, screw mapping, cable routing documentation, settings preservation (BIOS, driver versions), customer communication, warranty tracking.
+
+\chapter{Component Sourcing and Authenticity}
+Genuine vs counterfeit parts, supplier reliability, date code interpretation, packaging inspection, electrical testing for verification, gray market risks.
+
+\chapter{Repair Cost-Benefit Analysis}
+Labor time estimation, parts cost, tool amortization, success probability, data recovery value, replacement cost comparison, customer budget consideration.
+
+\chapter{Safety Protocols in Electronics Repair}
+Capacitor discharge procedures, lithium battery handling, lead-free vs leaded solder, ventilation requirements, fire safety, chemical handling (flux, cleaning agents).
+
+\chapter{Professional Tool Selection for Repair}
+Investment priority, quality vs cost tradeoff, calibration requirements, maintenance needs, ergonomics, expandability, brand comparison.
+
+\chapter{Repair Business Quality Assurance}
+Post-repair testing checklist, burn-in testing duration, stress testing tools, warranty period determination, failure rate tracking, customer satisfaction metrics.
+
+%----------------------------------------------
+% SPECIALIZED TOPICS
+%----------------------------------------------
+
+\chapter{Retro Hardware Repair Techniques}
+Capacitor replacement (recapping), tantalum capacitor substitution, BIOS battery replacement, floppy drive alignment, CRT monitor safety, vintage connector types.
+
+\chapter{Industrial and Embedded System Repair}
+Extended temperature component identification, conformal coating removal, ruggedized hardware, industrial power supplies, legacy protocol support, long-term availability.
+
+\chapter{Server Hardware Diagnostics}
+IPMI and BMC functionality, out-of-band management, SEL (System Event Log) analysis, predictive failure analysis, redundant component testing, hot-swap procedures.
+
+\chapter{Repair Training and Skill Development}
+Deliberate practice strategies, sacrificial board usage, component identification games, soldering certification programs, online community resources, mentorship importance.
+
 \chapter{Design for Testability}
 Scan chains, built-in self-test (BIST), fault injection, manufacturing test.
 
