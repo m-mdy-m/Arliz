@@ -2,162 +2,185 @@
 \label{ch:philosophy-representation}
 
 \begin{chapterintro}
-Before we can talk about arrays, before we can understand how computers store data, we need to ask a more basic question: what does it mean to \textit{represent} something? This chapter is about that question. It might seem weird to start a book about arrays with philosophy, but trust me, we need this foundation. Without understanding representation itself, we can't really understand how arrays work or why they matter.
+	Before we dive into arrays and how computers actually store stuff, we need to ask something more basic: what does it even mean to \textit{represent} something? This chapter is about that question. I know it might seem weird to start a book about arrays with philosophy, but trust me—we need this foundation. If we don't understand representation itself, we can't really get how arrays work or why they matter.
 \end{chapterintro}
 
 \section{Why Representation Matters}
 
-Let me start with something simple. When you see the number "5" written on paper, what are you actually looking at? You're looking at ink on paper, right? But somehow, that ink means something. It represents the concept of five-ness. This is weird when you think about it \cite{russo2018philosophy}.\\
-The thing is, computers don't work with actual numbers or letters or images. They work with electrical signals - high voltage, low voltage. That's it. But somehow we can use those electrical signals to represent anything: numbers, words, pictures, music, even this book you're reading. This is representation at work.\\
-\textbf{Here's the key idea}: representation is when one thing stands for another thing. The mark "5" stands for the number five. A high voltage in computer memory stands for the number 1. A pattern of bits stands for a letter. Everything in computing is representation all the way down.\\
-And arrays? Arrays are just organized representations. They're a way of representing many things in order, one after another. But before we get there, we need to understand where this whole idea of representation came from.
+Let me start simple. When you see the number "5" written on paper, what are you actually looking at? You're looking at ink, right? Some dark marks on a light surface. But somehow, those marks \textit{mean} something. They represent the idea of five-ness—the concept of having five of something.\\
+This is weird when you actually think about it.\\
+Computers don't work with real numbers or letters or pictures. They work with electrical signals. High voltage, low voltage. That's literally it. But somehow we use those electrical signals to represent \textit{anything}—numbers, words, pictures, music, this entire book you're reading right now.\\
+This is representation at work.\\
+Here's the key idea: \textbf{representation is when one thing stands for another thing}. The symbol "5" stands for the number five. A high voltage in computer memory stands for the binary digit 1. A specific pattern of bits stands for the letter "A." Everything in computing is representation, all the way down.\\
+And arrays? Arrays are just organized representations. They're a way of representing many pieces of data in order, one after another, in memory. But before we get there, we need to understand where this whole idea of representation came from and why it matters.
 
 \section{The Beginning: Counting Before Numbers}
 
-\subsection{Ancient Counting Practices}
+\subsection{How Ancient People Counted}
 
-Humans have been representing things for a very long time. Way before writing, way before numbers as we know them, people needed to keep track of stuff. How many sheep do I have? How many days until winter? How much grain is in storage?\\
-The earliest evidence we have shows people using physical objects to represent quantities. They would use stones, or sticks, or marks on bones. Each stone represents one sheep. This is called \textit{tallying}.\\
-Archaeological evidence shows tally marks from over 40,000 years ago. The Lebombo bone from South Africa has 29 notches carved into it. Each notch represents... something. We don't know what exactly, but the point is: one mark equals one thing. This is representation in its most basic form.
+Humans have been representing things for a very long time—way longer than you might think. Long before writing existed, long before number systems as we know them, people needed to keep track of stuff. How many sheep do I have? How many days until the next full moon? How much grain is stored for winter?\\
+The earliest evidence we have shows people using physical objects to represent quantities. They used stones, sticks, marks carved into bones \cite{ifrah2000universal}. Each stone represents one sheep. Each notch represents one day. This is called \textbf{tallying}, and it's the most basic form of representation.\\
+One of the oldest examples is the Lebombo bone, found in the Lebombo Mountains between South Africa and Eswatini. It's a baboon fibula with 29 deliberate notches carved into it, dated to around 35,000 BCE \cite{marshack1991roots}. We don't know exactly what those notches represented—maybe lunar phases, maybe days, maybe something else—but the point is clear: one mark equals one thing. This is concrete, one-to-one representation.\\
+Another famous example is the Ishango bone from the Democratic Republic of Congo, dated to around 20,000 BCE. It has notches arranged in three columns with distinct patterns \cite{pletser2012ishango}. Some researchers think it shows early mathematical thinking—maybe even prime numbers. Whether that's true or not, what matters is that humans were using physical marks to represent abstract quantities thousands of years before writing existed.
 
 \subsection{From Concrete to Abstract}
 
-Something interesting happened over thousands of years. People moved from concrete representation to abstract representation \cite{coolidge2012numerosity}.\\
+Something really important happened over thousands of years: people moved from \textbf{concrete representation} to \textbf{abstract representation} \cite{schmandt1996prehistory}.\\
 What's the difference?\\
-\textbf{Concrete representation}: This stone represents THIS sheep. That mark represents THAT day.\\
-\textbf{Abstract representation}: The symbol "5" represents the concept of five-ness, regardless of whether we're talking about sheep, days, or anything else.\\
-This shift from concrete to abstract is huge. It's one of the most important developments in human thinking. And it didn't happen overnight. It took thousands of years.\\
-Peter Damerow, who studied the history of mathematical thinking, argues that this abstraction happened because of practical needs \cite{damerow1999_materialculture}. People needed to manage larger and more complex quantities. They needed to trade, to build, to organize societies. Simple tally marks weren't enough anymore.
+\textbf{Concrete representation:} This specific stone represents \textit{this specific} sheep. That particular mark represents \textit{that particular} day.\\
+\textbf{Abstract representation:} The symbol "5" represents the \textit{concept} of five-ness, regardless of whether we're talking about sheep, days, apples, or anything else.\\
+This shift from concrete to abstract is huge. It's one of the most important developments in human cognitive history \cite{dehaene2011number}. And it didn't happen overnight—it took thousands of years and happened gradually as human societies became more complex.\\
+According to Denise Schmandt-Besserat's research on ancient Mesopotamian tokens, this transition can be traced archaeologically \cite{schmandt1996prehistory}. Around 8000 BCE, people in the Middle East started using clay tokens—small shaped objects—to represent commodities. A cone-shaped token represented a small measure of grain. A sphere represented a large measure. This was still fairly concrete: each token represented a specific quantity of a specific thing.\\
+But around 3500 BCE, something changed. Instead of using actual tokens, people started making impressions of the tokens in clay tablets. The \textit{symbol} of the cone replaced the actual cone token. This is abstraction—the mark on clay isn't the grain, and it isn't even the token that represented the grain. It's a representation of a representation.\\
+Peter Damerow and Robert Englund argue that this abstraction happened because of practical economic needs \cite{damerow1987prehistory}. As societies grew, managing resources became more complex. Simple tallying wasn't enough anymore. You needed systems that could represent quantities, track transactions, and keep records over time. Abstract number systems emerged from this practical necessity.
 
-\section{Ancient Philosophy and Representation}
+\section{Ancient Philosophy Meets Representation}
 
-\subsection{Plato's Cave}
+\subsection{Plato's Cave and the Problem of Reality}
 
-The ancient Greek philosopher Plato told a famous story about representation. It's called the Allegory of the Cave, and it goes like this \cite{plato_republic}:\\
-Imagine people chained in a cave, facing a wall. Behind them is a fire, and between them and the fire, people walk carrying objects. The chained people can only see shadows on the wall. To them, those shadows are reality. They don't know about the real objects casting the shadows, or about the fire, or about the world outside the cave.\\
-Plato was using this story to talk about knowledge and reality, but it's also a story about representation. The shadows represent real objects, but they're not the objects themselves. They're just representations - and not very good ones.\\
-According to the article by Russo, Plato worried a lot about representation \cite{russo2018philosophy}. He thought most of what we experience are just representations (like shadows) of perfect Forms that exist in some ideal realm. A triangle you draw on paper isn't a real triangle - it's just a representation of the perfect Form of Triangle.\\
-For our purposes, what matters is this: Plato understood that representations can be misleading. They can show us something without showing us everything. This is important when we think about how computers represent information. A number in computer memory represents a value, but it's not the value itself - it's just a pattern of electrical charges.
+The ancient Greek philosopher Plato told a famous story that's actually about representation, even though that's not usually how it's taught. It's called the Allegory of the Cave, from his work \textit{The Republic} \cite{plato1991republic}.\\
+Here's the story: Imagine people chained in a cave since childhood, facing a wall. Behind them is a fire, and between them and the fire, other people walk by carrying objects. The chained people can only see shadows cast on the wall in front of them. To these prisoners, the shadows \textit{are} reality. They don't know about the actual objects casting the shadows, about the fire providing light, or about the world outside the cave.\\
+One day, a prisoner is freed and dragged outside into sunlight. At first, he's blinded and confused. But gradually, he sees real objects, not just shadows. He realizes that everything he thought was real was just a representation—a poor copy of actual reality.\\
+Plato was making a point about knowledge and truth, but he was also deeply worried about representation \cite{fine1999plato}. He thought that most of what we experience in the physical world are just representations—imperfect copies—of perfect Forms that exist in some abstract realm. A triangle you draw on paper isn't a \textit{real} triangle according to Plato; it's just a flawed representation of the perfect Form of Triangle.\\
+For our purposes, what matters is this: \textbf{Plato understood that representations can be misleading}. They show you something without showing you everything. A shadow on the wall gives you information about an object, but it's incomplete information. The shadow is two-dimensional; the object is three-dimensional. The shadow lacks color, texture, substance.\\
+This is important when we think about how computers represent information. When you store a number in computer memory, you're not storing the abstract mathematical concept of that number. You're storing a pattern of electrical charges that \textit{represents} that number according to a specific encoding scheme. The representation has limitations—it can overflow, lose precision, or be misinterpreted if you use the wrong decoding scheme.
 
-\subsection{Aristotle and Practical Representation}
+\subsection{Aristotle Takes a More Practical View}
 
-Aristotle, Plato's student, had a more practical view \cite{aristotle_metaphysics}. He wasn't so worried about perfect Forms. Instead, he studied how we actually think and represent things in our minds.\\
-Aristotle noticed that when we see an object, our mind creates a sort of internal image of it. This internal image represents the object. But it's not the object - it's a mental representation. Later philosophers, especially in the Middle Ages, built on this idea.
+Aristotle, who studied under Plato, had a different approach \cite{shields2016aristotle}. He wasn't obsessed with perfect Forms in some abstract realm. Instead, he studied how things actually work in the real world, including how we think and know things.\\
+In his work \textit{De Anima} (On the Soul), Aristotle discussed how we perceive objects \cite{aristotle2016soul}. When you see a tree, your mind doesn't contain the actual tree—that would be impossible. Instead, your mind receives the \textit{form} of the tree through your senses. The form is like a pattern or structure. Your mind creates an internal representation based on this form.\\
+Aristotle's idea is more practical than Plato's: representations in our minds are tools for navigating reality. They don't have to be perfect copies; they just need to be useful enough to let us interact with the world.\\
+This practical view is actually closer to how we think about representations in computing. We don't need perfect representations—we need representations that are good enough for our purposes and that we can actually work with.
 
-\subsection{Medieval Thought: Aquinas and Representation}
+\subsection{Medieval Philosophers Keep the Discussion Going}
 
-Thomas Aquinas, a medieval philosopher, continued this discussion about representation \cite{russo2018philosophy}. He was interested in how we know things through their representations in our mind.\\
-Aquinas said that when you see a tree, the tree's "form" (not quite the same as Plato's Form, but similar idea) enters your mind. Your mind doesn't contain the actual tree - that would be impossible - but it contains a representation of the tree.\\
-Why am I telling you about medieval philosophy in a book about arrays? Because these thinkers were wrestling with the same basic problem we face in computing: how can one thing stand for another thing? How can patterns (whether in our minds or in computer memory) represent reality?
+Medieval thinkers, especially Thomas Aquinas in the 13th century, continued developing these ideas about representation \cite{pasnau2002thomas}.\\
+Aquinas, working within the Christian philosophical tradition, tried to reconcile Aristotle's ideas with Christian theology. In his massive work \textit{Summa Theologica}, he discussed how human knowledge works \cite{aquinas1948summa}. According to Aquinas, when you perceive something—say, a tree—the form or "species" of that tree is received by your senses and then processed by your mind. You end up with a mental representation that allows you to think about trees even when no tree is actually present.\\
+Why am I telling you about medieval philosophy in a book about arrays? Because these thinkers were wrestling with exactly the problem we face in computing: \textbf{how can one thing stand for another thing?} How can patterns (whether in neurons or in computer circuits) represent something that isn't physically present?\\
+The medieval philosophers understood something crucial: representation requires both a pattern (the representation itself) and an interpreter (something that can understand what the pattern means). This insight is fundamental to computer science. A sequence of bits doesn't mean anything on its own—it requires interpretation according to some encoding scheme.
 
-\section{Modern Philosophy and Representation}
+\section{Modern Philosophy Sharpens the Questions}
 
-\subsection{Descartes and Mental Representation}
+\subsection{Descartes and the Mind}
 
-In the 1600s, René Descartes started modern philosophy. He was obsessed with certainty - what can we know for sure? He ended up focusing on mental representations - ideas in the mind.\\
-Descartes believed that when we think about something, we have a mental representation of it. These representations are distinct from the things themselves. You can think about a unicorn (you have a representation of it in your mind) even though unicorns don't exist.\\
-This might seem obvious now, but it was important. It established that representations can exist independently from what they represent. This is exactly what happens in computers: we have patterns of bits that represent things, whether or not those things physically exist.
+In the 1600s, René Descartes basically restarted Western philosophy with his obsession over certainty \cite{descartes1637discourse}. His famous statement "Cogito, ergo sum" (I think, therefore I am) came from his attempt to find something he could know with absolute certainty.\\
+Descartes ended up focusing heavily on mental representations—ideas in the mind \cite{descartes1641meditations}. He argued that when we think about anything, we have a mental representation or "idea" of it. These representations are distinct from the things they represent. You can think about a unicorn (you have a mental representation of it) even though unicorns don't exist in the physical world.\\
+This might seem obvious now, but it was a big deal. Descartes established clearly that \textbf{representations can exist independently from what they represent}. The representation and the represented are separate things.\\
+This is exactly what happens in computers. We have patterns of bits representing data, regardless of whether that data corresponds to anything in the physical world. You can represent the number -5 even though you can't have negative five apples. You can represent imaginary numbers, infinity, or undefined values—all as bit patterns in memory.
 
-\subsection{Kant and the Structure of Representation}
+\subsection{Kant's Radical Claim}
 
-Immanuel Kant, writing in the late 1700s, argued that we never experience reality directly - we only experience our representations of reality \cite{kant1964critique}. Our minds structure and organize sensory input, creating representations that we then experience as "reality."\\
-For Kant, representation wasn't just passive copying. It was active construction. When you see a red apple, your mind is actively organizing color data, shape data, spatial data, etc., into a unified representation: "red apple."\\
-This is relevant to computing because computers also actively construct representations. When you take a digital photo, the computer doesn't capture "the image" - it constructs a representation using millions of numbers that encode color and brightness values.
+In the late 1700s, Immanuel Kant made a radical argument: we never experience reality directly \cite{kant1781critique}. Everything we experience is shaped and structured by our minds. We only ever experience our own mental representations, not things-in-themselves.\\
+According to Kant, our minds don't passively receive information from the world. Instead, our minds actively organize and structure sensory data according to built-in categories. Space, time, causality—these aren't features of reality itself according to Kant. They're structures our minds impose on experience.\\
+When you see a red apple, you're not seeing the apple as it really is "in itself." You're seeing your mind's representation—a construction built from sensory data organized according to your mental categories.\\
+This is relevant to computing because computers also actively construct representations \cite{burks1981computer}. When you take a digital photo, the camera doesn't capture "the image." It samples light at millions of points, converts those measurements to numbers, and encodes those numbers as bits. The resulting file is a constructed representation, not a passive copy.\\
+Understanding this helps us appreciate both the power and limitations of digital representations. A JPEG image isn't the scene itself, and it isn't even a neutral capture of the scene—it's a specific encoding optimized for human perception, with deliberate information loss.
 
-\subsection{Sartre and the Imagination}
+\subsection{Sartre on Imagination and Absence}
 
-Jean-Paul Sartre, a 20th century philosopher, wrote extensively about imagination and representation \cite{sartre1940imaginary}. He argued that when we imagine something, we're creating a special kind of representation - one that marks itself as unreal.\\
-When you imagine a purple elephant, you know you're imagining. Your mental representation includes this "unreality marker." This is different from perception, where representations present themselves as real.\\
-According to Russo's analysis, Sartre believed that representational consciousness involves a kind of "derealization" - the imagined object is present as absent \cite{russo2018philosophy}. This is a strange idea, but it captures something important: representations can point to things that aren't there.\\
-In computing, we do this all the time. A variable in a program represents a value, but the value might not exist yet. A null pointer represents the absence of a reference. Representations can encode absence as much as presence.
+Jean-Paul Sartre, writing in the 20th century, focused on imagination and what it means to represent something that isn't present \cite{sartre2004imaginary}.\\
+In his book \textit{The Imaginary: A Phenomenological Psychology of the Imagination}, Sartre argued that when we imagine something, we're creating a special kind of representation—one that presents its object as \textit{not being there} \cite{sartre2004imaginary}. When you imagine a purple elephant, you know you're imagining. Your mental representation includes this "unreality marker."\\
+According to Sartre, imagining isn't just a weak form of perceiving. It's a fundamentally different mental act. In perception, something presents itself as really there. In imagination, something presents itself as absent—as not-really-present.\\
+This might sound abstract, but it matters for computing. In programming, we constantly represent things that aren't there. A null pointer represents the \textit{absence} of a reference. A variable might be uninitialized, representing the absence of a value. An empty array represents a collection with no elements—absence of data.\\
+Understanding that representations can encode absence as much as presence helps us design better data structures and write clearer code.
 
 \section{What Is Representation, Really?}
 
-After all this philosophy, let's try to say clearly what representation means.\\
+After all this philosophy, let's get clear about what representation actually means.\\
 \textbf{Representation is when one thing (the representation) stands for another thing (the represented) according to some system or convention.}\\
-A few key points:\\
-\textbf{1. The representation is different from what it represents.} The word "dog" is not a dog. The number "42" in computer memory is not forty-two - it's a pattern of electrical charges that we interpret as forty-two.\\
-\textbf{2. Representation requires a system or convention.} Why does "5" mean five? Because we have a convention - a shared agreement - that this symbol represents this quantity. In computing, we have conventions like "high voltage = 1, low voltage = 0."\\
-\textbf{3. Representations can be ambiguous.} The same representation can mean different things in different contexts. In one context, the byte "01000001" might represent the number 65. In another context, it might represent the letter "A." The representation is the same; the interpretation differs.\\
-\textbf{4. Representations can be layered.} A letter is represented by a number (ASCII code). That number is represented by a pattern of bits. Those bits are represented by electrical charges. Representation all the way down, until you hit physical reality.
+A few key points to understand:
+
+\paragraph{The representation is not what it represents}
+The word "dog" is not a dog. If you write "fire" on paper, the paper doesn't burn. The number "42" stored in computer memory isn't the number forty-two in some abstract mathematical sense—it's a specific pattern of electrical charges that we interpret as forty-two.\\
+This seems obvious, but people forget it. Programmers sometimes talk as if variables \textit{are} values, when really variables are just locations in memory that \textit{represent} or \textit{hold} values.
+
+\paragraph{Representation requires a system}
+Why does "5" mean five? Because we have a convention—a shared agreement among humans—that this particular symbol represents this particular quantity \cite{ifrah2000universal}.\\
+In computing, we have many such conventions. ASCII is a convention that maps numbers to characters. Two's complement is a convention for representing negative integers. IEEE 754 is a convention for representing floating-point numbers \cite{ieee2008754}.\\
+These conventions are arbitrary in the sense that we could have chosen different ones. But once established, they become standards that everyone follows to ensure communication and compatibility.
+
+\paragraph{Representations can be ambiguous}
+The same representation can mean different things in different contexts. The byte 01000001 might represent the decimal number 65, or it might represent the letter 'A' in ASCII, or it might be part of a larger multi-byte sequence representing something else entirely.\\
+The bits themselves don't determine meaning—the interpretation does. This is why type systems exist in programming languages: to keep track of how we should interpret different pieces of data.
+
+\paragraph{Representations can be layered}
+This is crucial: representations can represent other representations \cite{newell1976computer}.\\
+A letter is represented by a number (its ASCII code). That number is represented by a pattern of bits. Those bits are represented by voltage levels in circuits. Those voltages are produced by arrangements of transistors and electrons.\\
+It's representations all the way down, until you hit actual physical reality (electrons and electromagnetic fields).\\
+Understanding these layers helps us work at the right level of abstraction. When writing application code, you usually think about letters and strings. But when debugging a binary file format, you might need to think about bytes and bits. When optimizing memory usage, you might need to think about how data is physically laid out.
 
 \section{The Abstraction Hierarchy}
 
-Now we're getting to something really important for understanding computing: the abstraction hierarchy.
+Now we get to something really important for understanding computing: the idea of abstraction layers.
 
-\subsection{What Is Abstraction?}
+\subsection{What Abstraction Means}
 
-Abstraction means hiding details. When you use abstraction, you work with simplified representations that hide underlying complexity.\\
-Think about driving a car. You press the gas pedal, and the car goes faster. You don't need to think about fuel injection, combustion, crankshafts, or transmission gears. Those details are abstracted away. The gas pedal is an interface - a representation of a complex system.
+Abstraction means hiding details. When you use abstraction, you work with a simplified representation that hides underlying complexity \cite{liskov1974programming}.\\
+Think about driving a car. You press the gas pedal, and the car accelerates. You don't think about fuel injection rates, combustion timing, crankshaft rotation, or gear ratios. All those details are abstracted away behind the simple interface of the pedal. The pedal is a representation of a complex system.\\
+Good abstraction is essential to managing complexity. You can't think about everything at once—you'd be overwhelmed. Abstraction lets you focus on what matters at your current level while trusting that lower levels work correctly.
 
-\subsection{Layers of Abstraction in Computing}
+\subsection{Layers in Computing Systems}
 
-Computing is built on layers of abstraction, each layer representing the layer below it.\\
-\textbf{Physical Layer:} Actual electrons moving in circuits. This is the only "real" layer - everything else is representation.\\
-\textbf{Electrical Layer:} We represent patterns of electrons as voltage levels. High voltage = 1, low voltage = 0.\\
-\textbf{Digital Layer:} We represent voltage levels as bits. A bit is just a symbol that takes value 0 or 1, but it represents an electrical state.\\
-\textbf{Number Layer:} We represent quantities using patterns of bits. The pattern 00000101 represents the number 5 (in binary).\\
-\textbf{Character Layer:} We represent letters and symbols using numbers. The number 65 represents the letter A (in ASCII).\\
-\textbf{Data Structure Layer:} We represent organized collections of data using structures like arrays. An array represents a sequence of values.\\
-\textbf{Algorithm Layer:} We represent procedures and processes using algorithms. An algorithm represents a method for solving a problem.\\
-\textbf{Application Layer:} We represent user needs and tasks using applications. A word processor represents the act of writing and editing text.\\
-Each layer builds on the layer below. Each layer abstracts away details of the layer below. And crucially: each layer is a form of representation.
+Computing is built on layers of abstraction, with each layer representing and hiding the complexity of the layer below it \cite{tanenbaum2006structured}.\\
+\textbf{Physical layer:} At the bottom, you have actual electrons moving through silicon. This is the only layer that's physically "real"—everything else is representation.\\
+\textbf{Electrical layer:} We represent electron behavior as voltage levels. High voltage (typically 3-5 volts) represents 1. Low voltage (near 0 volts) represents 0.\\
+\textbf{Digital logic layer:} We represent voltage patterns as bits. A bit is just a symbol that can be 0 or 1, but it represents an electrical state.\\
+\textbf{Number layer:} We represent quantities using patterns of bits. For example, the 8-bit pattern 00000101 represents the number 5 in binary.\\
+\textbf{Character layer:} We represent text using numbers. The number 65 represents the letter 'A' in ASCII encoding \cite{ascii1963}.\\
+\textbf{Data structure layer:} We represent organized collections of data using structures like arrays, linked lists, trees, and hash tables. An array represents an ordered sequence of values stored contiguously in memory.\\
+\textbf{Algorithm layer:} We represent procedures and problem-solving methods using algorithms. An algorithm represents a step-by-step process for computing something.\\
+\textbf{Application layer:} We represent user tasks and needs using application programs. A word processor represents the activity of writing and editing documents.\\
+Each layer builds on the layer below. Each layer hides the details of lower layers. And crucially: \textbf{each layer is a form of representation}.
 
 \subsection{Why This Matters for Arrays}
 
-Arrays live in this hierarchy. An array is:
+Arrays exist at multiple levels in this hierarchy:
 
 \begin{itemize}
-\item Physically: electrical charges in memory chips
-\item Electrically: voltage patterns across memory cells  
-\item Digitally: sequences of bits
-\item At the data structure level: an organized collection representing ordered data
+	\item \textbf{Physically:} An array is electrical charges stored in memory transistors
+	\item \textbf{Electrically:} It's a pattern of voltages across memory cells
+	\item \textbf{Digitally:} It's a sequence of bits in memory addresses
+	\item \textbf{As a data structure:} It's an ordered collection of elements that can be accessed by index
 \end{itemize}
-When we work with arrays, we're working at the data structure level of abstraction. We don't think about voltage levels. We think about slots containing values. But understanding that arrays are representations - that they exist in this hierarchy - helps us understand their properties and limitations.
 
-\section{Information Theory Fundamentals}
+When we work with arrays in code, we're working at the data structure level. We think about indices and elements and operations like reading or writing. We don't think about voltages or transistors.\\
+But understanding that arrays are representations—that they exist in this hierarchy of abstractions—helps us understand their properties and limitations. It helps us know when to think about high-level operations and when to dig into lower-level details like memory layout and cache behavior.
 
-\subsection{Shannon's Insight}
+\section{Information Theory: The Mathematics of Representation}
 
-In 1948, Claude Shannon published a paper that changed everything \cite{shannon1948mathematical}. It was called "A Mathematical Theory of Communication," and it established information theory - the mathematics of information and representation.\\
-Shannon's key insight was this: information is about reducing uncertainty.\\
-Think about it this way. Before I tell you something, you're uncertain. There are many possible things I might say. When I actually tell you something, I reduce your uncertainty. The amount of information in my message is related to how much uncertainty it removes.\\
-Let's use an example. Suppose I'm going to tell you about the result of a coin flip. Before I tell you, there are two possibilities: heads or tails. You're uncertain. When I say "heads," I've removed your uncertainty. I've given you one bit of information.\\
-Why one bit? Because a bit is the fundamental unit of information. It's the amount of information needed to distinguish between two equally likely possibilities.
+\subsection{Shannon's Breakthrough}
+
+In 1948, Claude Shannon published a paper that changed everything: "A Mathematical Theory of Communication" \cite{shannon1948theory}. This paper established information theory—the mathematical study of information, communication, and representation.\\
+Shannon's key insight was this: \textbf{information is fundamentally about reducing uncertainty}.\\
+Think about it this way. Before I tell you something, you're uncertain about what I'll say. There are multiple possibilities. When I actually say something specific, I reduce your uncertainty. The amount of information in my message is directly related to how much uncertainty it removes.\\
+Here's a simple example. Suppose I'm going to tell you the result of a coin flip. Before I tell you, there are two equally likely possibilities: heads or tails. When I say "heads," I've eliminated one possibility and removed your uncertainty. I've given you one \textbf{bit} of information.\\
+A bit—binary digit—is the fundamental unit of information. It's the amount of information needed to choose between two equally likely possibilities \cite{shannon1948theory}.
 
 \subsection{Information and Representation}
 
 Shannon's theory connects directly to representation. To represent something, you need enough information to distinguish it from other possibilities.\\
-If I want to represent one of two things (like heads or tails), I need 1 bit.\\
-If I want to represent one of four things, I need 2 bits. (00, 01, 10, 11 - four possibilities)\\
-If I want to represent one of eight things, I need 3 bits.\\
-The pattern: to represent $N$ equally likely possibilities, you need $\log_2(N)$ bits.\\
-This is fundamental to understanding how computers represent things. Every piece of data in a computer is encoded using some number of bits. How many bits? Enough to distinguish it from other possible values.
+If you want to represent one of two things (heads or tails), you need 1 bit.\\
+If you want to represent one of four things, you need 2 bits (00, 01, 10, 11).\\
+If you want to represent one of eight things, you need 3 bits.\\
+The general formula: to represent $N$ equally likely possibilities, you need $\log_2(N)$ bits, rounded up to the nearest integer \cite{cover2006elements}.\\
+This is fundamental to understanding how computers represent data. Every piece of data is encoded using some number of bits. How many bits? Enough to distinguish it from other possible values it could be.\\
+For example, to represent one of 256 possible byte values, you need 8 bits. To represent one character from a 128-character ASCII set, you need 7 bits (though we typically use 8, with one bit unused or used for other purposes).
 
 \subsection{Encoding and Decoding}
 
-Information theory also clarifies the relationship between representation and interpretation.\\
-\textbf{Encoding} is the process of converting something into a representation. We encode the number 5 as the bit pattern 00000101.\\
+Information theory clarifies the relationship between representation and interpretation \cite{cover2006elements}.\\
+\textbf{Encoding} is the process of converting something into a representation. We encode the number 5 as the bit pattern 00000101 (in 8-bit unsigned binary).\\
 \textbf{Decoding} is the process of interpreting a representation to recover what it represents. We decode the bit pattern 00000101 as the number 5.\\
-Crucially, encoding and decoding require agreement on the representation scheme. If we use different schemes, communication fails. If I encode using ASCII and you decode using EBCDIC (a different character encoding), we won't understand each other.\\
-This is why standards matter so much in computing. Standards are agreed-upon representation schemes. ASCII is a standard. Unicode is a standard. IEEE 754 (for floating-point numbers) is a standard. Without standards, we couldn't share data.
+Crucially, encoding and decoding require agreement on the representation scheme. If we use different schemes, communication fails. If I encode text using UTF-8 and you try to decode it as ASCII, you'll get garbage for characters outside the ASCII range.\\
+This is why standards are so important in computing. ASCII, Unicode, IEEE 754, TCP/IP—these are all agreed-upon representation schemes. Without such standards, we couldn't share data reliably across different systems.
 
-\subsection{Information Content}
+\subsection{Information Content and Surprise}
 
-Not all messages contain the same amount of information. Shannon showed that information content depends on probability.\\
-If I tell you something you already knew was almost certain, I've given you little information. "The sun rose this morning." - Low information content, because you were already nearly certain of this.\\
-If I tell you something surprising - something you thought was very unlikely - I've given you a lot of information. "It snowed in the Sahara Desert today." - High information content, because this is unexpected.\\
-Shannon formalized this with the concept of entropy (information entropy, not thermodynamic entropy, though they're related). Entropy measures the average information content of messages from a source.\\
-For our purposes, what matters is this: the amount of information in a representation depends on how much uncertainty it removes. This affects how we design data structures and encoding schemes.
-
-\section{From Philosophy to Practice}
-
-We've covered a lot of ground in this chapter, from Plato's cave to Shannon's mathematics. Let me try to tie it together and connect it to what's coming in the rest of this book.\\
-\textbf{Representation is fundamental to computing.} Everything a computer does involves representation. We represent numbers, text, images, sounds - everything - as patterns of bits.\\
-\textbf{Representation involves abstraction.} We build layers of abstraction, each layer representing the layer below while hiding its complexity.\\
-\textbf{Representation requires conventions.} For representations to work, we need agreed-upon schemes for encoding and decoding. These are our standards and protocols.\\
-\textbf{Representation has costs and limits.} Every representation is a simplification. Some information is lost or distorted. (This is why lossy compression works - we can throw away information we decide isn't important.)\\
-\textbf{Understanding representation helps us understand data structures.} An array is a representation of ordered data. Understanding what that means - really means - helps us understand how arrays work and why they're designed as they are.\\
-In the next chapters, we'll move from philosophy to physics. We'll see how representation actually works in physical computers. How do you represent information using electricity? How do you build circuits that process representations? How do you organize representations in memory?\\
-But I hope this chapter has given you a foundation. When we talk about bits and bytes, voltages and logic gates, remember: we're always talking about representation. One thing standing for another. Shadows on the wall of Plato's cave.\\
-Only now, we understand the shadows. We can analyze them, manipulate them, build entire worlds from them. That's the power of representation, and that's what makes computing possible.
+Not all messages contain the same amount of information. Shannon showed that information content depends on probability \cite{shannon1948theory}.\\
+If I tell you something you already knew was almost certain, I've given you very little information. "The sun rose this morning." That's almost no information, because you were already nearly certain it would happen.\\
+If I tell you something surprising—something you thought was unlikely—I've given you a lot of information. "A meteor just destroyed Paris." That's high information content because it's unexpected.\\
+Shannon formalized this with the concept of \textbf{entropy}. Information entropy measures the average information content of messages from a source. Higher entropy means more uncertainty and thus more information when that uncertainty is resolved \cite{cover2006elements}.\\
+For our purposes, what matters is this: the information content of a representation depends on context. The same representation might carry different amounts of information depending on what was expected or what was already known.\\
+In the next chapters, we'll move from philosophy to physics and engineering. We'll see how representation actually works in physical computers. How do you represent information using electricity? How do you build circuits that process representations? How do you organize representations in memory?\\
+But I hope this chapter has given you a solid foundation. When we talk about bits and bytes, voltages and logic gates, transistors and memory cells—remember: we're always talking about representation. One thing standing for another. Patterns that mean something because we've agreed they mean something.\\
+That's the fundamental insight that makes computing possible. And that's what we'll build on as we dive deeper into how computers actually work and how arrays fit into all of this.
